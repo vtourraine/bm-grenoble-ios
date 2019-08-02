@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="V5W-LW-gGC">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Prêts en cours-->
+        <scene sceneID="iC8-0g-qKV">
+            <objects>
+                <tableViewController id="0tc-H2-wTF" customClass="ViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hlY-P1-kT6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="99" id="MwC-WM-zvl" customClass="ItemTableViewCell" customModule="bm" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="99"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MwC-WM-zvl" id="mjm-QP-Ng5">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="98.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Puf-XW-Fhn">
+                                            <rect key="frame" x="20" y="10" width="275" height="20.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYn-Ef-mhS">
+                                            <rect key="frame" x="20" y="38.5" width="275" height="18"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="À rendre pour le" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPV-XU-Xqf">
+                                            <rect key="frame" x="303" y="12" width="91" height="14.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                            <color key="textColor" name="BMRed"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="##/##/####" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6P-h4-bcp">
+                                            <rect key="frame" x="303" y="30.5" width="91" height="19.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                            <color key="textColor" name="BMRed"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="N jours" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7RN-x0-EWP">
+                                            <rect key="frame" x="303" y="54" width="91" height="14.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                            <color key="textColor" name="BMRed"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Library" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAi-GO-wrn">
+                                            <rect key="frame" x="303" y="71.5" width="91" height="14.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                            <color key="textColor" name="BMRed"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="pAi-GO-wrn" firstAttribute="leading" secondItem="7RN-x0-EWP" secondAttribute="leading" id="2ux-qJ-fdi"/>
+                                        <constraint firstAttribute="trailing" secondItem="PPV-XU-Xqf" secondAttribute="trailing" constant="20" symbolic="YES" id="BIi-xF-NXa"/>
+                                        <constraint firstItem="Puf-XW-Fhn" firstAttribute="top" secondItem="mjm-QP-Ng5" secondAttribute="top" constant="10" id="HAT-X2-XRE"/>
+                                        <constraint firstItem="PPV-XU-Xqf" firstAttribute="leading" secondItem="Q6P-h4-bcp" secondAttribute="leading" id="LFT-po-V0I"/>
+                                        <constraint firstItem="7RN-x0-EWP" firstAttribute="top" secondItem="Q6P-h4-bcp" secondAttribute="bottom" constant="4" id="MTS-si-MT2"/>
+                                        <constraint firstAttribute="trailing" secondItem="7RN-x0-EWP" secondAttribute="trailing" constant="20" symbolic="YES" id="MZL-Tk-7RZ"/>
+                                        <constraint firstItem="Q6P-h4-bcp" firstAttribute="top" secondItem="PPV-XU-Xqf" secondAttribute="bottom" constant="4" id="Miw-Jm-pJf"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="pAi-GO-wrn" secondAttribute="bottom" constant="8" id="Og8-RI-Hes"/>
+                                        <constraint firstAttribute="trailing" secondItem="pAi-GO-wrn" secondAttribute="trailing" constant="20" id="PPc-Hf-8Xv"/>
+                                        <constraint firstItem="Q6P-h4-bcp" firstAttribute="leading" secondItem="7RN-x0-EWP" secondAttribute="leading" id="QPC-v6-q7Y"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="rYn-Ef-mhS" secondAttribute="bottom" constant="20" symbolic="YES" id="RdC-uy-Nyk"/>
+                                        <constraint firstItem="PPV-XU-Xqf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rYn-Ef-mhS" secondAttribute="trailing" constant="8" symbolic="YES" id="VhI-xk-bBo"/>
+                                        <constraint firstAttribute="trailing" secondItem="Q6P-h4-bcp" secondAttribute="trailing" constant="20" symbolic="YES" id="Wsy-VP-21S"/>
+                                        <constraint firstItem="PPV-XU-Xqf" firstAttribute="top" secondItem="mjm-QP-Ng5" secondAttribute="top" constant="12" id="cmh-Ym-ecn"/>
+                                        <constraint firstItem="Puf-XW-Fhn" firstAttribute="leading" secondItem="mjm-QP-Ng5" secondAttribute="leading" constant="20" symbolic="YES" id="exr-HD-BWD"/>
+                                        <constraint firstItem="rYn-Ef-mhS" firstAttribute="leading" secondItem="Puf-XW-Fhn" secondAttribute="leading" id="gNO-jf-eo1"/>
+                                        <constraint firstItem="rYn-Ef-mhS" firstAttribute="top" secondItem="Puf-XW-Fhn" secondAttribute="bottom" constant="8" symbolic="YES" id="gah-Bd-h4z"/>
+                                        <constraint firstItem="PPV-XU-Xqf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Puf-XW-Fhn" secondAttribute="trailing" constant="8" symbolic="YES" id="iIt-DE-e9B"/>
+                                        <constraint firstItem="pAi-GO-wrn" firstAttribute="top" secondItem="7RN-x0-EWP" secondAttribute="bottom" constant="3" id="wO1-JN-NgR"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="authorLabel" destination="rYn-Ef-mhS" id="sKx-GY-4ch"/>
+                                    <outlet property="libraryLabel" destination="pAi-GO-wrn" id="7Cl-9J-Zha"/>
+                                    <outlet property="returnDateLabel" destination="Q6P-h4-bcp" id="FOw-ve-fxg"/>
+                                    <outlet property="returnNumberOfDaysLabel" destination="7RN-x0-EWP" id="1U7-Ib-N3I"/>
+                                    <outlet property="titleLabel" destination="Puf-XW-Fhn" id="7Dg-RI-cAG"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="0tc-H2-wTF" id="slX-7G-6bn"/>
+                            <outlet property="delegate" destination="0tc-H2-wTF" id="Nnw-nH-QRy"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Prêts en cours" id="KIK-gR-jF7"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="OzL-3H-0ZB">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refreshWithSender:" destination="0tc-H2-wTF" eventType="valueChanged" id="bPv-2m-ify"/>
+                        </connections>
+                    </refreshControl>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ASQ-Ho-tut" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1398.5507246376812" y="186.83035714285714"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="J3L-Is-9td">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="V5W-LW-gGC" customClass="NavigationController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="81E-91-uNE">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="BMRed"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="W80-A0-P9k">
+                        <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="0tc-H2-wTF" kind="relationship" relationship="rootViewController" id="KEC-dl-zvg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FOc-HP-WbP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="489.85507246376818" y="186.83035714285714"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="BMRed">
+            <color red="0.90980392156862744" green="0.12156862745098039" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+    <color key="tintColor" name="BMRed"/>
+</document>

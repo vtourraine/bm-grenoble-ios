@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "N jours"; ObjectID = "7RN-x0-EWP"; */
+"7RN-x0-EWP.text" = "N jours";
+
+/* Class = "UINavigationItem"; title = "Prêts en cours"; ObjectID = "KIK-gR-jF7"; */
+"KIK-gR-jF7.title" = "Prêts en cours";
+
+/* Class = "UILabel"; text = "À rendre pour le"; ObjectID = "PPV-XU-Xqf"; */
+"PPV-XU-Xqf.text" = "À rendre pour le";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "Puf-XW-Fhn"; */
+"Puf-XW-Fhn.text" = "Title";
+
+/* Class = "UILabel"; text = "##/##/####"; ObjectID = "Q6P-h4-bcp"; */
+"Q6P-h4-bcp.text" = "##/##/####";
+
+/* Class = "UILabel"; text = "Author"; ObjectID = "rYn-Ef-mhS"; */
+"rYn-Ef-mhS.text" = "Author";
