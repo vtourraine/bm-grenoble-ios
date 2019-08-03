@@ -26,8 +26,6 @@ class ViewController: UITableViewController, WKNavigationDelegate, MFMailCompose
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configureToolbar(status: nil)
-
         let infoButton = UIButton(type: .infoLight)
         infoButton.tintColor = .white
         infoButton.addTarget(self, action: #selector(openInfoPanel(sender:)), for: .touchUpInside)
@@ -45,7 +43,6 @@ class ViewController: UITableViewController, WKNavigationDelegate, MFMailCompose
 
         if let itemCache = ItemCache.load(from: .standard) {
             loans = itemCache.items
-            configureToolbarWithNumberOfItems()
         }
     }
 
@@ -59,21 +56,6 @@ class ViewController: UITableViewController, WKNavigationDelegate, MFMailCompose
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
-    }
-
-    func configureToolbar(status: String?) {
-        let label = UILabel(frame: .zero)
-        label.text = status
-        label.font = UIFont.preferredFont(forTextStyle: .footnote)
-        let labelBarButtonItem = UIBarButtonItem(customView: label)
-        let spaceBarButtonItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-
-        setToolbarItems([spaceBarButtonItem, labelBarButtonItem, spaceBarButtonItem], animated: false)
-    }
-
-    func configureToolbarWithNumberOfItems() {
-        let status = String(format: NSLocalizedString("%d prêts en cours", comment: ""), self.loans.count)
-        self.configureToolbar(status: status)
     }
 
     // MARK: - Actions
@@ -96,7 +78,7 @@ class ViewController: UITableViewController, WKNavigationDelegate, MFMailCompose
                 self.signOut(sender: nil)
             }))
         }
-        viewController.addAction(UIAlertAction(title: NSLocalizedString("Ouvrir compte abonné avec Safari", comment: ""), style: .default, handler: { _ in
+        viewController.addAction(UIAlertAction(title: NSLocalizedString("Ouvrir le compte abonné avec Safari", comment: ""), style: .default, handler: { _ in
             self.openAccountInWebBrowser(sender: nil)
         }))
         viewController.addAction(UIAlertAction(title: NSLocalizedString("À propos", comment: ""), style: .default, handler: { _ in
@@ -123,7 +105,6 @@ class ViewController: UITableViewController, WKNavigationDelegate, MFMailCompose
 
     @IBAction func refresh(sender: Any?) {
         refreshControl?.tintColor = .white
-        configureToolbar(status: NSLocalizedString("Chargement en cours…", comment: ""))
         self.webView?.loadGhostPage()
     }
 
@@ -220,8 +201,6 @@ class ViewController: UITableViewController, WKNavigationDelegate, MFMailCompose
                 ItemCache.save(items: itemCache, to: .standard)
 
                 self.tableView.reloadData()
-
-                self.configureToolbarWithNumberOfItems()
                 self.refreshControl?.endRefreshing()
             }
         }
