@@ -206,6 +206,24 @@ class ViewController: UITableViewController, WKNavigationDelegate, MFMailCompose
         }
     }
 
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+    }
+
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        if (error as NSError).domain == NSURLErrorDomain && (error as NSError).code == NSURLErrorCancelled {
+            // Cancelled
+        }
+        else {
+            presentLoadingError(error)
+        }
+    }
+
+    func presentLoadingError(_ error: Error) {
+        let alertController = UIAlertController(title: NSLocalizedString("Erreur de connexion", comment: ""), message: error.localizedDescription, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: nil))
+        present(alertController, animated: true, completion: nil)
+    }
+
     // MARK: - MFMailComposeViewControllerDelegate
 
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
