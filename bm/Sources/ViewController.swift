@@ -86,11 +86,17 @@ class ViewController: UITableViewController, WKNavigationDelegate, MFMailCompose
 
     @objc func openInfoPanel(sender: Any) {
         let viewController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        viewController.addAction(UIAlertAction(title: NSLocalizedString("Se déconnecter", comment: ""), style: .destructive, handler: nil))
-        viewController.addAction(UIAlertAction(title: NSLocalizedString("Se connecter", comment: ""), style: .default, handler: { _ in
-            self.presentLoginScreen(sender: nil)
-        }))
-        viewController.addAction(UIAlertAction(title: NSLocalizedString("Ouvrir avec Safari", comment: ""), style: .default, handler: { _ in
+        if Credentials.load(from: .standard) == nil {
+            viewController.addAction(UIAlertAction(title: NSLocalizedString("Se connecter", comment: ""), style: .default, handler: { _ in
+                self.presentLoginScreen(sender: nil)
+            }))
+        }
+        else {
+            viewController.addAction(UIAlertAction(title: NSLocalizedString("Se déconnecter", comment: ""), style: .destructive, handler: { _ in
+                self.signOut(sender: nil)
+            }))
+        }
+        viewController.addAction(UIAlertAction(title: NSLocalizedString("Ouvrir compte abonné avec Safari", comment: ""), style: .default, handler: { _ in
             self.openAccountInWebBrowser(sender: nil)
         }))
         viewController.addAction(UIAlertAction(title: NSLocalizedString("À propos", comment: ""), style: .default, handler: { _ in
@@ -108,6 +114,9 @@ class ViewController: UITableViewController, WKNavigationDelegate, MFMailCompose
                 self.contact(sender: nil)
             }))
         }
+        viewController.addAction(UIAlertAction(title: NSLocalizedString("Consulter code source", comment: ""), style: .default, handler: { _ in
+            self.openCodeRepository(sender: nil)
+        }))
         viewController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: nil))
         present(viewController, animated: true, completion: nil)
     }
@@ -125,6 +134,12 @@ class ViewController: UITableViewController, WKNavigationDelegate, MFMailCompose
         viewController.setToRecipients([emailAddress])
         viewController.setSubject(NSLocalizedString("BM Grenoble", comment: ""))
         viewController.mailComposeDelegate = self
+        present(viewController, animated: true, completion: nil)
+    }
+
+    @objc func openCodeRepository(sender: Any?) {
+        let url = URL(string: "https://github.com/vtourraine/bm-grenoble-ios")!
+        let viewController = SFSafariViewController(url: url)
         present(viewController, animated: true, completion: nil)
     }
 
@@ -152,6 +167,16 @@ class ViewController: UITableViewController, WKNavigationDelegate, MFMailCompose
         }))
         alertController.addAction(UIAlertAction(title: NSLocalizedString("Annuler", comment: ""), style: .cancel, handler: nil))
         present(alertController, animated: true, completion: nil)
+    }
+
+    @objc func signOut(sender: Any?) {
+        Credentials.remove(from: .standard)
+        ItemCache.remove(from: .standard)
+
+        loans = []
+        tableView.reloadData()
+
+        presentLoginScreen(sender: nil)
     }
 
     // MARK: - Table view

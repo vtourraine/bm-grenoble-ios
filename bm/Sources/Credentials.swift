@@ -28,5 +28,9 @@ extension Credentials {
 
         return try! JSONDecoder().decode(Credentials.self, from: encodedData)
     }
+
+    static func remove(from userDefaults: UserDefaults) {
+        userDefaults.removeObject(forKey: Credentials.Key)
+    }
 }
 

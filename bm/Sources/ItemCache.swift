@@ -25,4 +25,8 @@ struct ItemCache: Codable {
 
         return try! JSONDecoder().decode(ItemCache.self, from: encodedData)
     }
+
+    static func remove(from userDefaults: UserDefaults) {
+        userDefaults.removeObject(forKey: ItemCache.Key)
+    }
 }
