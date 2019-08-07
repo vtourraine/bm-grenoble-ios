@@ -61,8 +61,13 @@ class GhostLoader: NSObject, WKNavigationDelegate {
         }
         else if absoluteURLString == GhostWebView.AccountLoansURL {
             self.webView.getHTML { (html) in
-                let loans = PageParser.parseLoans(html: html)
-                self.success(loans)
+                if let loans = PageParser.parseLoans(html: html) {
+                    self.success(loans.items)
+                }
+                else {
+                    self.failure(nil)
+                }
+
                 self.cleanup()
             }
         }

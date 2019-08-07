@@ -9,12 +9,17 @@
 import Foundation
 
 class PageParser {
-    class func parseLoans(html: String) -> [Item] {
+    struct Pagination {
+        let numberOfPages: Int
+        let currentPage: Int
+    }
+
+    class func parseLoans(html: String) -> (items: [Item], pagination: Pagination)? {
         guard let ul = html.parse(between: "<ul class=\"listItems\">", and: "</ul>") else {
-            return []
+            return nil
         }
         let lis = ul.parseOccurences(between: "<li", and: "</li>")
-        return lis.compactMap({ li in
+        let items: [Item] = lis.compactMap({ li in
             guard let titleLink = li.parse(between: "<span class=\"colValue bold\"><a", and: "/a>"),
                 let title = titleLink.parse(between: "\">", and: " /"),
                 let author = titleLink.parse(between: " /", and: "<")?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines),
@@ -33,6 +38,8 @@ class PageParser {
 
             return Item(title: title, author: author, library: library, returnDateComponents: returnDateComponents)
         })
+
+        return (items, Pagination(numberOfPages: 0, currentPage: 0))
     }
 }
 
