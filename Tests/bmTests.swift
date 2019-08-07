@@ -11,8 +11,8 @@ import XCTest
 
 class bmTests: XCTestCase {
 
-    func testParseLoans() {
-        let path = Bundle(for: type(of: self)).path(forResource: "TestAccountLoans", ofType: "html")
+    func testParseLoans1() {
+        let path = Bundle(for: type(of: self)).path(forResource: "TestAccountLoans1", ofType: "html")
         let html = try! String(contentsOfFile: path!)
 
         guard let loans = PageParser.parseLoans(html: html) else {
@@ -56,6 +56,27 @@ class bmTests: XCTestCase {
         XCTAssertEqual(loans.items[4].returnDateComponents.year, 2019)
     }
 
+    func testParseLoans2() {
+        let path = Bundle(for: type(of: self)).path(forResource: "TestAccountLoans2", ofType: "html")
+        let html = try! String(contentsOfFile: path!)
+
+        guard let loans = PageParser.parseLoans(html: html) else {
+            XCTFail()
+            return
+        }
+
+        XCTAssertEqual(loans.pagination.numberOfPages, 0)
+        XCTAssertEqual(loans.pagination.currentPage, 0)
+
+        XCTAssertEqual(loans.items.count, 8)
+        XCTAssertEqual(loans.items[1].title, "Hilda et le chien noir")
+        XCTAssertEqual(loans.items[1].author, "Luke Pearson ; traduction Basile Béguerie")
+        XCTAssertEqual(loans.items[1].library, "Jardin de Ville")
+        XCTAssertEqual(loans.items[1].returnDateComponents.day, 17)
+        XCTAssertEqual(loans.items[1].returnDateComponents.month, 9)
+        XCTAssertEqual(loans.items[1].returnDateComponents.year, 2019)
+    }
+
     func testTitleFormatter() {
         let itemBook = Item(title: "Sous le même ciel", author: "", library: "", returnDateComponents: DateComponents())
         XCTAssertEqual(itemBook.formattedTitle(), "📖 Sous le même ciel")
@@ -76,5 +97,8 @@ class bmTests: XCTestCase {
 
         let item4 = Item(title: "", author: "réalisé par Mamoru Oshii", library: "", returnDateComponents: DateComponents())
         XCTAssertEqual(item4.formattedAuthor(), "Mamoru Oshii")
+
+        let item5 = Item(title: "", author: "scénario Wilfrid Lupano ; dessin Mayana Itoïz, Paul Cauuet", library: "", returnDateComponents: DateComponents())
+        XCTAssertEqual(item5.formattedAuthor(), "Wilfrid Lupano")
     }
 }

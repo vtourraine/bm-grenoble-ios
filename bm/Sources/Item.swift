@@ -31,7 +31,7 @@ extension Item {
             return author
         }
 
-        let extras = ["texte de", ", réal.", "réalisé par"]
+        let extras = ["texte de", ", réal.", "réalisé par", "scénario"]
         for extra in extras {
             firstAuthor = firstAuthor.replacingOccurrences(of: extra, with: "")
         }

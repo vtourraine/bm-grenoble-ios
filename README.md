@@ -9,8 +9,6 @@ The Grenoble Public Library doesn’t offer a public API to check your account s
 ## Roadmap
 
 ### Basic features
-- Login screen
-- Handle login error
 - Store credentials in Keychain
 - Multiple pages in results
 - Placeholder (no loans)
@@ -21,6 +19,7 @@ The Grenoble Public Library doesn’t offer a public API to check your account s
 - Card barcode
 - Local notification for reminders
 - Multiple accounts support
+- Renew loans
 
 ## Bug report
 
