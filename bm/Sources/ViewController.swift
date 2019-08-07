@@ -18,10 +18,14 @@ class NavigationController: UINavigationController {
     }
 }
 
-class ViewController: UITableViewController, WKNavigationDelegate, MFMailComposeViewControllerDelegate {
+class ViewController: UITableViewController, MFMailComposeViewControllerDelegate {
 
-    var webView: GhostWebView?
     var loans: [Item] = []
+    var loader: GhostLoader?
+
+    let LoginSegueIdentifier = "Login"
+
+    // MARK: - View life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +37,6 @@ class ViewController: UITableViewController, WKNavigationDelegate, MFMailCompose
         navigationItem.rightBarButtonItem = infoBarButtonItem
 
         refreshControl?.tintColor = .white
-
-        let webView = GhostWebView()
-        webView.navigationDelegate = self
-        view.addSubview(webView)
-        self.webView = webView
 
         tableView.tableFooterView = UIView(frame: CGRect.zero)
 
@@ -61,7 +60,7 @@ class ViewController: UITableViewController, WKNavigationDelegate, MFMailCompose
     // MARK: - Actions
 
     @objc func openAccountInWebBrowser(sender: Any?) {
-        let url = URL(string: GhostWebView.LoginURL)!
+        let url = URL(string: GhostWebView.AccountURL)!
         let viewController = SFSafariViewController(url: url)
         present(viewController, animated: true, completion: nil)
     }
@@ -104,8 +103,22 @@ class ViewController: UITableViewController, WKNavigationDelegate, MFMailCompose
     }
 
     @IBAction func refresh(sender: Any?) {
-        refreshControl?.tintColor = .white
-        self.webView?.loadGhostPage()
+        guard let credentials = Credentials.load(from: .standard) else {
+            return
+        }
+
+        loader = GhostLoader(credentials: credentials, parentView: view, success: { (items) in
+            self.loans = items
+            let itemCache = ItemCache(items: self.loans)
+            ItemCache.save(items: itemCache, to: .standard)
+
+            self.tableView.reloadData()
+            self.refreshControl?.endRefreshing()
+            self.loader = nil
+        }) { (error) in
+            self.presentLoadingError(error)
+            self.loader = nil
+        }
     }
 
     @objc func contact(sender: Any?) {
@@ -125,29 +138,7 @@ class ViewController: UITableViewController, WKNavigationDelegate, MFMailCompose
     }
 
     @objc func presentLoginScreen(sender: Any?) {
-        let alertController = UIAlertController(title: NSLocalizedString("Connectez-vous", comment: ""), message: nil, preferredStyle: .alert)
-        alertController.addTextField { (textField) in
-            textField.placeholder = NSLocalizedString("Numéro d’abonné(e)", comment: "")
-            textField.keyboardType = .numberPad
-        }
-        alertController.addTextField { (textField) in
-            textField.placeholder = NSLocalizedString("Mot de passe", comment: "")
-            textField.isSecureTextEntry = true
-        }
-        alertController.addAction(UIAlertAction(title: NSLocalizedString("Se connecter", comment: ""), style: .default, handler: { _ in
-            guard let textFields = alertController.textFields,
-                let userIdentifier = textFields[0].text,
-                let password = textFields[1].text else {
-                    return
-            }
-
-            let credentials = Credentials(userIdentifier: userIdentifier, password: password)
-            credentials.save(to: .standard)
-
-            self.refresh(sender: nil)
-        }))
-        alertController.addAction(UIAlertAction(title: NSLocalizedString("Annuler", comment: ""), style: .cancel, handler: nil))
-        present(alertController, animated: true, completion: nil)
+        performSegue(withIdentifier: LoginSegueIdentifier, sender: sender)
     }
 
     @objc func signOut(sender: Any?) {
@@ -173,60 +164,17 @@ class ViewController: UITableViewController, WKNavigationDelegate, MFMailCompose
         return cell
     }
 
-    // MARK: - Web view navigation delegate
-
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        guard let url = webView.url,
-            let credentials = Credentials.load(from: .standard) else {
-                return
-        }
-
-        if url.absoluteString == GhostWebView.LoginURL {
-            self.webView?.setUsername(credentials.userIdentifier) {
-                self.webView?.setPassword(credentials.password) {
-                    self.webView?.submitForm {}
-                }
-            }
-        }
-
-        if url.absoluteString == GhostWebView.AccountURL {
-            let request = URLRequest(url: URL(string: GhostWebView.AccountLoansURL)!)
-            webView.load(request)
-        }
-
-        if url.absoluteString == GhostWebView.AccountLoansURL {
-            self.webView?.getHTML { (html) in
-                self.loans = PageParser.parseLoans(html: html)
-                let itemCache = ItemCache(items: self.loans)
-                ItemCache.save(items: itemCache, to: .standard)
-
-                self.tableView.reloadData()
-                self.refreshControl?.endRefreshing()
-            }
-        }
-    }
-
-    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-    }
-
-    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        if (error as NSError).domain == NSURLErrorDomain && (error as NSError).code == NSURLErrorCancelled {
-            // Cancelled
-        }
-        else {
-            presentLoadingError(error)
-        }
-    }
-
-    func presentLoadingError(_ error: Error) {
-        let alertController = UIAlertController(title: NSLocalizedString("Erreur de connexion", comment: ""), message: error.localizedDescription, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: nil))
-        present(alertController, animated: true, completion: nil)
-    }
-
     // MARK: - MFMailComposeViewControllerDelegate
 
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension UIViewController {
+    func presentLoadingError(_ error: Error?) {
+        let alertController = UIAlertController(title: NSLocalizedString("Erreur de connexion", comment: ""), message: error?.localizedDescription, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
 }

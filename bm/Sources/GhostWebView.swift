@@ -9,8 +9,84 @@
 import UIKit
 import WebKit
 
+class GhostLoader: NSObject, WKNavigationDelegate {
+    let credentials: Credentials
+    let webView: GhostWebView
+    let success: ([Item]) -> Void
+    let failure: (Error?) -> Void
+
+    init(credentials: Credentials, parentView: UIView, success: @escaping ([Item]) -> Void, failure: @escaping (Error?) -> Void) {
+        self.credentials = credentials
+        self.success = success
+        self.failure = failure
+
+        let webView = GhostWebView()
+        self.webView = webView
+
+        super.init()
+
+        parentView.addSubview(webView)
+        webView.navigationDelegate = self
+        webView.loadGhostPage()
+    }
+
+    func cleanup() {
+        webView.removeFromSuperview()
+    }
+
+    // MARK: - Web view navigation delegate
+
+    var hasLoggedIn = false
+
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        guard let url = webView.url else {
+                return
+        }
+
+        let absoluteURLString = url.absoluteString
+
+        if absoluteURLString == GhostWebView.AccountURL {
+            if hasLoggedIn {
+                let request = URLRequest(url: URL(string: GhostWebView.AccountLoansURL)!)
+                webView.load(request)
+            }
+            else {
+                self.webView.setUsername(self.credentials.userIdentifier) {
+                    self.webView.setPassword(self.credentials.password) {
+                        self.hasLoggedIn = true
+                        self.webView.submitForm {}
+                    }
+                }
+            }
+        }
+        else if absoluteURLString == GhostWebView.AccountLoansURL {
+            self.webView.getHTML { (html) in
+                let loans = PageParser.parseLoans(html: html)
+                self.success(loans)
+                self.cleanup()
+            }
+        }
+        else {
+            let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("Numéro d’abonné ou mot de passe incorrect", comment: "")])
+            failure(error)
+        }
+    }
+
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+    }
+
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        if (error as NSError).domain == NSURLErrorDomain && (error as NSError).code == NSURLErrorCancelled {
+            // Cancelled
+        }
+        else {
+            failure(error)
+            cleanup()
+        }
+    }
+}
+
 class GhostWebView: WKWebView {
-    static let LoginURL = "http://catalogue.bm-grenoble.fr/in/faces/account.xhtml"
     static let AccountURL = "http://catalogue.bm-grenoble.fr/in/faces/account.xhtml"
     static let AccountLoansURL = "http://catalogue.bm-grenoble.fr/in/faces/accountLoans.xhtml"
 
@@ -20,7 +96,7 @@ class GhostWebView: WKWebView {
     }
 
     func loadGhostPage() {
-        let request = URLRequest(url: URL(string: GhostWebView.LoginURL)!)
+        let request = URLRequest(url: URL(string: GhostWebView.AccountURL)!)
         load(request)
     }
 
