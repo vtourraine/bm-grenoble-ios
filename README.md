@@ -16,7 +16,6 @@ The Grenoble Public Library doesn’t offer a public API to check your account s
 
 ### Advanced features
 - Items cover image
-- Card barcode
 - Local notification for reminders
 - Multiple accounts support
 - Renew loans

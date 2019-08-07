@@ -15,7 +15,7 @@
             <objects>
                 <tableViewController id="0tc-H2-wTF" customClass="ViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hlY-P1-kT6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -109,6 +109,7 @@
                     </refreshControl>
                     <connections>
                         <segue destination="PL0-mD-zDP" kind="presentation" identifier="Login" id="drR-e7-D8W"/>
+                        <segue destination="x0T-HL-1kO" kind="presentation" identifier="Card" id="Y0l-S1-U8n"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ASQ-Ho-tut" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -237,7 +238,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V5W-LW-gGC" customClass="NavigationController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="81E-91-uNE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="81E-91-uNE">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
@@ -256,6 +257,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FOc-HP-WbP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="489.85507246376818" y="186.83035714285714"/>
+        </scene>
+        <!--Card View Controller-->
+        <scene sceneID="hF1-1I-7rJ">
+            <objects>
+                <viewController id="x0T-HL-1kO" customClass="CardViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xfZ-dD-61F">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsN-tn-aSG">
+                                <rect key="frame" x="67" y="363" width="280" height="180"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7cH-2F-cnZ">
+                                        <rect key="frame" x="40" y="40" width="200" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="MCe-xM-pDJ"/>
+                                            <constraint firstAttribute="width" constant="200" id="ULJ-E4-uMe"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="7cH-2F-cnZ" secondAttribute="trailing" constant="40" id="cBf-fA-4Oq"/>
+                                    <constraint firstItem="7cH-2F-cnZ" firstAttribute="top" secondItem="jsN-tn-aSG" secondAttribute="top" constant="40" id="fyT-C3-K1L"/>
+                                    <constraint firstItem="7cH-2F-cnZ" firstAttribute="leading" secondItem="jsN-tn-aSG" secondAttribute="leading" constant="40" id="rc5-GF-0jc"/>
+                                    <constraint firstAttribute="bottom" secondItem="7cH-2F-cnZ" secondAttribute="bottom" constant="40" id="yj3-QD-V2e"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQi-uG-iqN">
+                                <rect key="frame" x="138" y="781" width="138" height="61"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Fermer">
+                                    <color key="titleColor" name="BMRed"/>
+                                </state>
+                                <connections>
+                                    <action selector="connect:" destination="PL0-mD-zDP" eventType="touchUpInside" id="gau-aB-ic9"/>
+                                    <action selector="dismiss:" destination="x0T-HL-1kO" eventType="touchUpInside" id="zwB-fC-tLW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="BMRed"/>
+                        <constraints>
+                            <constraint firstItem="kQi-uG-iqN" firstAttribute="centerX" secondItem="EuJ-AN-7nA" secondAttribute="centerX" id="1kJ-0B-ymB"/>
+                            <constraint firstItem="jsN-tn-aSG" firstAttribute="centerY" secondItem="EuJ-AN-7nA" secondAttribute="centerY" id="XpC-Fn-PpD"/>
+                            <constraint firstItem="jsN-tn-aSG" firstAttribute="centerX" secondItem="EuJ-AN-7nA" secondAttribute="centerX" id="i4k-7C-sja"/>
+                            <constraint firstItem="EuJ-AN-7nA" firstAttribute="bottom" secondItem="kQi-uG-iqN" secondAttribute="bottom" constant="20" id="ieF-7K-f7N"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="EuJ-AN-7nA"/>
+                    </view>
+                    <connections>
+                        <outlet property="cardParentView" destination="7cH-2F-cnZ" id="XeN-cG-v8F"/>
+                        <outlet property="dismissButton" destination="kQi-uG-iqN" id="3SK-oQ-due"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hhD-Lk-xv5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2419" y="340"/>
         </scene>
     </scenes>
     <resources>

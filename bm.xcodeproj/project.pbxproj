@@ -23,6 +23,9 @@
 		D7A8832422F5C4BA00C209DC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A8832322F5C4BA00C209DC /* LoginViewController.swift */; };
 		D7A8832622F8132B00C209DC /* Keyboard+LayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A8832522F8132B00C209DC /* Keyboard+LayoutGuide.swift */; };
 		D7A8832822FAC53700C209DC /* TestAccountLoans2.html in Resources */ = {isa = PBXBuildFile; fileRef = D7A8832722FAC53700C209DC /* TestAccountLoans2.html */; };
+		D7A8832A22FB756700C209DC /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A8832922FB756700C209DC /* CardViewController.swift */; };
+		D7A8833022FB78E200C209DC /* BarCodeEAN13.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A8832D22FB78E200C209DC /* BarCodeEAN13.m */; };
+		D7A8833122FB78E200C209DC /* BarCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A8832E22FB78E200C209DC /* BarCodeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +60,14 @@
 		D786E6ED22F1B0CB00AD1D36 /* GhostWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GhostWebView.swift; path = Sources/GhostWebView.swift; sourceTree = "<group>"; };
 		D786E6EF22F1B42C00AD1D36 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemTableViewCell.swift; path = Sources/ItemTableViewCell.swift; sourceTree = "<group>"; };
 		D7A8832322F5C4BA00C209DC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Sources/LoginViewController.swift; sourceTree = "<group>"; };
-		D7A8832522F8132B00C209DC /* Keyboard+LayoutGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Keyboard+LayoutGuide.swift"; path = "KeyboardLayoutGuide/Keyboard+LayoutGuide.swift"; sourceTree = "<group>"; };
+		D7A8832522F8132B00C209DC /* Keyboard+LayoutGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Keyboard+LayoutGuide.swift"; sourceTree = "<group>"; };
 		D7A8832722FAC53700C209DC /* TestAccountLoans2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TestAccountLoans2.html; sourceTree = "<group>"; };
+		D7A8832922FB756700C209DC /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardViewController.swift; path = Sources/CardViewController.swift; sourceTree = "<group>"; };
+		D7A8832C22FB78E200C209DC /* BarCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarCodeView.h; sourceTree = "<group>"; };
+		D7A8832D22FB78E200C209DC /* BarCodeEAN13.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarCodeEAN13.m; sourceTree = "<group>"; };
+		D7A8832E22FB78E200C209DC /* BarCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarCodeView.m; sourceTree = "<group>"; };
+		D7A8832F22FB78E200C209DC /* BarCodeEAN13.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarCodeEAN13.h; sourceTree = "<group>"; };
+		D7A8833622FB798900C209DC /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +93,7 @@
 			children = (
 				D7757F5122F2390E006E6AAC /* README.md */,
 				D70212C522F0E43C00E3972E /* bm */,
+				D7A8833222FB78E900C209DC /* Dependencies */,
 				D786E6E222F194EC00AD1D36 /* Tests */,
 				D70212C422F0E43C00E3972E /* Products */,
 			);
@@ -104,17 +114,18 @@
 				D70212C622F0E43C00E3972E /* AppDelegate.swift */,
 				D70212C822F0E43C00E3972E /* ViewController.swift */,
 				D7A8832322F5C4BA00C209DC /* LoginViewController.swift */,
+				D7A8832922FB756700C209DC /* CardViewController.swift */,
 				D786E6EF22F1B42C00AD1D36 /* ItemTableViewCell.swift */,
 				D786E6ED22F1B0CB00AD1D36 /* GhostWebView.swift */,
 				D786E6D922F1911A00AD1D36 /* Item.swift */,
 				D78618AB22F30A4400CB3403 /* ItemCache.swift */,
 				D786E6DB22F191CE00AD1D36 /* PageParser.swift */,
 				D762CB9622F433D3008722C2 /* Credentials.swift */,
-				D7A8832522F8132B00C209DC /* Keyboard+LayoutGuide.swift */,
 				D70212CA22F0E43C00E3972E /* Main.storyboard */,
 				D70212CD22F0E43E00E3972E /* Assets.xcassets */,
 				D70212CF22F0E43E00E3972E /* LaunchScreen.storyboard */,
 				D70212D222F0E43E00E3972E /* Info.plist */,
+				D7A8833622FB798900C209DC /* BridgingHeader.h */,
 			);
 			path = bm;
 			sourceTree = "<group>";
@@ -128,6 +139,26 @@
 				D7A8832722FAC53700C209DC /* TestAccountLoans2.html */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		D7A8832B22FB78E200C209DC /* EAN13BarcodeGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				D7A8832C22FB78E200C209DC /* BarCodeView.h */,
+				D7A8832E22FB78E200C209DC /* BarCodeView.m */,
+				D7A8832F22FB78E200C209DC /* BarCodeEAN13.h */,
+				D7A8832D22FB78E200C209DC /* BarCodeEAN13.m */,
+			);
+			path = EAN13BarcodeGenerator;
+			sourceTree = "<group>";
+		};
+		D7A8833222FB78E900C209DC /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				D7A8832522F8132B00C209DC /* Keyboard+LayoutGuide.swift */,
+				D7A8832B22FB78E200C209DC /* EAN13BarcodeGenerator */,
+			);
+			path = Dependencies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7A8832422F5C4BA00C209DC /* LoginViewController.swift in Sources */,
+				D7A8833122FB78E200C209DC /* BarCodeView.m in Sources */,
 				D786E6EE22F1B0CB00AD1D36 /* GhostWebView.swift in Sources */,
 				D70212C922F0E43C00E3972E /* ViewController.swift in Sources */,
 				D762CB9722F433D3008722C2 /* Credentials.swift in Sources */,
@@ -242,6 +274,8 @@
 				D70212C722F0E43C00E3972E /* AppDelegate.swift in Sources */,
 				D786E6F022F1B42C00AD1D36 /* ItemTableViewCell.swift in Sources */,
 				D7A8832622F8132B00C209DC /* Keyboard+LayoutGuide.swift in Sources */,
+				D7A8832A22FB756700C209DC /* CardViewController.swift in Sources */,
+				D7A8833022FB78E200C209DC /* BarCodeEAN13.m in Sources */,
 				D78618AC22F30A4400CB3403 /* ItemCache.swift in Sources */,
 				D786E6DA22F1911A00AD1D36 /* Item.swift in Sources */,
 			);
@@ -418,6 +452,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.studioamanga.bm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = bm/BridgingHeader.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -436,6 +471,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.studioamanga.bm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = bm/BridgingHeader.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

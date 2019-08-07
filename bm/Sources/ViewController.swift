@@ -24,6 +24,7 @@ class ViewController: UITableViewController, MFMailComposeViewControllerDelegate
     var loader: GhostLoader?
 
     let LoginSegueIdentifier = "Login"
+    let CardSegueIdentifier = "Card"
 
     // MARK: - View life cycle
 
@@ -77,6 +78,9 @@ class ViewController: UITableViewController, MFMailComposeViewControllerDelegate
                 self.signOut(sender: nil)
             }))
         }
+        viewController.addAction(UIAlertAction(title: NSLocalizedString("Afficher ma carte abonné", comment: ""), style: .default, handler: { _ in
+            self.performSegue(withIdentifier: self.CardSegueIdentifier, sender: nil)
+        }))
         viewController.addAction(UIAlertAction(title: NSLocalizedString("Ouvrir le compte abonné avec Safari", comment: ""), style: .default, handler: { _ in
             self.openAccountInWebBrowser(sender: nil)
         }))
