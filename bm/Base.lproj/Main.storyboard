@@ -14,7 +14,7 @@
         <scene sceneID="iC8-0g-qKV">
             <objects>
                 <tableViewController id="0tc-H2-wTF" customClass="ViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hlY-P1-kT6">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hlY-P1-kT6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -22,7 +22,7 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="99" id="MwC-WM-zvl" customClass="ItemTableViewCell" customModule="bm" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="99"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MwC-WM-zvl" id="mjm-QP-Ng5">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MwC-WM-zvl" id="mjm-QP-Ng5">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="98.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -65,20 +65,20 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="pAi-GO-wrn" firstAttribute="leading" secondItem="7RN-x0-EWP" secondAttribute="leading" id="2ux-qJ-fdi"/>
-                                        <constraint firstAttribute="trailing" secondItem="PPV-XU-Xqf" secondAttribute="trailing" constant="20" symbolic="YES" id="BIi-xF-NXa"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="PPV-XU-Xqf" secondAttribute="trailing" id="BIi-xF-NXa"/>
                                         <constraint firstItem="Puf-XW-Fhn" firstAttribute="top" secondItem="mjm-QP-Ng5" secondAttribute="top" constant="10" id="HAT-X2-XRE"/>
                                         <constraint firstItem="PPV-XU-Xqf" firstAttribute="leading" secondItem="Q6P-h4-bcp" secondAttribute="leading" id="LFT-po-V0I"/>
                                         <constraint firstItem="7RN-x0-EWP" firstAttribute="top" secondItem="Q6P-h4-bcp" secondAttribute="bottom" constant="4" id="MTS-si-MT2"/>
-                                        <constraint firstAttribute="trailing" secondItem="7RN-x0-EWP" secondAttribute="trailing" constant="20" symbolic="YES" id="MZL-Tk-7RZ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="7RN-x0-EWP" secondAttribute="trailing" id="MZL-Tk-7RZ"/>
                                         <constraint firstItem="Q6P-h4-bcp" firstAttribute="top" secondItem="PPV-XU-Xqf" secondAttribute="bottom" constant="4" id="Miw-Jm-pJf"/>
                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="pAi-GO-wrn" secondAttribute="bottom" constant="8" id="Og8-RI-Hes"/>
-                                        <constraint firstAttribute="trailing" secondItem="pAi-GO-wrn" secondAttribute="trailing" constant="20" id="PPc-Hf-8Xv"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="pAi-GO-wrn" secondAttribute="trailing" id="PPc-Hf-8Xv"/>
                                         <constraint firstItem="Q6P-h4-bcp" firstAttribute="leading" secondItem="7RN-x0-EWP" secondAttribute="leading" id="QPC-v6-q7Y"/>
                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="rYn-Ef-mhS" secondAttribute="bottom" constant="20" symbolic="YES" id="RdC-uy-Nyk"/>
                                         <constraint firstItem="PPV-XU-Xqf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rYn-Ef-mhS" secondAttribute="trailing" constant="8" symbolic="YES" id="VhI-xk-bBo"/>
-                                        <constraint firstAttribute="trailing" secondItem="Q6P-h4-bcp" secondAttribute="trailing" constant="20" symbolic="YES" id="Wsy-VP-21S"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Q6P-h4-bcp" secondAttribute="trailing" id="Wsy-VP-21S"/>
                                         <constraint firstItem="PPV-XU-Xqf" firstAttribute="top" secondItem="mjm-QP-Ng5" secondAttribute="top" constant="12" id="cmh-Ym-ecn"/>
-                                        <constraint firstItem="Puf-XW-Fhn" firstAttribute="leading" secondItem="mjm-QP-Ng5" secondAttribute="leading" constant="20" symbolic="YES" id="exr-HD-BWD"/>
+                                        <constraint firstItem="Puf-XW-Fhn" firstAttribute="leading" secondItem="mjm-QP-Ng5" secondAttribute="leadingMargin" id="exr-HD-BWD"/>
                                         <constraint firstItem="rYn-Ef-mhS" firstAttribute="leading" secondItem="Puf-XW-Fhn" secondAttribute="leading" id="gNO-jf-eo1"/>
                                         <constraint firstItem="rYn-Ef-mhS" firstAttribute="top" secondItem="Puf-XW-Fhn" secondAttribute="bottom" constant="8" symbolic="YES" id="gah-Bd-h4z"/>
                                         <constraint firstItem="PPV-XU-Xqf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Puf-XW-Fhn" secondAttribute="trailing" constant="8" symbolic="YES" id="iIt-DE-e9B"/>
@@ -287,10 +287,10 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQi-uG-iqN">
-                                <rect key="frame" x="138" y="781" width="138" height="61"/>
+                                <rect key="frame" x="158" y="801" width="98" height="41"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
                                 <state key="normal" title="Fermer">
                                     <color key="titleColor" name="BMRed"/>
                                 </state>

@@ -15,11 +15,12 @@
 "Sign Out" = "Sign Out";
 "Show Subscriber Card" = "Show Subscriber Card";
 "Open Account in Safari" = "Open Account in Safari";
-"About" = "About";
+"About this Application" = "About this Application";
 
 "This application is developed by Vincent Tourraine, and is not affiliated with the Grenoble Public Library." = "This application is developped by Vincent Tourraine, and is not affiliated with the Grenoble Public Library.";
 "Contact" = "Contact";
 "Checkout Source Code" = "Checkout Source Code";
 
+"Updating Account…" = "Updating Account…";
 "Connection Error" = "Connection Error";
 "Invalid subscriber number or password" = "Invalid subscriber number or password";

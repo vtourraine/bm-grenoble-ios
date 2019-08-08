@@ -65,13 +65,13 @@
 		D786E6ED22F1B0CB00AD1D36 /* GhostWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GhostWebView.swift; path = Sources/GhostWebView.swift; sourceTree = "<group>"; };
 		D786E6EF22F1B42C00AD1D36 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemTableViewCell.swift; path = Sources/ItemTableViewCell.swift; sourceTree = "<group>"; };
 		D7A8832322F5C4BA00C209DC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Sources/LoginViewController.swift; sourceTree = "<group>"; };
-		D7A8832522F8132B00C209DC /* Keyboard+LayoutGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Keyboard+LayoutGuide.swift"; sourceTree = "<group>"; };
+		D7A8832522F8132B00C209DC /* Keyboard+LayoutGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Keyboard+LayoutGuide.swift"; path = "Dependencies/KeyboardLayoutGuide/Keyboard+LayoutGuide.swift"; sourceTree = "<group>"; };
 		D7A8832722FAC53700C209DC /* TestAccountLoans2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TestAccountLoans2.html; sourceTree = "<group>"; };
 		D7A8832922FB756700C209DC /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardViewController.swift; path = Sources/CardViewController.swift; sourceTree = "<group>"; };
-		D7A8832C22FB78E200C209DC /* BarCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarCodeView.h; sourceTree = "<group>"; };
-		D7A8832D22FB78E200C209DC /* BarCodeEAN13.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarCodeEAN13.m; sourceTree = "<group>"; };
-		D7A8832E22FB78E200C209DC /* BarCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarCodeView.m; sourceTree = "<group>"; };
-		D7A8832F22FB78E200C209DC /* BarCodeEAN13.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarCodeEAN13.h; sourceTree = "<group>"; };
+		D7A8832C22FB78E200C209DC /* BarCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarCodeView.h; path = Dependencies/EAN13BarcodeGenerator/BarCodeView.h; sourceTree = "<group>"; };
+		D7A8832D22FB78E200C209DC /* BarCodeEAN13.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarCodeEAN13.m; path = Dependencies/EAN13BarcodeGenerator/BarCodeEAN13.m; sourceTree = "<group>"; };
+		D7A8832E22FB78E200C209DC /* BarCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarCodeView.m; path = Dependencies/EAN13BarcodeGenerator/BarCodeView.m; sourceTree = "<group>"; };
+		D7A8832F22FB78E200C209DC /* BarCodeEAN13.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarCodeEAN13.h; path = Dependencies/EAN13BarcodeGenerator/BarCodeEAN13.h; sourceTree = "<group>"; };
 		D7A8833622FB798900C209DC /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,6 +136,14 @@
 			path = bm;
 			sourceTree = "<group>";
 		};
+		D75DB3BA22FCCBBF008C7499 /* KeyboardLayoutGuide */ = {
+			isa = PBXGroup;
+			children = (
+				D7A8832522F8132B00C209DC /* Keyboard+LayoutGuide.swift */,
+			);
+			name = KeyboardLayoutGuide;
+			sourceTree = "<group>";
+		};
 		D786E6E222F194EC00AD1D36 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,16 +163,16 @@
 				D7A8832F22FB78E200C209DC /* BarCodeEAN13.h */,
 				D7A8832D22FB78E200C209DC /* BarCodeEAN13.m */,
 			);
-			path = EAN13BarcodeGenerator;
+			name = EAN13BarcodeGenerator;
 			sourceTree = "<group>";
 		};
 		D7A8833222FB78E900C209DC /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				D7A8832522F8132B00C209DC /* Keyboard+LayoutGuide.swift */,
+				D75DB3BA22FCCBBF008C7499 /* KeyboardLayoutGuide */,
 				D7A8832B22FB78E200C209DC /* EAN13BarcodeGenerator */,
 			);
-			path = Dependencies;
+			name = Dependencies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

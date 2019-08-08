@@ -22,6 +22,7 @@ class ViewController: UITableViewController, MFMailComposeViewControllerDelegate
 
     var loans: [Item] = []
     var loader: GhostLoader?
+    var isFirstLaunch = true
 
     let LoginSegueIdentifier = "Login"
     let CardSegueIdentifier = "Card"
@@ -49,13 +50,35 @@ class ViewController: UITableViewController, MFMailComposeViewControllerDelegate
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        if Credentials.load(from: .standard) == nil {
-            presentLoginScreen(sender: nil)
+        if isFirstLaunch {
+            if Credentials.load(from: .standard) == nil {
+                presentLoginScreen(sender: nil)
+            }
+            else {
+                refresh(sender: nil)
+            }
+
+            isFirstLaunch = false
         }
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+
+    func configureToolbar(message: String?, animated: Bool) {
+        guard let message = message else {
+            navigationController?.setToolbarHidden(true, animated: animated)
+            return
+        }
+
+        let spaceItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let label = UILabel(frame: .zero)
+        label.text = message
+        label.font = UIFont.preferredFont(forTextStyle: .footnote)
+        let labelItem = UIBarButtonItem(customView: label)
+        setToolbarItems([spaceItem, labelItem, spaceItem], animated: false)
+        navigationController?.setToolbarHidden(false, animated: animated)
     }
 
     // MARK: - Actions
@@ -84,7 +107,7 @@ class ViewController: UITableViewController, MFMailComposeViewControllerDelegate
     viewController.addAction(UIAlertAction(title: NSLocalizedString("Open Account in Safari", comment: ""), style: .default, handler: { _ in
             self.openAccountInWebBrowser(sender: nil)
         }))
-        viewController.addAction(UIAlertAction(title: NSLocalizedString("About", comment: ""), style: .default, handler: { _ in
+        viewController.addAction(UIAlertAction(title: NSLocalizedString("About this Application", comment: ""), style: .default, handler: { _ in
             self.presentAboutScreen(sender: nil)
         }))
         viewController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
@@ -93,7 +116,7 @@ class ViewController: UITableViewController, MFMailComposeViewControllerDelegate
     }
 
     @objc func presentAboutScreen(sender: Any?) {
-        let viewController = UIAlertController(title: NSLocalizedString("About", comment: ""), message: NSLocalizedString("This application is developed by Vincent Tourraine, and is not affiliated with the Grenoble Public Library.", comment: ""), preferredStyle: .alert)
+        let viewController = UIAlertController(title: NSLocalizedString("About this Application", comment: ""), message: NSLocalizedString("This application is developed by Vincent Tourraine, and is not affiliated with the Grenoble Public Library.", comment: ""), preferredStyle: .alert)
         if MFMailComposeViewController.canSendMail() {
             viewController.addAction(UIAlertAction(title: NSLocalizedString("Contact", comment: ""), style: .default, handler: { _ in
                 self.contact(sender: nil)
@@ -107,9 +130,11 @@ class ViewController: UITableViewController, MFMailComposeViewControllerDelegate
     }
 
     @IBAction func refresh(sender: Any?) {
-        guard let credentials = Credentials.load(from: .standard) else {
+        guard loader == nil, let credentials = Credentials.load(from: .standard) else {
             return
         }
+
+        configureToolbar(message: NSLocalizedString("Updating Account…", comment: ""), animated: false)
 
         loader = GhostLoader(credentials: credentials, parentView: view, success: { (items) in
             self.loans = items
@@ -118,9 +143,12 @@ class ViewController: UITableViewController, MFMailComposeViewControllerDelegate
 
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
+            self.configureToolbar(message: nil, animated: true)
             self.loader = nil
         }) { (error) in
             self.presentLoadingError(error)
+            self.refreshControl?.endRefreshing()
+            self.configureToolbar(message: nil, animated: true)
             self.loader = nil
         }
     }

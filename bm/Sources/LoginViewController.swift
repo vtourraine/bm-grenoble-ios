@@ -75,11 +75,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loader = GhostLoader(credentials: credentials, parentView: view, success: { (items) in
             self.configure(loading: false)
 
+            credentials.save(to: .standard)
             let itemCache = ItemCache(items: items)
             ItemCache.save(items: itemCache, to: .standard)
 
             self.loader = nil
 
+            if let presentingNavigationController = self.presentingViewController as? UINavigationController,
+                let viewController = presentingNavigationController.topViewController as? ViewController {
+                viewController.loans = items
+                viewController.tableView.reloadData()
+            }
             self.dismiss(animated: true, completion: nil)
         }) { (error) in
             self.configure(loading: false)
