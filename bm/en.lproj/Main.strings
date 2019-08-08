@@ -1,18 +1,18 @@
 
-/* Class = "UIButton"; normalTitle = "Se connecter"; ObjectID = "2Pl-18-t0M"; */
-"2Pl-18-t0M.normalTitle" = "Se connecter";
+/* Class = "UIButton"; normalTitle = "Sign In"; ObjectID = "2Pl-18-t0M"; */
+"2Pl-18-t0M.normalTitle" = "Sign In";
 
 /* Class = "UILabel"; text = "N jours"; ObjectID = "7RN-x0-EWP"; */
-"7RN-x0-EWP.text" = "N jours";
+"7RN-x0-EWP.text" = "N days";
 
 /* Class = "UINavigationItem"; title = "Prêts en cours"; ObjectID = "KIK-gR-jF7"; */
-"KIK-gR-jF7.title" = "Prêts en cours";
+"KIK-gR-jF7.title" = "Current Loans";
 
 /* Class = "UILabel"; text = "En cas d’oubli de mot de passe, merci de vous rendre dans la bibliothèque municipale de Grenoble de votre choix."; ObjectID = "LXp-gq-osV"; */
-"LXp-gq-osV.text" = "En cas d’oubli de mot de passe, merci de vous rendre dans la bibliothèque municipale de Grenoble de votre choix";
+"LXp-gq-osV.text" = "If you’ve forgotten your password, please go to a Grenoble Public Library";
 
 /* Class = "UILabel"; text = "À rendre pour le"; ObjectID = "PPV-XU-Xqf"; */
-"PPV-XU-Xqf.text" = "À rendre pour le";
+"PPV-XU-Xqf.text" = "To return before";
 
 /* Class = "UITextField"; placeholder = "01..."; ObjectID = "PVm-hQ-O1V"; */
 "PVm-hQ-O1V.placeholder" = "01...";
@@ -24,19 +24,19 @@
 "Q6P-h4-bcp.text" = "##/##/####";
 
 /* Class = "UILabel"; text = "Ce numéro est le nombre à 13 chiffres commençant par 01 sur votre carte d’abonné"; ObjectID = "SZr-Vg-AWa"; */
-"SZr-Vg-AWa.text" = "Ce numéro est le nombre à 13 chiffres commençant par 01 sur votre carte d’abonné";
+"SZr-Vg-AWa.text" = "13 digit number on your subscriber card, starting with 01";
 
 /* Class = "UILabel"; text = "Numéro d’abonné(e)"; ObjectID = "Yzx-f5-5jG"; */
-"Yzx-f5-5jG.text" = "Numéro d’abonné(e)";
+"Yzx-f5-5jG.text" = "Subscriber Number";
 
 /* Class = "UILabel"; text = "Bibliothèques municipales de Grenoble"; ObjectID = "coq-yD-GpY"; */
-"coq-yD-GpY.text" = "Bibliothèques municipales de Grenoble";
+"coq-yD-GpY.text" = "Grenoble Public Libraries";
 
 /* Class = "UIButton"; normalTitle = "Fermer"; ObjectID = "kQi-uG-iqN"; */
-"kQi-uG-iqN.normalTitle" = "Fermer";
+"kQi-uG-iqN.normalTitle" = "Dismiss";
 
 /* Class = "UILabel"; text = "Mot de passe"; ObjectID = "o0r-Zn-Yh6"; */
-"o0r-Zn-Yh6.text" = "Mot de passe";
+"o0r-Zn-Yh6.text" = "Password";
 
 /* Class = "UILabel"; text = "Library"; ObjectID = "pAi-GO-wrn"; */
 "pAi-GO-wrn.text" = "Library";

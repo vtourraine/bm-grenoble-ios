@@ -69,37 +69,37 @@ class ViewController: UITableViewController, MFMailComposeViewControllerDelegate
     @objc func openInfoPanel(sender: Any) {
         let viewController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         if Credentials.load(from: .standard) == nil {
-            viewController.addAction(UIAlertAction(title: NSLocalizedString("Se connecter", comment: ""), style: .default, handler: { _ in
+            viewController.addAction(UIAlertAction(title: NSLocalizedString("Sign In", comment: ""), style: .default, handler: { _ in
                 self.presentLoginScreen(sender: nil)
             }))
         }
         else {
-            viewController.addAction(UIAlertAction(title: NSLocalizedString("Se déconnecter", comment: ""), style: .destructive, handler: { _ in
+            viewController.addAction(UIAlertAction(title: NSLocalizedString("Sign Out", comment: ""), style: .destructive, handler: { _ in
                 self.signOut(sender: nil)
             }))
         }
-        viewController.addAction(UIAlertAction(title: NSLocalizedString("Afficher ma carte abonné", comment: ""), style: .default, handler: { _ in
+        viewController.addAction(UIAlertAction(title: NSLocalizedString("Show Subscriber Card", comment: ""), style: .default, handler: { _ in
             self.performSegue(withIdentifier: self.CardSegueIdentifier, sender: nil)
         }))
-        viewController.addAction(UIAlertAction(title: NSLocalizedString("Ouvrir le compte abonné avec Safari", comment: ""), style: .default, handler: { _ in
+    viewController.addAction(UIAlertAction(title: NSLocalizedString("Open Account in Safari", comment: ""), style: .default, handler: { _ in
             self.openAccountInWebBrowser(sender: nil)
         }))
-        viewController.addAction(UIAlertAction(title: NSLocalizedString("À propos", comment: ""), style: .default, handler: { _ in
+        viewController.addAction(UIAlertAction(title: NSLocalizedString("About", comment: ""), style: .default, handler: { _ in
             self.presentAboutScreen(sender: nil)
         }))
-        viewController.addAction(UIAlertAction(title: NSLocalizedString("Annuler", comment: ""), style: .cancel, handler: nil))
+        viewController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
         viewController.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(viewController, animated: true, completion: nil)
     }
 
     @objc func presentAboutScreen(sender: Any?) {
-        let viewController = UIAlertController(title: NSLocalizedString("À propos", comment: ""), message: NSLocalizedString("Cette application est développée par Vincent Tourraine, et n’est pas affiliée à la bibliothèque municipale de Grenoble.", comment: ""), preferredStyle: .alert)
+        let viewController = UIAlertController(title: NSLocalizedString("About", comment: ""), message: NSLocalizedString("This application is developed by Vincent Tourraine, and is not affiliated with the Grenoble Public Library.", comment: ""), preferredStyle: .alert)
         if MFMailComposeViewController.canSendMail() {
-            viewController.addAction(UIAlertAction(title: NSLocalizedString("Me contacter", comment: ""), style: .default, handler: { _ in
+            viewController.addAction(UIAlertAction(title: NSLocalizedString("Contact", comment: ""), style: .default, handler: { _ in
                 self.contact(sender: nil)
             }))
         }
-        viewController.addAction(UIAlertAction(title: NSLocalizedString("Consulter code source", comment: ""), style: .default, handler: { _ in
+        viewController.addAction(UIAlertAction(title: NSLocalizedString("Checkout Source Code", comment: ""), style: .default, handler: { _ in
             self.openCodeRepository(sender: nil)
         }))
         viewController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: nil))
@@ -177,7 +177,7 @@ class ViewController: UITableViewController, MFMailComposeViewControllerDelegate
 
 extension UIViewController {
     func presentLoadingError(_ error: Error?) {
-        let alertController = UIAlertController(title: NSLocalizedString("Erreur de connexion", comment: ""), message: error?.localizedDescription, preferredStyle: .alert)
+        let alertController = UIAlertController(title: NSLocalizedString("Connection Error", comment: ""), message: error?.localizedDescription, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: nil))
         present(alertController, animated: true, completion: nil)
     }

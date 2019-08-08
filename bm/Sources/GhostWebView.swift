@@ -72,7 +72,7 @@ class GhostLoader: NSObject, WKNavigationDelegate {
             }
         }
         else {
-            let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("Numéro d’abonné ou mot de passe incorrect", comment: "")])
+            let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("Invalid subscriber number or password", comment: "")])
             failure(error)
         }
     }

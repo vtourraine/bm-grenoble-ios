@@ -12,7 +12,6 @@ The Grenoble Public Library doesn’t offer a public API to check your account s
 - Store credentials in Keychain
 - Multiple pages in results
 - Placeholder (no loans)
-- French/English localization
 
 ### Advanced features
 - Items cover image
