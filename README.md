@@ -33,4 +33,4 @@ This is an independent project by [Vincent Tourraine](https://www.vtourraine.net
 
 ## License
 
-This application is available under the MIT license. See the [LICENSE.md](./LICENSE.md) file for more info.
+This application is available under the MIT license. See the [LICENSE.md](./LICENSE.txt) file for more info.
