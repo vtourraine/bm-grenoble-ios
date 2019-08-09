@@ -10,35 +10,57 @@ import UIKit
 
 class CardViewController: UIViewController {
 
+    // MARK: - Outlets
+
     @IBOutlet var cardParentView: UIView?
     @IBOutlet var dismissButton: UIButton?
+
+    // MARK: - View life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        dismissButton?.layer.cornerRadius = 8
-        cardParentView?.superview?.layer.cornerRadius = 8
+        dismissButton?.configureRoundCorners()
+        cardParentView?.superview?.configureRoundCorners()
 
         configureCard()
     }
+
+    // MARK: - View configuration
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
 
     func configureCard() {
-        guard let credentials = Credentials.load(from: .standard),
-            let parentView = cardParentView else {
-                return
+        guard let barCode = barCode(), let parentView = cardParentView else {
+            return
         }
-
-        let userIdentifier = credentials.userIdentifier
-        let indexStartOfText = userIdentifier.index(userIdentifier.endIndex, offsetBy: -13)
-        let trimmedIdentifier = userIdentifier[indexStartOfText...]
 
         let barCodeView = BarCodeView(frame: parentView.bounds)
         parentView.addSubview(barCodeView)
-        barCodeView.barCode = String(trimmedIdentifier)
+        barCodeView.barCode = barCode
+    }
+
+    func barCode() -> String? {
+        guard let credentials = Credentials.load(from: .standard) else {
+            return nil
+        }
+
+        let userIdentifier = credentials.userIdentifier
+        let BarCodeLenght = 13
+
+        if userIdentifier.count == BarCodeLenght {
+            return userIdentifier
+        }
+        else if userIdentifier.count > BarCodeLenght {
+            let indexStartOfText = userIdentifier.index(userIdentifier.endIndex, offsetBy: -BarCodeLenght)
+            let trimmedIdentifier = userIdentifier[indexStartOfText...]
+            return String(trimmedIdentifier)
+        }
+        else {
+            return nil
+        }
     }
 
     // MARK: - Actions

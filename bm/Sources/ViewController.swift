@@ -66,6 +66,11 @@ class ViewController: UITableViewController, MFMailComposeViewControllerDelegate
         return .lightContent
     }
 
+    func reloadData(loans: [Item]) {
+        self.loans = loans
+        tableView.reloadData()
+    }
+
     func configureToolbar(message: String?, animated: Bool) {
         guard let message = message else {
             navigationController?.setToolbarHidden(true, animated: animated)
@@ -137,11 +142,10 @@ class ViewController: UITableViewController, MFMailComposeViewControllerDelegate
         configureToolbar(message: NSLocalizedString("Updating Account…", comment: ""), animated: false)
 
         loader = GhostLoader(credentials: credentials, parentView: view, success: { (items) in
-            self.loans = items
+            self.reloadData(loans: items)
             let itemCache = ItemCache(items: self.loans)
             ItemCache.save(items: itemCache, to: .standard)
 
-            self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
             self.configureToolbar(message: nil, animated: true)
             self.loader = nil
@@ -177,9 +181,7 @@ class ViewController: UITableViewController, MFMailComposeViewControllerDelegate
         Credentials.remove(from: .standard)
         ItemCache.remove(from: .standard)
 
-        loans = []
-        tableView.reloadData()
-
+        reloadData(loans: [])
         presentLoginScreen(sender: nil)
     }
 
@@ -200,13 +202,5 @@ class ViewController: UITableViewController, MFMailComposeViewControllerDelegate
 
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
-    }
-}
-
-extension UIViewController {
-    func presentLoadingError(_ error: Error?) {
-        let alertController = UIAlertController(title: NSLocalizedString("Connection Error", comment: ""), message: error?.localizedDescription, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: nil))
-        present(alertController, animated: true, completion: nil)
     }
 }

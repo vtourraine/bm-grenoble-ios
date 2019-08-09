@@ -27,7 +27,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         configure(loading: false)
 
         if let connectButton = connectButton {
-            connectButton.layer.cornerRadius = 8
+            connectButton.configureRoundCorners()
             view.keyboardLayoutGuide.topAnchor.constraint(greaterThanOrEqualTo: connectButton.bottomAnchor, constant: 20).isActive = true
         }
     }
@@ -83,8 +83,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
             if let presentingNavigationController = self.presentingViewController as? UINavigationController,
                 let viewController = presentingNavigationController.topViewController as? ViewController {
-                viewController.loans = items
-                viewController.tableView.reloadData()
+                viewController.reloadData(loans: items)
             }
             self.dismiss(animated: true, completion: nil)
         }) { (error) in

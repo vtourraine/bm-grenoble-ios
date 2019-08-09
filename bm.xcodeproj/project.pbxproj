@@ -13,6 +13,7 @@
 		D70212CE22F0E43E00E3972E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D70212CD22F0E43E00E3972E /* Assets.xcassets */; };
 		D70212D122F0E43E00E3972E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D70212CF22F0E43E00E3972E /* LaunchScreen.storyboard */; };
 		D75DB3B322FBFD84008C7499 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D75DB3B122FBFD84008C7499 /* Localizable.strings */; };
+		D75DB3BC22FD6369008C7499 /* InterfaceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75DB3BB22FD6369008C7499 /* InterfaceHelpers.swift */; };
 		D762CB9722F433D3008722C2 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = D762CB9622F433D3008722C2 /* Credentials.swift */; };
 		D78618AC22F30A4400CB3403 /* ItemCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78618AB22F30A4400CB3403 /* ItemCache.swift */; };
 		D786E6DA22F1911A00AD1D36 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D786E6D922F1911A00AD1D36 /* Item.swift */; };
@@ -52,6 +53,7 @@
 		D75DB3B522FBFDC4008C7499 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D75DB3B722FBFFF4008C7499 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		D75DB3B922FC0001008C7499 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		D75DB3BB22FD6369008C7499 /* InterfaceHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InterfaceHelpers.swift; path = Sources/InterfaceHelpers.swift; sourceTree = "<group>"; };
 		D762CB9622F433D3008722C2 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Credentials.swift; path = Sources/Credentials.swift; sourceTree = "<group>"; };
 		D7757F5122F2390E006E6AAC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D7757F5322F241FE006E6AAC /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				D7A8832922FB756700C209DC /* CardViewController.swift */,
 				D786E6EF22F1B42C00AD1D36 /* ItemTableViewCell.swift */,
 				D786E6ED22F1B0CB00AD1D36 /* GhostWebView.swift */,
+				D75DB3BB22FD6369008C7499 /* InterfaceHelpers.swift */,
 				D786E6D922F1911A00AD1D36 /* Item.swift */,
 				D78618AB22F30A4400CB3403 /* ItemCache.swift */,
 				D786E6DB22F191CE00AD1D36 /* PageParser.swift */,
@@ -283,6 +286,7 @@
 				D7A8832422F5C4BA00C209DC /* LoginViewController.swift in Sources */,
 				D7A8833122FB78E200C209DC /* BarCodeView.m in Sources */,
 				D786E6EE22F1B0CB00AD1D36 /* GhostWebView.swift in Sources */,
+				D75DB3BC22FD6369008C7499 /* InterfaceHelpers.swift in Sources */,
 				D70212C922F0E43C00E3972E /* ViewController.swift in Sources */,
 				D762CB9722F433D3008722C2 /* Credentials.swift in Sources */,
 				D786E6DC22F191CE00AD1D36 /* PageParser.swift in Sources */,
