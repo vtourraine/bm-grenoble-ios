@@ -12,17 +12,12 @@ import WebKit
 import SafariServices
 import MessageUI
 
-class NavigationController: UINavigationController {
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-}
-
 class ViewController: UITableViewController, MFMailComposeViewControllerDelegate {
 
     var loans: [Item] = []
     var loader: GhostLoader?
     var isFirstLaunch = true
+    var lastRefreshDate: Date?
 
     let LoginSegueIdentifier = "Login"
     let CardSegueIdentifier = "Card"
@@ -43,7 +38,7 @@ class ViewController: UITableViewController, MFMailComposeViewControllerDelegate
         tableView.tableFooterView = UIView(frame: CGRect.zero)
 
         if let itemCache = ItemCache.load(from: .standard) {
-            loans = itemCache.items
+            reloadData(loans: itemCache.items)
         }
     }
 
@@ -69,6 +64,18 @@ class ViewController: UITableViewController, MFMailComposeViewControllerDelegate
     func reloadData(loans: [Item]) {
         self.loans = loans
         tableView.reloadData()
+
+        if loans.isEmpty {
+            let label = UILabel(frame: .zero)
+            label.font = UIFont.preferredFont(forTextStyle: .body)
+            label.textColor = .gray
+            label.textAlignment = .center
+            label.text = NSLocalizedString("No Current Loans", comment: "")
+            tableView.backgroundView = label
+        }
+        else {
+            tableView.backgroundView = nil
+        }
     }
 
     func configureToolbar(message: String?, animated: Bool) {
@@ -149,11 +156,24 @@ class ViewController: UITableViewController, MFMailComposeViewControllerDelegate
             self.refreshControl?.endRefreshing()
             self.configureToolbar(message: nil, animated: true)
             self.loader = nil
+            self.lastRefreshDate = Date()
         }) { (error) in
             self.presentLoadingError(error)
             self.refreshControl?.endRefreshing()
             self.configureToolbar(message: nil, animated: true)
             self.loader = nil
+        }
+    }
+
+    func refreshIfNecessary() {
+        guard let lastRefreshDate = lastRefreshDate else {
+            return
+        }
+
+        // Refresh every hour
+        let minimumRefreshInterval: TimeInterval = (60 * 60)
+        if lastRefreshDate.timeIntervalSinceNow < -minimumRefreshInterval {
+            refresh(sender: nil)
         }
     }
 

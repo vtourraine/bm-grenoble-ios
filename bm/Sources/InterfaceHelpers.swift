@@ -8,6 +8,12 @@
 
 import UIKit
 
+class NavigationController: UINavigationController {
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+}
+
 extension UIViewController {
     func presentLoadingError(_ error: Error?) {
         let alertController = UIAlertController(title: NSLocalizedString("Connection Error", comment: ""), message: error?.localizedDescription, preferredStyle: .alert)
