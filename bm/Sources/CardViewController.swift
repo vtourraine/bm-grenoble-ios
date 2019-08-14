@@ -15,6 +15,8 @@ class CardViewController: UIViewController {
     @IBOutlet var cardParentView: UIView?
     @IBOutlet var dismissButton: UIButton?
 
+    var originalScreenBrightness: CGFloat?
+
     // MARK: - View life cycle
 
     override func viewDidLoad() {
@@ -24,6 +26,20 @@ class CardViewController: UIViewController {
         cardParentView?.superview?.configureRoundCorners()
 
         configureCard()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        originalScreenBrightness = UIScreen.main.brightness
+        UIScreen.main.brightness = 1
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let brightness = originalScreenBrightness {
+            UIScreen.main.brightness = brightness
+        }
     }
 
     // MARK: - View configuration
