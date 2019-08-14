@@ -29,8 +29,11 @@
 /* Class = "UILabel"; text = "Numéro d’abonné(e)"; ObjectID = "Yzx-f5-5jG"; */
 "Yzx-f5-5jG.text" = "Numéro d’abonné(e)";
 
-/* Class = "UILabel"; text = "Bibliothèques municipales de Grenoble"; ObjectID = "coq-yD-GpY"; */
-"coq-yD-GpY.text" = "Bibliothèques municipales de Grenoble";
+/* Class = "UILabel"; text = "Bibliothèque municipale de Grenoble"; ObjectID = "XSi-YR-LDc"; */
+"XSi-YR-LDc.text" = "Bibliothèque\nmunicipale\nGrenoble";
+
+/* Class = "UILabel"; text = "Bibliothèque municipale de Grenoble"; ObjectID = "m9w-yg-gIP"; */
+"m9w-yg-gIP.text" = "Bibliothèque\nmunicipale\nGrenoble";
 
 /* Class = "UIButton"; normalTitle = "Fermer"; ObjectID = "kQi-uG-iqN"; */
 "kQi-uG-iqN.normalTitle" = "Fermer";

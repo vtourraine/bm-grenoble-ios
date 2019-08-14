@@ -13,10 +13,10 @@ The Grenoble Public Library doesn’t offer a public API to check your account s
 - Store credentials in Keychain
 - About dedicated screen
 - Items cover image
-- Multiple accounts support
 - Renew loans
 - Reservations
 - Libraries list with map
+- Multiple accounts support
 
 ## Bug report
 
