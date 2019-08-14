@@ -22,6 +22,7 @@ class CardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        dismissButton?.titleLabel?.adjustsFontForContentSizeCategory = true
         dismissButton?.configureRoundCorners()
         cardParentView?.superview?.configureRoundCorners()
 

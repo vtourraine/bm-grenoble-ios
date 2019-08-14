@@ -27,6 +27,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         configure(loading: false)
 
         if let connectButton = connectButton {
+            connectButton.titleLabel?.adjustsFontForContentSizeCategory = true
             connectButton.configureRoundCorners()
             view.keyboardLayoutGuide.topAnchor.constraint(greaterThanOrEqualTo: connectButton.bottomAnchor, constant: 20).isActive = true
         }

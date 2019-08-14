@@ -14,8 +14,11 @@
 /* Class = "UILabel"; text = "À rendre pour le"; ObjectID = "PPV-XU-Xqf"; */
 "PPV-XU-Xqf.text" = "À rendre pour le";
 
-/* Class = "UITextField"; placeholder = "01..."; ObjectID = "PVm-hQ-O1V"; */
-"PVm-hQ-O1V.placeholder" = "01...";
+/* Class = "UITextField"; placeholder = "0100000000000"; ObjectID = "PVm-hQ-O1V"; */
+"PVm-hQ-O1V.placeholder" = "0100000000000";
+"PVm-hQ-O1V.accessibilityLabel" = "Numéro d’abonnée";
+
+"gjJ-B3-c0R.accessibilityLabel" = "Mot de passe";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "Puf-XW-Fhn"; */
 "Puf-XW-Fhn.text" = "Title";

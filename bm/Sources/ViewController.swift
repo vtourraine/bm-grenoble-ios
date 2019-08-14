@@ -30,6 +30,8 @@ class ViewController: UITableViewController, MFMailComposeViewControllerDelegate
         let infoButton = UIButton(type: .infoLight)
         infoButton.tintColor = .white
         infoButton.addTarget(self, action: #selector(openInfoPanel(sender:)), for: .touchUpInside)
+        let MinimumTargetSize: CGFloat = 44
+        infoButton.frame = CGRect(x: 0, y: 0, width: MinimumTargetSize, height: MinimumTargetSize)
         let infoBarButtonItem = UIBarButtonItem(customView: infoButton)
         navigationItem.rightBarButtonItem = infoBarButtonItem
 
