@@ -14,6 +14,26 @@ class NavigationController: UINavigationController {
     }
 }
 
+class UITextFieldPadding : UITextField {
+    let padding = UIEdgeInsets(top: 0, left: 22, bottom: 0, right: 22)
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
+    }
+
+    override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
+    }
+
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
+    }
+}
+
 extension UIViewController {
     func presentLoadingError(_ error: Error?) {
         let alertController = UIAlertController(title: NSLocalizedString("Connection Error", comment: ""), message: error?.localizedDescription, preferredStyle: .alert)
@@ -24,7 +44,7 @@ extension UIViewController {
 
 extension UIView {
     func configureRoundCorners() {
-        let CornerRadius: CGFloat = 8
+        let CornerRadius: CGFloat = 22
         layer.cornerRadius = CornerRadius
     }
 }

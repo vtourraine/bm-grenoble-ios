@@ -12,12 +12,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     // MARK - Outlets
 
+    @IBOutlet var subscriberNumberLabel: UILabel?
     @IBOutlet var subscriberNumberTextField: UITextField?
+    @IBOutlet var passwordLabel: UILabel?
     @IBOutlet var passwordTextField: UITextField?
     @IBOutlet var connectButton: UIButton?
     @IBOutlet var activityIndicatorView: UIActivityIndicatorView?
+    @IBOutlet var statusBarBackground: UIView?
 
     var loader: GhostLoader?
+    var currentTextFieldTopConstraint: NSLayoutConstraint?
 
     // MARK - View life cycle
 
@@ -26,10 +30,30 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         configure(loading: false)
 
+        subscriberNumberTextField?.configureRoundCorners()
+        passwordTextField?.configureRoundCorners()
+
         if let connectButton = connectButton {
             connectButton.titleLabel?.adjustsFontForContentSizeCategory = true
             connectButton.configureRoundCorners()
-            view.keyboardLayoutGuide.topAnchor.constraint(greaterThanOrEqualTo: connectButton.bottomAnchor, constant: 20).isActive = true
+
+            let connectButtonConstraint = view.keyboardLayoutGuide.topAnchor.constraint(greaterThanOrEqualTo: connectButton.bottomAnchor, constant: 20)
+            connectButtonConstraint.priority = .required - 1
+            connectButtonConstraint.isActive = true
+        }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        statusBarBackground?.frame = UIApplication.shared.statusBarFrame
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+
+        coordinator.animateAlongsideTransition(in: nil, animation: nil) { _ in
+            self.statusBarBackground?.frame = UIApplication.shared.statusBarFrame
         }
     }
 
@@ -55,6 +79,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTextField?.textColor = textFieldColor
         connectButton?.isEnabled = !loading
         connectButton?.alpha = loading ? 0.5 : 1.0
+    }
+
+    func label(for textField: UITextField) -> UILabel? {
+        if textField == subscriberNumberTextField {
+            return subscriberNumberLabel
+        }
+        else if textField == passwordTextField {
+            return passwordLabel
+        }
+        else {
+            return nil
+        }
     }
 
     // MARK: - Actions
@@ -95,6 +131,26 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     // MARK: - Text field delegate
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        guard let label = label(for: textField) else {
+            return
+        }
+
+        UIView.animate(withDuration: 0.3) {
+            self.currentTextFieldTopConstraint = label.topAnchor.constraint(greaterThanOrEqualTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 8)
+            self.currentTextFieldTopConstraint?.isActive = true
+            // self.view.layoutIfNeeded()
+        }
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.3) {
+            self.currentTextFieldTopConstraint?.isActive = false
+            self.currentTextFieldTopConstraint = nil
+            // self.view.layoutIfNeeded()
+        }
+    }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == subscriberNumberTextField {
