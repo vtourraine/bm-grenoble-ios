@@ -20,7 +20,7 @@ class bmTests: XCTestCase {
             return
         }
 
-        XCTAssertEqual(loans.pagination.numberOfPages, 0)
+        XCTAssertEqual(loans.pagination.numberOfPages, 1)
         XCTAssertEqual(loans.pagination.currentPage, 0)
 
         XCTAssertEqual(loans.items.count, 5)
@@ -65,7 +65,7 @@ class bmTests: XCTestCase {
             return
         }
 
-        XCTAssertEqual(loans.pagination.numberOfPages, 0)
+        XCTAssertEqual(loans.pagination.numberOfPages, 1)
         XCTAssertEqual(loans.pagination.currentPage, 0)
 
         XCTAssertEqual(loans.items.count, 8)
@@ -75,6 +75,21 @@ class bmTests: XCTestCase {
         XCTAssertEqual(loans.items[1].returnDateComponents.day, 17)
         XCTAssertEqual(loans.items[1].returnDateComponents.month, 9)
         XCTAssertEqual(loans.items[1].returnDateComponents.year, 2019)
+    }
+
+    func testParseLoans3() {
+        let path = Bundle(for: type(of: self)).path(forResource: "TestAccountLoans3-Page1", ofType: "html")
+        let html = try! String(contentsOfFile: path!)
+
+        guard let loans = PageParser.parseLoans(html: html) else {
+            XCTFail()
+            return
+        }
+
+        XCTAssertEqual(loans.pagination.numberOfPages, 2)
+        XCTAssertEqual(loans.pagination.currentPage, 0)
+
+        XCTAssertEqual(loans.items.count, 10)
     }
 
     func testTitleFormatter() {

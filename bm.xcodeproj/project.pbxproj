@@ -28,6 +28,8 @@
 		D7A8832A22FB756700C209DC /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A8832922FB756700C209DC /* CardViewController.swift */; };
 		D7A8833022FB78E200C209DC /* BarCodeEAN13.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A8832D22FB78E200C209DC /* BarCodeEAN13.m */; };
 		D7A8833122FB78E200C209DC /* BarCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A8832E22FB78E200C209DC /* BarCodeView.m */; };
+		D7FEEA4423158A7000B21933 /* TestAccountLoans3-Page2.html in Resources */ = {isa = PBXBuildFile; fileRef = D7FEEA4223158A7000B21933 /* TestAccountLoans3-Page2.html */; };
+		D7FEEA4523158A7000B21933 /* TestAccountLoans3-Page1.html in Resources */ = {isa = PBXBuildFile; fileRef = D7FEEA4323158A7000B21933 /* TestAccountLoans3-Page1.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		D7A8832E22FB78E200C209DC /* BarCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarCodeView.m; path = Dependencies/EAN13BarcodeGenerator/BarCodeView.m; sourceTree = "<group>"; };
 		D7A8832F22FB78E200C209DC /* BarCodeEAN13.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarCodeEAN13.h; path = Dependencies/EAN13BarcodeGenerator/BarCodeEAN13.h; sourceTree = "<group>"; };
 		D7A8833622FB798900C209DC /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		D7FEEA4223158A7000B21933 /* TestAccountLoans3-Page2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "TestAccountLoans3-Page2.html"; sourceTree = "<group>"; };
+		D7FEEA4323158A7000B21933 /* TestAccountLoans3-Page1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "TestAccountLoans3-Page1.html"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +158,8 @@
 				D786E6E522F194EC00AD1D36 /* Info.plist */,
 				D786E6EB22F1952A00AD1D36 /* TestAccountLoans1.html */,
 				D7A8832722FAC53700C209DC /* TestAccountLoans2.html */,
+				D7FEEA4323158A7000B21933 /* TestAccountLoans3-Page1.html */,
+				D7FEEA4223158A7000B21933 /* TestAccountLoans3-Page2.html */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -271,8 +277,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7FEEA4423158A7000B21933 /* TestAccountLoans3-Page2.html in Resources */,
 				D786E6EC22F1952A00AD1D36 /* TestAccountLoans1.html in Resources */,
 				D7A8832822FAC53700C209DC /* TestAccountLoans2.html in Resources */,
+				D7FEEA4523158A7000B21933 /* TestAccountLoans3-Page1.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

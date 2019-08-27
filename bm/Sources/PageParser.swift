@@ -15,8 +15,9 @@ class PageParser {
     }
 
     class func parseLoans(html: String) -> (items: [Item], pagination: Pagination)? {
-        guard let ul = html.parse(between: "<ul class=\"listItems\">", and: "</ul>") else {
-            return nil
+        guard let ul = html.parse(between: "<ul class=\"listItems\">", and: "</ul>"),
+            let pagination = parsePagination(html: html) else {
+                return nil
         }
         let lis = ul.parseOccurences(between: "<li", and: "</li>")
         let items: [Item] = lis.compactMap({ li in
@@ -39,7 +40,24 @@ class PageParser {
             return Item(title: title, author: author, library: library, returnDateComponents: returnDateComponents)
         })
 
-        return (items, Pagination(numberOfPages: 0, currentPage: 0))
+        return (items, pagination)
+    }
+
+    class func parsePagination(html: String) -> Pagination? {
+        guard let pageIndexString = html.parse(between: "var currentPage = ", and: ";"),
+            let pageIndex = Int(pageIndexString) else {
+                return nil
+        }
+
+        let numberOfPages: Int
+        if let pagesLinks = html.parse(between: "<span class=\"yt-uix-pager\"", and: "</span>") {
+            numberOfPages = (pagesLinks.components(separatedBy: "<a").count - 2)
+        }
+        else {
+            numberOfPages = 1
+        }
+
+        return Pagination(numberOfPages: numberOfPages, currentPage: (pageIndex - 1))
     }
 }
 
