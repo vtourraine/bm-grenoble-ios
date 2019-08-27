@@ -22,6 +22,7 @@ class bmTests: XCTestCase {
 
         XCTAssertEqual(loans.pagination.numberOfPages, 1)
         XCTAssertEqual(loans.pagination.currentPage, 0)
+        XCTAssertNil(loans.pagination.nextPage)
 
         XCTAssertEqual(loans.items.count, 5)
         XCTAssertEqual(loans.items[0].title, "Les dinosaures")
@@ -67,6 +68,7 @@ class bmTests: XCTestCase {
 
         XCTAssertEqual(loans.pagination.numberOfPages, 1)
         XCTAssertEqual(loans.pagination.currentPage, 0)
+        XCTAssertNil(loans.pagination.nextPage)
 
         XCTAssertEqual(loans.items.count, 8)
         XCTAssertEqual(loans.items[1].title, "Hilda et le chien noir")
@@ -88,6 +90,8 @@ class bmTests: XCTestCase {
 
         XCTAssertEqual(loans.pagination.numberOfPages, 2)
         XCTAssertEqual(loans.pagination.currentPage, 0)
+        XCTAssertNotNil(loans.pagination.nextPage)
+        XCTAssertEqual(loans.pagination.nextPage!, URL(string: "/in/faces/accountLoans.xhtml?pageNo=2"))
 
         XCTAssertEqual(loans.items.count, 10)
     }

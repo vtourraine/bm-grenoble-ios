@@ -8,7 +8,6 @@ The Grenoble Public Library doesn’t offer a public API to check your account s
 
 ## Roadmap
 
-- Multiple pages in results
 - Local notification for reminders
 - Store credentials in Keychain
 - About dedicated screen

@@ -12,6 +12,7 @@ class PageParser {
     struct Pagination {
         let numberOfPages: Int
         let currentPage: Int
+        let nextPage: URL?
     }
 
     class func parseLoans(html: String) -> (items: [Item], pagination: Pagination)? {
@@ -50,14 +51,23 @@ class PageParser {
         }
 
         let numberOfPages: Int
+        let nextPage: URL?
         if let pagesLinks = html.parse(between: "<span class=\"yt-uix-pager\"", and: "</span>") {
             numberOfPages = (pagesLinks.components(separatedBy: "<a").count - 2)
+
+            if let nextPageString = pagesLinks.parse(between: "\(numberOfPages)</a><a href=\"", and: "\" class=\"paginationNext\"") {
+                nextPage = URL(string: nextPageString)
+            }
+            else {
+                nextPage = nil
+            }
         }
         else {
             numberOfPages = 1
+            nextPage = nil
         }
 
-        return Pagination(numberOfPages: numberOfPages, currentPage: (pageIndex - 1))
+        return Pagination(numberOfPages: numberOfPages, currentPage: (pageIndex - 1), nextPage: nextPage)
     }
 }
 

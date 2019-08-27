@@ -14,6 +14,7 @@ class GhostLoader: NSObject, WKNavigationDelegate {
     let webView: GhostWebView
     let success: ([Item]) -> Void
     let failure: (Error?) -> Void
+    var items: [Item] = []
 
     init(credentials: Credentials, parentView: UIView, success: @escaping ([Item]) -> Void, failure: @escaping (Error?) -> Void) {
         self.credentials = credentials
@@ -59,21 +60,31 @@ class GhostLoader: NSObject, WKNavigationDelegate {
                 }
             }
         }
-        else if absoluteURLString == GhostWebView.AccountLoansURL {
+        else if absoluteURLString.hasPrefix(GhostWebView.AccountLoansURL) {
             self.webView.getHTML { (html) in
                 if let loans = PageParser.parseLoans(html: html) {
-                    self.success(loans.items)
+                    self.items.append(contentsOf: loans.items)
+
+                    if let nextPage = loans.pagination.nextPage,
+                        let nextPageFullURL = URL(string: GhostWebView.RootURL.appending(nextPage.absoluteString)) {
+                            let request = URLRequest(url: nextPageFullURL)
+                            webView.load(request)
+                    }
+                    else {
+                        self.success(self.items)
+                        self.cleanup()
+                    }
                 }
                 else {
                     self.failure(nil)
+                    self.cleanup()
                 }
-
-                self.cleanup()
             }
         }
         else {
             let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("Invalid subscriber number or password", comment: "")])
             failure(error)
+            cleanup()
         }
     }
 
@@ -92,6 +103,7 @@ class GhostLoader: NSObject, WKNavigationDelegate {
 }
 
 class GhostWebView: WKWebView {
+    static let RootURL = "http://catalogue.bm-grenoble.fr"
     static let AccountURL = "http://catalogue.bm-grenoble.fr/in/faces/account.xhtml"
     static let AccountLoansURL = "http://catalogue.bm-grenoble.fr/in/faces/accountLoans.xhtml"
 
