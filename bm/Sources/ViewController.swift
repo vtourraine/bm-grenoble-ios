@@ -42,6 +42,21 @@ class ViewController: UITableViewController, MFMailComposeViewControllerDelegate
         if let itemCache = ItemCache.load(from: .standard) {
             reloadData(loans: itemCache.items)
         }
+
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            var largeTitleTextAttributes = appearance.largeTitleTextAttributes
+            largeTitleTextAttributes[NSAttributedString.Key.font] = UIFont.boldSystemFont(ofSize: 34)
+            largeTitleTextAttributes[NSAttributedString.Key.foregroundColor] = UIColor.white
+            appearance.largeTitleTextAttributes = largeTitleTextAttributes
+            appearance.backgroundColor = UIColor(named: "BMRed")
+            navigationController?.navigationBar.tintColor = UIColor.white
+            navigationController?.navigationBar.scrollEdgeAppearance = appearance
+            navigationController?.navigationBar.standardAppearance = appearance
+        }
+
     }
 
     override func viewDidAppear(_ animated: Bool) {

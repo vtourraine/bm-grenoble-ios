@@ -28,6 +28,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if #available(iOS 13.0, *) {
+            isModalInPresentation = true
+        }
+
         configure(loading: false)
 
         subscriberNumberTextField?.configureRoundCorners()
@@ -65,11 +69,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let textFieldColor: UIColor?
 
         if loading {
-            textFieldColor = .lightGray
+            if #available(iOS 13.0, *) {
+                textFieldColor = .tertiaryLabel
+            }
+            else {
+                textFieldColor = .lightGray
+            }
+
             activityIndicatorView?.startAnimating()
         }
         else {
-            textFieldColor = nil
+            if #available(iOS 13.0, *) {
+                textFieldColor = .label
+            }
+            else {
+                textFieldColor = nil
+            }
+
             activityIndicatorView?.stopAnimating()
         }
 
