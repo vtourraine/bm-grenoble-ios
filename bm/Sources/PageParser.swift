@@ -38,7 +38,7 @@ class PageParser {
                 returnDateComponents.year = Int(returnDateRawComponents[2])
             }
 
-            return Item(title: title, author: author, library: library, returnDateComponents: returnDateComponents)
+            return Item(title: title.cleanHTMLEntities(), author: author, library: library, returnDateComponents: returnDateComponents)
         })
 
         return (items, pagination)
@@ -134,5 +134,9 @@ extension String {
         else {
             return nil
         }
+    }
+
+    func cleanHTMLEntities() -> String {
+        return replacingOccurrences(of: "&amp;", with: "&")
     }
 }
