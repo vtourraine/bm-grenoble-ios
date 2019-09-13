@@ -18,8 +18,13 @@ struct Item: Codable {
 extension Item {
     func formattedTitle() -> String {
         let DVDPrefix = " [DVD]"
+        let BDPrefix = " [BLU-RAY]"
+
         if title.hasSuffix(DVDPrefix) {
             return "📀 ".appending(title.replacingOccurrences(of: DVDPrefix, with: ""))
+        }
+        else if title.hasSuffix(BDPrefix) {
+            return "📀 ".appending(title.replacingOccurrences(of: BDPrefix, with: ""))
         }
         else {
             return "📖 ".appending(title)

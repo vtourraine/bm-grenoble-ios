@@ -102,6 +102,9 @@ class bmTests: XCTestCase {
 
         let itemDVD = Item(title: "Patlabor 2 [DVD]", author: "", library: "", returnDateComponents: DateComponents())
         XCTAssertEqual(itemDVD.formattedTitle(), "📀 Patlabor 2")
+
+        let itemBD = Item(title: "Alien 3 [BLU-RAY]", author: "", library: "", returnDateComponents: DateComponents())
+        XCTAssertEqual(itemBD.formattedTitle(), "📀 Alien 3")
     }
 
     func testAuthorFormatter() {
