@@ -96,6 +96,22 @@ class bmTests: XCTestCase {
         XCTAssertEqual(loans.items.count, 10)
     }
 
+    func testParseLoansEmpty() {
+        let path = Bundle(for: type(of: self)).path(forResource: "TestAccountLoansEmpty", ofType: "html")
+        let html = try! String(contentsOfFile: path!)
+
+        guard let loans = PageParser.parseLoans(html: html) else {
+            XCTFail()
+            return
+        }
+
+        XCTAssertEqual(loans.pagination.numberOfPages, 0)
+        XCTAssertEqual(loans.pagination.currentPage, 0)
+        XCTAssertNil(loans.pagination.nextPage)
+
+        XCTAssertEqual(loans.items.count, 0)
+    }
+
     func testTitleFormatter() {
         let itemBook = Item(title: "Sous le même ciel", author: "", library: "", returnDateComponents: DateComponents())
         XCTAssertEqual(itemBook.formattedTitle(), "📖 Sous le même ciel")

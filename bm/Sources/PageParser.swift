@@ -16,6 +16,11 @@ class PageParser {
     }
 
     class func parseLoans(html: String) -> (items: [Item], pagination: Pagination)? {
+        if html.contains("<div class=\"accountEmptyList\">") && html.contains("<ul class=\"listItems\">") == false {
+            let pagination = Pagination(numberOfPages: 0, currentPage: 0, nextPage: nil)
+            return ([], pagination)
+        }
+
         guard let ul = html.parse(between: "<ul class=\"listItems\">", and: "</ul>"),
             let pagination = parsePagination(html: html) else {
                 return nil
