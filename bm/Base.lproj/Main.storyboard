@@ -105,6 +105,7 @@
                     <connections>
                         <segue destination="PL0-mD-zDP" kind="presentation" identifier="Login" id="drR-e7-D8W"/>
                         <segue destination="x0T-HL-1kO" kind="presentation" identifier="Card" id="Y0l-S1-U8n"/>
+                        <segue destination="Jvg-U0-YiR" kind="presentation" identifier="About" id="d8H-sf-sM2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ASQ-Ho-tut" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -341,7 +342,6 @@ Grenoble</string>
                                     <color key="titleColor" name="BMRed"/>
                                 </state>
                                 <connections>
-                                    <action selector="connect:" destination="PL0-mD-zDP" eventType="touchUpInside" id="gau-aB-ic9"/>
                                     <action selector="dismiss:" destination="x0T-HL-1kO" eventType="touchUpInside" id="zwB-fC-tLW"/>
                                 </connections>
                             </button>
@@ -377,13 +377,129 @@ Grenoble</string>
             </objects>
             <point key="canvasLocation" x="2419" y="340"/>
         </scene>
+        <!--About View Controller-->
+        <scene sceneID="0wX-jn-avV">
+            <objects>
+                <viewController id="Jvg-U0-YiR" customClass="AboutViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4jh-FD-miU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="À propos de cette application" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84U-tD-cec">
+                                <rect key="frame" x="40" y="40" width="334" height="73"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cette application est développée par Vincent Tourraine, et n’est pas affiliée à la bibliothèque municipale de Grenoble." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kuz-Uy-z9F">
+                                <rect key="frame" x="40" y="133" width="334" height="64.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ajh-Ex-586">
+                                <rect key="frame" x="40" y="237.5" width="146" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="fIO-mS-NIG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                <state key="normal" title="Me contacter">
+                                    <color key="titleColor" name="BMRed"/>
+                                </state>
+                                <connections>
+                                    <action selector="contact:" destination="Jvg-U0-YiR" eventType="touchUpInside" id="SSh-yw-Ekb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUS-EH-qRF">
+                                <rect key="frame" x="40" y="301.5" width="239" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="OHX-ld-laX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                <state key="normal" title="Consulter le code source">
+                                    <color key="titleColor" name="BMRed"/>
+                                </state>
+                                <connections>
+                                    <action selector="openCodeRepository:" destination="Jvg-U0-YiR" eventType="touchUpInside" id="hMn-1h-UX7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeU-7O-JdP">
+                                <rect key="frame" x="40" y="385.5" width="166" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="xeR-YK-8gL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                <state key="normal" title="Se déconnecter">
+                                    <color key="titleColor" name="BMRed"/>
+                                </state>
+                                <connections>
+                                    <action selector="signOut:" destination="Jvg-U0-YiR" eventType="touchUpInside" id="4Gx-MR-H0E"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ut-G0-2hF">
+                                <rect key="frame" x="40" y="469.5" width="98" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="XTg-SP-GMo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                <state key="normal" title="Fermer">
+                                    <color key="titleColor" name="BMRed"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismiss:" destination="Jvg-U0-YiR" eventType="touchUpInside" id="Wju-qH-aVg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="BMRedBackground"/>
+                        <constraints>
+                            <constraint firstItem="VeU-7O-JdP" firstAttribute="leading" secondItem="GUS-EH-qRF" secondAttribute="leading" id="2f2-Jl-T3P"/>
+                            <constraint firstItem="Ajh-Ex-586" firstAttribute="leading" secondItem="Kuz-Uy-z9F" secondAttribute="leading" id="2wm-5S-sl6"/>
+                            <constraint firstItem="ubm-sl-1j2" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VeU-7O-JdP" secondAttribute="trailing" id="2zU-PE-nYx"/>
+                            <constraint firstItem="4Ut-G0-2hF" firstAttribute="leading" secondItem="VeU-7O-JdP" secondAttribute="leading" id="44C-qS-LYD"/>
+                            <constraint firstItem="4Ut-G0-2hF" firstAttribute="top" secondItem="VeU-7O-JdP" secondAttribute="bottom" constant="40" id="7zB-FJ-vDb"/>
+                            <constraint firstItem="VeU-7O-JdP" firstAttribute="top" secondItem="GUS-EH-qRF" secondAttribute="bottom" constant="40" id="BCm-c4-mwE"/>
+                            <constraint firstItem="Ajh-Ex-586" firstAttribute="top" secondItem="Kuz-Uy-z9F" secondAttribute="bottom" constant="40" id="Lo2-C5-DAu"/>
+                            <constraint firstItem="ubm-sl-1j2" firstAttribute="trailing" secondItem="84U-tD-cec" secondAttribute="trailing" constant="40" id="SNP-It-cKL"/>
+                            <constraint firstItem="ubm-sl-1j2" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4Ut-G0-2hF" secondAttribute="trailing" id="URx-tw-59v"/>
+                            <constraint firstItem="84U-tD-cec" firstAttribute="top" secondItem="ubm-sl-1j2" secondAttribute="top" priority="750" constant="40" id="UyS-rs-bq9"/>
+                            <constraint firstItem="ubm-sl-1j2" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="4Ut-G0-2hF" secondAttribute="bottom" constant="20" id="VdQ-Af-gbv"/>
+                            <constraint firstItem="ubm-sl-1j2" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ajh-Ex-586" secondAttribute="trailing" id="bxs-4s-1Fb"/>
+                            <constraint firstItem="Kuz-Uy-z9F" firstAttribute="top" secondItem="84U-tD-cec" secondAttribute="bottom" constant="20" id="ePw-Px-FwR"/>
+                            <constraint firstItem="Kuz-Uy-z9F" firstAttribute="leading" secondItem="ubm-sl-1j2" secondAttribute="leading" constant="40" id="ek0-hQ-WEy"/>
+                            <constraint firstItem="GUS-EH-qRF" firstAttribute="top" secondItem="Ajh-Ex-586" secondAttribute="bottom" constant="20" id="gdp-au-zUG"/>
+                            <constraint firstItem="ubm-sl-1j2" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GUS-EH-qRF" secondAttribute="trailing" id="jMO-Lc-29b"/>
+                            <constraint firstItem="GUS-EH-qRF" firstAttribute="leading" secondItem="Ajh-Ex-586" secondAttribute="leading" id="lGp-cs-OI5"/>
+                            <constraint firstItem="84U-tD-cec" firstAttribute="leading" secondItem="ubm-sl-1j2" secondAttribute="leading" constant="40" id="sCP-aG-r7r"/>
+                            <constraint firstItem="ubm-sl-1j2" firstAttribute="trailing" secondItem="Kuz-Uy-z9F" secondAttribute="trailing" constant="40" id="xUA-Yv-FzA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ubm-sl-1j2"/>
+                    </view>
+                    <connections>
+                        <outlet property="codeButton" destination="GUS-EH-qRF" id="29q-Jl-vGw"/>
+                        <outlet property="contactButton" destination="Ajh-Ex-586" id="aq6-fS-Xbr"/>
+                        <outlet property="dismissButton" destination="4Ut-G0-2hF" id="6Gq-Lf-qC4"/>
+                        <outlet property="signoutButton" destination="VeU-7O-JdP" id="whX-6c-vJX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PVw-mN-UiQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3200.0000000000005" y="411.83035714285711"/>
+        </scene>
     </scenes>
     <resources>
         <namedColor name="BMRed">
             <color red="0.90980392156862744" green="0.12156862745098039" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="BMRedBackground">
-            <color red="0.90980392156862744" green="0.12156862745098039" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.9100000262260437" green="0.12200000137090683" blue="0.27500000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <color key="tintColor" name="BMRed"/>

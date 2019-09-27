@@ -23,6 +23,7 @@
 		D786E6EC22F1952A00AD1D36 /* TestAccountLoans1.html in Resources */ = {isa = PBXBuildFile; fileRef = D786E6EB22F1952A00AD1D36 /* TestAccountLoans1.html */; };
 		D786E6EE22F1B0CB00AD1D36 /* GhostWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D786E6ED22F1B0CB00AD1D36 /* GhostWebView.swift */; };
 		D786E6F022F1B42C00AD1D36 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D786E6EF22F1B42C00AD1D36 /* ItemTableViewCell.swift */; };
+		D79ABC0E233DF079007ADE6E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79ABC0D233DF079007ADE6E /* AboutViewController.swift */; };
 		D7A8832422F5C4BA00C209DC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A8832322F5C4BA00C209DC /* LoginViewController.swift */; };
 		D7A8832622F8132B00C209DC /* Keyboard+LayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A8832522F8132B00C209DC /* Keyboard+LayoutGuide.swift */; };
 		D7A8832822FAC53700C209DC /* TestAccountLoans2.html in Resources */ = {isa = PBXBuildFile; fileRef = D7A8832722FAC53700C209DC /* TestAccountLoans2.html */; };
@@ -70,6 +71,7 @@
 		D786E6EB22F1952A00AD1D36 /* TestAccountLoans1.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = TestAccountLoans1.html; sourceTree = "<group>"; };
 		D786E6ED22F1B0CB00AD1D36 /* GhostWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GhostWebView.swift; path = Sources/GhostWebView.swift; sourceTree = "<group>"; };
 		D786E6EF22F1B42C00AD1D36 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemTableViewCell.swift; path = Sources/ItemTableViewCell.swift; sourceTree = "<group>"; };
+		D79ABC0D233DF079007ADE6E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AboutViewController.swift; path = Sources/AboutViewController.swift; sourceTree = "<group>"; };
 		D7A8832322F5C4BA00C209DC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Sources/LoginViewController.swift; sourceTree = "<group>"; };
 		D7A8832522F8132B00C209DC /* Keyboard+LayoutGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Keyboard+LayoutGuide.swift"; path = "Dependencies/KeyboardLayoutGuide/Keyboard+LayoutGuide.swift"; sourceTree = "<group>"; };
 		D7A8832722FAC53700C209DC /* TestAccountLoans2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TestAccountLoans2.html; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				D70212C822F0E43C00E3972E /* ViewController.swift */,
 				D7A8832322F5C4BA00C209DC /* LoginViewController.swift */,
 				D7A8832922FB756700C209DC /* CardViewController.swift */,
+				D79ABC0D233DF079007ADE6E /* AboutViewController.swift */,
 				D786E6EF22F1B42C00AD1D36 /* ItemTableViewCell.swift */,
 				D786E6ED22F1B0CB00AD1D36 /* GhostWebView.swift */,
 				D75DB3BB22FD6369008C7499 /* InterfaceHelpers.swift */,
@@ -298,6 +301,7 @@
 				D7A8832422F5C4BA00C209DC /* LoginViewController.swift in Sources */,
 				D7A8833122FB78E200C209DC /* BarCodeView.m in Sources */,
 				D786E6EE22F1B0CB00AD1D36 /* GhostWebView.swift in Sources */,
+				D79ABC0E233DF079007ADE6E /* AboutViewController.swift in Sources */,
 				D75DB3BC22FD6369008C7499 /* InterfaceHelpers.swift in Sources */,
 				D70212C922F0E43C00E3972E /* ViewController.swift in Sources */,
 				D762CB9722F433D3008722C2 /* Credentials.swift in Sources */,

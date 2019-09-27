@@ -10,7 +10,6 @@ The Grenoble Public Library doesn’t offer a public API to check your account s
 
 - Local notification for reminders
 - Store credentials in Keychain
-- About dedicated screen
 - Items cover image
 - Renew loans
 - Reservations

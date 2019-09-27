@@ -12,14 +12,8 @@
 "Cancel" = "Annuler";
 
 "Sign In" = "Se connecter";
-"Sign Out" = "Se déconnecter";
 "Show Subscriber Card" = "Afficher ma carte abonné";
 "Open Account in Safari" = "Ouvrir le compte abonné avec Safari";
-"About this Application" = "À propos de cette application";
-
-"This application is developed by Vincent Tourraine, and is not affiliated with the Grenoble Public Library." = "Cette application est développée par Vincent Tourraine, et n’est pas affiliée à la bibliothèque municipale de Grenoble.";
-"Contact" = "Me contacter";
-"Checkout Source Code" = "Consulter le code source";
 
 "Updating Account…" = "Mise à jour du compte…";
 "No Current Loans" = "Aucun prêt en cours";

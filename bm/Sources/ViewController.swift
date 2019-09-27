@@ -9,10 +9,8 @@
 import UIKit
 
 import WebKit
-import SafariServices
-import MessageUI
 
-class ViewController: UITableViewController, MFMailComposeViewControllerDelegate {
+class ViewController: UITableViewController {
 
     var loans: [Item] = []
     var loader: GhostLoader?
@@ -21,6 +19,7 @@ class ViewController: UITableViewController, MFMailComposeViewControllerDelegate
 
     let LoginSegueIdentifier = "Login"
     let CardSegueIdentifier = "Card"
+    let AboutSegueIdentifier = "About"
 
     // MARK: - View life cycle
 
@@ -29,7 +28,7 @@ class ViewController: UITableViewController, MFMailComposeViewControllerDelegate
 
         let infoButton = UIButton(type: .infoLight)
         infoButton.tintColor = .white
-        infoButton.addTarget(self, action: #selector(openInfoPanel(sender:)), for: .touchUpInside)
+        infoButton.addTarget(self, action: #selector(openAboutScreen(sender:)), for: .touchUpInside)
         let MinimumTargetSize: CGFloat = 44
         infoButton.frame = CGRect(x: 0, y: 0, width: MinimumTargetSize, height: MinimumTargetSize)
         let infoBarButtonItem = UIBarButtonItem(customView: infoButton)
@@ -112,50 +111,8 @@ class ViewController: UITableViewController, MFMailComposeViewControllerDelegate
 
     // MARK: - Actions
 
-    @objc func openAccountInWebBrowser(sender: Any?) {
-        let url = URL(string: GhostWebView.AccountURL)!
-        let viewController = SFSafariViewController(url: url)
-        present(viewController, animated: true, completion: nil)
-    }
-
-    @objc func openInfoPanel(sender: Any) {
-        let viewController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        if Credentials.load(from: .standard) == nil {
-            viewController.addAction(UIAlertAction(title: NSLocalizedString("Sign In", comment: ""), style: .default, handler: { _ in
-                self.presentLoginScreen(sender: nil)
-            }))
-        }
-        else {
-            viewController.addAction(UIAlertAction(title: NSLocalizedString("Sign Out", comment: ""), style: .destructive, handler: { _ in
-                self.signOut(sender: nil)
-            }))
-        }
-        viewController.addAction(UIAlertAction(title: NSLocalizedString("Show Subscriber Card", comment: ""), style: .default, handler: { _ in
-            self.performSegue(withIdentifier: self.CardSegueIdentifier, sender: nil)
-        }))
-    viewController.addAction(UIAlertAction(title: NSLocalizedString("Open Account in Safari", comment: ""), style: .default, handler: { _ in
-            self.openAccountInWebBrowser(sender: nil)
-        }))
-        viewController.addAction(UIAlertAction(title: NSLocalizedString("About this Application", comment: ""), style: .default, handler: { _ in
-            self.presentAboutScreen(sender: nil)
-        }))
-        viewController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
-        viewController.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
-        present(viewController, animated: true, completion: nil)
-    }
-
-    @objc func presentAboutScreen(sender: Any?) {
-        let viewController = UIAlertController(title: NSLocalizedString("About this Application", comment: ""), message: NSLocalizedString("This application is developed by Vincent Tourraine, and is not affiliated with the Grenoble Public Library.", comment: ""), preferredStyle: .alert)
-        if MFMailComposeViewController.canSendMail() {
-            viewController.addAction(UIAlertAction(title: NSLocalizedString("Contact", comment: ""), style: .default, handler: { _ in
-                self.contact(sender: nil)
-            }))
-        }
-        viewController.addAction(UIAlertAction(title: NSLocalizedString("Checkout Source Code", comment: ""), style: .default, handler: { _ in
-            self.openCodeRepository(sender: nil)
-        }))
-        viewController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: nil))
-        present(viewController, animated: true, completion: nil)
+    @objc func openAboutScreen(sender: Any) {
+        self.performSegue(withIdentifier: self.AboutSegueIdentifier, sender: nil)
     }
 
     @IBAction func refresh(sender: Any?) {
@@ -194,32 +151,8 @@ class ViewController: UITableViewController, MFMailComposeViewControllerDelegate
         }
     }
 
-    @objc func contact(sender: Any?) {
-        let emailAddress = "studioamanga@gmail.com"
-
-        let viewController = MFMailComposeViewController()
-        viewController.setToRecipients([emailAddress])
-        viewController.setSubject(NSLocalizedString("BM Grenoble", comment: ""))
-        viewController.mailComposeDelegate = self
-        present(viewController, animated: true, completion: nil)
-    }
-
-    @objc func openCodeRepository(sender: Any?) {
-        let url = URL(string: "https://github.com/vtourraine/bm-grenoble-ios")!
-        let viewController = SFSafariViewController(url: url)
-        present(viewController, animated: true, completion: nil)
-    }
-
     @objc func presentLoginScreen(sender: Any?) {
         performSegue(withIdentifier: LoginSegueIdentifier, sender: sender)
-    }
-
-    @objc func signOut(sender: Any?) {
-        Credentials.remove(from: .standard)
-        ItemCache.remove(from: .standard)
-
-        reloadData(loans: [])
-        presentLoginScreen(sender: nil)
     }
 
     // MARK: - Table view
@@ -233,11 +166,5 @@ class ViewController: UITableViewController, MFMailComposeViewControllerDelegate
         let item = loans[indexPath.row]
         cell.configure(item: item)
         return cell
-    }
-
-    // MARK: - MFMailComposeViewControllerDelegate
-
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
     }
 }

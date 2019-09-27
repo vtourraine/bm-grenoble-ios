@@ -49,3 +49,21 @@
 
 /* Class = "UILabel"; text = "Author"; ObjectID = "rYn-Ef-mhS"; */
 "rYn-Ef-mhS.text" = "Author";
+
+/* Class = "UILabel"; text = "À propos de cette application"; ObjectID = "84U-tD-cec"; */
+"84U-tD-cec.text" = "À propos de cette application";
+
+/* Class = "UILabel"; text = "Cette application est développée par Vincent Tourraine, et n’est pas affiliée à la bibliothèque municipale de Grenoble."; ObjectID = "Kuz-Uy-z9F"; */
+"Kuz-Uy-z9F.text" = "Cette application est développée par Vincent Tourraine, et n’est pas affiliée à la bibliothèque municipale de Grenoble.";
+
+/* Class = "UIButton"; normalTitle = "Me contacter"; ObjectID = "Ajh-Ex-586"; */
+"Ajh-Ex-586.normalTitle" = "Me contacter";
+
+/* Class = "UIButton"; normalTitle = "Consulter le code source"; ObjectID = "GUS-EH-qRF"; */
+"GUS-EH-qRF.normalTitle" = "Consulter le code source";
+
+/* Class = "UIButton"; normalTitle = "Se déconnecter"; ObjectID = "VeU-7O-JdP"; */
+"VeU-7O-JdP.normalTitle" = "Se déconnecter";
+
+/* Class = "UIButton"; normalTitle = "Fermer"; ObjectID = "4Ut-G0-2hF"; */
+"4Ut-G0-2hF.normalTitle" = "Fermer";
