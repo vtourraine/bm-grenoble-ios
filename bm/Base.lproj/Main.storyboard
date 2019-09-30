@@ -106,6 +106,7 @@
                         <segue destination="PL0-mD-zDP" kind="presentation" identifier="Login" id="drR-e7-D8W"/>
                         <segue destination="x0T-HL-1kO" kind="presentation" identifier="Card" id="Y0l-S1-U8n"/>
                         <segue destination="Jvg-U0-YiR" kind="presentation" identifier="About" id="d8H-sf-sM2"/>
+                        <segue destination="PWm-tb-Pfv" kind="presentation" identifier="Libraries" id="7X9-3i-fIE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ASQ-Ho-tut" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -261,6 +262,58 @@ Grenoble</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GfL-b1-Dw8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2418.840579710145" y="-397.09821428571428"/>
+        </scene>
+        <!--Libraries-->
+        <scene sceneID="lZu-pI-VM2">
+            <objects>
+                <tableViewController id="pQ7-r7-uYO" customClass="LibrariesViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="AZO-UJ-XH7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="786"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Gkh-ij-mPH" detailTextLabel="198-Hc-nx6" style="IBUITableViewCellStyleSubtitle" id="ajY-fx-KSN">
+                                <rect key="frame" x="0.0" y="28" width="414" height="58.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ajY-fx-KSN" id="cbC-kw-VYW">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="58.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gkh-ij-mPH">
+                                            <rect key="frame" x="20" y="8" width="35.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="198-Hc-nx6">
+                                            <rect key="frame" x="20" y="31.5" width="47" height="16"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="pQ7-r7-uYO" id="Kaf-uL-HHg"/>
+                            <outlet property="delegate" destination="pQ7-r7-uYO" id="rzf-Me-O0a"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Libraries" id="zQj-xO-4eY">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="XVe-gI-ZNO">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="dismiss:" destination="pQ7-r7-uYO" id="aAZ-7x-xv0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Lb-Es-f8n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4782.608695652174" y="-373.66071428571428"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="J3L-Is-9td">
@@ -492,6 +545,31 @@ Grenoble</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PVw-mN-UiQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3200.0000000000005" y="411.83035714285711"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Lge-OY-176">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PWm-tb-Pfv" customClass="NavigationController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="0IM-VL-DLa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="BMRed"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pQ7-r7-uYO" kind="relationship" relationship="rootViewController" id="h48-IH-msl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gxk-B7-wi3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3890" y="-374"/>
         </scene>
     </scenes>
     <resources>

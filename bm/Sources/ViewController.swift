@@ -20,11 +20,19 @@ class ViewController: UITableViewController {
     let LoginSegueIdentifier = "Login"
     let CardSegueIdentifier = "Card"
     let AboutSegueIdentifier = "About"
+    let LibrariesSegueIdentifier = "Libraries"
 
     // MARK: - View life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if let lib = Libraries.loadCityLibraries() {
+            print("Libs: \(lib.lastUpdate)")
+            for li in lib.libraries {
+                print("- \(li.name)")
+            }
+        }
 
         let infoButton = UIButton(type: .infoLight)
         infoButton.tintColor = .white
@@ -32,7 +40,16 @@ class ViewController: UITableViewController {
         let MinimumTargetSize: CGFloat = 44
         infoButton.frame = CGRect(x: 0, y: 0, width: MinimumTargetSize, height: MinimumTargetSize)
         let infoBarButtonItem = UIBarButtonItem(customView: infoButton)
-        navigationItem.rightBarButtonItem = infoBarButtonItem
+
+        let librariesBarButtonItem: UIBarButtonItem
+        if #available(iOS 13.0, *) {
+            librariesBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "map"), style: .plain, target: self, action: #selector(presentLibrariesScreen(sender:)))
+        }
+        else {
+            librariesBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Libraries", comment: ""), style: .plain, target: self, action: #selector(presentLibrariesScreen(sender:)))
+        }
+
+        navigationItem.rightBarButtonItems = [infoBarButtonItem, librariesBarButtonItem]
 
         refreshControl?.tintColor = .white
 
@@ -42,20 +59,7 @@ class ViewController: UITableViewController {
             reloadData(loans: itemCache.items)
         }
 
-        if #available(iOS 13.0, *) {
-            let appearance = UINavigationBarAppearance()
-            appearance.configureWithOpaqueBackground()
-            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-            var largeTitleTextAttributes = appearance.largeTitleTextAttributes
-            largeTitleTextAttributes[NSAttributedString.Key.font] = UIFont.boldSystemFont(ofSize: 34)
-            largeTitleTextAttributes[NSAttributedString.Key.foregroundColor] = UIColor.white
-            appearance.largeTitleTextAttributes = largeTitleTextAttributes
-            appearance.backgroundColor = UIColor(named: "BMRed")
-            navigationController?.navigationBar.tintColor = UIColor.white
-            navigationController?.navigationBar.scrollEdgeAppearance = appearance
-            navigationController?.navigationBar.standardAppearance = appearance
-        }
-
+        navigationController?.configureCustomAppearance()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -155,6 +159,10 @@ class ViewController: UITableViewController {
         performSegue(withIdentifier: LoginSegueIdentifier, sender: sender)
     }
 
+    @objc func presentLibrariesScreen(sender: Any?) {
+        performSegue(withIdentifier: LibrariesSegueIdentifier, sender: sender)
+    }
+
     // MARK: - Table view
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -166,5 +174,23 @@ class ViewController: UITableViewController {
         let item = loans[indexPath.row]
         cell.configure(item: item)
         return cell
+    }
+}
+
+extension UINavigationController {
+    func configureCustomAppearance() {
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            var largeTitleTextAttributes = appearance.largeTitleTextAttributes
+            largeTitleTextAttributes[NSAttributedString.Key.font] = UIFont.boldSystemFont(ofSize: 34)
+            largeTitleTextAttributes[NSAttributedString.Key.foregroundColor] = UIColor.white
+            appearance.largeTitleTextAttributes = largeTitleTextAttributes
+            appearance.backgroundColor = UIColor(named: "BMRed")
+            navigationBar.tintColor = UIColor.white
+            navigationBar.scrollEdgeAppearance = appearance
+            navigationBar.standardAppearance = appearance
+        }
     }
 }
