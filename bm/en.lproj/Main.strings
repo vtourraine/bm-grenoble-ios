@@ -53,8 +53,8 @@
 /* Class = "UILabel"; text = "À propos de cette application"; ObjectID = "84U-tD-cec"; */
 "84U-tD-cec.text" = "About this Application";
 
-/* Class = "UILabel"; text = "Cette application est développée par Vincent Tourraine, et n’est pas affiliée à la bibliothèque municipale de Grenoble."; ObjectID = "Kuz-Uy-z9F"; */
-"Kuz-Uy-z9F.text" = "This application is developed by Vincent Tourraine, and is not affiliated with the Grenoble Public Library.";
+/* Class = "UILabel"; text = "Cette application n’est pas affiliée à la bibliothèque municipale de Grenoble."; ObjectID = "Kuz-Uy-z9F"; */
+"Kuz-Uy-z9F.text" = "This application is not affiliated with the Grenoble Public Library.";
 
 /* Class = "UIButton"; normalTitle = "Me contacter"; ObjectID = "Ajh-Ex-586"; */
 "Ajh-Ex-586.normalTitle" = "Contact";
