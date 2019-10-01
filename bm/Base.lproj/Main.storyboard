@@ -34,7 +34,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Author" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYn-Ef-mhS">
                                             <rect key="frame" x="20" y="38.5" width="46.5" height="18"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                            <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="À rendre pour le" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPV-XU-Xqf">
@@ -107,6 +107,7 @@
                         <segue destination="x0T-HL-1kO" kind="presentation" identifier="Card" id="Y0l-S1-U8n"/>
                         <segue destination="Jvg-U0-YiR" kind="presentation" identifier="About" id="d8H-sf-sM2"/>
                         <segue destination="PWm-tb-Pfv" kind="presentation" identifier="Libraries" id="7X9-3i-fIE"/>
+                        <segue destination="soS-MW-X3t" kind="presentation" identifier="Search" id="Ddw-i3-YF9"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ASQ-Ho-tut" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -313,7 +314,7 @@ Grenoble</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Lb-Es-f8n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4782.608695652174" y="-373.66071428571428"/>
+            <point key="canvasLocation" x="4332" y="-879"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="J3L-Is-9td">
@@ -568,7 +569,87 @@ Grenoble</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gxk-B7-wi3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3890" y="-374"/>
+            <point key="canvasLocation" x="3439" y="-880"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="fzW-hw-3FI">
+            <objects>
+                <viewController id="soS-MW-X3t" customClass="SearchViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="E0S-4G-7GY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Recherche" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ea8-2F-l1Z">
+                                <rect key="frame" x="40" y="40" width="302" height="36"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QsP-Rc-Dt1">
+                                <rect key="frame" x="40" y="212" width="133" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="cIV-lW-tyi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                <state key="normal" title="Rechercher">
+                                    <color key="titleColor" name="BMRed"/>
+                                </state>
+                                <connections>
+                                    <action selector="search:" destination="soS-MW-X3t" eventType="touchUpInside" id="ePq-tp-cIV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgw-wi-uei">
+                                <rect key="frame" x="350" y="20" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="vQf-qd-vyd"/>
+                                    <constraint firstAttribute="width" constant="44" id="wxH-TU-4lw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="✕">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismiss:" destination="soS-MW-X3t" eventType="touchUpInside" id="vK9-au-Voc"/>
+                                </connections>
+                            </button>
+                            <searchBar contentMode="redraw" searchBarStyle="prominent" translatesAutoresizingMaskIntoConstraints="NO" id="Reo-Q7-eVd">
+                                <rect key="frame" x="40" y="116" width="334" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="yn0-2r-Gad"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="soS-MW-X3t" id="GcL-eb-bZn"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" name="BMRedBackground"/>
+                        <constraints>
+                            <constraint firstItem="ZMV-jO-85Z" firstAttribute="trailing" secondItem="Reo-Q7-eVd" secondAttribute="trailing" constant="40" id="1DS-SF-s2G"/>
+                            <constraint firstItem="ZMV-jO-85Z" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QsP-Rc-Dt1" secondAttribute="trailing" id="1ze-HM-JP6"/>
+                            <constraint firstItem="ZMV-jO-85Z" firstAttribute="trailing" secondItem="Pgw-wi-uei" secondAttribute="trailing" constant="20" id="54N-3l-Qxf"/>
+                            <constraint firstItem="Pgw-wi-uei" firstAttribute="leading" secondItem="Ea8-2F-l1Z" secondAttribute="trailing" constant="8" id="Fgn-Bc-Fo7"/>
+                            <constraint firstItem="Reo-Q7-eVd" firstAttribute="top" secondItem="Ea8-2F-l1Z" secondAttribute="bottom" constant="40" id="IXc-Ol-G04"/>
+                            <constraint firstItem="Ea8-2F-l1Z" firstAttribute="top" secondItem="ZMV-jO-85Z" secondAttribute="top" priority="750" constant="40" id="QHk-2t-J3Y"/>
+                            <constraint firstItem="Pgw-wi-uei" firstAttribute="top" secondItem="ZMV-jO-85Z" secondAttribute="top" constant="20" id="REE-xk-QKL"/>
+                            <constraint firstItem="Reo-Q7-eVd" firstAttribute="leading" secondItem="ZMV-jO-85Z" secondAttribute="leading" constant="40" id="Rm2-mK-sq7"/>
+                            <constraint firstItem="Ea8-2F-l1Z" firstAttribute="leading" secondItem="ZMV-jO-85Z" secondAttribute="leading" constant="40" id="ShO-hP-jPn"/>
+                            <constraint firstItem="QsP-Rc-Dt1" firstAttribute="leading" secondItem="Reo-Q7-eVd" secondAttribute="leading" id="cO5-2w-r6x"/>
+                            <constraint firstItem="QsP-Rc-Dt1" firstAttribute="top" secondItem="Reo-Q7-eVd" secondAttribute="bottom" constant="40" id="kPL-V6-W3X"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ZMV-jO-85Z"/>
+                    </view>
+                    <connections>
+                        <outlet property="closeButton" destination="Pgw-wi-uei" id="qLJ-xP-izY"/>
+                        <outlet property="searchBar" destination="Reo-Q7-eVd" id="agu-Dx-6s7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XPd-lW-Hak" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4066.666666666667" y="-74.330357142857139"/>
         </scene>
     </scenes>
     <resources>

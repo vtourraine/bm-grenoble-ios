@@ -19,6 +19,7 @@
 		D75DB3B322FBFD84008C7499 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D75DB3B122FBFD84008C7499 /* Localizable.strings */; };
 		D75DB3BC22FD6369008C7499 /* InterfaceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75DB3BB22FD6369008C7499 /* InterfaceHelpers.swift */; };
 		D762CB9722F433D3008722C2 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = D762CB9622F433D3008722C2 /* Credentials.swift */; };
+		D77F7EC0234371CA007B49A3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F7EBF234371CA007B49A3 /* SearchViewController.swift */; };
 		D78618AC22F30A4400CB3403 /* ItemCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78618AB22F30A4400CB3403 /* ItemCache.swift */; };
 		D786E6DA22F1911A00AD1D36 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D786E6D922F1911A00AD1D36 /* Item.swift */; };
 		D786E6DC22F191CE00AD1D36 /* PageParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D786E6DB22F191CE00AD1D36 /* PageParser.swift */; };
@@ -68,6 +69,7 @@
 		D762CB9622F433D3008722C2 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Credentials.swift; path = Sources/Credentials.swift; sourceTree = "<group>"; };
 		D7757F5122F2390E006E6AAC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D7757F5322F241FE006E6AAC /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		D77F7EBF234371CA007B49A3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = Sources/SearchViewController.swift; sourceTree = "<group>"; };
 		D78618AB22F30A4400CB3403 /* ItemCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemCache.swift; path = Sources/ItemCache.swift; sourceTree = "<group>"; };
 		D786E6D922F1911A00AD1D36 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Item.swift; path = Sources/Item.swift; sourceTree = "<group>"; };
 		D786E6DB22F191CE00AD1D36 /* PageParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PageParser.swift; path = Sources/PageParser.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				D70A2B67234247F300AC9405 /* Libraries.plist */,
 				D70A2B6A2342489A00AC9405 /* Library.swift */,
 				D70A2B6C23424BC400AC9405 /* LibrariesViewController.swift */,
+				D77F7EBF234371CA007B49A3 /* SearchViewController.swift */,
 				D70212CA22F0E43C00E3972E /* Main.storyboard */,
 				D70212CD22F0E43E00E3972E /* Assets.xcassets */,
 				D70212CF22F0E43E00E3972E /* LaunchScreen.storyboard */,
@@ -320,6 +323,7 @@
 				D70212C722F0E43C00E3972E /* AppDelegate.swift in Sources */,
 				D786E6F022F1B42C00AD1D36 /* ItemTableViewCell.swift in Sources */,
 				D7A8832622F8132B00C209DC /* Keyboard+LayoutGuide.swift in Sources */,
+				D77F7EC0234371CA007B49A3 /* SearchViewController.swift in Sources */,
 				D7A8832A22FB756700C209DC /* CardViewController.swift in Sources */,
 				D7A8833022FB78E200C209DC /* BarCodeEAN13.m in Sources */,
 				D70A2B6B2342489A00AC9405 /* Library.swift in Sources */,

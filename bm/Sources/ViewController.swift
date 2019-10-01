@@ -21,6 +21,7 @@ class ViewController: UITableViewController {
     let CardSegueIdentifier = "Card"
     let AboutSegueIdentifier = "About"
     let LibrariesSegueIdentifier = "Libraries"
+    let SearchSegueIdentifier = "Search"
 
     // MARK: - View life cycle
 
@@ -35,14 +36,17 @@ class ViewController: UITableViewController {
         let infoBarButtonItem = UIBarButtonItem(customView: infoButton)
 
         let librariesBarButtonItem: UIBarButtonItem
+        let searchBarButtonItem: UIBarButtonItem
         if #available(iOS 13.0, *) {
-            librariesBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "map"), style: .plain, target: self, action: #selector(presentLibrariesScreen(sender:)))
+            librariesBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "map"), style: .plain, target: self, action: #selector(presentSearchScreen(sender:)))
+            searchBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(presentSearchScreen(sender:)))
         }
         else {
             librariesBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Libraries", comment: ""), style: .plain, target: self, action: #selector(presentLibrariesScreen(sender:)))
+            searchBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Search", comment: ""), style: .plain, target: self, action: #selector(presentLibrariesScreen(sender:)))
         }
 
-        navigationItem.rightBarButtonItems = [infoBarButtonItem, librariesBarButtonItem]
+        navigationItem.rightBarButtonItems = [infoBarButtonItem, librariesBarButtonItem, searchBarButtonItem]
 
         refreshControl?.tintColor = .white
 
@@ -154,6 +158,10 @@ class ViewController: UITableViewController {
 
     @objc func presentLibrariesScreen(sender: Any?) {
         performSegue(withIdentifier: LibrariesSegueIdentifier, sender: sender)
+    }
+
+    @objc func presentSearchScreen(sender: Any?) {
+        performSegue(withIdentifier: SearchSegueIdentifier, sender: sender)
     }
 
     // MARK: - Table view
