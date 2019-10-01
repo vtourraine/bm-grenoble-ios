@@ -12,10 +12,10 @@ import SafariServices
 
 class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
+    @IBOutlet var closeButton: UIButton?
     @IBOutlet var contactButton: UIButton?
     @IBOutlet var codeButton: UIButton?
     @IBOutlet var signoutButton: UIButton?
-    @IBOutlet var dismissButton: UIButton?
 
     // MARK: - View life cycle
 
@@ -31,8 +31,7 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
         signoutButton?.titleLabel?.adjustsFontForContentSizeCategory = true
         signoutButton?.configureRoundCorners()
 
-        dismissButton?.titleLabel?.adjustsFontForContentSizeCategory = true
-        dismissButton?.configureRoundCorners()
+        closeButton?.configureCloseButton()
     }
 
     // MARK: - Actions

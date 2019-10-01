@@ -48,3 +48,17 @@ extension UIView {
         layer.cornerRadius = CornerRadius
     }
 }
+
+extension UIButton {
+    func configureCloseButton() {
+        backgroundColor = UIColor.white
+        tintColor = UIColor(named: "BMRed")
+        setTitleColor(UIColor(named: "BMRed"), for: .normal)
+        layer.cornerRadius = 22
+
+        if #available(iOS 13.0, *) {
+            setTitle(nil, for: .normal)
+            setImage(UIImage(systemName: "xmark"), for: .normal)
+        }
+    }
+}

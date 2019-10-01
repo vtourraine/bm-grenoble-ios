@@ -27,13 +27,6 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let lib = Libraries.loadCityLibraries() {
-            print("Libs: \(lib.lastUpdate)")
-            for li in lib.libraries {
-                print("- \(li.name)")
-            }
-        }
-
         let infoButton = UIButton(type: .infoLight)
         infoButton.tintColor = .white
         infoButton.addTarget(self, action: #selector(openAboutScreen(sender:)), for: .touchUpInside)
