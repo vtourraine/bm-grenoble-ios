@@ -645,6 +645,7 @@ Grenoble</string>
                     <connections>
                         <outlet property="closeButton" destination="Pgw-wi-uei" id="qLJ-xP-izY"/>
                         <outlet property="searchBar" destination="Reo-Q7-eVd" id="agu-Dx-6s7"/>
+                        <outlet property="searchButton" destination="QsP-Rc-Dt1" id="xVV-hx-gWS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XPd-lW-Hak" userLabel="First Responder" sceneMemberID="firstResponder"/>

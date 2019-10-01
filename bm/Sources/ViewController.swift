@@ -38,12 +38,12 @@ class ViewController: UITableViewController {
         let librariesBarButtonItem: UIBarButtonItem
         let searchBarButtonItem: UIBarButtonItem
         if #available(iOS 13.0, *) {
-            librariesBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "map"), style: .plain, target: self, action: #selector(presentSearchScreen(sender:)))
+            librariesBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "map"), style: .plain, target: self, action: #selector(presentLibrariesScreen(sender:)))
             searchBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(presentSearchScreen(sender:)))
         }
         else {
             librariesBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Libraries", comment: ""), style: .plain, target: self, action: #selector(presentLibrariesScreen(sender:)))
-            searchBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Search", comment: ""), style: .plain, target: self, action: #selector(presentLibrariesScreen(sender:)))
+            searchBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Search", comment: ""), style: .plain, target: self, action: #selector(presentSearchScreen(sender:)))
         }
 
         navigationItem.rightBarButtonItems = [infoBarButtonItem, librariesBarButtonItem, searchBarButtonItem]

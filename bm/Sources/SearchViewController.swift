@@ -12,6 +12,7 @@ import SafariServices
 class SearchViewController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet var closeButton: UIButton?
+    @IBOutlet var searchButton: UIButton?
     @IBOutlet var searchBar: UISearchBar?
 
     override func viewDidLoad() {
@@ -21,6 +22,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         searchBar?.backgroundColor = UIColor.clear
         searchBar?.backgroundImage = UIImage()
         searchBar?.isTranslucent = true
+
+        searchButton?.titleLabel?.adjustsFontForContentSizeCategory = true
+        searchButton?.configureRoundCorners()
 
         closeButton?.configureCloseButton()
     }
