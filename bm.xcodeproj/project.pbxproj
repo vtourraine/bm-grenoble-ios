@@ -34,6 +34,7 @@
 		D7A8832A22FB756700C209DC /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A8832922FB756700C209DC /* CardViewController.swift */; };
 		D7A8833022FB78E200C209DC /* BarCodeEAN13.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A8832D22FB78E200C209DC /* BarCodeEAN13.m */; };
 		D7A8833122FB78E200C209DC /* BarCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A8832E22FB78E200C209DC /* BarCodeView.m */; };
+		D7C1D20D234F6CC800FC9B96 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7C1D20B234F6CC800FC9B96 /* InfoPlist.strings */; };
 		D7FEEA4423158A7000B21933 /* TestAccountLoans3-Page2.html in Resources */ = {isa = PBXBuildFile; fileRef = D7FEEA4223158A7000B21933 /* TestAccountLoans3-Page2.html */; };
 		D7FEEA4523158A7000B21933 /* TestAccountLoans3-Page1.html in Resources */ = {isa = PBXBuildFile; fileRef = D7FEEA4323158A7000B21933 /* TestAccountLoans3-Page1.html */; };
 /* End PBXBuildFile section */
@@ -89,6 +90,8 @@
 		D7A8832E22FB78E200C209DC /* BarCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarCodeView.m; path = Dependencies/EAN13BarcodeGenerator/BarCodeView.m; sourceTree = "<group>"; };
 		D7A8832F22FB78E200C209DC /* BarCodeEAN13.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarCodeEAN13.h; path = Dependencies/EAN13BarcodeGenerator/BarCodeEAN13.h; sourceTree = "<group>"; };
 		D7A8833622FB798900C209DC /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		D7C1D20C234F6CC800FC9B96 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D7C1D20E234F6CDA00FC9B96 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D7FEEA4223158A7000B21933 /* TestAccountLoans3-Page2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "TestAccountLoans3-Page2.html"; sourceTree = "<group>"; };
 		D7FEEA4323158A7000B21933 /* TestAccountLoans3-Page1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "TestAccountLoans3-Page1.html"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,6 +159,7 @@
 				D70212D222F0E43E00E3972E /* Info.plist */,
 				D7A8833622FB798900C209DC /* BridgingHeader.h */,
 				D75DB3B122FBFD84008C7499 /* Localizable.strings */,
+				D7C1D20B234F6CC800FC9B96 /* InfoPlist.strings */,
 			);
 			path = bm;
 			sourceTree = "<group>";
@@ -285,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D70212D122F0E43E00E3972E /* LaunchScreen.storyboard in Resources */,
+				D7C1D20D234F6CC800FC9B96 /* InfoPlist.strings in Resources */,
 				D75DB3B322FBFD84008C7499 /* Localizable.strings in Resources */,
 				D70A2B69234247F300AC9405 /* Libraries.plist in Resources */,
 				D70212CE22F0E43E00E3972E /* Assets.xcassets in Resources */,
@@ -386,6 +391,15 @@
 				D75DB3B522FBFDC4008C7499 /* fr */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		D7C1D20B234F6CC800FC9B96 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D7C1D20C234F6CC800FC9B96 /* en */,
+				D7C1D20E234F6CDA00FC9B96 /* fr */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -514,7 +528,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 77S3V3W24J;
 				INFOPLIST_FILE = bm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -534,7 +548,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 77S3V3W24J;
 				INFOPLIST_FILE = bm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
