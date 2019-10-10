@@ -1,10 +1,10 @@
 # BM Grenoble
 
-iOS application for the Grenoble Public Library ([Bibliothèques municipales de Grenoble](https://www.bm-grenoble.fr)), displaying a list of your current loans. 
+iOS application for the Grenoble Municipal Library ([Bibliothèque municipale de Grenoble](https://www.bm-grenoble.fr)), displaying a list of your current loans. 
 
 ## How it works
 
-The Grenoble Public Library doesn’t offer a public API to check your account status and loans. This app uses a hidden web view instead, programmatically signing in with the user credentials, then extracting the relevant data by parsing the HTML pages.
+The Grenoble Municipal Library doesn’t offer a public API to check your account status and loans. This app uses a hidden web view instead, programmatically signing in with the user credentials, then extracting the relevant data by parsing the HTML pages.
 
 ## Roadmap
 
@@ -26,7 +26,7 @@ Contributions are welcome. Please fork this repo, commit your changes, then subm
 
 ## Credits
 
-This is an independent project by [Vincent Tourraine](https://www.vtourraine.net), not affiliated with the Grenoble Public Library.  
+This is an independent project by [Vincent Tourraine](https://www.vtourraine.net), not affiliated with the Grenoble Municipal Library.  
 
 ## License
 

@@ -9,7 +9,7 @@
 "KIK-gR-jF7.title" = "Current Loans";
 
 /* Class = "UILabel"; text = "En cas d’oubli de mot de passe, merci de vous rendre dans la bibliothèque municipale de Grenoble de votre choix."; ObjectID = "LXp-gq-osV"; */
-"LXp-gq-osV.text" = "If you’ve forgotten your password, please go to a Grenoble Public Library";
+"LXp-gq-osV.text" = "If you’ve forgotten your password, please go to a Grenoble Municipal Library";
 
 /* Class = "UILabel"; text = "À rendre pour le"; ObjectID = "PPV-XU-Xqf"; */
 "PPV-XU-Xqf.text" = "To return before";
@@ -33,10 +33,10 @@
 "Yzx-f5-5jG.text" = "Subscriber Number";
 
 /* Class = "UILabel"; text = "Bibliothèque municipale de Grenoble"; ObjectID = "XSi-YR-LDc"; */
-"XSi-YR-LDc.text" = "Grenoble\nPublic\nLibrary";
+"XSi-YR-LDc.text" = "Grenoble\nMunicipal\nLibrary";
 
 /* Class = "UILabel"; text = "Bibliothèque municipale de Grenoble"; ObjectID = "m9w-yg-gIP"; */
-"m9w-yg-gIP.text" = "Grenoble\nPublic\nLibrary";
+"m9w-yg-gIP.text" = "Grenoble\nMunicipal\nLibrary";
 
 /* Class = "UIButton"; normalTitle = "Fermer"; ObjectID = "kQi-uG-iqN"; */
 "kQi-uG-iqN.normalTitle" = "Dismiss";
@@ -54,7 +54,7 @@
 "84U-tD-cec.text" = "About this Application";
 
 /* Class = "UILabel"; text = "Cette application n’est pas affiliée à la bibliothèque municipale de Grenoble."; ObjectID = "Kuz-Uy-z9F"; */
-"Kuz-Uy-z9F.text" = "This application is not affiliated with the Grenoble Public Library.";
+"Kuz-Uy-z9F.text" = "This application is not affiliated with the Grenoble Municipal Library.";
 
 /* Class = "UIButton"; normalTitle = "Me contacter"; ObjectID = "Ajh-Ex-586"; */
 "Ajh-Ex-586.normalTitle" = "Contact";
