@@ -520,7 +520,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.studioamanga.bm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.studioamanga.bmg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = bm/BridgingHeader.h;
 				SWIFT_VERSION = 5.0;
@@ -539,7 +539,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.studioamanga.bm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.studioamanga.bmg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = bm/BridgingHeader.h;
 				SWIFT_VERSION = 5.0;
