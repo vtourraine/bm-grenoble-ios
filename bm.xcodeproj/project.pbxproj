@@ -90,6 +90,7 @@
 		D7A8832E22FB78E200C209DC /* BarCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarCodeView.m; path = Dependencies/EAN13BarcodeGenerator/BarCodeView.m; sourceTree = "<group>"; };
 		D7A8832F22FB78E200C209DC /* BarCodeEAN13.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarCodeEAN13.h; path = Dependencies/EAN13BarcodeGenerator/BarCodeEAN13.h; sourceTree = "<group>"; };
 		D7A8833622FB798900C209DC /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		D7BF84B9235061CF00241FAC /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		D7C1D20C234F6CC800FC9B96 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D7C1D20E234F6CDA00FC9B96 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D7FEEA4223158A7000B21933 /* TestAccountLoans3-Page2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "TestAccountLoans3-Page2.html"; sourceTree = "<group>"; };
@@ -118,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				D7757F5122F2390E006E6AAC /* README.md */,
+				D7BF84B9235061CF00241FAC /* CHANGELOG.md */,
 				D70212C522F0E43C00E3972E /* bm */,
 				D7A8833222FB78E900C209DC /* Dependencies */,
 				D786E6E222F194EC00AD1D36 /* Tests */,

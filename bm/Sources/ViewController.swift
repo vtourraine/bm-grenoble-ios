@@ -46,8 +46,8 @@ class ViewController: UITableViewController {
             searchBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Search", comment: ""), style: .plain, target: self, action: #selector(presentSearchScreen(sender:)))
         }
 
-        // navigationItem.rightBarButtonItems = [infoBarButtonItem, librariesBarButtonItem, searchBarButtonItem]
-        navigationItem.rightBarButtonItem = infoBarButtonItem
+        navigationItem.rightBarButtonItems = [infoBarButtonItem, librariesBarButtonItem, searchBarButtonItem]
+        // navigationItem.rightBarButtonItem = infoBarButtonItem
 
         refreshControl?.tintColor = .white
 

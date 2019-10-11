@@ -1,10 +1,14 @@
 # BM Grenoble
 
-iOS application for the Grenoble Municipal Library ([Bibliothèque municipale de Grenoble](https://www.bm-grenoble.fr)), displaying a list of your current loans. 
+iOS application for the Grenoble Municipal Library ([bibliothèque municipale de Grenoble](https://www.bm-grenoble.fr)), [available on the App Store](https://apps.apple.com/app/grenoble-municipal-library/id1483022528?l=en).
 
 ## How it works
 
 The Grenoble Municipal Library doesn’t offer a public API to check your account status and loans. This app uses a hidden web view instead, programmatically signing in with the user credentials, then extracting the relevant data by parsing the HTML pages.
+
+## Features
+
+- List current loans
 
 ## Roadmap
 
@@ -13,8 +17,15 @@ The Grenoble Municipal Library doesn’t offer a public API to check your accoun
 - Items cover image
 - Renew loans
 - Reservations
-- Libraries list with map
 - Multiple accounts support
+
+## Experimental features
+
+These features are being implemented, and might be available in beta version, but not on the App Store.
+
+- Subscriber card: in-app barcodes are difficult to scan in libraries
+- Search books
+- Libraries list with info and map
 
 ## Bug report
 
