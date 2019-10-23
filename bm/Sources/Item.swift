@@ -19,15 +19,20 @@ extension Item {
     func formattedTitle() -> String {
         let DVDPrefix = " [DVD]"
         let BDPrefix = " [BLU-RAY]"
+        let gamePrefix = " [JEU]"
+        let formattedTitle = title.replacingOccurrences(of: ": =", with: "–")
 
-        if title.hasSuffix(DVDPrefix) {
-            return "📀 ".appending(title.replacingOccurrences(of: DVDPrefix, with: ""))
+        if formattedTitle.contains(DVDPrefix) {
+            return "📀 ".appending(formattedTitle.replacingOccurrences(of: DVDPrefix, with: ""))
         }
-        else if title.hasSuffix(BDPrefix) {
-            return "📀 ".appending(title.replacingOccurrences(of: BDPrefix, with: ""))
+        else if formattedTitle.hasSuffix(BDPrefix) {
+            return "📀 ".appending(formattedTitle.replacingOccurrences(of: BDPrefix, with: ""))
+        }
+        else if formattedTitle.hasSuffix(gamePrefix) {
+            return "🎲 ".appending(formattedTitle.replacingOccurrences(of: gamePrefix, with: ""))
         }
         else {
-            return "📖 ".appending(title)
+            return "📖 ".appending(formattedTitle)
         }
     }
 
