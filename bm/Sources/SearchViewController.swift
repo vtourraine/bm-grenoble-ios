@@ -19,7 +19,19 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         super.viewDidLoad()
 
         searchBar?.configureRoundCorners()
-        searchBar?.backgroundColor = UIColor.clear
+        if let searchBar = searchBar {
+            searchBar.layer.cornerRadius = (searchBar.frame.size.height / 2)
+        }
+
+        if #available(iOS 13.0, *) {
+            searchBar?.searchTextField.backgroundColor = .systemBackground
+            searchBar?.backgroundColor = .systemBackground
+        }
+        else {
+            searchBar?.searchTextField.backgroundColor = .white
+            searchBar?.backgroundColor = .white
+        }
+
         searchBar?.backgroundImage = UIImage()
         searchBar?.isTranslucent = true
 
@@ -29,15 +41,24 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         closeButton?.configureCloseButton()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        searchBar?.becomeFirstResponder()
+    }
+
     // MARK: - Actions
 
     @IBAction func search(_ sender: Any?) {
-        guard let searchBar = searchBar, let query = searchBar.text else {
-            return
+        guard let searchBar = searchBar,
+            let query = searchBar.text,
+            let formattedQuery = query.replacingOccurrences(of: " ", with: "+").addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+                return
         }
 
         searchBar.resignFirstResponder()
-        let urlString = "http://catalogue.bm-grenoble.fr/in/faces/browse.xhtml?query=\(query)"
+
+        let urlString = "http://catalogue.bm-grenoble.fr/in/faces/browse.xhtml?query=\(formattedQuery)"
 
         if let url = URL(string: urlString) {
             let viewController = SFSafariViewController(url: url)
