@@ -26,8 +26,19 @@ extension Libraries {
     }
 }
 
+import CoreLocation
+
 struct Library: Codable {
     let name: String
     let openingTime: String
     let webpage: String
+
+    let latitude: Double
+    let longitude: Double
+}
+
+extension Library {
+    func location() -> CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
 }

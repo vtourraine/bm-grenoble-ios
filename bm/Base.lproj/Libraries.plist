@@ -25,6 +25,10 @@ Vacances scolaires : noël, février, pâques
 du mardi au samedi: 13h-18h 
 
 Fermeture le samedi de Pâques.</string>
+			<key>latitude</key>
+			<real>45.1853203</real>
+			<key>longitude</key>
+			<real>5.7287008</real>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -44,6 +48,10 @@ du mardi au vendredi : 14h - 18h
 samedi : 10h - 13h 
 
 Fermeture le samedi de Pâques. </string>
+			<key>latitude</key>
+			<real>45.1953034</real>
+			<key>longitude</key>
+			<real>5.7094782</real>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -58,6 +66,10 @@ Mardi : 9h-18h
 Mercredi : 9h - 18h 
 Jeudi : 9h - 18h 
 Vendredi : 9h - 18h</string>
+			<key>latitude</key>
+			<real>45.1568143</real>
+			<key>longitude</key>
+			<real>5.7315339</real>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -71,6 +83,10 @@ Mercredi : 10h-12h30 / 14h-18h
 Jeudi : accueil de groupes 
 Vendredi : 15h-18h30 
 Samedi : 10h-12h30 et 14h-18h</string>
+			<key>latitude</key>
+			<real>45.1793591</real>
+			<key>longitude</key>
+			<real>5.739845</real>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -83,6 +99,10 @@ Mardi : 14h-19h
 Mercredi : 10h-13h / 14h-18h 
 Jeudi /vendredi : accueil de groupes 
 Samedi : 10h-13h / 14h-17h</string>
+			<key>latitude</key>
+			<real>45.1734104</real>
+			<key>longitude</key>
+			<real>5.7223533</real>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -99,6 +119,10 @@ Samedi : 10h - 13h
 Ouverture de l’espace presse aux horaires du Patio 
 
 Fermeture le samedi de Pâques.</string>
+			<key>latitude</key>
+			<real>45.1638968</real>
+			<key>longitude</key>
+			<real>5.7306433</real>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -117,6 +141,10 @@ Vacances scolaires 2019-2020
 Du mardi au samedi 13h-18h 
 
 Fermeture le samedi de Pâques.</string>
+			<key>latitude</key>
+			<real>45.1902824</real>
+			<key>longitude</key>
+			<real>5.7271073</real>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -133,6 +161,10 @@ Samedi : 10h -12h30 et 14h -18h
 
 
 Fermeture le samedi de Pâques.</string>
+			<key>latitude</key>
+			<real>45.1755353</real>
+			<key>longitude</key>
+			<real>5.7069385</real>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -151,6 +183,10 @@ Vacances scolaires :
 même horaire avec mardi et vendredi : 15h- 18h 
 
 Fermeture le samedi de Pâques</string>
+			<key>latitude</key>
+			<real>45.1923802</real>
+			<key>longitude</key>
+			<real>5.7250573</real>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -166,6 +202,10 @@ Vendredi : 12h à 18h30
 Samedi : 12h à 18h30 
 
 Fermée le samedi de Pâques.</string>
+			<key>latitude</key>
+			<real>45.1571898</real>
+			<key>longitude</key>
+			<real>5.7312802</real>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -181,6 +221,10 @@ Vendredi : 15h – 18h30
 Samedi : 10h–12h30 / 14h -18h 
 
 Fermeture le samedi de Pâques.</string>
+			<key>latitude</key>
+			<real>45.1877737</real>
+			<key>longitude</key>
+			<real>5.7110839</real>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -196,6 +240,10 @@ Vendredi: 15h -18h30
 Samedi: 10h -12h30 et 14h -18h 
 
 Fermeture le samedi de Pâques</string>
+			<key>latitude</key>
+			<real>45.1707841</real>
+			<key>longitude</key>
+			<real>5.7384971</real>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -205,6 +253,10 @@ Fermeture le samedi de Pâques</string>
 			<key>openingTime</key>
 			<string>L’artothèque située à la bibliothèque d&apos;étude et du patrimoine est fermée pour travaux jusqu&apos;au début 2020. 
 Les prêts d’œuvres d&apos;art continuent dans certaines bibliothèques du réseau.</string>
+			<key>latitude</key>
+			<real>45.1853203</real>
+			<key>longitude</key>
+			<real>5.7287008</real>
 		</dict>
 	</array>
 </dict>

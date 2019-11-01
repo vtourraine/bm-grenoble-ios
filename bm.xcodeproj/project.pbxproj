@@ -18,6 +18,7 @@
 		D72BBA91233B8DC500F5A1CB /* TestAccountLoansEmpty.html in Resources */ = {isa = PBXBuildFile; fileRef = D72BBA90233B8DC500F5A1CB /* TestAccountLoansEmpty.html */; };
 		D75DB3B322FBFD84008C7499 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D75DB3B122FBFD84008C7499 /* Localizable.strings */; };
 		D75DB3BC22FD6369008C7499 /* InterfaceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75DB3BB22FD6369008C7499 /* InterfaceHelpers.swift */; };
+		D7614BAD2363A6B3000D7C99 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7614BAC2363A6B3000D7C99 /* LibraryViewController.swift */; };
 		D762CB9722F433D3008722C2 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = D762CB9622F433D3008722C2 /* Credentials.swift */; };
 		D77F7EC0234371CA007B49A3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F7EBF234371CA007B49A3 /* SearchViewController.swift */; };
 		D78618AC22F30A4400CB3403 /* ItemCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78618AB22F30A4400CB3403 /* ItemCache.swift */; };
@@ -67,6 +68,7 @@
 		D75DB3B722FBFFF4008C7499 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		D75DB3B922FC0001008C7499 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		D75DB3BB22FD6369008C7499 /* InterfaceHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InterfaceHelpers.swift; path = Sources/InterfaceHelpers.swift; sourceTree = "<group>"; };
+		D7614BAC2363A6B3000D7C99 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LibraryViewController.swift; path = Sources/LibraryViewController.swift; sourceTree = "<group>"; };
 		D762CB9622F433D3008722C2 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Credentials.swift; path = Sources/Credentials.swift; sourceTree = "<group>"; };
 		D7757F5122F2390E006E6AAC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D7757F5322F241FE006E6AAC /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				D70A2B67234247F300AC9405 /* Libraries.plist */,
 				D70A2B6A2342489A00AC9405 /* Library.swift */,
 				D70A2B6C23424BC400AC9405 /* LibrariesViewController.swift */,
+				D7614BAC2363A6B3000D7C99 /* LibraryViewController.swift */,
 				D77F7EBF234371CA007B49A3 /* SearchViewController.swift */,
 				D70212CA22F0E43C00E3972E /* Main.storyboard */,
 				D70212CD22F0E43E00E3972E /* Assets.xcassets */,
@@ -320,6 +323,7 @@
 			files = (
 				D7A8832422F5C4BA00C209DC /* LoginViewController.swift in Sources */,
 				D7A8833122FB78E200C209DC /* BarCodeView.m in Sources */,
+				D7614BAD2363A6B3000D7C99 /* LibraryViewController.swift in Sources */,
 				D786E6EE22F1B0CB00AD1D36 /* GhostWebView.swift in Sources */,
 				D79ABC0E233DF079007ADE6E /* AboutViewController.swift in Sources */,
 				D70A2B6D23424BC400AC9405 /* LibrariesViewController.swift in Sources */,

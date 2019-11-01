@@ -264,7 +264,7 @@ Grenoble</string>
             </objects>
             <point key="canvasLocation" x="2418.840579710145" y="-397.09821428571428"/>
         </scene>
-        <!--Libraries-->
+        <!--Bibliothèques-->
         <scene sceneID="lZu-pI-VM2">
             <objects>
                 <tableViewController id="pQ7-r7-uYO" customClass="LibrariesViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
@@ -296,6 +296,9 @@ Grenoble</string>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="jda-3I-IlC" kind="show" id="SlT-E5-LnE"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -303,7 +306,7 @@ Grenoble</string>
                             <outlet property="delegate" destination="pQ7-r7-uYO" id="rzf-Me-O0a"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Libraries" id="zQj-xO-4eY">
+                    <navigationItem key="navigationItem" title="Bibliothèques" id="zQj-xO-4eY">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="XVe-gI-ZNO">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -316,13 +319,55 @@ Grenoble</string>
             </objects>
             <point key="canvasLocation" x="4332" y="-879"/>
         </scene>
+        <!--Library View Controller-->
+        <scene sceneID="WGm-I9-olu">
+            <objects>
+                <viewController id="jda-3I-IlC" customClass="LibraryViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WNT-80-mFt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725.5"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="l7r-IP-lc9">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="RM4-q6-YHE"/>
+                                </constraints>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horaires" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NlP-Jq-fMW">
+                                <rect key="frame" x="20" y="270" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="l7r-IP-lc9" firstAttribute="top" secondItem="ghT-EI-b6h" secondAttribute="top" id="7ng-dE-ssS"/>
+                            <constraint firstAttribute="trailing" secondItem="l7r-IP-lc9" secondAttribute="trailing" id="XR1-KB-NRA"/>
+                            <constraint firstItem="NlP-Jq-fMW" firstAttribute="top" secondItem="l7r-IP-lc9" secondAttribute="bottom" constant="20" id="YvS-gm-D2d"/>
+                            <constraint firstItem="ghT-EI-b6h" firstAttribute="trailing" secondItem="NlP-Jq-fMW" secondAttribute="trailing" constant="20" id="ZpL-jt-eip"/>
+                            <constraint firstItem="l7r-IP-lc9" firstAttribute="leading" secondItem="WNT-80-mFt" secondAttribute="leading" id="hjs-r6-v4U"/>
+                            <constraint firstItem="NlP-Jq-fMW" firstAttribute="leading" secondItem="ghT-EI-b6h" secondAttribute="leading" constant="20" id="owT-Bq-Q7R"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ghT-EI-b6h"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="t8V-jG-15t"/>
+                    <connections>
+                        <outlet property="mapView" destination="l7r-IP-lc9" id="P3P-ma-gha"/>
+                        <outlet property="openingTimeLabel" destination="NlP-Jq-fMW" id="OO7-ls-lmK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O67-Gk-Mp4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5198.5507246376819" y="-880.58035714285711"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="J3L-Is-9td">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V5W-LW-gGC" customClass="NavigationController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="81E-91-uNE">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
                         <textAttributes key="titleTextAttributes">
