@@ -28,7 +28,7 @@ class LibraryViewController: UIViewController {
         title = library.name
         openingTimeLabel?.text = library.openingTime
 
-        let regionRadius: CLLocationDistance = 1000
+        let regionRadius: CLLocationDistance = 500
         let coordinateRegion = MKCoordinateRegion(center: library.location(), latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         mapView?.setRegion(coordinateRegion, animated: true)
         let annotation = MKPointAnnotation()
