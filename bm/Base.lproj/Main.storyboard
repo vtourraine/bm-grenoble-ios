@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="V5W-LW-gGC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F3H-UV-44c">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -106,13 +106,11 @@
                         <segue destination="PL0-mD-zDP" kind="presentation" identifier="Login" id="drR-e7-D8W"/>
                         <segue destination="x0T-HL-1kO" kind="presentation" identifier="Card" id="Y0l-S1-U8n"/>
                         <segue destination="Jvg-U0-YiR" kind="presentation" identifier="About" id="d8H-sf-sM2"/>
-                        <segue destination="PWm-tb-Pfv" kind="presentation" identifier="Libraries" id="7X9-3i-fIE"/>
-                        <segue destination="soS-MW-X3t" kind="presentation" identifier="Search" id="Ddw-i3-YF9"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ASQ-Ho-tut" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1398.5507246376812" y="186.83035714285714"/>
+            <point key="canvasLocation" x="2308.695652173913" y="186.83035714285714"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="R6p-P7-EwG">
@@ -262,47 +260,40 @@ Grenoble</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GfL-b1-Dw8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2418.840579710145" y="-397.09821428571428"/>
+            <point key="canvasLocation" x="3448" y="-746"/>
         </scene>
         <!--Bibliothèques-->
         <scene sceneID="ljR-kq-S8s">
             <objects>
                 <viewController id="waW-up-oNj" customClass="LibrariesViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nqw-UU-Jhb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="725.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="747.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="d8G-TR-K3c">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="hUL-AY-ekh"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="447.5"/>
                                 <connections>
                                     <outlet property="delegate" destination="waW-up-oNj" id="ePg-Wg-NDr"/>
                                 </connections>
                             </mapView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2cB-5K-pqq">
-                                <rect key="frame" x="0.0" y="300" width="414" height="425.5"/>
+                                <rect key="frame" x="0.0" y="447.5" width="414" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="smO-SC-BnX"/>
+                                </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Gkh-ij-mPH" detailTextLabel="198-Hc-nx6" style="IBUITableViewCellStyleSubtitle" id="ajY-fx-KSN">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="58.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="Gkh-ij-mPH" style="IBUITableViewCellStyleDefault" id="ajY-fx-KSN">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ajY-fx-KSN" id="cbC-kw-VYW">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="58.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gkh-ij-mPH">
-                                                    <rect key="frame" x="20" y="8" width="35.5" height="20.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Gkh-ij-mPH">
+                                                    <rect key="frame" x="20" y="0.0" width="355" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="198-Hc-nx6">
-                                                    <rect key="frame" x="20" y="31.5" width="47" height="16"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -323,7 +314,7 @@ Grenoble</string>
                         <constraints>
                             <constraint firstItem="2cB-5K-pqq" firstAttribute="leading" secondItem="Nqw-UU-Jhb" secondAttribute="leading" id="33N-zK-zbr"/>
                             <constraint firstItem="d8G-TR-K3c" firstAttribute="leading" secondItem="Nqw-UU-Jhb" secondAttribute="leading" id="5Hu-Gz-kLc"/>
-                            <constraint firstItem="Gpt-bO-5QK" firstAttribute="bottom" secondItem="2cB-5K-pqq" secondAttribute="bottom" id="KcD-xv-vzK"/>
+                            <constraint firstAttribute="bottom" secondItem="2cB-5K-pqq" secondAttribute="bottom" id="EBZ-Ne-rJH"/>
                             <constraint firstAttribute="trailing" secondItem="2cB-5K-pqq" secondAttribute="trailing" id="OLT-a4-tk4"/>
                             <constraint firstItem="2cB-5K-pqq" firstAttribute="top" secondItem="d8G-TR-K3c" secondAttribute="bottom" id="ffN-gw-9pZ"/>
                             <constraint firstItem="d8G-TR-K3c" firstAttribute="top" secondItem="Gpt-bO-5QK" secondAttribute="top" id="hzp-WT-3Jm"/>
@@ -331,29 +322,23 @@ Grenoble</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Gpt-bO-5QK"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Bibliothèques" id="8EO-ei-fs0">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="XVe-gI-ZNO">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="dismiss:" destination="waW-up-oNj" id="yBz-QV-8ab"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Bibliothèques" id="8EO-ei-fs0"/>
                     <connections>
                         <outlet property="mapView" destination="d8G-TR-K3c" id="VSM-3O-NeE"/>
                         <outlet property="tableView" destination="2cB-5K-pqq" id="grr-tw-TuW"/>
+                        <segue destination="jda-3I-IlC" kind="show" identifier="Show" id="u8M-tx-SLd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="37H-Hd-Rhi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4314" y="-881"/>
+            <point key="canvasLocation" x="2952" y="995"/>
         </scene>
         <!--Library View Controller-->
         <scene sceneID="WGm-I9-olu">
             <objects>
                 <viewController id="jda-3I-IlC" customClass="LibraryViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WNT-80-mFt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="725.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="747.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="l7r-IP-lc9">
@@ -388,15 +373,16 @@ Grenoble</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O67-Gk-Mp4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5198.5507246376819" y="-880.58035714285711"/>
+            <point key="canvasLocation" x="3838" y="996"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Prêts en cours-->
         <scene sceneID="J3L-Is-9td">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V5W-LW-gGC" customClass="NavigationController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Prêts en cours" image="book.fill" catalog="system" id="kMU-d9-2Gk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="81E-91-uNE">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
                         <textAttributes key="titleTextAttributes">
@@ -413,7 +399,7 @@ Grenoble</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FOc-HP-WbP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="489.85507246376818" y="186.83035714285714"/>
+            <point key="canvasLocation" x="1400" y="186.83035714285714"/>
         </scene>
         <!--Card View Controller-->
         <scene sceneID="hF1-1I-7rJ">
@@ -503,7 +489,7 @@ Grenoble</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hhD-Lk-xv5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2419" y="340"/>
+            <point key="canvasLocation" x="3448" y="-9"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="0wX-jn-avV">
@@ -618,15 +604,16 @@ Grenoble</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PVw-mN-UiQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3200.0000000000005" y="411.83035714285711"/>
+            <point key="canvasLocation" x="4229" y="63"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Bibliothèques-->
         <scene sceneID="Lge-OY-176">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PWm-tb-Pfv" customClass="NavigationController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Bibliothèques" image="map.fill" catalog="system" id="PDh-Mg-nUs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="0IM-VL-DLa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
                         <textAttributes key="titleTextAttributes">
@@ -643,24 +630,24 @@ Grenoble</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gxk-B7-wi3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3439" y="-880"/>
+            <point key="canvasLocation" x="2077" y="996"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="fzW-hw-3FI">
             <objects>
                 <viewController id="soS-MW-X3t" customClass="SearchViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E0S-4G-7GY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Recherche" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ea8-2F-l1Z">
-                                <rect key="frame" x="40" y="40" width="302" height="41"/>
+                                <rect key="frame" x="40" y="84" width="156.5" height="41"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QsP-Rc-Dt1">
-                                <rect key="frame" x="40" y="217" width="133" height="44"/>
+                                <rect key="frame" x="40" y="456.5" width="133" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="cIV-lW-tyi"/>
@@ -674,23 +661,8 @@ Grenoble</string>
                                     <action selector="search:" destination="soS-MW-X3t" eventType="touchUpInside" id="ePq-tp-cIV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgw-wi-uei">
-                                <rect key="frame" x="350" y="20" width="44" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="vQf-qd-vyd"/>
-                                    <constraint firstAttribute="width" constant="44" id="wxH-TU-4lw"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="✕">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="dismiss:" destination="soS-MW-X3t" eventType="touchUpInside" id="vK9-au-Voc"/>
-                                </connections>
-                            </button>
                             <searchBar contentMode="redraw" searchBarStyle="prominent" translatesAutoresizingMaskIntoConstraints="NO" id="Reo-Q7-eVd">
-                                <rect key="frame" x="40" y="121" width="334" height="56"/>
+                                <rect key="frame" x="40" y="360.5" width="334" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="yn0-2r-Gad"/>
                                 </constraints>
@@ -704,30 +676,49 @@ Grenoble</string>
                         <constraints>
                             <constraint firstItem="ZMV-jO-85Z" firstAttribute="trailing" secondItem="Reo-Q7-eVd" secondAttribute="trailing" constant="40" id="1DS-SF-s2G"/>
                             <constraint firstItem="ZMV-jO-85Z" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QsP-Rc-Dt1" secondAttribute="trailing" id="1ze-HM-JP6"/>
-                            <constraint firstItem="ZMV-jO-85Z" firstAttribute="trailing" secondItem="Pgw-wi-uei" secondAttribute="trailing" constant="20" id="54N-3l-Qxf"/>
-                            <constraint firstItem="Pgw-wi-uei" firstAttribute="leading" secondItem="Ea8-2F-l1Z" secondAttribute="trailing" constant="8" id="Fgn-Bc-Fo7"/>
-                            <constraint firstItem="Reo-Q7-eVd" firstAttribute="top" secondItem="Ea8-2F-l1Z" secondAttribute="bottom" constant="40" id="IXc-Ol-G04"/>
+                            <constraint firstItem="Reo-Q7-eVd" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Ea8-2F-l1Z" secondAttribute="bottom" symbolic="YES" id="IXc-Ol-G04"/>
                             <constraint firstItem="Ea8-2F-l1Z" firstAttribute="top" secondItem="ZMV-jO-85Z" secondAttribute="top" priority="750" constant="40" id="QHk-2t-J3Y"/>
-                            <constraint firstItem="Pgw-wi-uei" firstAttribute="top" secondItem="ZMV-jO-85Z" secondAttribute="top" constant="20" id="REE-xk-QKL"/>
                             <constraint firstItem="Reo-Q7-eVd" firstAttribute="leading" secondItem="ZMV-jO-85Z" secondAttribute="leading" constant="40" id="Rm2-mK-sq7"/>
                             <constraint firstItem="Ea8-2F-l1Z" firstAttribute="leading" secondItem="ZMV-jO-85Z" secondAttribute="leading" constant="40" id="ShO-hP-jPn"/>
                             <constraint firstItem="QsP-Rc-Dt1" firstAttribute="leading" secondItem="Reo-Q7-eVd" secondAttribute="leading" id="cO5-2w-r6x"/>
                             <constraint firstItem="QsP-Rc-Dt1" firstAttribute="top" secondItem="Reo-Q7-eVd" secondAttribute="bottom" constant="40" id="kPL-V6-W3X"/>
+                            <constraint firstItem="Reo-Q7-eVd" firstAttribute="centerY" secondItem="ZMV-jO-85Z" secondAttribute="centerY" constant="-40" id="wus-Lc-nd3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZMV-jO-85Z"/>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="Kq6-uL-4cb"/>
                     <connections>
-                        <outlet property="closeButton" destination="Pgw-wi-uei" id="qLJ-xP-izY"/>
                         <outlet property="searchBar" destination="Reo-Q7-eVd" id="agu-Dx-6s7"/>
                         <outlet property="searchButton" destination="QsP-Rc-Dt1" id="xVV-hx-gWS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XPd-lW-Hak" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4066.666666666667" y="-74.330357142857139"/>
+            <point key="canvasLocation" x="2141" y="1846"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="GCA-fj-s79">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="F3H-UV-44c" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XkI-cH-yLi">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="V5W-LW-gGC" kind="relationship" relationship="viewControllers" id="xhM-sY-6nw"/>
+                        <segue destination="PWm-tb-Pfv" kind="relationship" relationship="viewControllers" id="UU6-ut-c3G"/>
+                        <segue destination="soS-MW-X3t" kind="relationship" relationship="viewControllers" id="Sgo-FC-NBu"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a4a-j1-yFa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="489.85507246376818" y="186.83035714285714"/>
         </scene>
     </scenes>
     <resources>
+        <image name="book.fill" catalog="system" width="64" height="50"/>
+        <image name="map.fill" catalog="system" width="64" height="56"/>
         <namedColor name="BMRed">
             <color red="0.90980392156862744" green="0.12156862745098039" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -735,5 +726,8 @@ Grenoble</string>
             <color red="0.9100000262260437" green="0.12200000137090683" blue="0.27500000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="u8M-tx-SLd"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" name="BMRed"/>
 </document>

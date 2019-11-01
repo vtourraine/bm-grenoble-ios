@@ -44,19 +44,27 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        searchBar?.becomeFirstResponder()
+        // searchBar?.becomeFirstResponder()
+    }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 
     // MARK: - Actions
 
     @IBAction func search(_ sender: Any?) {
-        guard let searchBar = searchBar,
-            let query = searchBar.text,
-            let formattedQuery = query.replacingOccurrences(of: " ", with: "+").addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
-                return
+        guard let searchBar = searchBar else {
+            return
         }
 
         searchBar.resignFirstResponder()
+
+        guard let query = searchBar.text?.trimmingCharacters(in: .whitespaces),
+            query.isEmpty == false,
+            let formattedQuery = query.replacingOccurrences(of: " ", with: "+").addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+                return
+        }
 
         let urlString = "http://catalogue.bm-grenoble.fr/in/faces/browse.xhtml?query=\(formattedQuery)"
 

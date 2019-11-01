@@ -13,6 +13,8 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
 
     let libraries = Libraries.loadCityLibraries()
 
+    let ShowSegueIdentifier = "Show"
+
     @IBOutlet var tableView: UITableView?
     @IBOutlet var mapView: MKMapView?
 
@@ -38,20 +40,16 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
 
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "Id")
-        view.displayPriority = .required
-        return view
-    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        guard let annotation = view.annotation,
-            let libraries = libraries,
-            let index = libraries.libraries.firstIndex(where: { $0.name == annotation.title }) else {
-                return
+        if let selectedIndexPath = tableView?.indexPathForSelectedRow {
+            tableView?.deselectRow(at: selectedIndexPath, animated: animated)
         }
 
-        tableView?.scrollToRow(at: IndexPath(row: index, section: 0), at: .top, animated: true)
+        if let selectedAnnotation = mapView?.selectedAnnotations.first {
+            mapView?.deselectAnnotation(selectedAnnotation, animated: animated)
+        }
     }
 
     // MARK: - Actions
@@ -76,15 +74,38 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
 
-    // MARK: - Navigation
+    // MARK: - Map view delegate
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let tableView = tableView, let indexPath = tableView.indexPathForSelectedRow,
-            let libraryViewController = segue.destination as? LibraryViewController,
-            let library = libraries?.libraries[indexPath.row] else {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: nil)
+        view.displayPriority = .required
+        return view
+    }
+
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        guard let annotation = view.annotation,
+            let libraries = libraries,
+            let library = libraries.libraries.first(where: { $0.name == annotation.title }) else {
                 return
         }
 
-        libraryViewController.library = library
+        performSegue(withIdentifier: ShowSegueIdentifier, sender: library)
+    }
+
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let libraryViewController = segue.destination as? LibraryViewController else {
+                return
+        }
+
+        if let library = sender as? Library {
+            libraryViewController.library = library
+        }
+        else if let tableView = tableView,
+            let indexPath = tableView.indexPathForSelectedRow,
+            let library = libraries?.libraries[indexPath.row] {
+            libraryViewController.library = library
+        }
     }
 }
