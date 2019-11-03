@@ -42,3 +42,6 @@ This is an independent project by [Vincent Tourraine](https://www.vtourraine.net
 ## License
 
 This application is available under the MIT license. See the [LICENSE.txt](./LICENSE.txt) file for more info.
+
+- [Location](https://thenounproject.com/term/location/2945011) icon by Saifurrijal from the Noun Project
+- [Books](https://thenounproject.com/term/books/1864286) icon by Adrien Coquet from the Noun Project

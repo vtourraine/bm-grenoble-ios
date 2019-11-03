@@ -8,25 +8,26 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class LibrariesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate {
+class LibrariesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate {
 
     let libraries = Libraries.loadCityLibraries()
+    let locationManager = CLLocationManager()
+    let defaultcoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 45.1793553, longitude: 5.724542), latitudinalMeters: 7000, longitudinalMeters: 7000)
 
     let ShowSegueIdentifier = "Show"
 
     @IBOutlet var tableView: UITableView?
     @IBOutlet var mapView: MKMapView?
+    @IBOutlet var showUserLocationButton: UIButton?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationController?.configureCustomAppearance()
 
-        let regionRadius: CLLocationDistance = 7000
-        let center = CLLocationCoordinate2D(latitude: 45.1793553, longitude: 5.724542)
-        let coordinateRegion = MKCoordinateRegion(center: center, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
-        mapView?.setRegion(coordinateRegion, animated: true)
+        mapView?.setRegion(defaultcoordinateRegion, animated: false)
 
         if let libraries = libraries?.libraries {
             let annotations = libraries.map { (library) -> MKPointAnnotation in
@@ -38,6 +39,13 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
 
             mapView?.addAnnotations(annotations)
         }
+
+        let locationAuthorizationStatus = CLLocationManager.authorizationStatus()
+        showUserLocationIfPossible(status: locationAuthorizationStatus)
+        if #available(iOS 13.0, *) {
+            showUserLocationButton?.setImage(UIImage(systemName: "location.fill"), for: .normal)
+        }
+        showUserLocationButton?.configureRoundCorners()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -52,7 +60,23 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
 
+    func showUserLocationIfPossible(status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse || status == .authorizedAlways {
+            mapView?.showsUserLocation = true
+        }
+    }
+
     // MARK: - Actions
+
+    @IBAction func reframeMap(_ sender: Any?) {
+        mapView?.setRegion(defaultcoordinateRegion, animated: true)
+
+        let status = CLLocationManager.authorizationStatus()
+        if status == .notDetermined {
+            locationManager.delegate = self
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
 
     @IBAction func dismiss(_ sender: Any?) {
         dismiss(animated: true, completion: nil)
@@ -107,5 +131,11 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
             let library = libraries?.libraries[indexPath.row] {
             libraryViewController.library = library
         }
+    }
+
+    // MARK: - Location manager delegate
+
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        showUserLocationIfPossible(status: status)
     }
 }

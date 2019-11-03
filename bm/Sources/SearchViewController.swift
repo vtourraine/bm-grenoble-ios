@@ -23,18 +23,11 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
             searchBar.layer.cornerRadius = (searchBar.frame.size.height / 2)
         }
 
-        if #available(iOS 13.0, *) {
-            searchBar?.searchTextField.backgroundColor = .systemBackground
-            searchBar?.backgroundColor = .systemBackground
-        }
-        else {
-            searchBar?.searchTextField.backgroundColor = .white
-            searchBar?.backgroundColor = .white
-        }
-
+        searchBar?.searchTextField.backgroundColor = .white
+        searchBar?.searchTextField.textColor = .black
+        searchBar?.backgroundColor = .white
         searchBar?.backgroundImage = UIImage()
         searchBar?.isTranslucent = true
-
         searchButton?.titleLabel?.adjustsFontForContentSizeCategory = true
         searchButton?.configureRoundCorners()
 

@@ -8,6 +8,13 @@
 /* Class = "UINavigationItem"; title = "Prêts en cours"; ObjectID = "KIK-gR-jF7"; */
 "KIK-gR-jF7.title" = "Current Loans";
 
+"kMU-d9-2Gk.title" = "Current Loans";
+"8EO-ei-fs0.title" = "Libraries";
+"PDh-Mg-nUs.title" = "Libraries";
+
+"Ea8-2F-l1Z.text" = "Search";
+"QsP-Rc-Dt1.normalTitle" = "Search";
+
 /* Class = "UILabel"; text = "En cas d’oubli de mot de passe, merci de vous rendre dans la bibliothèque municipale de Grenoble de votre choix."; ObjectID = "LXp-gq-osV"; */
 "LXp-gq-osV.text" = "If you’ve forgotten your password, please go to a Grenoble Municipal Library";
 

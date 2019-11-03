@@ -7,3 +7,4 @@
 */
 
 "CFBundleDisplayName" = "Bibliothèque";
+"NSLocationWhenInUseUsageDescription" = "Affiche votre position sur la carte des bibliothèques.";
