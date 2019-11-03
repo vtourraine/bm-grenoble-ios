@@ -40,8 +40,6 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
             mapView?.addAnnotations(annotations)
         }
 
-        let locationAuthorizationStatus = CLLocationManager.authorizationStatus()
-        showUserLocationIfPossible(status: locationAuthorizationStatus)
         if #available(iOS 13.0, *) {
             showUserLocationButton?.setImage(UIImage(systemName: "location.fill"), for: .normal)
         }
@@ -57,12 +55,6 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
 
         if let selectedAnnotation = mapView?.selectedAnnotations.first {
             mapView?.deselectAnnotation(selectedAnnotation, animated: animated)
-        }
-    }
-
-    func showUserLocationIfPossible(status: CLAuthorizationStatus) {
-        if status == .authorizedWhenInUse || status == .authorizedAlways {
-            mapView?.showsUserLocation = true
         }
     }
 
@@ -101,9 +93,7 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
     // MARK: - Map view delegate
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: nil)
-        view.displayPriority = .required
-        return view
+        return libraryAnnotationView(for: annotation)
     }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
@@ -136,6 +126,27 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
     // MARK: - Location manager delegate
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        showUserLocationIfPossible(status: status)
+        // Should display user location on map view
+    }
+}
+
+extension UIViewController {
+    func libraryAnnotationView(for annotation: MKAnnotation) -> MKAnnotationView? {
+        let view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: nil)
+        view.displayPriority = .required
+
+        if annotation.isKind(of: MKUserLocation.self) {
+            view.markerTintColor = .systemBlue
+            if #available(iOS 13.0, *) {
+                view.glyphImage = UIImage(systemName: "person.fill")
+            }
+        }
+        else {
+            view.markerTintColor = UIColor(named: "BMRed")
+            if #available(iOS 13.0, *) {
+                view.glyphImage = UIImage(systemName: "book.fill")
+            }
+        }
+        return view
     }
 }

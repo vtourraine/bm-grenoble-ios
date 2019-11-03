@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-class LibraryViewController: UIViewController {
+class LibraryViewController: UIViewController, MKMapViewDelegate {
 
     var library: Library?
 
@@ -35,5 +35,11 @@ class LibraryViewController: UIViewController {
         annotation.coordinate = library.location()
         annotation.title = library.name
         mapView?.addAnnotation(annotation)
+    }
+
+    // MARK: - Map view delegate
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        return libraryAnnotationView(for: annotation)
     }
 }
