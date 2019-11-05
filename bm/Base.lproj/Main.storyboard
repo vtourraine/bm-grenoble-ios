@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F3H-UV-44c">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F3H-UV-44c">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -397,7 +397,7 @@ Grenoble</string>
                     <tabBarItem key="tabBarItem" title="Prêts en cours" image="Books" landscapeImage="BooksCompact" id="kMU-d9-2Gk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="81E-91-uNE">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
                         <textAttributes key="titleTextAttributes">
@@ -628,7 +628,7 @@ Grenoble</string>
                     <tabBarItem key="tabBarItem" title="Bibliothèques" image="Location" landscapeImage="LocationCompact" id="PDh-Mg-nUs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="0IM-VL-DLa">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
                         <textAttributes key="titleTextAttributes">
@@ -688,6 +688,7 @@ Grenoble</string>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" name="BMRedBackground"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="ZMV-jO-85Z" firstAttribute="trailing" secondItem="Reo-Q7-eVd" secondAttribute="trailing" constant="40" id="1DS-SF-s2G"/>
                             <constraint firstItem="ZMV-jO-85Z" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QsP-Rc-Dt1" secondAttribute="trailing" id="1ze-HM-JP6"/>
@@ -701,6 +702,9 @@ Grenoble</string>
                             <constraint firstItem="Reo-Q7-eVd" firstAttribute="centerY" secondItem="ZMV-jO-85Z" secondAttribute="centerY" constant="-40" id="wus-Lc-nd3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZMV-jO-85Z"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ZFQ-8t-Drr" appends="YES" id="DwA-Qd-L6u"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="Kq6-uL-4cb"/>
                     <connections>
@@ -709,6 +713,11 @@ Grenoble</string>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XPd-lW-Hak" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="ZFQ-8t-Drr">
+                    <connections>
+                        <action selector="resignSearchField:" destination="soS-MW-X3t" id="BtQ-iQ-UHZ"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2141" y="1846"/>
         </scene>

@@ -67,6 +67,10 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         }
     }
 
+    @IBAction func resignSearchField(_ sender: Any?) {
+        searchBar?.resignFirstResponder()
+    }
+
     @IBAction func dismiss(_ sender: Any?) {
         dismiss(animated: true, completion: nil)
     }
