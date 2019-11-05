@@ -1,0 +1,5 @@
+language: objective-c
+xcode_project: bm.xcodeproj
+xcode_scheme: bm
+xcode_destination: platform=iOS Simulator,OS=13.0,name=iPhone 11
+osx_image: xcode11
