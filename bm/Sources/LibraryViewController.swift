@@ -14,6 +14,11 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
     var library: Library?
 
     @IBOutlet var openingTimeLabel: UILabel?
+    @IBOutlet var openingTimeImageView: UIImageView?
+    @IBOutlet var addressLabel: UILabel?
+    @IBOutlet var addressImageView: UIImageView?
+    @IBOutlet var phoneLabel: UILabel?
+    @IBOutlet var phoneImageView: UIImageView?
     @IBOutlet var mapView: MKMapView?
     @IBOutlet var metadataView: UIView?
 
@@ -21,6 +26,12 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
 
         metadataView?.subviews.filter({$0.isKind(of: UIButton.self)}).forEach({$0.configureRoundCorners()})
+
+        if #available(iOS 13.0, *) {
+            openingTimeImageView?.image = UIImage(systemName: "clock")
+            addressImageView?.image = UIImage(systemName: "mappin.circle")
+            phoneImageView?.image = UIImage(systemName: "phone.circle")
+        }
 
         if let library = library {
             configure(with: library)
@@ -30,6 +41,8 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
     func configure(with library: Library) {
         title = library.name
         openingTimeLabel?.text = library.openingTime
+        addressLabel?.text = library.address
+        phoneLabel?.text = library.phoneNumber
 
         let regionRadius: CLLocationDistance = 500
         let coordinateRegion = MKCoordinateRegion(center: library.location(), latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
@@ -51,6 +64,15 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = library.name
         mapItem.openInMaps(launchOptions: nil)
+    }
+
+    @IBAction func call(_ sender: Any?) {
+        guard let library = library,
+            let phoneURL = URL(string: "tel://\(library.phoneNumber.replacingOccurrences(of: " ", with: ""))") else {
+            return
+        }
+
+        UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
     }
 
     // MARK: - Map view delegate

@@ -63,6 +63,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
 
         if let url = URL(string: urlString) {
             let viewController = SFSafariViewController(url: url)
+            viewController.preferredControlTintColor = UIColor(named: "BMRed")
             present(viewController, animated: true, completion: nil)
         }
     }

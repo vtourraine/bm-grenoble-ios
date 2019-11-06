@@ -32,6 +32,8 @@ struct Library: Codable {
     let name: String
     let openingTime: String
     let webpage: String
+    let address: String = "10 Rue de la République\n38000 Grenoble"
+    let phoneNumber: String = "04 76 54 57 97"
 
     let latitude: Double
     let longitude: Double
