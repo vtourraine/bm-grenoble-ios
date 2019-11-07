@@ -19,6 +19,11 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet var addressImageView: UIImageView?
     @IBOutlet var phoneLabel: UILabel?
     @IBOutlet var phoneImageView: UIImageView?
+    @IBOutlet var mailLabel: UILabel?
+    @IBOutlet var mailImageView: UIImageView?
+    @IBOutlet var websiteLabel: UILabel?
+    @IBOutlet var websiteImageView: UIImageView?
+
     @IBOutlet var mapView: MKMapView?
     @IBOutlet var metadataView: UIView?
 
@@ -31,6 +36,8 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
             openingTimeImageView?.image = UIImage(systemName: "clock")
             addressImageView?.image = UIImage(systemName: "mappin.circle")
             phoneImageView?.image = UIImage(systemName: "phone.circle")
+            mailImageView?.image = UIImage(systemName: "envelope.circle")
+            websiteImageView?.image = UIImage(systemName: "safari")
         }
 
         if let library = library {
@@ -43,6 +50,8 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
         openingTimeLabel?.text = library.openingTime
         addressLabel?.text = library.address
         phoneLabel?.text = library.phoneNumber
+        mailLabel?.text = library.mailAddress
+        websiteLabel?.text = library.webpage
 
         let regionRadius: CLLocationDistance = 500
         let coordinateRegion = MKCoordinateRegion(center: library.location(), latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
@@ -53,7 +62,18 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
         mapView?.addAnnotation(annotation)
     }
 
-    // MARK: - Actions
+    // MARK: - Map view delegate
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        return libraryAnnotationView(for: annotation)
+    }
+}
+
+import SafariServices
+import MessageUI
+
+// MARK: - Actions
+extension LibraryViewController: MFMailComposeViewControllerDelegate {
 
     @IBAction func openInMaps(_ sender: Any?) {
         guard let library = library else {
@@ -75,9 +95,39 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
         UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
     }
 
-    // MARK: - Map view delegate
+    @IBAction func composeMail(_ sender: Any?) {
+        guard let library = library else {
+            return
+        }
 
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        return libraryAnnotationView(for: annotation)
+        guard MFMailComposeViewController.canSendMail() else {
+            let alertController = UIAlertController(title: library.mailAddress, message: nil, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: nil))
+            present(alertController, animated: true, completion: nil)
+            return
+        }
+
+        let viewController = MFMailComposeViewController()
+        viewController.setToRecipients([library.mailAddress])
+        viewController.mailComposeDelegate = self
+
+        present(viewController, animated: true, completion: nil)
+    }
+
+    @IBAction func openWebsite(_ sender: Any?) {
+        guard let library = library,
+            let webpageURL = URL(string: library.webpage) else {
+            return
+        }
+
+        let viewController = SFSafariViewController(url: webpageURL)
+        viewController.preferredControlTintColor = UIColor(named: "BMRed")
+        present(viewController, animated: true, completion: nil)
+    }
+
+    // Mail compose view controller delegate
+
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }

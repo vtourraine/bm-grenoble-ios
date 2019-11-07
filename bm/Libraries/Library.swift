@@ -34,6 +34,8 @@ struct Library: Codable {
     let webpage: String
     let address: String = "10 Rue de la République\n38000 Grenoble"
     let phoneNumber: String = "04 76 54 57 97"
+    let mailAddress: String = "bm.internationale@bm-grenoble.fr"
+    let accessibility: Bool = true
 
     let latitude: Double
     let longitude: Double
