@@ -54,41 +54,41 @@
 /* Begin PBXFileReference section */
 		D70212C322F0E43C00E3972E /* bm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D70212C622F0E43C00E3972E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Sources/AppDelegate.swift; sourceTree = "<group>"; };
-		D70212C822F0E43C00E3972E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Sources/ViewController.swift; sourceTree = "<group>"; };
+		D70212C822F0E43C00E3972E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D70212CB22F0E43C00E3972E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D70212CD22F0E43E00E3972E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D70212D022F0E43E00E3972E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D70212D222F0E43E00E3972E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D70A2B68234247F300AC9405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Libraries.plist; sourceTree = "<group>"; };
-		D70A2B6A2342489A00AC9405 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Library.swift; path = Sources/Library.swift; sourceTree = "<group>"; };
-		D70A2B6C23424BC400AC9405 /* LibrariesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LibrariesViewController.swift; path = Sources/LibrariesViewController.swift; sourceTree = "<group>"; };
+		D70A2B6A2342489A00AC9405 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
+		D70A2B6C23424BC400AC9405 /* LibrariesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariesViewController.swift; sourceTree = "<group>"; };
 		D72BBA90233B8DC500F5A1CB /* TestAccountLoansEmpty.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TestAccountLoansEmpty.html; sourceTree = "<group>"; };
 		D75DB3B222FBFD84008C7499 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D75DB3B422FBFDB0008C7499 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D75DB3B522FBFDC4008C7499 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D75DB3B722FBFFF4008C7499 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		D75DB3B922FC0001008C7499 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
-		D75DB3BB22FD6369008C7499 /* InterfaceHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InterfaceHelpers.swift; path = Sources/InterfaceHelpers.swift; sourceTree = "<group>"; };
-		D7614BAC2363A6B3000D7C99 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LibraryViewController.swift; path = Sources/LibraryViewController.swift; sourceTree = "<group>"; };
-		D762CB9622F433D3008722C2 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Credentials.swift; path = Sources/Credentials.swift; sourceTree = "<group>"; };
+		D75DB3BB22FD6369008C7499 /* InterfaceHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceHelpers.swift; sourceTree = "<group>"; };
+		D7614BAC2363A6B3000D7C99 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
+		D762CB9622F433D3008722C2 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		D7757F5122F2390E006E6AAC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D7757F5322F241FE006E6AAC /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		D77F7EBF234371CA007B49A3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = Sources/SearchViewController.swift; sourceTree = "<group>"; };
-		D78618AB22F30A4400CB3403 /* ItemCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemCache.swift; path = Sources/ItemCache.swift; sourceTree = "<group>"; };
-		D786E6D922F1911A00AD1D36 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Item.swift; path = Sources/Item.swift; sourceTree = "<group>"; };
-		D786E6DB22F191CE00AD1D36 /* PageParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PageParser.swift; path = Sources/PageParser.swift; sourceTree = "<group>"; };
+		D77F7EBF234371CA007B49A3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		D78618AB22F30A4400CB3403 /* ItemCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCache.swift; sourceTree = "<group>"; };
+		D786E6D922F1911A00AD1D36 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		D786E6DB22F191CE00AD1D36 /* PageParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageParser.swift; sourceTree = "<group>"; };
 		D786E6E122F194EC00AD1D36 /* bmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D786E6E322F194EC00AD1D36 /* MainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTests.swift; sourceTree = "<group>"; };
 		D786E6E522F194EC00AD1D36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D786E6EB22F1952A00AD1D36 /* TestAccountLoans1.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = TestAccountLoans1.html; sourceTree = "<group>"; };
-		D786E6ED22F1B0CB00AD1D36 /* GhostWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GhostWebView.swift; path = Sources/GhostWebView.swift; sourceTree = "<group>"; };
-		D786E6EF22F1B42C00AD1D36 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemTableViewCell.swift; path = Sources/ItemTableViewCell.swift; sourceTree = "<group>"; };
+		D786E6ED22F1B0CB00AD1D36 /* GhostWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostWebView.swift; sourceTree = "<group>"; };
+		D786E6EF22F1B42C00AD1D36 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		D7910BCA23717A3200A0DC31 /* LibrariesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariesTests.swift; sourceTree = "<group>"; };
-		D79ABC0D233DF079007ADE6E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AboutViewController.swift; path = Sources/AboutViewController.swift; sourceTree = "<group>"; };
-		D7A8832322F5C4BA00C209DC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Sources/LoginViewController.swift; sourceTree = "<group>"; };
+		D79ABC0D233DF079007ADE6E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		D7A8832322F5C4BA00C209DC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D7A8832522F8132B00C209DC /* Keyboard+LayoutGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Keyboard+LayoutGuide.swift"; path = "Dependencies/KeyboardLayoutGuide/Keyboard+LayoutGuide.swift"; sourceTree = "<group>"; };
 		D7A8832722FAC53700C209DC /* TestAccountLoans2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TestAccountLoans2.html; sourceTree = "<group>"; };
-		D7A8832922FB756700C209DC /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardViewController.swift; path = Sources/CardViewController.swift; sourceTree = "<group>"; };
+		D7A8832922FB756700C209DC /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		D7A8832C22FB78E200C209DC /* BarCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarCodeView.h; path = Dependencies/EAN13BarcodeGenerator/BarCodeView.h; sourceTree = "<group>"; };
 		D7A8832D22FB78E200C209DC /* BarCodeEAN13.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarCodeEAN13.m; path = Dependencies/EAN13BarcodeGenerator/BarCodeEAN13.m; sourceTree = "<group>"; };
 		D7A8832E22FB78E200C209DC /* BarCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarCodeView.m; path = Dependencies/EAN13BarcodeGenerator/BarCodeView.m; sourceTree = "<group>"; };
@@ -144,22 +144,10 @@
 			isa = PBXGroup;
 			children = (
 				D70212C622F0E43C00E3972E /* AppDelegate.swift */,
-				D70212C822F0E43C00E3972E /* ViewController.swift */,
-				D7A8832322F5C4BA00C209DC /* LoginViewController.swift */,
-				D7A8832922FB756700C209DC /* CardViewController.swift */,
-				D79ABC0D233DF079007ADE6E /* AboutViewController.swift */,
-				D786E6EF22F1B42C00AD1D36 /* ItemTableViewCell.swift */,
-				D786E6ED22F1B0CB00AD1D36 /* GhostWebView.swift */,
 				D75DB3BB22FD6369008C7499 /* InterfaceHelpers.swift */,
-				D786E6D922F1911A00AD1D36 /* Item.swift */,
-				D78618AB22F30A4400CB3403 /* ItemCache.swift */,
-				D786E6DB22F191CE00AD1D36 /* PageParser.swift */,
-				D762CB9622F433D3008722C2 /* Credentials.swift */,
-				D70A2B67234247F300AC9405 /* Libraries.plist */,
-				D70A2B6A2342489A00AC9405 /* Library.swift */,
-				D70A2B6C23424BC400AC9405 /* LibrariesViewController.swift */,
-				D7614BAC2363A6B3000D7C99 /* LibraryViewController.swift */,
-				D77F7EBF234371CA007B49A3 /* SearchViewController.swift */,
+				D7D70F25237489FE00779E6C /* Loans */,
+				D7D70F23237489C100779E6C /* Libraries */,
+				D7D70F24237489DC00779E6C /* Search */,
 				D70212CA22F0E43C00E3972E /* Main.storyboard */,
 				D70212CD22F0E43E00E3972E /* Assets.xcassets */,
 				D70212CF22F0E43E00E3972E /* LaunchScreen.storyboard */,
@@ -212,6 +200,42 @@
 				D7A8832B22FB78E200C209DC /* EAN13BarcodeGenerator */,
 			);
 			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		D7D70F23237489C100779E6C /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				D70A2B67234247F300AC9405 /* Libraries.plist */,
+				D70A2B6A2342489A00AC9405 /* Library.swift */,
+				D70A2B6C23424BC400AC9405 /* LibrariesViewController.swift */,
+				D7614BAC2363A6B3000D7C99 /* LibraryViewController.swift */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		D7D70F24237489DC00779E6C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				D77F7EBF234371CA007B49A3 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		D7D70F25237489FE00779E6C /* Loans */ = {
+			isa = PBXGroup;
+			children = (
+				D70212C822F0E43C00E3972E /* ViewController.swift */,
+				D786E6EF22F1B42C00AD1D36 /* ItemTableViewCell.swift */,
+				D786E6D922F1911A00AD1D36 /* Item.swift */,
+				D78618AB22F30A4400CB3403 /* ItemCache.swift */,
+				D786E6ED22F1B0CB00AD1D36 /* GhostWebView.swift */,
+				D786E6DB22F191CE00AD1D36 /* PageParser.swift */,
+				D762CB9622F433D3008722C2 /* Credentials.swift */,
+				D79ABC0D233DF079007ADE6E /* AboutViewController.swift */,
+				D7A8832322F5C4BA00C209DC /* LoginViewController.swift */,
+				D7A8832922FB756700C209DC /* CardViewController.swift */,
+			);
+			path = Loans;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
