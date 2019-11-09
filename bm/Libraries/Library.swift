@@ -32,10 +32,10 @@ struct Library: Codable {
     let name: String
     let openingTime: String
     let webpage: String
-    let address: String = "10 Rue de la République\n38000 Grenoble"
-    let phoneNumber: String = "04 76 54 57 97"
-    let mailAddress: String = "bm.internationale@bm-grenoble.fr"
-    let accessibility: Bool = true
+    let address: String
+    let phoneNumber: String
+    let mailAddress: String
+    let accessibility: Bool
 
     let latitude: Double
     let longitude: Double

@@ -16,6 +16,7 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet var openingTimeLabel: UILabel?
     @IBOutlet var openingTimeImageView: UIImageView?
     @IBOutlet var addressLabel: UILabel?
+    @IBOutlet var addressAccessibilityLabel: UILabel?
     @IBOutlet var addressImageView: UIImageView?
     @IBOutlet var phoneLabel: UILabel?
     @IBOutlet var phoneImageView: UIImageView?
@@ -49,6 +50,7 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
         title = library.name
         openingTimeLabel?.text = library.openingTime
         addressLabel?.text = library.address
+        addressAccessibilityLabel?.text = library.accessibility ? NSLocalizedString("♿︎ Accessible PMR", comment: "") : nil
         phoneLabel?.text = library.phoneNumber
         mailLabel?.text = library.mailAddress
         websiteLabel?.text = library.webpage
