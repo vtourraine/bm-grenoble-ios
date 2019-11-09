@@ -29,6 +29,15 @@ Fermeture le samedi de Pâques.</string>
 			<real>45.1853165</real>
 			<key>longitude</key>
 			<real>5.7308895</real>
+			<key>address</key>
+			<string>12 Boulevard Maréchal Lyautey
+38000 Grenoble</string>
+			<key>phoneNumber</key>
+			<string>04 76 86 21 00</string>
+			<key>mailAddress</key>
+			<string>bm.etude@bm-grenoble.fr</string>
+			<key>accessibility</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -52,6 +61,15 @@ Fermeture le samedi de Pâques. </string>
 			<real>45.1952996</real>
 			<key>longitude</key>
 			<real>5.7116669</real>
+			<key>address</key>
+			<string>6 Place de Sfax
+38000 Grenoble</string>
+			<key>phoneNumber</key>
+			<string>04 38 12 25 41</string>
+			<key>mailAddress</key>
+			<string>bm.internationale@bm-grenoble.fr</string>
+			<key>accessibility</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -70,6 +88,15 @@ Vendredi : 9h - 18h</string>
 			<real>45.1568105</real>
 			<key>longitude</key>
 			<real>5.7337226</real>
+			<key>address</key>
+			<string>130 Avenue d&apos;Innsbruck
+38100 Grenoble</string>
+			<key>phoneNumber</key>
+			<string>04 38 70 05 72</string>
+			<key>mailAddress</key>
+			<string>bm.relais@bm-grenoble.fr</string>
+			<key>accessibility</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -87,6 +114,15 @@ Samedi : 10h-12h30 et 14h-18h</string>
 			<real>45.1793553</real>
 			<key>longitude</key>
 			<real>5.7420337</real>
+			<key>address</key>
+			<string>1 Rue de la Bajatière
+38100 Grenoble</string>
+			<key>phoneNumber</key>
+			<string>04 76 03 71 83</string>
+			<key>mailAddress</key>
+			<string>bm.abbaye@bm-grenoble.fr</string>
+			<key>accessibility</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -103,6 +139,15 @@ Samedi : 10h-13h / 14h-17h</string>
 			<real>45.1734066</real>
 			<key>longitude</key>
 			<real>5.724542</real>
+			<key>address</key>
+			<string>90 Rue de Stalingrad
+38100 Grenoble</string>
+			<key>phoneNumber</key>
+			<string>04 57 04 27 70</string>
+			<key>mailAddress</key>
+			<string>bm.alliance@bm-grenoble.fr</string>
+			<key>accessibility</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -123,6 +168,15 @@ Fermeture le samedi de Pâques.</string>
 			<real>45.163893</real>
 			<key>longitude</key>
 			<real>5.732832</real>
+			<key>address</key>
+			<string>97 Galerie de l&apos;Arlequin
+38100 Grenoble</string>
+			<key>phoneNumber</key>
+			<string>04 76 22 92 16</string>
+			<key>mailAddress</key>
+			<string>bm.arlequin@bm-grenoble.fr</string>
+			<key>accessibility</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -145,6 +199,15 @@ Fermeture le samedi de Pâques.</string>
 			<real>45.1902786</real>
 			<key>longitude</key>
 			<real>5.729296</real>
+			<key>address</key>
+			<string>10 Rue de la République
+38000 Grenoble</string>
+			<key>phoneNumber</key>
+			<string>04 76 54 57 97</string>
+			<key>mailAddress</key>
+			<string>bm.centreville@bm-grenoble.fr</string>
+			<key>accessibility</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -165,6 +228,15 @@ Fermeture le samedi de Pâques.</string>
 			<real>45.1755315</real>
 			<key>longitude</key>
 			<real>5.7091272</real>
+			<key>address</key>
+			<string>49 Rue des Eaux Claires
+38100 Grenoble</string>
+			<key>phoneNumber</key>
+			<string>04 76 21 25 28</string>
+			<key>mailAddress</key>
+			<string>bm.eclaires@bm-grenoble.fr</string>
+			<key>accessibility</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -187,6 +259,15 @@ Fermeture le samedi de Pâques</string>
 			<real>45.1923764</real>
 			<key>longitude</key>
 			<real>5.727246</real>
+			<key>address</key>
+			<string>1 Place de Gordes
+38000 Grenoble</string>
+			<key>phoneNumber</key>
+			<string>04 76 00 77 00</string>
+			<key>mailAddress</key>
+			<string>bm.jardindeville@bm-grenoble.fr</string>
+			<key>accessibility</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -206,6 +287,15 @@ Fermée le samedi de Pâques.</string>
 			<real>45.157186</real>
 			<key>longitude</key>
 			<real>5.7334689</real>
+			<key>address</key>
+			<string>202 Grand Place
+38100 Grenoble</string>
+			<key>phoneNumber</key>
+			<string>04 38 12 46 20</string>
+			<key>mailAddress</key>
+			<string>bm.katebyacine@bm-grenoble.fr</string>
+			<key>accessibility</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -225,6 +315,15 @@ Fermeture le samedi de Pâques.</string>
 			<real>45.1877699</real>
 			<key>longitude</key>
 			<real>5.7132726</real>
+			<key>address</key>
+			<string>8 Place Saint Bruno
+38000 Grenoble</string>
+			<key>phoneNumber</key>
+			<string>04 76 96 82 95</string>
+			<key>mailAddress</key>
+			<string>bm.sbruno@bm-grenoble.fr</string>
+			<key>accessibility</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -244,6 +343,15 @@ Fermeture le samedi de Pâques</string>
 			<real>45.1707803</real>
 			<key>longitude</key>
 			<real>5.7406858</real>
+			<key>address</key>
+			<string>12 Allée Charles Pranard
+38100 Grenoble</string>
+			<key>phoneNumber</key>
+			<string>04 76 86 52 00</string>
+			<key>mailAddress</key>
+			<string>bm.teisseire@bm-grenoble.fr</string>
+			<key>accessibility</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -257,6 +365,15 @@ Les prêts d’œuvres d&apos;art continuent dans certaines bibliothèques du r�
 			<real>45.1853165</real>
 			<key>longitude</key>
 			<real>5.7308895</real>
+			<key>address</key>
+			<string>12 Boulevard Maréchal Lyautey
+38000 Grenoble</string>
+			<key>phoneNumber</key>
+			<string>04 76 86 21 00</string>
+			<key>mailAddress</key>
+			<string>artotheque@bm-grenoble.fr</string>
+			<key>accessibility</key>
+			<false/>
 		</dict>
 	</array>
 </dict>
