@@ -9,6 +9,13 @@
 import UIKit
 import SafariServices
 
+class SearchEngine {
+    static func encodedQuery(for query: String) -> String? {
+        let formattedQuery = query.replacingOccurrences(of: " ", with: "+")
+        return formattedQuery.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+    }
+}
+
 class SearchViewController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet var closeButton: UIButton?
@@ -55,13 +62,13 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
 
         searchBar.resignFirstResponder()
 
-        guard let query = searchBar.text?.trimmingCharacters(in: .whitespaces),
-            query.isEmpty == false,
-            let formattedQuery = query.replacingOccurrences(of: " ", with: "+").addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+        guard let trimmedQuery = searchBar.text?.trimmingCharacters(in: .whitespaces),
+            trimmedQuery.isEmpty == false,
+            let encodedQuery = SearchEngine.encodedQuery(for: trimmedQuery) else {
                 return
         }
 
-        let urlString = "http://catalogue.bm-grenoble.fr/in/faces/browse.xhtml?query=\(formattedQuery)"
+        let urlString = "http://catalogue.bm-grenoble.fr/in/faces/browse.xhtml?query=\(encodedQuery)"
 
         if let url = URL(string: urlString) {
             let viewController = SFSafariViewController(url: url)

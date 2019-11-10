@@ -9,7 +9,7 @@
 import XCTest
 @testable import bm
 
-class MainTests: XCTestCase {
+class LoansTests: XCTestCase {
 
     func testParseLoans1() {
         let path = Bundle(for: type(of: self)).path(forResource: "TestAccountLoans1", ofType: "html")
