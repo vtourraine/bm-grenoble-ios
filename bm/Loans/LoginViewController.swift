@@ -135,7 +135,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.loader = nil
 
             if let presentingNavigationController = self.presentingViewController as? UINavigationController,
-                let viewController = presentingNavigationController.topViewController as? ViewController {
+                let viewController = presentingNavigationController.topViewController as? LoansViewController {
                 viewController.reloadData(loans: items)
             }
             self.dismiss(animated: true, completion: nil)

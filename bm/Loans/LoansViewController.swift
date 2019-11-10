@@ -10,7 +10,7 @@ import UIKit
 
 import WebKit
 
-class ViewController: UITableViewController {
+class LoansViewController: UITableViewController {
 
     var loans: [Item] = []
     var loader: GhostLoader?

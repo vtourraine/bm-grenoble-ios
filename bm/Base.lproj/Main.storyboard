@@ -12,7 +12,7 @@
         <!--Prêts en cours-->
         <scene sceneID="iC8-0g-qKV">
             <objects>
-                <tableViewController id="0tc-H2-wTF" customClass="ViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="0tc-H2-wTF" customClass="LoansViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hlY-P1-kT6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -525,7 +525,7 @@ Grenoble</string>
                                             <constraint firstItem="BpG-th-KWA" firstAttribute="top" secondItem="Ksc-Or-n3y" secondAttribute="top" constant="-5" id="FmO-J4-hfX"/>
                                             <constraint firstItem="hVd-NC-r0a" firstAttribute="top" secondItem="j57-8T-2sm" secondAttribute="bottom" constant="8" id="FxH-p0-k8H"/>
                                             <constraint firstItem="BNv-vc-eWV" firstAttribute="centerX" secondItem="rNi-bC-CE4" secondAttribute="centerX" id="GpP-KC-p3J"/>
-                                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Ksc-Or-n3y" secondAttribute="trailing" id="Gx9-De-eii"/>
+                                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Ksc-Or-n3y" secondAttribute="trailing" constant="12" id="Gx9-De-eii"/>
                                             <constraint firstItem="BpG-th-KWA" firstAttribute="width" secondItem="BpG-th-KWA" secondAttribute="height" multiplier="1:1" id="Hfo-w6-vbY"/>
                                             <constraint firstItem="NlP-Jq-fMW" firstAttribute="top" secondItem="rNi-bC-CE4" secondAttribute="topMargin" constant="12" id="IvK-sy-NL2"/>
                                             <constraint firstItem="j57-8T-2sm" firstAttribute="leading" secondItem="Sba-1I-OC3" secondAttribute="leading" id="Jia-h4-0cv"/>
@@ -542,7 +542,7 @@ Grenoble</string>
                                             <constraint firstItem="j57-8T-2sm" firstAttribute="trailing" secondItem="ICa-V1-EsS" secondAttribute="trailing" id="XSX-eM-8ca"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vao-HP-9uK" secondAttribute="trailing" id="Y2G-CQ-Qkx"/>
                                             <constraint firstItem="1hw-tv-7fn" firstAttribute="width" secondItem="1hw-tv-7fn" secondAttribute="height" multiplier="1:1" id="Zt7-b7-ogd"/>
-                                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Sba-1I-OC3" secondAttribute="trailing" id="bkQ-JM-pc2"/>
+                                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Sba-1I-OC3" secondAttribute="trailing" constant="12" id="bkQ-JM-pc2"/>
                                             <constraint firstAttribute="bottom" secondItem="BNv-vc-eWV" secondAttribute="bottom" constant="40" id="bvL-aD-Wgy"/>
                                             <constraint firstItem="1hw-tv-7fn" firstAttribute="width" secondItem="1hw-tv-7fn" secondAttribute="height" multiplier="1:1" id="bvf-w7-gdY"/>
                                             <constraint firstItem="Ksc-Or-n3y" firstAttribute="leading" secondItem="Sba-1I-OC3" secondAttribute="leading" id="c6G-8v-5Q1"/>
@@ -844,7 +844,7 @@ Grenoble</string>
                     <tabBarItem key="tabBarItem" title="Bibliothèques" image="Location" landscapeImage="LocationCompact" id="PDh-Mg-nUs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="0IM-VL-DLa">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
                         <textAttributes key="titleTextAttributes">

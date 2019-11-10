@@ -66,7 +66,7 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
     }
 
     @IBAction func signOut(_ sender: Any) {
-        guard let navigationController = presentingViewController as? UINavigationController, let viewController = navigationController.topViewController as? ViewController else {
+        guard let navigationController = presentingViewController as? UINavigationController, let viewController = navigationController.topViewController as? LoansViewController else {
             return
         }
 
