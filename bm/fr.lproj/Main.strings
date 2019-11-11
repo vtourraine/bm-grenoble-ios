@@ -22,7 +22,7 @@
 
 /* Class = "UITextField"; placeholder = "0100000000000"; ObjectID = "PVm-hQ-O1V"; */
 "PVm-hQ-O1V.placeholder" = "0100000000000";
-"PVm-hQ-O1V.accessibilityLabel" = "Numéro d’abonnée";
+"PVm-hQ-O1V.accessibilityLabel" = "Numéro d’abonné(e)";
 
 "gjJ-B3-c0R.accessibilityLabel" = "Mot de passe";
 
@@ -33,7 +33,7 @@
 "Q6P-h4-bcp.text" = "##/##/####";
 
 /* Class = "UILabel"; text = "Ce numéro est le nombre à 13 chiffres commençant par 01 sur votre carte d’abonné"; ObjectID = "SZr-Vg-AWa"; */
-"SZr-Vg-AWa.text" = "Ce numéro est le nombre à 13 chiffres commençant par 01 sur votre carte d’abonné";
+"SZr-Vg-AWa.text" = "Ce numéro est le nombre à 13 chiffres commençant par 01 sur votre carte d’abonné(e)";
 
 /* Class = "UILabel"; text = "Numéro d’abonné(e)"; ObjectID = "Yzx-f5-5jG"; */
 "Yzx-f5-5jG.text" = "Numéro d’abonné(e)";

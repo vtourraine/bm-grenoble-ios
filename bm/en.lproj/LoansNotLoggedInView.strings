@@ -1,0 +1,6 @@
+
+/* Class = "UILabel"; text = "Connectez-vous à votre compte abonné(e) pour consulter vos prêts en cours"; ObjectID = "CHi-I1-hHO"; */
+"CHi-I1-hHO.text" = "Sign in to your subscriber account to view your current loans";
+
+/* Class = "UIButton"; normalTitle = "Se connecter"; ObjectID = "MXl-q6-nh3"; */
+"MXl-q6-nh3.normalTitle" = "Sign In";

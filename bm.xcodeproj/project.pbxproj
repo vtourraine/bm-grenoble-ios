@@ -87,6 +87,8 @@
 		D786E6EF22F1B42C00AD1D36 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		D78C460723785EE400313AD8 /* SearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTests.swift; sourceTree = "<group>"; };
 		D78C460A2379AACA00313AD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = bm/Base.lproj/LoansNotLoggedInView.xib; sourceTree = SOURCE_ROOT; };
+		D78C460D2379AF0700313AD8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = ../en.lproj/LoansNotLoggedInView.strings; sourceTree = "<group>"; };
+		D78C460F2379AF0A00313AD8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = ../fr.lproj/LoansNotLoggedInView.strings; sourceTree = "<group>"; };
 		D7910BCA23717A3200A0DC31 /* LibrariesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariesTests.swift; sourceTree = "<group>"; };
 		D79ABC0D233DF079007ADE6E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		D7A8832322F5C4BA00C209DC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -439,6 +441,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				D78C460A2379AACA00313AD8 /* Base */,
+				D78C460D2379AF0700313AD8 /* en */,
+				D78C460F2379AF0A00313AD8 /* fr */,
 			);
 			name = LoansNotLoggedInView.xib;
 			sourceTree = "<group>";
