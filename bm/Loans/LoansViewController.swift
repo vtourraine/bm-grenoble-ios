@@ -23,6 +23,8 @@ class LoansViewController: UITableViewController {
     let LibrariesSegueIdentifier = "Libraries"
     let SearchSegueIdentifier = "Search"
 
+    let LoansNotLoggedInViewXIB = "LoansNotLoggedInView"
+
     // MARK: - View life cycle
 
     override func viewDidLoad() {
@@ -47,14 +49,19 @@ class LoansViewController: UITableViewController {
         navigationController?.configureCustomAppearance()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if Credentials.load(from: .standard) == nil {
+            configureNotLoggedInPlaceholder()
+        }
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         if isFirstLaunch {
-            if Credentials.load(from: .standard) == nil {
-                presentLoginScreen(sender: nil)
-            }
-            else {
+            if Credentials.load(from: .standard) != nil {
                 refresh(sender: nil)
             }
 
@@ -64,6 +71,17 @@ class LoansViewController: UITableViewController {
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+
+    func configureNotLoggedInPlaceholder() {
+        if let placeholderView = Bundle.main.loadNibNamed(LoansNotLoggedInViewXIB, owner: self, options: nil)?.first as? UIView {
+            for subview in placeholderView.subviews {
+                if let button = subview as? UIButton {
+                    button.configureRoundCorners()
+                }
+            }
+            tableView.backgroundView = placeholderView
+        }
     }
 
     func reloadData(loans: [Item]) {
@@ -140,7 +158,7 @@ class LoansViewController: UITableViewController {
         }
     }
 
-    @objc func presentLoginScreen(sender: Any?) {
+    @IBAction func presentLoginScreen(sender: Any?) {
         performSegue(withIdentifier: LoginSegueIdentifier, sender: sender)
     }
 

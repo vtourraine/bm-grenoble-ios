@@ -29,6 +29,7 @@
 		D786E6EE22F1B0CB00AD1D36 /* GhostWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D786E6ED22F1B0CB00AD1D36 /* GhostWebView.swift */; };
 		D786E6F022F1B42C00AD1D36 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D786E6EF22F1B42C00AD1D36 /* ItemTableViewCell.swift */; };
 		D78C460823785EE400313AD8 /* SearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C460723785EE400313AD8 /* SearchTests.swift */; };
+		D78C460B2379AACA00313AD8 /* LoansNotLoggedInView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78C46092379AACA00313AD8 /* LoansNotLoggedInView.xib */; };
 		D7910BCB23717A3200A0DC31 /* LibrariesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7910BCA23717A3200A0DC31 /* LibrariesTests.swift */; };
 		D79ABC0E233DF079007ADE6E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79ABC0D233DF079007ADE6E /* AboutViewController.swift */; };
 		D7A8832422F5C4BA00C209DC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A8832322F5C4BA00C209DC /* LoginViewController.swift */; };
@@ -85,6 +86,7 @@
 		D786E6ED22F1B0CB00AD1D36 /* GhostWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostWebView.swift; sourceTree = "<group>"; };
 		D786E6EF22F1B42C00AD1D36 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		D78C460723785EE400313AD8 /* SearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTests.swift; sourceTree = "<group>"; };
+		D78C460A2379AACA00313AD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = bm/Base.lproj/LoansNotLoggedInView.xib; sourceTree = SOURCE_ROOT; };
 		D7910BCA23717A3200A0DC31 /* LibrariesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariesTests.swift; sourceTree = "<group>"; };
 		D79ABC0D233DF079007ADE6E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		D7A8832322F5C4BA00C209DC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				D79ABC0D233DF079007ADE6E /* AboutViewController.swift */,
 				D7A8832322F5C4BA00C209DC /* LoginViewController.swift */,
 				D7A8832922FB756700C209DC /* CardViewController.swift */,
+				D78C46092379AACA00313AD8 /* LoansNotLoggedInView.xib */,
 			);
 			path = Loans;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				D70A2B69234247F300AC9405 /* Libraries.plist in Resources */,
 				D70212CE22F0E43E00E3972E /* Assets.xcassets in Resources */,
 				D70212CC22F0E43C00E3972E /* Main.storyboard in Resources */,
+				D78C460B2379AACA00313AD8 /* LoansNotLoggedInView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +433,14 @@
 				D75DB3B522FBFDC4008C7499 /* fr */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		D78C46092379AACA00313AD8 /* LoansNotLoggedInView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D78C460A2379AACA00313AD8 /* Base */,
+			);
+			name = LoansNotLoggedInView.xib;
 			sourceTree = "<group>";
 		};
 		D7C1D20B234F6CC800FC9B96 /* InfoPlist.strings */ = {

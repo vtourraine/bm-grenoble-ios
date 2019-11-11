@@ -103,7 +103,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Prêts en cours" id="KIK-gR-jF7"/>
                     <connections>
-                        <segue destination="PL0-mD-zDP" kind="presentation" identifier="Login" id="drR-e7-D8W"/>
+                        <segue destination="PL0-mD-zDP" kind="presentation" identifier="Login" modalPresentationStyle="automatic" id="drR-e7-D8W"/>
                         <segue destination="x0T-HL-1kO" kind="presentation" identifier="Card" id="Y0l-S1-U8n"/>
                         <segue destination="Jvg-U0-YiR" kind="presentation" identifier="About" id="d8H-sf-sM2"/>
                     </connections>
@@ -613,7 +613,7 @@ Grenoble</string>
                     <tabBarItem key="tabBarItem" title="Prêts en cours" image="Books" landscapeImage="BooksCompact" id="kMU-d9-2Gk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="81E-91-uNE">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
                         <textAttributes key="titleTextAttributes">

@@ -28,10 +28,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if #available(iOS 13.0, *) {
-            isModalInPresentation = true
-        }
-
         configure(loading: false)
 
         subscriberNumberTextField?.configureRoundCorners()
