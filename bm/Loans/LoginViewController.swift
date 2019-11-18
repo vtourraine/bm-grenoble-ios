@@ -12,6 +12,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     // MARK - Outlets
 
+    @IBOutlet var closeButton: UIButton?
     @IBOutlet var subscriberNumberLabel: UILabel?
     @IBOutlet var subscriberNumberTextField: UITextField?
     @IBOutlet var passwordLabel: UILabel?
@@ -29,6 +30,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         configure(loading: false)
+
+        closeButton?.configureCloseButton()
 
         subscriberNumberTextField?.configureRoundCorners()
         passwordTextField?.configureRoundCorners()
@@ -130,8 +133,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
             self.loader = nil
 
-            if let presentingNavigationController = self.presentingViewController as? UINavigationController,
-                let viewController = presentingNavigationController.topViewController as? LoansViewController {
+            if let presentingTabBarController = self.presentingViewController as? UITabBarController,
+            let navigationController = presentingTabBarController.viewControllers?.first as? UINavigationController,
+            let viewController = navigationController.topViewController as? LoansViewController {
                 viewController.reloadData(loans: items)
             }
             self.dismiss(animated: true, completion: nil)
@@ -140,6 +144,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.presentLoadingError(error)
             self.loader = nil
         }
+    }
+
+    @IBAction func dismiss(_ sender: Any?) {
+        dismiss(animated: true, completion: nil)
     }
 
     // MARK: - Text field delegate

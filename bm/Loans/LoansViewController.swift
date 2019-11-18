@@ -74,11 +74,20 @@ class LoansViewController: UITableViewController {
         return .lightContent
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let aboutViewController = segue.destination as? AboutViewController {
+            let userIsLoggedIn = (Credentials.load(from: .standard) != nil)
+            aboutViewController.userIsLoggedIn = userIsLoggedIn
+        }
+    }
+
     func configureNotLoggedInPlaceholder() {
         if let placeholderView = Bundle.main.loadNibNamed(LoansNotLoggedInViewXIB, owner: self, options: nil)?.first as? UIView {
             for subview in placeholderView.subviews {
                 if let button = subview as? UIButton {
                     button.configureRoundCorners()
+                    button.titleLabel?.adjustsFontSizeToFitWidth = true
+                    button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
                 }
             }
             tableView.backgroundView = placeholderView
@@ -95,6 +104,7 @@ class LoansViewController: UITableViewController {
             label.textColor = .gray
             label.textAlignment = .center
             label.text = NSLocalizedString("No Current Loans", comment: "")
+            label.adjustsFontSizeToFitWidth = true
             tableView.backgroundView = label
         }
         else {

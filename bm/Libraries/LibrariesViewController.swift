@@ -14,7 +14,7 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
 
     let libraries = Libraries.loadCityLibraries()
     let locationManager = CLLocationManager()
-    let defaultcoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 45.1793553, longitude: 5.724542), latitudinalMeters: 7000, longitudinalMeters: 7000)
+    let defaultcoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 45.1793553, longitude: 5.724542), latitudinalMeters: 9000, longitudinalMeters: 9000)
 
     let ShowSegueIdentifier = "Show"
 

@@ -11,6 +11,8 @@ The Grenoble Municipal Library doesn’t offer a public API to check your accoun
 ## Features
 
 - List current loans
+- List libraries with info and map
+- Search books
 
 ## Roadmap
 
@@ -26,8 +28,6 @@ The Grenoble Municipal Library doesn’t offer a public API to check your accoun
 These features are being implemented, and might be available in beta version, but not on the App Store.
 
 - Subscriber card: in-app barcodes are difficult to scan in libraries
-- Search books
-- Libraries list with info and map
 
 ## Bug report
 

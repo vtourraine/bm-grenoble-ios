@@ -62,6 +62,8 @@ extension UIButton {
         tintColor = UIColor(named: "BMRed")
         setTitleColor(UIColor(named: "BMRed"), for: .normal)
         layer.cornerRadius = 22
+        layer.borderWidth = UIScreen.main.scale
+        layer.borderColor = UIColor(named: "BMRed")?.cgColor
 
         if #available(iOS 13.0, *) {
             setTitle(nil, for: .normal)

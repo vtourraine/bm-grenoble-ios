@@ -16,6 +16,8 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
     @IBOutlet var codeButton: UIButton?
     @IBOutlet var signoutButton: UIButton?
 
+    var userIsLoggedIn: Bool = false
+
     // MARK: - View life cycle
 
     override func viewDidLoad() {
@@ -31,6 +33,12 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
         signoutButton?.configureRoundCorners()
 
         closeButton?.configureCloseButton()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        signoutButton?.isHidden = !userIsLoggedIn
     }
 
     // MARK: - Actions
