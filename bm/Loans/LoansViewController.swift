@@ -9,6 +9,7 @@
 import UIKit
 
 import WebKit
+import SafariServices
 
 class LoansViewController: UITableViewController {
 
@@ -101,6 +102,10 @@ class LoansViewController: UITableViewController {
         }
     }
 
+    func item(at indexPath: IndexPath) -> Item? {
+        return loans[indexPath.row]
+    }
+
     func configureToolbar(message: String?, animated: Bool) {
         guard let message = message else {
             navigationController?.setToolbarHidden(true, animated: animated)
@@ -146,6 +151,19 @@ class LoansViewController: UITableViewController {
         }
     }
 
+    func openInGoodreads(item: Item) {
+        guard let query = item.title.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+            let url = URL(string: "https://www.goodreads.com/search?q=\(query)") else {
+                return
+        }
+
+        UIApplication.shared.open(url, options: [.universalLinksOnly: true]) { (result) in
+            if result == false {
+                self.presentSafariViewController(url)
+            }
+        }
+    }
+
     func refreshIfNecessary() {
         guard let lastRefreshDate = lastRefreshDate else {
             return
@@ -178,9 +196,28 @@ class LoansViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ItemTableViewCell
-        let item = loans[indexPath.row]
-        cell.configure(item: item)
+        if let item = self.item(at: indexPath) {
+            cell.configure(item: item)
+        }
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        guard let item = self.item(at: indexPath) else {
+            return nil
+        }
+
+        let action = UIContextualAction(style: .normal, title: NSLocalizedString("Search on Goodreads", comment: "")) { (action, view, completion) in
+            self.openInGoodreads(item: item)
+        }
+
+        if #available(iOS 13.0, *) {
+            action.image = UIImage(systemName: "safari")
+        }
+
+        let configuration = UISwipeActionsConfiguration(actions: [action])
+        configuration.performsFirstActionWithFullSwipe = false
+        return configuration
     }
 }
 

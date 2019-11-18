@@ -71,7 +71,6 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
     }
 }
 
-import SafariServices
 import MessageUI
 
 // MARK: - Actions
@@ -122,9 +121,7 @@ extension LibraryViewController: MFMailComposeViewControllerDelegate {
             return
         }
 
-        let viewController = SFSafariViewController(url: webpageURL)
-        viewController.preferredControlTintColor = UIColor(named: "BMRed")
-        present(viewController, animated: true, completion: nil)
+        presentSafariViewController(webpageURL)
     }
 
     // Mail compose view controller delegate

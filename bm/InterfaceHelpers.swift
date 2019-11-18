@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class NavigationController: UINavigationController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -39,6 +40,12 @@ extension UIViewController {
         let alertController = UIAlertController(title: NSLocalizedString("Connection Error", comment: ""), message: error?.localizedDescription, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: nil))
         present(alertController, animated: true, completion: nil)
+    }
+
+    func presentSafariViewController(_ webpageURL: URL) {
+        let viewController = SFSafariViewController(url: webpageURL)
+        viewController.preferredControlTintColor = UIColor(named: "BMRed")
+        present(viewController, animated: true, completion: nil)
     }
 }
 

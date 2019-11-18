@@ -8,7 +8,6 @@
 
 import UIKit
 import MessageUI
-import SafariServices
 
 class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
@@ -55,14 +54,12 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
 
     @IBAction func openCodeRepository(_ sender: Any?) {
         let url = URL(string: "https://github.com/vtourraine/bm-grenoble-ios")!
-        let viewController = SFSafariViewController(url: url)
-        present(viewController, animated: true, completion: nil)
+        presentSafariViewController(url)
     }
 
     @objc func openAccountInWebBrowser(sender: Any?) {
         let url = URL(string: GhostWebView.AccountURL)!
-        let viewController = SFSafariViewController(url: url)
-        present(viewController, animated: true, completion: nil)
+        presentSafariViewController(url)
     }
 
     @IBAction func signOut(_ sender: Any) {

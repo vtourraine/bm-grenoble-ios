@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SafariServices
 
 class SearchEngine {
     static func encodedQuery(for query: String) -> String? {
@@ -71,9 +70,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         let urlString = "http://catalogue.bm-grenoble.fr/in/faces/browse.xhtml?query=\(encodedQuery)"
 
         if let url = URL(string: urlString) {
-            let viewController = SFSafariViewController(url: url)
-            viewController.preferredControlTintColor = UIColor(named: "BMRed")
-            present(viewController, animated: true, completion: nil)
+            presentSafariViewController(url)
         }
     }
 
