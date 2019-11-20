@@ -134,9 +134,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.loader = nil
 
             if let presentingTabBarController = self.presentingViewController as? UITabBarController,
-            let navigationController = presentingTabBarController.viewControllers?.first as? UINavigationController,
-            let viewController = navigationController.topViewController as? LoansViewController {
-                viewController.reloadData(loans: items)
+                let navigationController = presentingTabBarController.viewControllers?.first as? UINavigationController,
+                let viewController = navigationController.topViewController as? LoansViewController {
+                viewController.reloadData(state: .loans(items))
             }
             self.dismiss(animated: true, completion: nil)
         }) { (error) in
@@ -160,7 +160,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         UIView.animate(withDuration: 0.3) {
             self.currentTextFieldTopConstraint = label.topAnchor.constraint(greaterThanOrEqualTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 8)
             self.currentTextFieldTopConstraint?.isActive = true
-            // self.view.layoutIfNeeded()
         }
     }
 
@@ -168,7 +167,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         UIView.animate(withDuration: 0.3) {
             self.currentTextFieldTopConstraint?.isActive = false
             self.currentTextFieldTopConstraint = nil
-            // self.view.layoutIfNeeded()
         }
     }
 

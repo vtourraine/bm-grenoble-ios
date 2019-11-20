@@ -71,14 +71,17 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
     }
 
     @IBAction func signOut(_ sender: Any) {
-        guard let navigationController = presentingViewController as? UINavigationController, let viewController = navigationController.topViewController as? LoansViewController else {
-            return
+
+        guard let presentingTabBarController = presentingViewController as? UITabBarController,
+            let navigationController = presentingTabBarController.viewControllers?.first as? UINavigationController,
+            let viewController = navigationController.topViewController as? LoansViewController else {
+                return
         }
 
         Credentials.remove(from: .standard)
         ItemCache.remove(from: .standard)
 
-        viewController.reloadData(loans: [])
+        viewController.reloadData(state: .notLoggedIn)
 
         dismiss(animated: true) {
             viewController.presentLoginScreen(sender: nil)

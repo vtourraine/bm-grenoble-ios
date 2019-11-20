@@ -13,7 +13,11 @@ import SafariServices
 
 class LoansViewController: UITableViewController {
 
-    var loans: [Item] = []
+    enum State {
+        case loans([Item])
+        case notLoggedIn
+    }
+    var state: State = .notLoggedIn
     var loader: GhostLoader?
     var isFirstLaunch = true
     var lastRefreshDate: Date?
@@ -43,19 +47,14 @@ class LoansViewController: UITableViewController {
 
         tableView.tableFooterView = UIView(frame: CGRect.zero)
 
-        if let itemCache = ItemCache.load(from: .standard) {
-            reloadData(loans: itemCache.items)
+        if Credentials.load(from: .standard) == nil {
+            reloadData(state: .notLoggedIn)
+        }
+        else if let itemCache = ItemCache.load(from: .standard) {
+            reloadData(state: .loans(itemCache.items))
         }
 
         navigationController?.configureCustomAppearance()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        if Credentials.load(from: .standard) == nil {
-            configureNotLoggedInPlaceholder()
-        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -94,26 +93,42 @@ class LoansViewController: UITableViewController {
         }
     }
 
-    func reloadData(loans: [Item]) {
-        self.loans = loans
+    func configureEmptyListPlaceholder() {
+        let label = UILabel(frame: .zero)
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.textColor = .gray
+        label.textAlignment = .center
+        label.text = NSLocalizedString("No Current Loans", comment: "")
+        label.adjustsFontSizeToFitWidth = true
+        tableView.backgroundView = label
+    }
+
+    func reloadData(state: State) {
+        self.state = state
         tableView.reloadData()
 
-        if loans.isEmpty {
-            let label = UILabel(frame: .zero)
-            label.font = UIFont.preferredFont(forTextStyle: .body)
-            label.textColor = .gray
-            label.textAlignment = .center
-            label.text = NSLocalizedString("No Current Loans", comment: "")
-            label.adjustsFontSizeToFitWidth = true
-            tableView.backgroundView = label
-        }
-        else {
-            tableView.backgroundView = nil
+        switch state {
+        case .loans(let items):
+            if items.isEmpty {
+                configureEmptyListPlaceholder()
+            }
+            else {
+                tableView.backgroundView = nil
+            }
+
+        case .notLoggedIn:
+            configureNotLoggedInPlaceholder()
         }
     }
 
     func item(at indexPath: IndexPath) -> Item? {
-        return loans[indexPath.row]
+        switch state {
+        case .loans(let items):
+            return items[indexPath.row]
+
+        default:
+            return nil
+        }
     }
 
     func configureToolbar(message: String?, animated: Bool) {
@@ -131,6 +146,18 @@ class LoansViewController: UITableViewController {
         navigationController?.setToolbarHidden(false, animated: animated)
     }
 
+    func refreshIfNecessary() {
+        guard let lastRefreshDate = lastRefreshDate else {
+            return
+        }
+
+        // Refresh every hour
+        let minimumRefreshInterval: TimeInterval = (60 * 60)
+        if lastRefreshDate.timeIntervalSinceNow < -minimumRefreshInterval {
+            refresh(sender: nil)
+        }
+    }
+
     // MARK: - Actions
 
     @objc func openAboutScreen(sender: Any) {
@@ -145,8 +172,9 @@ class LoansViewController: UITableViewController {
         configureToolbar(message: NSLocalizedString("Updating Account…", comment: ""), animated: false)
 
         loader = GhostLoader(credentials: credentials, parentView: view, success: { (items) in
-            self.reloadData(loans: items)
-            let itemCache = ItemCache(items: self.loans)
+            self.reloadData(state: .loans(items))
+
+            let itemCache = ItemCache(items: items)
             ItemCache.save(items: itemCache, to: .standard)
 
             self.refreshControl?.endRefreshing()
@@ -174,18 +202,6 @@ class LoansViewController: UITableViewController {
         }
     }
 
-    func refreshIfNecessary() {
-        guard let lastRefreshDate = lastRefreshDate else {
-            return
-        }
-
-        // Refresh every hour
-        let minimumRefreshInterval: TimeInterval = (60 * 60)
-        if lastRefreshDate.timeIntervalSinceNow < -minimumRefreshInterval {
-            refresh(sender: nil)
-        }
-    }
-
     @IBAction func presentLoginScreen(sender: Any?) {
         performSegue(withIdentifier: LoginSegueIdentifier, sender: sender)
     }
@@ -201,7 +217,13 @@ class LoansViewController: UITableViewController {
     // MARK: - Table view
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return loans.count
+        switch state {
+        case .loans(let items):
+            return items.count
+
+        default:
+            return 0
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
