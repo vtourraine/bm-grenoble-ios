@@ -14,6 +14,7 @@
 
 "Ea8-2F-l1Z.text" = "Search";
 "QsP-Rc-Dt1.normalTitle" = "Search";
+"Reo-Q7-eVd.placeholder" = "Book Title, Author";
 
 /* Class = "UILabel"; text = "En cas d’oubli de mot de passe, merci de vous rendre dans la bibliothèque municipale de Grenoble de votre choix."; ObjectID = "LXp-gq-osV"; */
 "LXp-gq-osV.text" = "If you’ve forgotten your password, please go to a Grenoble Municipal Library";

@@ -910,7 +910,7 @@ Grenoble</string>
                                     <action selector="search:" destination="soS-MW-X3t" eventType="touchUpInside" id="ePq-tp-cIV"/>
                                 </connections>
                             </button>
-                            <searchBar contentMode="redraw" searchBarStyle="prominent" translatesAutoresizingMaskIntoConstraints="NO" id="Reo-Q7-eVd">
+                            <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Titre, auteur" translatesAutoresizingMaskIntoConstraints="NO" id="Reo-Q7-eVd">
                                 <rect key="frame" x="40" y="360.5" width="334" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="yn0-2r-Gad"/>

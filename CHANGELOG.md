@@ -1,11 +1,16 @@
 # BM Grenoble
 
-## 1.1 (work in progress)
+## 1.1.1 (work in progress)
 
-- [x] Libraries
-- [x] Search books
-- [x] Improve title formatting
-- [x] Search on Goodreads
+
+## 1.1
+
+2019-11-20
+
+- Libraries
+- Search books
+- Improve title formatting
+- Search on Goodreads
 
 
 ## 1.0
