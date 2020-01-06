@@ -2,6 +2,8 @@
 
 ## 1.1.1 (work in progress)
 
+- Fix library sync
+
 
 ## 1.1
 

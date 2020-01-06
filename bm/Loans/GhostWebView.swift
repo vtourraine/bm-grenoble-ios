@@ -107,6 +107,13 @@ class GhostWebView: WKWebView {
     static let AccountURL = "http://catalogue.bm-grenoble.fr/in/faces/account.xhtml"
     static let AccountLoansURL = "http://catalogue.bm-grenoble.fr/in/faces/accountLoans.xhtml"
 
+    struct TagIdentifier: RawRepresentable, Hashable, Codable {
+      let rawValue: String
+    }
+
+    private let UsernameTextField = TagIdentifier(rawValue: "stdPage:pagecontentReplaced:msgLogin:j_idt495:j_idt500:userName")
+    private let PasswordTextField = TagIdentifier(rawValue: "stdPage:pagecontentReplaced:msgLogin:j_idt495:j_idt500:password")
+
     convenience init() {
         let webConfiguration = WKWebViewConfiguration()
         self.init(frame: CGRect(x: 0, y: 0, width: 1, height: 1), configuration: webConfiguration)
@@ -118,15 +125,15 @@ class GhostWebView: WKWebView {
     }
 
     func setUsername(_ username: String, completionHandler: @escaping (() -> Void)) {
-        setInput(identifier: "stdPage:pagecontentReplaced:msgLogin:j_idt464:j_idt469:userName", value: username, completionHandler: completionHandler)
+        setInput(identifier: UsernameTextField, value: username, completionHandler: completionHandler)
     }
 
     func setPassword(_ password: String, completionHandler: @escaping (() -> Void)) {
-        setInput(identifier: "stdPage:pagecontentReplaced:msgLogin:j_idt464:j_idt469:password", value: password, completionHandler: completionHandler)
+        setInput(identifier: PasswordTextField, value: password, completionHandler: completionHandler)
     }
 
-    func setInput(identifier: String, value: String, completionHandler: @escaping (() -> Void)) {
-        let js = "document.getElementById('\(identifier)').value=\"\(value)\""
+    func setInput(identifier: TagIdentifier, value: String, completionHandler: @escaping (() -> Void)) {
+        let js = "document.getElementById('\(identifier.rawValue)').value=\"\(value)\""
         evaluateJavaScript(js) { (object, error) in
             completionHandler()
         }
