@@ -12,9 +12,14 @@ class NewsViewController: UITableViewController {
 
     var newsItems = [NewsItem]()
     var networkTask: URLSessionDataTask?
+    var isFirstLaunch = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if let cachedItems = NewsItemCache.load(from: .standard) {
+            newsItems = cachedItems.items
+        }
 
         navigationController?.configureCustomAppearance()
     }
@@ -22,17 +27,21 @@ class NewsViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        if newsItems.count == 0 {
+        if isFirstLaunch {
             networkTask = NewsParser.fetchNewsItems { result in
                 switch (result) {
                 case .success(let items):
                     self.newsItems = items
                     self.tableView.reloadData()
 
+                    NewsItemCache.save(items: items, to: .standard)
+
                 case .failure:
                     break
                 }
             }
+
+            isFirstLaunch = false
         }
     }
 
