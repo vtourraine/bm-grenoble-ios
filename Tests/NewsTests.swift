@@ -11,11 +11,16 @@ import XCTest
 
 class NewsTests: XCTestCase {
 
-    func testParseNewsItems1() throws {
-        let path = try XCTUnwrap(Bundle(for: type(of: self)).path(forResource: "TestNews1", ofType: "html"))
+    private func loadItems(fromFileNamed fileName: String) throws -> [NewsItem] {
+        let path = try XCTUnwrap(Bundle(for: type(of: self)).path(forResource: fileName, ofType: "html"))
         let html = try XCTUnwrap(String(contentsOfFile: path))
-
         let items = try XCTUnwrap(NewsParser.parseNewsItems(html: html))
+        return items
+    }
+
+    func testParseNewsItems1() throws {
+        let items = try loadItems(fromFileNamed: "TestNews1")
+
         XCTAssertEqual(items.count, 10)
 
         XCTAssertEqual(items[0].title, "La nuit de la lecture les 16, 17 et 18 janvier")

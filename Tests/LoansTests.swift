@@ -11,14 +11,15 @@ import XCTest
 
 class LoansTests: XCTestCase {
 
-    func testParseLoans1() {
-        let path = Bundle(for: type(of: self)).path(forResource: "TestAccountLoans1", ofType: "html")
-        let html = try! String(contentsOfFile: path!)
+    private func loadLoans(fromFileNamed fileName: String) throws -> (items: [Item], pagination: PageParser.Pagination) {
+        let path = try XCTUnwrap(Bundle(for: type(of: self)).path(forResource: fileName, ofType: "html"))
+        let html = try XCTUnwrap(String(contentsOfFile: path))
+        let loans = try XCTUnwrap(PageParser.parseLoans(html: html))
+        return loans
+    }
 
-        guard let loans = PageParser.parseLoans(html: html) else {
-            XCTFail()
-            return
-        }
+    func testParseLoans1() throws {
+        let loans = try loadLoans(fromFileNamed: "TestAccountLoans1")
 
         XCTAssertEqual(loans.pagination.numberOfPages, 1)
         XCTAssertEqual(loans.pagination.currentPage, 0)
@@ -57,14 +58,8 @@ class LoansTests: XCTestCase {
         XCTAssertEqual(loans.items[4].returnDateComponents.year, 2019)
     }
 
-    func testParseLoans2() {
-        let path = Bundle(for: type(of: self)).path(forResource: "TestAccountLoans2", ofType: "html")
-        let html = try! String(contentsOfFile: path!)
-
-        guard let loans = PageParser.parseLoans(html: html) else {
-            XCTFail()
-            return
-        }
+    func testParseLoans2() throws {
+        let loans = try loadLoans(fromFileNamed: "TestAccountLoans2")
 
         XCTAssertEqual(loans.pagination.numberOfPages, 1)
         XCTAssertEqual(loans.pagination.currentPage, 0)
@@ -79,14 +74,8 @@ class LoansTests: XCTestCase {
         XCTAssertEqual(loans.items[1].returnDateComponents.year, 2019)
     }
 
-    func testParseLoans3() {
-        let path = Bundle(for: type(of: self)).path(forResource: "TestAccountLoans3-Page1", ofType: "html")
-        let html = try! String(contentsOfFile: path!)
-
-        guard let loans = PageParser.parseLoans(html: html) else {
-            XCTFail()
-            return
-        }
+    func testParseLoans3() throws {
+        let loans = try loadLoans(fromFileNamed: "TestAccountLoans3-Page1")
 
         XCTAssertEqual(loans.pagination.numberOfPages, 2)
         XCTAssertEqual(loans.pagination.currentPage, 0)
@@ -96,14 +85,8 @@ class LoansTests: XCTestCase {
         XCTAssertEqual(loans.items.count, 10)
     }
 
-    func testParseLoansEmpty() {
-        let path = Bundle(for: type(of: self)).path(forResource: "TestAccountLoansEmpty", ofType: "html")
-        let html = try! String(contentsOfFile: path!)
-
-        guard let loans = PageParser.parseLoans(html: html) else {
-            XCTFail()
-            return
-        }
+    func testParseLoansEmpty() throws {
+        let loans = try loadLoans(fromFileNamed: "TestAccountLoansEmpty")
 
         XCTAssertEqual(loans.pagination.numberOfPages, 0)
         XCTAssertEqual(loans.pagination.currentPage, 0)
