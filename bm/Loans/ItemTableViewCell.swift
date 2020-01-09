@@ -33,9 +33,8 @@ class ItemTableViewCell: UITableViewCell {
                 returnLabelsColor = UIColor.label
             }
 
-            if formattedReturnDate.numberOfDays < ItemTableViewCell.NumberOfDaysAlertThreshold,
-                let alertColor = UIColor(named: "BMRed") {
-                returnLabelsColor = alertColor
+            if formattedReturnDate.numberOfDays < ItemTableViewCell.NumberOfDaysAlertThreshold {
+                returnLabelsColor = .BMRed
             }
 
             returnDateLabel?.textColor = returnLabelsColor

@@ -263,8 +263,8 @@ extension UINavigationController {
             largeTitleTextAttributes[NSAttributedString.Key.font] = UIFont.boldSystemFont(ofSize: 34)
             largeTitleTextAttributes[NSAttributedString.Key.foregroundColor] = UIColor.white
             appearance.largeTitleTextAttributes = largeTitleTextAttributes
-            appearance.backgroundColor = UIColor(named: "BMRed")
-            navigationBar.tintColor = UIColor.white
+            appearance.backgroundColor = .BMRed
+            navigationBar.tintColor = .white
             navigationBar.scrollEdgeAppearance = appearance
             navigationBar.standardAppearance = appearance
         }

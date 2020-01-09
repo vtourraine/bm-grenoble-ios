@@ -142,7 +142,7 @@ extension UIViewController {
             }
         }
         else {
-            view.markerTintColor = UIColor(named: "BMRed")
+            view.markerTintColor = .BMRed
             if #available(iOS 13.0, *) {
                 view.glyphImage = UIImage(systemName: "book.fill")
             }

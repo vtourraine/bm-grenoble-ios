@@ -47,7 +47,7 @@ extension UIViewController {
         configuration.entersReaderIfAvailable = readerMode
 
         let viewController = SFSafariViewController(url: webpageURL, configuration: configuration)
-        viewController.preferredControlTintColor = UIColor(named: "BMRed")
+        viewController.preferredControlTintColor = .BMRed
         present(viewController, animated: true, completion: nil)
     }
 }
@@ -61,16 +61,22 @@ extension UIView {
 
 extension UIButton {
     func configureCloseButton() {
-        backgroundColor = UIColor.white
-        tintColor = UIColor(named: "BMRed")
-        setTitleColor(UIColor(named: "BMRed"), for: .normal)
+        backgroundColor = .white
+        tintColor = .BMRed
+        setTitleColor(.BMRed, for: .normal)
         layer.cornerRadius = 22
         layer.borderWidth = UIScreen.main.scale
-        layer.borderColor = UIColor(named: "BMRed")?.cgColor
+        layer.borderColor = UIColor.BMRed.cgColor
 
         if #available(iOS 13.0, *) {
             setTitle(nil, for: .normal)
             setImage(UIImage(systemName: "xmark"), for: .normal)
         }
+    }
+}
+
+extension UIColor {
+    static var BMRed: UIColor {
+        return UIColor(named: "BMRed")!
     }
 }
