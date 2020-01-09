@@ -40,7 +40,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="À rendre pour le" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPV-XU-Xqf">
                                             <rect key="frame" x="303" y="12" width="91" height="14.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                            <color key="textColor" name="BMRed"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="##/##/####" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6P-h4-bcp">
@@ -56,12 +56,12 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Library" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAi-GO-wrn">
-                                            <rect key="frame" x="303" y="71.5" width="91" height="14.5"/>
+                                            <rect key="frame" x="303" y="73.5" width="91" height="14.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="140" id="nfi-3h-Z5r"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                            <color key="textColor" name="BMRed"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -84,7 +84,7 @@
                                         <constraint firstItem="rYn-Ef-mhS" firstAttribute="leading" secondItem="Puf-XW-Fhn" secondAttribute="leading" id="gNO-jf-eo1"/>
                                         <constraint firstItem="rYn-Ef-mhS" firstAttribute="top" secondItem="Puf-XW-Fhn" secondAttribute="bottom" constant="8" symbolic="YES" id="gah-Bd-h4z"/>
                                         <constraint firstItem="PPV-XU-Xqf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Puf-XW-Fhn" secondAttribute="trailing" constant="8" symbolic="YES" id="iIt-DE-e9B"/>
-                                        <constraint firstItem="pAi-GO-wrn" firstAttribute="top" secondItem="7RN-x0-EWP" secondAttribute="bottom" constant="3" id="wO1-JN-NgR"/>
+                                        <constraint firstItem="pAi-GO-wrn" firstAttribute="top" secondItem="7RN-x0-EWP" secondAttribute="bottom" constant="5" id="wO1-JN-NgR"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -631,7 +631,7 @@ Grenoble</string>
                     <tabBarItem key="tabBarItem" title="Prêts en cours" image="Books" landscapeImage="BooksCompact" id="kMU-d9-2Gk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="81E-91-uNE">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
                         <textAttributes key="titleTextAttributes">
@@ -862,7 +862,7 @@ Grenoble</string>
                     <tabBarItem key="tabBarItem" title="Bibliothèques" image="Location" landscapeImage="LocationCompact" id="PDh-Mg-nUs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="0IM-VL-DLa">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
                         <textAttributes key="titleTextAttributes">

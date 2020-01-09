@@ -42,8 +42,11 @@ extension UIViewController {
         present(alertController, animated: true, completion: nil)
     }
 
-    func presentSafariViewController(_ webpageURL: URL) {
-        let viewController = SFSafariViewController(url: webpageURL)
+    func presentSafariViewController(_ webpageURL: URL, readerMode: Bool = false) {
+        let configuration = SFSafariViewController.Configuration()
+        configuration.entersReaderIfAvailable = readerMode
+
+        let viewController = SFSafariViewController(url: webpageURL, configuration: configuration)
         viewController.preferredControlTintColor = UIColor(named: "BMRed")
         present(viewController, animated: true, completion: nil)
     }

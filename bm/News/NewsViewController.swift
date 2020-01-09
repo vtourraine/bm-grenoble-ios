@@ -67,6 +67,6 @@ class NewsViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = newsItems[indexPath.row]
-        presentSafariViewController(item.link)
+        presentSafariViewController(item.link, readerMode: true)
     }
 }

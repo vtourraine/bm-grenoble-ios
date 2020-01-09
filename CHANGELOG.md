@@ -3,6 +3,7 @@
 ## 1.2 (work in progress)
 
 - News
+- Refined loans expiration date style
 
 
 ## 1.1.1
