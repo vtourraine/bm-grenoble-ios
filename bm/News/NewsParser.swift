@@ -14,19 +14,22 @@ class NewsParser {
 
     class func parseNewsItems(html: String) -> [NewsItem]? {
         let parsedItems = html.parseOccurences(between: "<div class=\"item\">", and: "</div>")
-
         let items: [NewsItem] = parsedItems.compactMap({ parsedItem in
-            guard let linkString = parsedItem.parse(between: "<a href=\"", and: "\">"),
-                let link = URL(string: "\(NewsParser.LinkRoot)\(linkString)"),
-                let title = parsedItem.parseOccurences(between: "\(linkString)\">", and: "</a>").last?.cleanHTMLEntities(),
-                let summary = parsedItem.parse(between: "<p>", and: "</p>")?.cleanHTMLEntities().replacingOccurrences(of: "<br>", with: "").replacingOccurrences(of: "\r", with: "") else {
-                return nil
-            }
-
-            return NewsItem(title: title, summary: summary, link: link)
+            return parseNewsItem(html: parsedItem)
         })
 
         return items
+    }
+
+    private class func parseNewsItem(html: String) -> NewsItem? {
+        guard let linkString = html.parse(between: "<a href=\"", and: "\">"),
+            let link = URL(string: "\(NewsParser.LinkRoot)\(linkString)"),
+            let title = html.parseOccurences(between: "\(linkString)\">", and: "</a>").last?.cleanHTMLEntities(),
+            let summary = html.parse(between: "<p>", and: "</p>")?.cleanHTMLEntities().replacingOccurrences(of: "<br>", with: "").replacingOccurrences(of: "\r", with: "") else {
+            return nil
+        }
+
+        return NewsItem(title: title, summary: summary, link: link)
     }
 
     class func fetchNewsItems(completionHandler: @escaping (Result<[NewsItem], Error>) -> Void) -> URLSessionDataTask {
