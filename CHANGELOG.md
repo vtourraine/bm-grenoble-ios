@@ -1,6 +1,13 @@
 # BM Grenoble
 
-## 1.1.1 (work in progress)
+## 1.2 (work in progress)
+
+- News
+
+
+## 1.1.1
+
+2020-01-06
 
 - Fix library sync
 

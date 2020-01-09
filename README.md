@@ -11,11 +11,13 @@ The Grenoble Municipal Library doesn’t offer a public API to check your accoun
 ## Features
 
 - List current loans
-- List libraries with info and map
+- News
+- Libraries list with info and map
 - Search books
 
 ## Roadmap
 
+- Agenda
 - Local notification for reminders
 - Store credentials in Keychain
 - Items cover image
@@ -47,3 +49,4 @@ This application is available under the MIT license. See the [LICENSE.txt](./LIC
 
 - [Location](https://thenounproject.com/term/location/2945011) icon by Saifurrijal from the Noun Project
 - [Books](https://thenounproject.com/term/books/1864286) icon by Adrien Coquet from the Noun Project
+- [News](https://thenounproject.com/term/news/1318539) icon by Noah from the Noun Project

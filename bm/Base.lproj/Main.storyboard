@@ -110,7 +110,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ASQ-Ho-tut" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2308.695652173913" y="186.83035714285714"/>
+            <point key="canvasLocation" x="2891" y="-653"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="R6p-P7-EwG">
@@ -278,7 +278,7 @@ Grenoble</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GfL-b1-Dw8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3448" y="-746"/>
+            <point key="canvasLocation" x="4032" y="-1586"/>
         </scene>
         <!--Bibliothèques-->
         <scene sceneID="ljR-kq-S8s">
@@ -631,7 +631,7 @@ Grenoble</string>
                     <tabBarItem key="tabBarItem" title="Prêts en cours" image="Books" landscapeImage="BooksCompact" id="kMU-d9-2Gk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="81E-91-uNE">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
                         <textAttributes key="titleTextAttributes">
@@ -648,7 +648,7 @@ Grenoble</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FOc-HP-WbP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1400" y="186.83035714285714"/>
+            <point key="canvasLocation" x="1983" y="-653"/>
         </scene>
         <!--Card View Controller-->
         <scene sceneID="hF1-1I-7rJ">
@@ -738,7 +738,7 @@ Grenoble</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hhD-Lk-xv5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3448" y="-9"/>
+            <point key="canvasLocation" x="4032" y="-849"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="0wX-jn-avV">
@@ -853,7 +853,7 @@ Grenoble</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PVw-mN-UiQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4229" y="63"/>
+            <point key="canvasLocation" x="4813" y="-777"/>
         </scene>
         <!--Bibliothèques-->
         <scene sceneID="Lge-OY-176">
@@ -862,7 +862,7 @@ Grenoble</string>
                     <tabBarItem key="tabBarItem" title="Bibliothèques" image="Location" landscapeImage="LocationCompact" id="PDh-Mg-nUs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="0IM-VL-DLa">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
                         <textAttributes key="titleTextAttributes">
@@ -968,6 +968,7 @@ Grenoble</string>
                     </tabBar>
                     <connections>
                         <segue destination="V5W-LW-gGC" kind="relationship" relationship="viewControllers" id="xhM-sY-6nw"/>
+                        <segue destination="ktH-Df-Yro" kind="relationship" relationship="viewControllers" id="fAR-In-fcC"/>
                         <segue destination="PWm-tb-Pfv" kind="relationship" relationship="viewControllers" id="UU6-ut-c3G"/>
                         <segue destination="soS-MW-X3t" kind="relationship" relationship="viewControllers" id="Sgo-FC-NBu"/>
                     </connections>
@@ -976,12 +977,85 @@ Grenoble</string>
             </objects>
             <point key="canvasLocation" x="489.85507246376818" y="186.83035714285714"/>
         </scene>
+        <!--Actualité-->
+        <scene sceneID="O1K-me-yMR">
+            <objects>
+                <tableViewController id="eya-IN-vI3" customClass="NewsViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WXR-D2-g4h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="g0J-86-oWe" detailTextLabel="ue1-iy-3rF" style="IBUITableViewCellStyleSubtitle" id="VTu-bW-DFZ">
+                                <rect key="frame" x="0.0" y="28" width="414" height="63.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VTu-bW-DFZ" id="fUA-UG-DfI">
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="63.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="g0J-86-oWe">
+                                            <rect key="frame" x="20" y="9" width="35.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="ue1-iy-3rF">
+                                            <rect key="frame" x="20" y="32.5" width="59" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="eya-IN-vI3" id="DA8-Oc-55A"/>
+                            <outlet property="delegate" destination="eya-IN-vI3" id="a15-Np-4LT"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Actualité" id="lvv-av-ACN"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v9x-IQ-gEt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2890" y="80"/>
+        </scene>
+        <!--Actualité-->
+        <scene sceneID="KJz-kZ-Pmm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ktH-Df-Yro" customClass="NavigationController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Actualité" image="News" landscapeImage="NewsCompact" id="e0Q-pb-YTt"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="TZZ-PG-ELm">
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="BMRed"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eya-IN-vI3" kind="relationship" relationship="rootViewController" id="tvA-7j-Bdx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fo7-Xk-4aA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1983" y="80"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Books" width="25" height="25"/>
         <image name="BooksCompact" width="18" height="18"/>
         <image name="Location" width="25" height="25"/>
         <image name="LocationCompact" width="18" height="18"/>
+        <image name="News" width="25" height="25"/>
+        <image name="NewsCompact" width="18" height="18"/>
         <namedColor name="BMRed">
             <color red="0.90980392156862744" green="0.12156862745098039" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

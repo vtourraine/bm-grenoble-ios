@@ -142,6 +142,6 @@ extension String {
     }
 
     func cleanHTMLEntities() -> String {
-        return replacingOccurrences(of: "&amp;", with: "&")
+        return replacingOccurrences(of: "&amp;", with: "&").replacingOccurrences(of: "&#039;", with: "'")
     }
 }
