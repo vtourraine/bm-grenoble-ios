@@ -22,7 +22,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let tabBarViewController = window?.rootViewController as? UITabBarController,
             let navigationController = tabBarViewController.viewControllers?.first as? UINavigationController,
             let viewController = navigationController.topViewController as? LoansViewController {
+            tabBarViewController.delegate = self
             viewController.refreshIfNecessary()
+        }
+    }
+}
+
+extension AppDelegate: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if let navigationController = viewController as? UINavigationController,
+            let topViewController = navigationController.topViewController as? UITableViewController,
+            topViewController == navigationController.viewControllers.first,
+            topViewController.tableView(topViewController.tableView, numberOfRowsInSection: 0) > 0 {
+            topViewController.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         }
     }
 }
