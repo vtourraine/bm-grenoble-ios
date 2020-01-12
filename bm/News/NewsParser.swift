@@ -29,7 +29,16 @@ class NewsParser {
             return nil
         }
 
-        return NewsItem(title: title, summary: summary, link: link)
+        let image: URL?
+        if let imageString = html.parse(between: "<img src=\"", and: "\""),
+            let imageURL = URL(string: "\(NewsParser.LinkRoot)\(imageString)") {
+            image = imageURL
+        }
+        else {
+            image = nil
+        }
+
+        return NewsItem(title: title, summary: summary, link: link, image: image)
     }
 
     class func fetchNewsItems(completionHandler: @escaping (Result<[NewsItem], Error>) -> Void) -> URLSessionDataTask {

@@ -12,4 +12,5 @@ struct NewsItem: Codable {
     let title: String
     let summary: String
     let link: URL
+    let image: URL?
 }
