@@ -9,6 +9,8 @@
 import Foundation
 
 class PageParser {
+    private static let CatalogueRoot = "http://catalogue.bm-grenoble.fr"
+
     struct Pagination {
         let numberOfPages: Int
         let currentPage: Int
@@ -27,26 +29,39 @@ class PageParser {
         }
         let lis = ul.parseOccurences(between: "<li", and: "</li>")
         let items: [Item] = lis.compactMap({ li in
-            guard let titleLink = li.parse(between: "<span class=\"colValue bold\"><a", and: "/a>"),
-                let title = titleLink.parse(between: "\">", and: " /"),
-                let author = titleLink.parse(between: " /", and: "<")?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines),
-                let returnDate = li.parse(between: "<span style=\"font-weight:bold\">", and: "</span>"),
-                let library = li.parse(between: "Emprunté à</span></td>\n<td><span class=\"colValue\">", and: "</span>") else {
-                    return nil
-            }
-
-            let returnDateRawComponents = returnDate.components(separatedBy: "/")
-            var returnDateComponents = DateComponents()
-            if (returnDateRawComponents.count == 3) {
-                returnDateComponents.day = Int(returnDateRawComponents[0])
-                returnDateComponents.month = Int(returnDateRawComponents[1])
-                returnDateComponents.year = Int(returnDateRawComponents[2])
-            }
-
-            return Item(title: title.cleanHTMLEntities(), author: author, library: library, returnDateComponents: returnDateComponents)
+            return parseLoan(li: li)
         })
 
         return (items, pagination)
+    }
+
+    class func parseLoan(li: String) -> Item? {
+        guard let titleLink = li.parse(between: "<span class=\"colValue bold\"><a", and: "/a>"),
+            let title = titleLink.parse(between: "\">", and: " /"),
+            let author = titleLink.parse(between: " /", and: "<")?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines),
+            let returnDate = li.parse(between: "<span style=\"font-weight:bold\">", and: "</span>"),
+            let library = li.parse(between: "Emprunté à</span></td>\n<td><span class=\"colValue\">", and: "</span>") else {
+                return nil
+        }
+
+        let image: URL?
+        if let imageString = li.parse(between: "<img src=\"", and: "\""),
+            let imageURL = URL(string: "\(CatalogueRoot)\(imageString)") {
+            image = imageURL
+        }
+        else {
+            image = nil
+        }
+
+        let returnDateRawComponents = returnDate.components(separatedBy: "/")
+        var returnDateComponents = DateComponents()
+        if (returnDateRawComponents.count == 3) {
+            returnDateComponents.day = Int(returnDateRawComponents[0])
+            returnDateComponents.month = Int(returnDateRawComponents[1])
+            returnDateComponents.year = Int(returnDateRawComponents[2])
+        }
+
+        return Item(title: title.cleanHTMLEntities(), author: author, library: library, returnDateComponents: returnDateComponents, image: image)
     }
 
     class func parsePagination(html: String) -> Pagination? {

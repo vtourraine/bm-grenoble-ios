@@ -26,13 +26,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Puf-XW-Fhn">
-                                            <rect key="frame" x="20" y="10" width="35.5" height="20.5"/>
+                                            <rect key="frame" x="80" y="10" width="35.5" height="20.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Author" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYn-Ef-mhS">
-                                            <rect key="frame" x="20" y="38.5" width="46.5" height="18"/>
+                                            <rect key="frame" x="80" y="38.5" width="46.5" height="18"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -58,15 +58,24 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Library" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAi-GO-wrn">
                                             <rect key="frame" x="303" y="73.5" width="91" height="14.5"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="140" id="nfi-3h-Z5r"/>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="nfi-3h-Z5r"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                             <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FeX-H3-rDV">
+                                            <rect key="frame" x="20" y="8" width="52" height="72"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="52" id="ANt-Pg-Jwa"/>
+                                                <constraint firstAttribute="height" constant="72" id="RIB-ii-k9H"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="pAi-GO-wrn" firstAttribute="leading" secondItem="7RN-x0-EWP" secondAttribute="leading" id="2ux-qJ-fdi"/>
+                                        <constraint firstItem="Puf-XW-Fhn" firstAttribute="leading" secondItem="FeX-H3-rDV" secondAttribute="trailing" constant="8" symbolic="YES" id="8Kj-z3-uCU"/>
+                                        <constraint firstItem="FeX-H3-rDV" firstAttribute="top" secondItem="mjm-QP-Ng5" secondAttribute="top" constant="8" id="8bw-1J-8pd"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="PPV-XU-Xqf" secondAttribute="trailing" id="BIi-xF-NXa"/>
                                         <constraint firstItem="Puf-XW-Fhn" firstAttribute="top" secondItem="mjm-QP-Ng5" secondAttribute="top" constant="10" id="HAT-X2-XRE"/>
                                         <constraint firstItem="PPV-XU-Xqf" firstAttribute="leading" secondItem="Q6P-h4-bcp" secondAttribute="leading" id="LFT-po-V0I"/>
@@ -76,11 +85,11 @@
                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="pAi-GO-wrn" secondAttribute="bottom" constant="8" id="Og8-RI-Hes"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="pAi-GO-wrn" secondAttribute="trailing" id="PPc-Hf-8Xv"/>
                                         <constraint firstItem="Q6P-h4-bcp" firstAttribute="leading" secondItem="7RN-x0-EWP" secondAttribute="leading" id="QPC-v6-q7Y"/>
+                                        <constraint firstItem="FeX-H3-rDV" firstAttribute="leading" secondItem="mjm-QP-Ng5" secondAttribute="leadingMargin" id="R17-kv-buc"/>
                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="rYn-Ef-mhS" secondAttribute="bottom" constant="20" symbolic="YES" id="RdC-uy-Nyk"/>
                                         <constraint firstItem="PPV-XU-Xqf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rYn-Ef-mhS" secondAttribute="trailing" constant="8" symbolic="YES" id="VhI-xk-bBo"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Q6P-h4-bcp" secondAttribute="trailing" id="Wsy-VP-21S"/>
                                         <constraint firstItem="PPV-XU-Xqf" firstAttribute="top" secondItem="mjm-QP-Ng5" secondAttribute="top" constant="12" id="cmh-Ym-ecn"/>
-                                        <constraint firstItem="Puf-XW-Fhn" firstAttribute="leading" secondItem="mjm-QP-Ng5" secondAttribute="leadingMargin" id="exr-HD-BWD"/>
                                         <constraint firstItem="rYn-Ef-mhS" firstAttribute="leading" secondItem="Puf-XW-Fhn" secondAttribute="leading" id="gNO-jf-eo1"/>
                                         <constraint firstItem="rYn-Ef-mhS" firstAttribute="top" secondItem="Puf-XW-Fhn" secondAttribute="bottom" constant="8" symbolic="YES" id="gah-Bd-h4z"/>
                                         <constraint firstItem="PPV-XU-Xqf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Puf-XW-Fhn" secondAttribute="trailing" constant="8" symbolic="YES" id="iIt-DE-e9B"/>
@@ -92,6 +101,7 @@
                                     <outlet property="libraryLabel" destination="pAi-GO-wrn" id="7Cl-9J-Zha"/>
                                     <outlet property="returnDateLabel" destination="Q6P-h4-bcp" id="FOw-ve-fxg"/>
                                     <outlet property="returnNumberOfDaysLabel" destination="7RN-x0-EWP" id="1U7-Ib-N3I"/>
+                                    <outlet property="thumbnail" destination="FeX-H3-rDV" id="xgh-9C-Elx"/>
                                     <outlet property="titleLabel" destination="Puf-XW-Fhn" id="7Dg-RI-cAG"/>
                                 </connections>
                             </tableViewCell>
@@ -1001,6 +1011,7 @@ Grenoble</string>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="chJ-Z6-ZGp">
                                             <rect key="frame" x="20" y="8" width="90" height="60"/>
+                                            <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="60" id="MTl-eC-9ha"/>
                                                 <constraint firstAttribute="width" constant="90" id="oOQ-Hd-kDo"/>
@@ -1063,7 +1074,7 @@ Grenoble</string>
                     <tabBarItem key="tabBarItem" title="Actualité" image="News" landscapeImage="NewsCompact" id="e0Q-pb-YTt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="TZZ-PG-ELm">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
                         <textAttributes key="titleTextAttributes">

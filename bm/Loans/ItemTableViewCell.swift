@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class ItemTableViewCell: UITableViewCell {
 
@@ -17,6 +18,7 @@ class ItemTableViewCell: UITableViewCell {
     @IBOutlet var libraryLabel: UILabel?
     @IBOutlet var returnDateLabel: UILabel?
     @IBOutlet var returnNumberOfDaysLabel: UILabel?
+    @IBOutlet var thumbnail: UIImageView?
 
     func configure(item: Item) {
         titleLabel?.text = item.formattedTitle()
@@ -39,6 +41,14 @@ class ItemTableViewCell: UITableViewCell {
 
             returnDateLabel?.textColor = returnLabelsColor
             returnNumberOfDaysLabel?.textColor = returnLabelsColor
+        }
+
+        thumbnail?.layer.cornerRadius = 2
+        if let image = item.image {
+            thumbnail?.af_setImage(withURL: image)
+        }
+        else {
+            thumbnail?.image = nil
         }
     }
 

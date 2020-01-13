@@ -13,6 +13,7 @@ struct Item: Codable {
     let author: String
     let library: String
     let returnDateComponents: DateComponents
+    let image: URL?
 }
 
 extension Item {

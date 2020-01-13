@@ -32,6 +32,8 @@ class LoansTests: XCTestCase {
         XCTAssertEqual(loans.items[0].returnDateComponents.day, 17)
         XCTAssertEqual(loans.items[0].returnDateComponents.month, 8)
         XCTAssertEqual(loans.items[0].returnDateComponents.year, 2019)
+        let items0Image = try XCTUnwrap(loans.items[0].image)
+        XCTAssertEqual(items0Image.absoluteString, "http://catalogue.bm-grenoble.fr/in/rest/Thumb/ISBN/2092578081?icon=document&amp;mat=CHILD_BOOK")
         XCTAssertEqual(loans.items[1].title, "Sous le même ciel")
         XCTAssertEqual(loans.items[1].author, "Britta Teckentrup ; traduit de l'anglais par Frédéric Rébéna")
         XCTAssertEqual(loans.items[1].library, "Eaux Claires")
@@ -96,36 +98,36 @@ class LoansTests: XCTestCase {
     }
 
     func testTitleFormatter() {
-        let itemBook = Item(title: "Sous le même ciel", author: "", library: "", returnDateComponents: DateComponents())
+        let itemBook = Item(title: "Sous le même ciel", author: "", library: "", returnDateComponents: DateComponents(), image: nil)
         XCTAssertEqual(itemBook.formattedTitle(), "📖 Sous le même ciel")
 
-        let itemDVD = Item(title: "Patlabor 2 [DVD]", author: "", library: "", returnDateComponents: DateComponents())
+        let itemDVD = Item(title: "Patlabor 2 [DVD]", author: "", library: "", returnDateComponents: DateComponents(), image: nil)
         XCTAssertEqual(itemDVD.formattedTitle(), "📀 Patlabor 2")
 
-        let itemDVDAlt = Item(title: "Vaiana : la légende du bout du monde [DVD] : = Moana", author: "", library: "", returnDateComponents: DateComponents())
+        let itemDVDAlt = Item(title: "Vaiana : la légende du bout du monde [DVD] : = Moana", author: "", library: "", returnDateComponents: DateComponents(), image: nil)
         XCTAssertEqual(itemDVDAlt.formattedTitle(), "📀 Vaiana : la légende du bout du monde – Moana")
 
-        let itemBD = Item(title: "Alien 3 [BLU-RAY]", author: "", library: "", returnDateComponents: DateComponents())
+        let itemBD = Item(title: "Alien 3 [BLU-RAY]", author: "", library: "", returnDateComponents: DateComponents(), image: nil)
         XCTAssertEqual(itemBD.formattedTitle(), "📀 Alien 3")
 
-        let itemGame = Item(title: "Assimemor : animals & colours [JEU]", author: "", library: "", returnDateComponents: DateComponents())
+        let itemGame = Item(title: "Assimemor : animals & colours [JEU]", author: "", library: "", returnDateComponents: DateComponents(), image: nil)
         XCTAssertEqual(itemGame.formattedTitle(), "🎲 Assimemor : animals & colours")
     }
 
     func testAuthorFormatter() {
-        let item1 = Item(title: "", author: "Camille Moreau ; illustrations Benjamin Bécue", library: "", returnDateComponents: DateComponents())
+        let item1 = Item(title: "", author: "Camille Moreau ; illustrations Benjamin Bécue", library: "", returnDateComponents: DateComponents(), image: nil)
         XCTAssertEqual(item1.formattedAuthor(), "Camille Moreau")
 
-        let item2 = Item(title: "", author: "texte de Jean-Claude Mourlevat ; ill. de Fabienne Teyssèdre", library: "", returnDateComponents: DateComponents())
+        let item2 = Item(title: "", author: "texte de Jean-Claude Mourlevat ; ill. de Fabienne Teyssèdre", library: "", returnDateComponents: DateComponents(), image: nil)
         XCTAssertEqual(item2.formattedAuthor(), "Jean-Claude Mourlevat")
 
-        let item3 = Item(title: "", author: "Isao Takahata, réal. ; Joe Hisaishi, comp. ;", library: "", returnDateComponents: DateComponents())
+        let item3 = Item(title: "", author: "Isao Takahata, réal. ; Joe Hisaishi, comp. ;", library: "", returnDateComponents: DateComponents(), image: nil)
         XCTAssertEqual(item3.formattedAuthor(), "Isao Takahata")
 
-        let item4 = Item(title: "", author: "réalisé par Mamoru Oshii", library: "", returnDateComponents: DateComponents())
+        let item4 = Item(title: "", author: "réalisé par Mamoru Oshii", library: "", returnDateComponents: DateComponents(), image: nil)
         XCTAssertEqual(item4.formattedAuthor(), "Mamoru Oshii")
 
-        let item5 = Item(title: "", author: "scénario Wilfrid Lupano ; dessin Mayana Itoïz, Paul Cauuet", library: "", returnDateComponents: DateComponents())
+        let item5 = Item(title: "", author: "scénario Wilfrid Lupano ; dessin Mayana Itoïz, Paul Cauuet", library: "", returnDateComponents: DateComponents(), image: nil)
         XCTAssertEqual(item5.formattedAuthor(), "Wilfrid Lupano")
     }
 }
