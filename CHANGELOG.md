@@ -3,6 +3,7 @@
 ## 1.2 (work in progress)
 
 - News
+- Add loan item thumbnails
 - Refined loans expiration date style
 
 
