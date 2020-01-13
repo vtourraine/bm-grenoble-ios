@@ -45,7 +45,9 @@ class PageParser {
         }
 
         let image: URL?
+        let ImagePlaceholderSubString = "ISBN/?icon"
         if let imageString = li.parse(between: "<img src=\"", and: "\""),
+            imageString.contains(ImagePlaceholderSubString) == false,
             let imageURL = URL(string: "\(CatalogueRoot)\(imageString)") {
             image = imageURL
         }

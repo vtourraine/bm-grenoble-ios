@@ -17,24 +17,39 @@ struct Item: Codable {
 }
 
 extension Item {
+    enum Category {
+        case book
+        case dvd
+        case bluray
+        case game
+    }
+
+    func category() -> Category {
+        let DVDPrefix = " [DVD]"
+        let BDPrefix = " [BLU-RAY]"
+        let gamePrefix = " [JEU]"
+
+        if title.contains(DVDPrefix) {
+            return .dvd
+        }
+        else if title.hasSuffix(BDPrefix) {
+            return .bluray
+        }
+        else if title.hasSuffix(gamePrefix) {
+            return .game
+        }
+        else {
+            return .book
+        }
+    }
+
     func formattedTitle() -> String {
         let DVDPrefix = " [DVD]"
         let BDPrefix = " [BLU-RAY]"
         let gamePrefix = " [JEU]"
         let formattedTitle = title.replacingOccurrences(of: ": =", with: "–")
 
-        if formattedTitle.contains(DVDPrefix) {
-            return "📀 ".appending(formattedTitle.replacingOccurrences(of: DVDPrefix, with: ""))
-        }
-        else if formattedTitle.hasSuffix(BDPrefix) {
-            return "📀 ".appending(formattedTitle.replacingOccurrences(of: BDPrefix, with: ""))
-        }
-        else if formattedTitle.hasSuffix(gamePrefix) {
-            return "🎲 ".appending(formattedTitle.replacingOccurrences(of: gamePrefix, with: ""))
-        }
-        else {
-            return "📖 ".appending(formattedTitle)
-        }
+        return formattedTitle.replacingOccurrences(of: DVDPrefix, with: "").replacingOccurrences(of: BDPrefix, with: "").replacingOccurrences(of: gamePrefix, with: "")
     }
 
     func formattedAuthor() -> String {

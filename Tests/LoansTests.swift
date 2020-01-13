@@ -58,6 +58,7 @@ class LoansTests: XCTestCase {
         XCTAssertEqual(loans.items[4].returnDateComponents.day, 10)
         XCTAssertEqual(loans.items[4].returnDateComponents.month, 9)
         XCTAssertEqual(loans.items[4].returnDateComponents.year, 2019)
+        XCTAssertNil(loans.items[4].image)
     }
 
     func testParseLoans2() throws {
@@ -99,19 +100,24 @@ class LoansTests: XCTestCase {
 
     func testTitleFormatter() {
         let itemBook = Item(title: "Sous le même ciel", author: "", library: "", returnDateComponents: DateComponents(), image: nil)
-        XCTAssertEqual(itemBook.formattedTitle(), "📖 Sous le même ciel")
+        XCTAssertEqual(itemBook.formattedTitle(), "Sous le même ciel")
+        XCTAssertEqual(itemBook.category(), .book)
 
         let itemDVD = Item(title: "Patlabor 2 [DVD]", author: "", library: "", returnDateComponents: DateComponents(), image: nil)
-        XCTAssertEqual(itemDVD.formattedTitle(), "📀 Patlabor 2")
+        XCTAssertEqual(itemDVD.formattedTitle(), "Patlabor 2")
+        XCTAssertEqual(itemDVD.category(), .dvd)
 
         let itemDVDAlt = Item(title: "Vaiana : la légende du bout du monde [DVD] : = Moana", author: "", library: "", returnDateComponents: DateComponents(), image: nil)
-        XCTAssertEqual(itemDVDAlt.formattedTitle(), "📀 Vaiana : la légende du bout du monde – Moana")
+        XCTAssertEqual(itemDVDAlt.formattedTitle(), "Vaiana : la légende du bout du monde – Moana")
+        XCTAssertEqual(itemDVDAlt.category(), .dvd)
 
         let itemBD = Item(title: "Alien 3 [BLU-RAY]", author: "", library: "", returnDateComponents: DateComponents(), image: nil)
-        XCTAssertEqual(itemBD.formattedTitle(), "📀 Alien 3")
+        XCTAssertEqual(itemBD.formattedTitle(), "Alien 3")
+        XCTAssertEqual(itemBD.category(), .bluray)
 
         let itemGame = Item(title: "Assimemor : animals & colours [JEU]", author: "", library: "", returnDateComponents: DateComponents(), image: nil)
-        XCTAssertEqual(itemGame.formattedTitle(), "🎲 Assimemor : animals & colours")
+        XCTAssertEqual(itemGame.formattedTitle(), "Assimemor : animals & colours")
+        XCTAssertEqual(itemGame.category(), .game)
     }
 
     func testAuthorFormatter() {

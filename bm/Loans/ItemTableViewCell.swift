@@ -46,9 +46,31 @@ class ItemTableViewCell: UITableViewCell {
         thumbnail?.layer.cornerRadius = 2
         if let image = item.image {
             thumbnail?.af_setImage(withURL: image)
+            thumbnail?.backgroundColor = nil
+            thumbnail?.contentMode = .scaleAspectFit
         }
         else {
-            thumbnail?.image = nil
+            if #available(iOS 13.0, *) {
+                let imageName: String
+                switch item.category() {
+                case .dvd, .bluray:
+                    imageName = "tv"
+                case .game:
+                    imageName = "gamecontroller"
+                default:
+                    imageName = "book"
+                }
+
+                thumbnail?.image = UIImage(systemName: imageName)
+                thumbnail?.preferredSymbolConfiguration = UIImage.SymbolConfiguration(scale: .large)
+                thumbnail?.tintColor = .secondaryLabel
+                thumbnail?.backgroundColor = .systemFill
+                thumbnail?.contentMode = .center
+            }
+            else {
+                thumbnail?.image = nil
+                thumbnail?.backgroundColor = .lightGray
+            }
         }
     }
 

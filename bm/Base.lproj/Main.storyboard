@@ -641,7 +641,7 @@ Grenoble</string>
                     <tabBarItem key="tabBarItem" title="Prêts en cours" image="Books" landscapeImage="BooksCompact" id="kMU-d9-2Gk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="81E-91-uNE">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
                         <textAttributes key="titleTextAttributes">
@@ -872,7 +872,7 @@ Grenoble</string>
                     <tabBarItem key="tabBarItem" title="Bibliothèques" image="Location" landscapeImage="LocationCompact" id="PDh-Mg-nUs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="0IM-VL-DLa">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
                         <textAttributes key="titleTextAttributes">
@@ -1004,7 +1004,7 @@ Grenoble</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZx-z8-NaI">
-                                            <rect key="frame" x="122" y="8" width="254" height="20.5"/>
+                                            <rect key="frame" x="118" y="8" width="258" height="20.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -1024,7 +1024,7 @@ Grenoble</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O9t-cZ-tuY">
-                                            <rect key="frame" x="378" y="30" width="16" height="16"/>
+                                            <rect key="frame" x="378" y="24" width="16" height="16"/>
                                             <color key="tintColor" systemColor="tertiaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="O9t-cZ-tuY" secondAttribute="height" multiplier="1:1" id="YHI-Te-WfA"/>
@@ -1035,13 +1035,13 @@ Grenoble</string>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="pae-aX-krK" secondAttribute="bottom" constant="8" id="0oB-vB-L2N"/>
-                                        <constraint firstItem="cZx-z8-NaI" firstAttribute="leading" secondItem="chJ-Z6-ZGp" secondAttribute="trailing" constant="12" id="1MM-F6-Hr2"/>
+                                        <constraint firstItem="cZx-z8-NaI" firstAttribute="leading" secondItem="chJ-Z6-ZGp" secondAttribute="trailing" constant="8" symbolic="YES" id="1MM-F6-Hr2"/>
                                         <constraint firstItem="cZx-z8-NaI" firstAttribute="top" secondItem="fUA-UG-DfI" secondAttribute="top" constant="8" id="6Nc-7T-2l1"/>
-                                        <constraint firstItem="O9t-cZ-tuY" firstAttribute="centerY" secondItem="chJ-Z6-ZGp" secondAttribute="centerY" id="7K3-yp-Yj7"/>
                                         <constraint firstItem="pae-aX-krK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="cZx-z8-NaI" secondAttribute="bottom" constant="8" id="IsH-Dr-8sh"/>
                                         <constraint firstItem="O9t-cZ-tuY" firstAttribute="leading" secondItem="cZx-z8-NaI" secondAttribute="trailing" constant="2" id="SID-fc-p24"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="O9t-cZ-tuY" secondAttribute="trailing" id="VlD-rV-aHI"/>
                                         <constraint firstItem="pae-aX-krK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="chJ-Z6-ZGp" secondAttribute="bottom" constant="6" id="c1g-23-lur"/>
+                                        <constraint firstItem="O9t-cZ-tuY" firstAttribute="firstBaseline" secondItem="cZx-z8-NaI" secondAttribute="firstBaseline" id="gVb-fO-QMU"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="pae-aX-krK" secondAttribute="trailing" id="i04-5H-0dE"/>
                                         <constraint firstItem="pae-aX-krK" firstAttribute="leading" secondItem="chJ-Z6-ZGp" secondAttribute="leading" id="op4-qr-CBf"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="chJ-Z6-ZGp" secondAttribute="leading" id="x0O-99-GbU"/>
@@ -1074,7 +1074,7 @@ Grenoble</string>
                     <tabBarItem key="tabBarItem" title="Actualité" image="News" landscapeImage="NewsCompact" id="e0Q-pb-YTt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="TZZ-PG-ELm">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
                         <textAttributes key="titleTextAttributes">
