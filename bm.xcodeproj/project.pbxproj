@@ -16,6 +16,7 @@
 		D70A2B6B2342489A00AC9405 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70A2B6A2342489A00AC9405 /* Library.swift */; };
 		D70A2B6D23424BC400AC9405 /* LibrariesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70A2B6C23424BC400AC9405 /* LibrariesViewController.swift */; };
 		D72BBA91233B8DC500F5A1CB /* TestAccountLoansEmpty.html in Resources */ = {isa = PBXBuildFile; fileRef = D72BBA90233B8DC500F5A1CB /* TestAccountLoansEmpty.html */; };
+		D73968EB23D1ECCC00F01645 /* DemoAccountLoans.html in Resources */ = {isa = PBXBuildFile; fileRef = D73968EA23D1ECCC00F01645 /* DemoAccountLoans.html */; };
 		D75DB3B322FBFD84008C7499 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D75DB3B122FBFD84008C7499 /* Localizable.strings */; };
 		D75DB3BC22FD6369008C7499 /* InterfaceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75DB3BB22FD6369008C7499 /* InterfaceHelpers.swift */; };
 		D7614BAD2363A6B3000D7C99 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7614BAC2363A6B3000D7C99 /* LibraryViewController.swift */; };
@@ -78,6 +79,7 @@
 		D70A2B6A2342489A00AC9405 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		D70A2B6C23424BC400AC9405 /* LibrariesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariesViewController.swift; sourceTree = "<group>"; };
 		D72BBA90233B8DC500F5A1CB /* TestAccountLoansEmpty.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TestAccountLoansEmpty.html; sourceTree = "<group>"; };
+		D73968EA23D1ECCC00F01645 /* DemoAccountLoans.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DemoAccountLoans.html; sourceTree = "<group>"; };
 		D75DB3B222FBFD84008C7499 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D75DB3B422FBFDB0008C7499 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D75DB3B522FBFDC4008C7499 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				D7910BCA23717A3200A0DC31 /* LibrariesTests.swift */,
 				D78C460723785EE400313AD8 /* SearchTests.swift */,
 				D786E6E522F194EC00AD1D36 /* Info.plist */,
+				D73968EA23D1ECCC00F01645 /* DemoAccountLoans.html */,
 				D786E6EB22F1952A00AD1D36 /* TestAccountLoans1.html */,
 				D7A8832722FAC53700C209DC /* TestAccountLoans2.html */,
 				D7FEEA4323158A7000B21933 /* TestAccountLoans3-Page1.html */,
@@ -394,6 +397,7 @@
 				D70A2B69234247F300AC9405 /* Libraries.plist in Resources */,
 				D70212CE22F0E43E00E3972E /* Assets.xcassets in Resources */,
 				D70212CC22F0E43C00E3972E /* Main.storyboard in Resources */,
+				D73968EB23D1ECCC00F01645 /* DemoAccountLoans.html in Resources */,
 				D78C460B2379AACA00313AD8 /* LoansNotLoggedInView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

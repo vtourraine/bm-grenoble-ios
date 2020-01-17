@@ -61,6 +61,7 @@ class LoansViewController: UITableViewController {
         super.viewDidAppear(animated)
 
         if isFirstLaunch {
+            // loadDemoData()
             if Credentials.load(from: .standard) != nil {
                 refresh(sender: nil)
             }
@@ -119,6 +120,14 @@ class LoansViewController: UITableViewController {
         case .notLoggedIn:
             configureNotLoggedInPlaceholder()
         }
+    }
+
+    func loadDemoData() {
+        let fileName = "DemoAccountLoans"
+        let path = Bundle(for: type(of: self)).path(forResource: fileName, ofType: "html")
+        let html = try? String(contentsOfFile: path!)
+        let loans = PageParser.parseLoans(html: html!)
+        reloadData(state: .loans(loans!.items))
     }
 
     func item(at indexPath: IndexPath) -> Item? {
