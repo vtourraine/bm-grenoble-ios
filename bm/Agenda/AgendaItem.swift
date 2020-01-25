@@ -20,4 +20,5 @@ struct AgendaItem {
     let library: String
     let link: URL
     let date: AgendaDate
+    let image: URL?
 }

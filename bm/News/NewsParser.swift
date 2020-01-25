@@ -25,7 +25,7 @@ class NewsParser {
         guard let linkString = html.parse(between: "<a href=\"", and: "\">"),
             let link = URL(string: "\(NewsParser.LinkRoot)\(linkString)"),
             let title = html.parseOccurences(between: "\(linkString)\">", and: "</a>").last?.cleanHTMLEntities(),
-            let summary = html.parse(between: "<p>", and: "</p>")?.cleanHTMLEntities().replacingOccurrences(of: "<br>", with: "").replacingOccurrences(of: "\r", with: "") else {
+            let summary = html.parse(between: "<p>", and: "</p>")?.cleanHTMLEntitiesAndTags() else {
             return nil
         }
 

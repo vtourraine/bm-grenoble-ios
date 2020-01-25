@@ -74,6 +74,26 @@ extension String {
     }
 
     func cleanHTMLEntities() -> String {
-        return replacingOccurrences(of: "&amp;", with: "&").replacingOccurrences(of: "&#039;", with: "'")
+        var string = self
+        let entities = ["&amp;": "&",
+                        "&#039;": "'",
+                        "&quot;": "\""]
+
+        for (key, value) in entities {
+            string = string.replacingOccurrences(of: key, with: value)
+        }
+
+        return string
+    }
+
+    func cleanHTMLEntitiesAndTags() -> String {
+        var string = self.cleanHTMLEntities()
+        let tags = ["<br>", "\r"]
+
+        for tag in tags {
+            string = string.replacingOccurrences(of: tag, with: "")
+        }
+
+        return string
     }
 }

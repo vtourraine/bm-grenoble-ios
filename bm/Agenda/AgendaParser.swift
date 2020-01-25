@@ -27,7 +27,7 @@ class AgendaParser {
             let title = html.parse(between: "</span> - ", and: "</a>")?.cleanHTMLEntities(),
             let dateString = html.parse(between: "<span>Le ", and: "</span>"),
             let infoString = html.parse(between: "class=\"alignleft\" alt=\"\">", and: "-"),
-            let summary = html.parse(between: "<p class=\"resume\">", and: "</p>") else {
+            let summary = html.parse(between: "<p class=\"resume\">", and: "</p>")?.cleanHTMLEntitiesAndTags() else {
             return nil
         }
 
@@ -47,7 +47,16 @@ class AgendaParser {
         dateComponents.month = Int(dateStringComponents[1])
         dateComponents.year = Int(dateStringComponents[2])
 
-        return AgendaItem(title: title, summary: summary, category: category, library: library, link: link, date: .day(dateComponents))
+        let image: URL?
+        if let imageString = html.parse(between: "<img src=\"", and: "\""),
+            let imageURL = URL(string: "\(AgendaParser.LinkRoot)\(imageString)") {
+            image = imageURL
+        }
+        else {
+            image = nil
+        }
+
+        return AgendaItem(title: title, summary: summary, category: category, library: library, link: link, date: .day(dateComponents), image: image)
     }
 
     class func fetchAgendaItems(completionHandler: @escaping (Result<[AgendaItem], Error>) -> Void) -> URLSessionDataTask {
