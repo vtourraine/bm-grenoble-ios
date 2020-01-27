@@ -872,7 +872,7 @@ Grenoble</string>
                     <tabBarItem key="tabBarItem" title="Bibliothèques" image="Location" landscapeImage="LocationCompact" id="PDh-Mg-nUs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="0IM-VL-DLa">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
                         <textAttributes key="titleTextAttributes">
@@ -1114,10 +1114,7 @@ Grenoble</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKr-R8-PJj">
-                                            <rect key="frame" x="122" y="8" width="252" height="60"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="3iW-5b-LKv"/>
-                                            </constraints>
+                                            <rect key="frame" x="122" y="30" width="252" height="20.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -1145,23 +1142,33 @@ Grenoble</string>
                                             </constraints>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfy-Wl-n6g">
+                                            <rect key="frame" x="122" y="8" width="252" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" name="BMRed"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="IEV-gs-I4f" secondAttribute="bottom" constant="12" id="2xd-cP-w1D"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="RF8-Yc-bSI" secondAttribute="leading" id="3z6-xw-vMg"/>
+                                        <constraint firstItem="fPH-uW-0Ca" firstAttribute="leading" secondItem="gfy-Wl-n6g" secondAttribute="trailing" constant="4" id="6KW-un-NaD"/>
                                         <constraint firstItem="IEV-gs-I4f" firstAttribute="top" relation="greaterThanOrEqual" secondItem="PKr-R8-PJj" secondAttribute="bottom" constant="8" id="9pc-V8-oPP"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="IEV-gs-I4f" secondAttribute="trailing" id="Afw-RN-9kS"/>
                                         <constraint firstItem="PKr-R8-PJj" firstAttribute="leading" secondItem="RF8-Yc-bSI" secondAttribute="trailing" constant="12" id="EZo-8B-jNZ"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="fPH-uW-0Ca" secondAttribute="trailing" id="J6P-8a-mSc"/>
+                                        <constraint firstItem="PKr-R8-PJj" firstAttribute="top" secondItem="gfy-Wl-n6g" secondAttribute="bottom" constant="4" id="NQs-aO-aSe"/>
                                         <constraint firstItem="fPH-uW-0Ca" firstAttribute="centerY" secondItem="RF8-Yc-bSI" secondAttribute="centerY" id="eyh-1T-aEd"/>
-                                        <constraint firstItem="PKr-R8-PJj" firstAttribute="top" secondItem="rcY-m3-q9y" secondAttribute="top" constant="8" id="fGu-Mq-OzD"/>
+                                        <constraint firstItem="gfy-Wl-n6g" firstAttribute="leading" secondItem="RF8-Yc-bSI" secondAttribute="trailing" constant="12" id="gGc-EG-Abr"/>
                                         <constraint firstItem="fPH-uW-0Ca" firstAttribute="leading" secondItem="PKr-R8-PJj" secondAttribute="trailing" constant="4" id="ie7-Fs-Z4E"/>
                                         <constraint firstItem="RF8-Yc-bSI" firstAttribute="top" secondItem="rcY-m3-q9y" secondAttribute="top" constant="10" id="lVm-gS-7Qw"/>
                                         <constraint firstItem="IEV-gs-I4f" firstAttribute="leading" secondItem="RF8-Yc-bSI" secondAttribute="leading" id="lYj-Xb-NTX"/>
+                                        <constraint firstItem="gfy-Wl-n6g" firstAttribute="top" secondItem="rcY-m3-q9y" secondAttribute="top" constant="8" id="pxl-4q-a7i"/>
                                         <constraint firstItem="IEV-gs-I4f" firstAttribute="top" relation="greaterThanOrEqual" secondItem="RF8-Yc-bSI" secondAttribute="bottom" constant="8" id="vUs-rA-xk0"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="date" destination="gfy-Wl-n6g" id="Gvm-P9-ZHP"/>
                                     <outlet property="disclosure" destination="fPH-uW-0Ca" id="KkS-dL-2Wb"/>
                                     <outlet property="summary" destination="IEV-gs-I4f" id="0Ig-Ec-ECj"/>
                                     <outlet property="thumbnail" destination="RF8-Yc-bSI" id="vv5-DI-eYc"/>
@@ -1187,7 +1194,7 @@ Grenoble</string>
                     <tabBarItem key="tabBarItem" title="Agenda" image="Calendar" landscapeImage="CalendarCompact" id="7C3-cu-WC2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="uUU-HX-xAk">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
                         <textAttributes key="titleTextAttributes">
