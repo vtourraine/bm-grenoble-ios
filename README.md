@@ -4,6 +4,8 @@ iOS application for the Grenoble Municipal Library ([bibliothèque municipale de
 
 [![Build Status](https://travis-ci.org/vtourraine/bm-grenoble-ios.svg?branch=master)](https://travis-ci.org/vtourraine/bm-grenoble-ios)
 
+![Screenshot](https://www.vtourraine.net/blog/img/2019/bibliotheque-grenoble/bm-grenoble.png)
+
 ## How it works
 
 The Grenoble Municipal Library doesn’t offer a public API to check your account status and loans. This app uses a hidden web view instead, programmatically signing in with the user credentials, then extracting the relevant data by parsing the HTML pages.
