@@ -32,12 +32,8 @@ extension AgendaTableViewCell {
 
         switch item.date {
         case .day(let dateComponents):
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = .full
-            dateFormatter.doesRelativeDateFormatting = true
-            if let itemDate = Calendar.current.date(from: dateComponents) {
-                date?.text = dateFormatter.string(from: itemDate)
-            }
+            let formattedDate = formatterDateWithoutYear(dateComponents)
+            date?.text = formattedDate
         case .range(let startDateComponents, let endDateComponents):
             let dateFormatter = DateIntervalFormatter()
             if let startDate = Calendar.current.date(from: startDateComponents),
@@ -48,6 +44,31 @@ extension AgendaTableViewCell {
 
         if #available(iOS 13.0, *) {
             disclosure?.image = UIImage(systemName: "chevron.right")
+        }
+    }
+
+    private func formatterDateWithoutYear(_ dateComponents: DateComponents) -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .full
+        dateFormatter.doesRelativeDateFormatting = true
+
+        guard let date = Calendar.current.date(from: dateComponents),
+            let year = dateComponents.year else {
+                return nil
+        }
+
+        let formattedString = dateFormatter.string(from: date)
+
+        let yearSuffixUS = ", \(year)"
+        let yearSuffixFR = " \(year)"
+        if formattedString.hasSuffix(yearSuffixUS) {
+            return formattedString.replacingOccurrences(of: yearSuffixUS, with: "")
+        }
+        else if formattedString.hasSuffix(yearSuffixFR) {
+            return formattedString.replacingOccurrences(of: yearSuffixFR, with: "")
+        }
+        else {
+            return formattedString
         }
     }
 }

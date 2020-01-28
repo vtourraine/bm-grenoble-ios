@@ -17,6 +17,10 @@ class AgendaViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if let cachedItems = AgendaItemCache.load(from: .standard) {
+            agendaItems = cachedItems.items
+        }
+
         navigationController?.configureCustomAppearance()
     }
 
@@ -30,7 +34,7 @@ class AgendaViewController: UITableViewController {
                     self.agendaItems = items
                     self.tableView.reloadData()
 
-                    // NewsItemCache.save(items: items, to: .standard)
+                    AgendaItemCache.save(items: items, to: .standard)
 
                 case .failure:
                     break

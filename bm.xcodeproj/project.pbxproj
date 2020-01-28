@@ -46,6 +46,7 @@
 		D78C460B2379AACA00313AD8 /* LoansNotLoggedInView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78C46092379AACA00313AD8 /* LoansNotLoggedInView.xib */; };
 		D7910BCB23717A3200A0DC31 /* LibrariesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7910BCA23717A3200A0DC31 /* LibrariesTests.swift */; };
 		D79ABC0E233DF079007ADE6E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79ABC0D233DF079007ADE6E /* AboutViewController.swift */; };
+		D7A0A2E423E032F30039D934 /* AgendaItemCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A0A2E323E032F30039D934 /* AgendaItemCache.swift */; };
 		D7A8832422F5C4BA00C209DC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A8832322F5C4BA00C209DC /* LoginViewController.swift */; };
 		D7A8832622F8132B00C209DC /* Keyboard+LayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A8832522F8132B00C209DC /* Keyboard+LayoutGuide.swift */; };
 		D7A8832822FAC53700C209DC /* TestAccountLoans2.html in Resources */ = {isa = PBXBuildFile; fileRef = D7A8832722FAC53700C209DC /* TestAccountLoans2.html */; };
@@ -120,6 +121,7 @@
 		D78C460F2379AF0A00313AD8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = ../fr.lproj/LoansNotLoggedInView.strings; sourceTree = "<group>"; };
 		D7910BCA23717A3200A0DC31 /* LibrariesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariesTests.swift; sourceTree = "<group>"; };
 		D79ABC0D233DF079007ADE6E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		D7A0A2E323E032F30039D934 /* AgendaItemCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaItemCache.swift; sourceTree = "<group>"; };
 		D7A8832322F5C4BA00C209DC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D7A8832522F8132B00C209DC /* Keyboard+LayoutGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Keyboard+LayoutGuide.swift"; path = "Dependencies/KeyboardLayoutGuide/Keyboard+LayoutGuide.swift"; sourceTree = "<group>"; };
 		D7A8832722FAC53700C209DC /* TestAccountLoans2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TestAccountLoans2.html; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				D7CE68D323DCF15000197F50 /* AgendaTableViewCell.swift */,
 				D7697DE923CA0C8D00010011 /* AgendaItem.swift */,
 				D7697DED23CA0DAF00010011 /* AgendaParser.swift */,
+				D7A0A2E323E032F30039D934 /* AgendaItemCache.swift */,
 			);
 			path = Agenda;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				D786E6DC22F191CE00AD1D36 /* PageParser.swift in Sources */,
 				D7697DEA23CA0C8E00010011 /* AgendaItem.swift in Sources */,
 				D70212C722F0E43C00E3972E /* AppDelegate.swift in Sources */,
+				D7A0A2E423E032F30039D934 /* AgendaItemCache.swift in Sources */,
 				D786E6F022F1B42C00AD1D36 /* ItemTableViewCell.swift in Sources */,
 				D7A8832622F8132B00C209DC /* Keyboard+LayoutGuide.swift in Sources */,
 				D78200AB23C7579F00C3A699 /* NewsViewController.swift in Sources */,
@@ -666,7 +670,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 29;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_TEAM = 77S3V3W24J;
 				INFOPLIST_FILE = bm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -687,7 +691,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 29;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_TEAM = 77S3V3W24J;
 				INFOPLIST_FILE = bm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

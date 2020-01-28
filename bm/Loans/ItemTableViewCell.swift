@@ -99,8 +99,6 @@ class ItemTableViewCell: UITableViewCell {
             localizedMediumReturnDate = DateFormatter.localizedString(from: returnDate, dateStyle: .medium, timeStyle: .none)
         }
 
-        returnDateLabel?.text = localizedMediumReturnDate
-
         let numberOfDays = calendar.dateComponents([.day], from: Date(), to: returnDateShifted)
         guard let localizedNumberOfDays = DateComponentsFormatter.localizedString(from: numberOfDays, unitsStyle: .full),
             let numberOfDaysValue = numberOfDays.day else {
