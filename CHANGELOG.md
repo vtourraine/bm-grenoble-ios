@@ -1,6 +1,13 @@
 # BM Grenoble
 
-## 1.2 (work in progress)
+## 1.3 (work in progress)
+
+- Agenda
+
+
+## 1.2
+
+2020-01-17
 
 - News
 - Add loan item thumbnails
