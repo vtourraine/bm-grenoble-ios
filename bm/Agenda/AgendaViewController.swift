@@ -11,7 +11,6 @@ import UIKit
 class AgendaViewController: UITableViewController {
 
     var agendaItems = [AgendaItem]()
-    var networkTask: URLSessionDataTask?
     var isFirstLaunch = true
 
     override func viewDidLoad() {
@@ -28,7 +27,7 @@ class AgendaViewController: UITableViewController {
         super.viewDidAppear(animated)
 
         if isFirstLaunch {
-            networkTask = AgendaParser.fetchAgendaItems { result in
+            AgendaParser.fetchAgendaItems { result in
                 switch (result) {
                 case .success(let items):
                     self.agendaItems = items

@@ -11,7 +11,7 @@ import XCTest
 
 class AgendaTests: XCTestCase {
 
-    private func loadItems(fromFileNamed fileName: String) throws -> [AgendaItem] {
+    private func loadItems(fromFileNamed fileName: String) throws -> (items: [AgendaItem], pagination: AgendaParser.Pagination) {
         let path = try XCTUnwrap(Bundle(for: type(of: self)).path(forResource: fileName, ofType: "html"))
         let html = try XCTUnwrap(String(contentsOfFile: path))
         let items = try XCTUnwrap(AgendaParser.parseItems(html: html))
@@ -19,7 +19,13 @@ class AgendaTests: XCTestCase {
     }
 
     func testParseAgendaItems1() throws {
-        let items = try loadItems(fromFileNamed: "TestAgenda1")
+        let parsedObjects = try loadItems(fromFileNamed: "TestAgenda1")
+
+        XCTAssertNotNil(parsedObjects.pagination.nextPage)
+        let nextPageURL = try XCTUnwrap(parsedObjects.pagination.nextPage)
+        XCTAssertEqual(nextPageURL.absoluteString, "https://www.bm-grenoble.fr/688-agenda.htm?TPL_CODE=TPL_AGENDALISTE&ip=2&op=AGP_DATEFIN+asc&cp=998b0016113da5c36d2a&mp=10#p")
+
+        let items = parsedObjects.items
 
         XCTAssertEqual(items.count, 10)
 
@@ -40,5 +46,18 @@ class AgendaTests: XCTestCase {
         }
 
         XCTAssertEqual(items[6].summary, "Un programme de lectures ponctuées de chansons sur une musique originale de Thierry Ronget.")
+    }
+
+    func testParseAgendaItems2() throws {
+        let parsedObjects = try loadItems(fromFileNamed: "TestAgenda2")
+
+        XCTAssertNotNil(parsedObjects.pagination.nextPage)
+        let nextPageURL = try XCTUnwrap(parsedObjects.pagination.nextPage)
+        XCTAssertEqual(nextPageURL.absoluteString, "https://www.bm-grenoble.fr/688-agenda.htm?TPL_CODE=TPL_AGENDALISTE&ip=3&op=AGP_DATEFIN+asc&cp=998b0016113da5c36d2a&mp=10#p")
+    }
+
+    func testParseAgendaItems3() throws {
+        let parsedObjects = try loadItems(fromFileNamed: "TestAgenda3")
+        XCTAssertNil(parsedObjects.pagination.nextPage)
     }
 }

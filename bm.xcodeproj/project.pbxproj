@@ -47,6 +47,8 @@
 		D7910BCB23717A3200A0DC31 /* LibrariesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7910BCA23717A3200A0DC31 /* LibrariesTests.swift */; };
 		D79ABC0E233DF079007ADE6E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79ABC0D233DF079007ADE6E /* AboutViewController.swift */; };
 		D7A0A2E423E032F30039D934 /* AgendaItemCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A0A2E323E032F30039D934 /* AgendaItemCache.swift */; };
+		D7A0A2EA23E1828D0039D934 /* TestAgenda3.html in Resources */ = {isa = PBXBuildFile; fileRef = D7A0A2E823E1828D0039D934 /* TestAgenda3.html */; };
+		D7A0A2EB23E1828D0039D934 /* TestAgenda2.html in Resources */ = {isa = PBXBuildFile; fileRef = D7A0A2E923E1828D0039D934 /* TestAgenda2.html */; };
 		D7A8832422F5C4BA00C209DC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A8832322F5C4BA00C209DC /* LoginViewController.swift */; };
 		D7A8832622F8132B00C209DC /* Keyboard+LayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A8832522F8132B00C209DC /* Keyboard+LayoutGuide.swift */; };
 		D7A8832822FAC53700C209DC /* TestAccountLoans2.html in Resources */ = {isa = PBXBuildFile; fileRef = D7A8832722FAC53700C209DC /* TestAccountLoans2.html */; };
@@ -122,6 +124,8 @@
 		D7910BCA23717A3200A0DC31 /* LibrariesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariesTests.swift; sourceTree = "<group>"; };
 		D79ABC0D233DF079007ADE6E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		D7A0A2E323E032F30039D934 /* AgendaItemCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaItemCache.swift; sourceTree = "<group>"; };
+		D7A0A2E823E1828D0039D934 /* TestAgenda3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TestAgenda3.html; sourceTree = "<group>"; };
+		D7A0A2E923E1828D0039D934 /* TestAgenda2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TestAgenda2.html; sourceTree = "<group>"; };
 		D7A8832322F5C4BA00C209DC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D7A8832522F8132B00C209DC /* Keyboard+LayoutGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Keyboard+LayoutGuide.swift"; path = "Dependencies/KeyboardLayoutGuide/Keyboard+LayoutGuide.swift"; sourceTree = "<group>"; };
 		D7A8832722FAC53700C209DC /* TestAccountLoans2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TestAccountLoans2.html; sourceTree = "<group>"; };
@@ -251,6 +255,8 @@
 				D72BBA90233B8DC500F5A1CB /* TestAccountLoansEmpty.html */,
 				D78200A523C7399100C3A699 /* TestNews1.html */,
 				D7697DEB23CA0DA100010011 /* TestAgenda1.html */,
+				D7A0A2E923E1828D0039D934 /* TestAgenda2.html */,
+				D7A0A2E823E1828D0039D934 /* TestAgenda3.html */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -420,7 +426,9 @@
 				D7697DEC23CA0DA100010011 /* TestAgenda1.html in Resources */,
 				D7A8832822FAC53700C209DC /* TestAccountLoans2.html in Resources */,
 				D72BBA91233B8DC500F5A1CB /* TestAccountLoansEmpty.html in Resources */,
+				D7A0A2EB23E1828D0039D934 /* TestAgenda2.html in Resources */,
 				D7FEEA4523158A7000B21933 /* TestAccountLoans3-Page1.html in Resources */,
+				D7A0A2EA23E1828D0039D934 /* TestAgenda3.html in Resources */,
 				D78200A923C73AF700C3A699 /* TestNews1.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
