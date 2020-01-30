@@ -12,6 +12,7 @@ import AlamofireImage
 class AgendaTableViewCell : UITableViewCell {
     @IBOutlet var title: UILabel?
     @IBOutlet var date: UILabel?
+    @IBOutlet var library: UILabel?
     @IBOutlet var summary: UILabel?
     @IBOutlet var thumbnail: UIImageView?
     @IBOutlet var disclosure: UIImageView?
@@ -21,6 +22,7 @@ extension AgendaTableViewCell {
     func configure(item: AgendaItem) {
         title?.text = item.title
         summary?.text = item.summary
+        library?.text = item.library
 
         thumbnail?.layer.cornerRadius = 8
         if let image = item.image {
