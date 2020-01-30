@@ -26,7 +26,6 @@ class AgendaTests: XCTestCase {
         XCTAssertEqual(nextPageURL.absoluteString, "https://www.bm-grenoble.fr/688-agenda.htm?TPL_CODE=TPL_AGENDALISTE&ip=2&op=AGP_DATEFIN+asc&cp=998b0016113da5c36d2a&mp=10#p")
 
         let items = parsedObjects.items
-
         XCTAssertEqual(items.count, 10)
 
         XCTAssertEqual(items[0].title, "Le nudge, comment influencer sans contrainte")
@@ -54,6 +53,22 @@ class AgendaTests: XCTestCase {
         XCTAssertNotNil(parsedObjects.pagination.nextPage)
         let nextPageURL = try XCTUnwrap(parsedObjects.pagination.nextPage)
         XCTAssertEqual(nextPageURL.absoluteString, "https://www.bm-grenoble.fr/688-agenda.htm?TPL_CODE=TPL_AGENDALISTE&ip=3&op=AGP_DATEFIN+asc&cp=998b0016113da5c36d2a&mp=10#p")
+
+        let items = parsedObjects.items
+        XCTAssertEqual(items.count, 10)
+
+        switch items[2].date {
+        case .day:
+            XCTFail()
+        case .range(let startDateComponents, let endDateComponents):
+            XCTAssertEqual(startDateComponents.day, 6)
+            XCTAssertEqual(startDateComponents.month, 12)
+            XCTAssertEqual(startDateComponents.year, 2019)
+
+            XCTAssertEqual(endDateComponents.day, 14)
+            XCTAssertEqual(endDateComponents.month, 2)
+            XCTAssertEqual(endDateComponents.year, 2020)
+        }
     }
 
     func testParseAgendaItems3() throws {

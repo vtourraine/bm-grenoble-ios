@@ -17,7 +17,7 @@ struct AgendaItem: Codable {
     let title: String
     let summary: String
     let category: String
-    let library: String
+    let library: String?
     let link: URL
     let date: AgendaDate
     let image: URL?

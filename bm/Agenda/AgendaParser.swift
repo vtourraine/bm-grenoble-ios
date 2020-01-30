@@ -40,31 +40,54 @@ class AgendaParser {
         return (items: items, pagination: pagination)
     }
 
-    private class func parseAgendaItem(html: String) -> AgendaItem? {
-        guard let linkString = html.parse(between: "<a href=\"", and: "\">"),
-            let link = URL(string: "\(LinkRoot)\(linkString)"),
-            let title = html.parse(between: "</span> - ", and: "</a>")?.cleanHTMLEntities(),
-            let dateString = html.parse(between: "<span>Le ", and: "</span>"),
-            let infoString = html.parse(between: "class=\"alignleft\" alt=\"\">", and: "-"),
-            let summary = html.parse(between: "<p class=\"resume\">", and: "</p>")?.cleanHTMLEntitiesAndTags() else {
+    private class func dateComponent(from string: String) -> DateComponents? {
+        let dateStringComponents = string.components(separatedBy: "/")
+        guard dateStringComponents.count == 3 else {
             return nil
         }
-
-        let dateStringComponents = dateString.components(separatedBy: "/")
-        let infoStringComponents = infoString.components(separatedBy: "<br>\n")
-
-        guard dateStringComponents.count == 3,
-            infoStringComponents.count >= 2 else {
-            return nil
-        }
-
-        let category = infoStringComponents[0].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        let library = infoStringComponents[1].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
 
         var dateComponents = DateComponents()
         dateComponents.day = Int(dateStringComponents[0])
         dateComponents.month = Int(dateStringComponents[1])
         dateComponents.year = Int(dateStringComponents[2])
+        return dateComponents
+    }
+
+    private class func parseAgendaItem(html: String) -> AgendaItem? {
+        guard let linkString = html.parse(between: "<a href=\"", and: "\">"),
+            let link = URL(string: "\(LinkRoot)\(linkString)"),
+            let title = html.parse(between: "</span> - ", and: "</a>")?.cleanHTMLEntities(),
+            let infoString = html.parse(between: "class=\"alignleft\" alt=\"\">", and: "<p"),
+            let summary = html.parse(between: "<p class=\"resume\">", and: "</p>")?.cleanHTMLEntitiesAndTags() else {
+            return nil
+        }
+
+        let infoStringComponents = infoString.components(separatedBy: "<br>\n")
+        guard infoStringComponents.count >= 2 else {
+            return nil
+        }
+
+        let itemDate: AgendaItem.AgendaDate
+        if let dateString = html.parse(between: "<span>Le ", and: "</span>"),
+            let dateComponents = dateComponent(from: dateString) {
+                itemDate = .day(dateComponents)
+        }
+        else if let dateRangeString = html.parse(between: "<span>Du ", and: "</span>") {
+            let datesString = dateRangeString.components(separatedBy: " au ")
+            guard datesString.count == 2,
+                let startDateComponents = dateComponent(from: datesString[0]),
+                let endDateComponents = dateComponent(from: datesString[1]) else {
+                return nil
+            }
+
+            itemDate = .range(startDateComponents, endDateComponents)
+        }
+        else {
+            return nil
+        }
+
+        let category = infoStringComponents[0].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        let library = infoStringComponents[1].components(separatedBy: "-").first?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
 
         let image: URL?
         if let imageString = html.parse(between: "<img src=\"", and: "\""),
@@ -75,7 +98,7 @@ class AgendaParser {
             image = nil
         }
 
-        return AgendaItem(title: title, summary: summary, category: category, library: library, link: link, date: .day(dateComponents), image: image)
+        return AgendaItem(title: title, summary: summary, category: category, library: library, link: link, date: itemDate, image: image)
     }
 
     class func fetchAgendaItems(completionHandler: @escaping (Result<[AgendaItem], Error>) -> Void) {
