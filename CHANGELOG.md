@@ -3,6 +3,7 @@
 ## 1.3 (work in progress)
 
 - Agenda
+- Warning flag for unreturned loans
 
 
 ## 1.2

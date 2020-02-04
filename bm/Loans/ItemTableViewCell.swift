@@ -27,7 +27,12 @@ class ItemTableViewCell: UITableViewCell {
 
         if let formattedReturnDate = formattedReturnDate(components: item.returnDateComponents) {
             returnDateLabel?.text = formattedReturnDate.localizedDate
-            returnNumberOfDaysLabel?.text = formattedReturnDate.localizedNumberOfDays
+            if formattedReturnDate.numberOfDays <= 0 {
+                returnNumberOfDaysLabel?.text = "⚠️ \(formattedReturnDate.localizedNumberOfDays)"
+            }
+            else {
+                returnNumberOfDaysLabel?.text = formattedReturnDate.localizedNumberOfDays
+            }
 
             var returnLabelsColor = UIColor.darkText
 
