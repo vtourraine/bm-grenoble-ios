@@ -35,14 +35,14 @@ extension AgendaTableViewCell {
         switch item.date {
         case .day(let dateComponents):
             let formattedDate = formatterDateWithoutYear(dateComponents)
-            date?.text = formattedDate
+            date?.text = formattedDate?.capitalizingFirstLetter()
         case .range(let startDateComponents, let endDateComponents):
             let dateFormatter = DateIntervalFormatter()
             dateFormatter.dateStyle = .full
             dateFormatter.timeStyle = .none
             if let startDate = Calendar.current.date(from: startDateComponents),
                 let endDate = Calendar.current.date(from: endDateComponents) {
-                date?.text = dateFormatter.string(from: startDate, to: endDate)
+                date?.text = dateFormatter.string(from: startDate, to: endDate).capitalizingFirstLetter()
             }
         }
 

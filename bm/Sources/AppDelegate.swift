@@ -12,6 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var lastSelectedViewController: UIViewController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -30,11 +31,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        if let navigationController = viewController as? UINavigationController,
+        if lastSelectedViewController == viewController,
+            let navigationController = viewController as? UINavigationController,
             let topViewController = navigationController.topViewController as? UITableViewController,
             topViewController == navigationController.viewControllers.first,
             topViewController.tableView(topViewController.tableView, numberOfRowsInSection: 0) > 0 {
             topViewController.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         }
+
+        lastSelectedViewController = viewController
     }
 }

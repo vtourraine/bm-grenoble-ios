@@ -4,6 +4,7 @@
 
 - Agenda
 - Warning flag for unreturned loans
+- Add loans refresh control
 
 
 ## 1.2
