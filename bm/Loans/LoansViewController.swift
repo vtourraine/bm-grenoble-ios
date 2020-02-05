@@ -43,6 +43,7 @@ class LoansViewController: UITableViewController {
         let infoBarButtonItem = UIBarButtonItem(customView: infoButton)
         navigationItem.rightBarButtonItem = infoBarButtonItem
 
+        extendedLayoutIncludesOpaqueBars = true
         refreshControl?.tintColor = .white
 
         tableView.tableFooterView = UIView(frame: CGRect.zero)
