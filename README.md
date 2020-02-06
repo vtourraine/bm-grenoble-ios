@@ -52,4 +52,3 @@ This application is available under the MIT license. See the [LICENSE.txt](./LIC
 - [Location](https://thenounproject.com/term/location/2945011) icon by Saifurrijal from the Noun Project
 - [Books](https://thenounproject.com/term/books/1864286) icon by Adrien Coquet from the Noun Project
 - [News](https://thenounproject.com/term/news/1318539) icon by Noah from the Noun Project
-- [Calendar](https://thenounproject.com/term/calendar/3063431) by Milinda Courey from the Noun Project
