@@ -1,6 +1,13 @@
 # BM Grenoble
 
-## 1.3 (work in progress)
+## 1.3.1 (work in progress)
+
+- [x] Fix agenda library name with dash
+
+
+## 1.3
+
+2020-02-07
 
 - Agenda
 - Warning flag for unreturned loans

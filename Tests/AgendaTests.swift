@@ -44,6 +44,7 @@ class AgendaTests: XCTestCase {
             XCTAssertEqual(dateComponents.year, 2020)
         }
 
+        XCTAssertEqual(items[3].library, "Bibliothèque Eaux-Claires Mistral")
         XCTAssertEqual(items[6].summary, "Un programme de lectures ponctuées de chansons sur une musique originale de Thierry Ronget.")
     }
 
