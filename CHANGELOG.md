@@ -1,8 +1,15 @@
 # BM Grenoble
 
-## 1.3.1 (work in progress)
+## 1.3.2
 
-- [x] Fix agenda library name with dash
+- [x] Add message about temporary opening hours
+
+
+## 1.3.1
+
+2020-02-25
+
+- Fix agenda library name with dash
 
 
 ## 1.3

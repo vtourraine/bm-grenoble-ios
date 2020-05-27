@@ -48,7 +48,8 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
 
     func configure(with library: Library) {
         title = library.name
-        openingTimeLabel?.text = library.openingTime
+        openingTimeLabel?.text = NSLocalizedString("Modified opening hours.\nPlease check the library website.", comment: "")
+        // openingTimeLabel?.text = library.openingTime
         addressLabel?.text = library.address
         addressAccessibilityLabel?.text = library.accessibility ? NSLocalizedString("♿︎ Accessible PMR", comment: "") : nil
         phoneLabel?.text = library.phoneNumber
