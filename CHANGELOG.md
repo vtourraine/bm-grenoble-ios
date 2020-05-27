@@ -1,5 +1,12 @@
 # BM Grenoble
 
+## 1.4 (work in progress)
+
+- [ ] Sync with new web frontend
+    - [ ] Loans
+    - [ ] Search
+
+
 ## 1.3.1 (work in progress)
 
 - [x] Fix agenda library name with dash

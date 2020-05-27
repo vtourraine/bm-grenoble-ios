@@ -1,19 +1,22 @@
 //
 //  Credentials.swift
-//  bm
+//  BMKit
 //
-//  Created by Vincent Tourraine on 02/08/2019.
-//  Copyright © 2019 Studio AMANgA. All rights reserved.
+//  Created by Vincent Tourraine on 13/03/2020.
 //
 
 import Foundation
 
-struct Credentials: Codable {
-    let userIdentifier: String
-    let password: String
+public struct Credentials: Codable {
+    public let token: String
+    public let userIdentifier: String
+
+    private enum CodingKeys: String, CodingKey {
+        case token, userIdentifier = "userid"
+    }
 }
 
-extension Credentials {
+public extension Credentials {
     static let Key = "Credentials"
 
     func save(to userDefaults: UserDefaults) {
@@ -26,7 +29,8 @@ extension Credentials {
             return nil
         }
 
-        return try! JSONDecoder().decode(Credentials.self, from: encodedData)
+        let credentials = try? JSONDecoder().decode(Credentials.self, from: encodedData)
+        return credentials
     }
 
     static func remove(from userDefaults: UserDefaults) {

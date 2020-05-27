@@ -33,7 +33,7 @@ class LoansTests: XCTestCase {
         XCTAssertEqual(loans.items[0].returnDateComponents.month, 8)
         XCTAssertEqual(loans.items[0].returnDateComponents.year, 2019)
         let items0Image = try XCTUnwrap(loans.items[0].image)
-        XCTAssertEqual(items0Image.absoluteString, "http://catalogue.bm-grenoble.fr/in/rest/Thumb/ISBN/2092578081?icon=document&amp;mat=CHILD_BOOK")
+        XCTAssertEqual(items0Image.absoluteString, "https://catalogue-test.bm-grenoble.fr/in/rest/Thumb/ISBN/2092578081?icon=document&amp;mat=CHILD_BOOK")
         XCTAssertEqual(loans.items[1].title, "Sous le même ciel")
         XCTAssertEqual(loans.items[1].author, "Britta Teckentrup ; traduit de l'anglais par Frédéric Rébéna")
         XCTAssertEqual(loans.items[1].library, "Eaux Claires")

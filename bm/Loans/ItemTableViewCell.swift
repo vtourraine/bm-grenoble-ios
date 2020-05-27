@@ -8,6 +8,7 @@
 
 import UIKit
 import AlamofireImage
+import BMKit
 
 class ItemTableViewCell: UITableViewCell {
 
@@ -20,7 +21,7 @@ class ItemTableViewCell: UITableViewCell {
     @IBOutlet var returnNumberOfDaysLabel: UILabel?
     @IBOutlet var thumbnail: UIImageView?
 
-    func configure(item: Item) {
+    func configure(item: LoanItem) {
         titleLabel?.text = item.formattedTitle()
         authorLabel?.text = item.formattedAuthor()
         libraryLabel?.text = item.library

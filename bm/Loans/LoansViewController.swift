@@ -3,22 +3,21 @@
 //  bm
 //
 //  Created by Vincent Tourraine on 30/07/2019.
-//  Copyright © 2019 Studio AMANgA. All rights reserved.
+//  Copyright © 2019-2020 Studio AMANgA. All rights reserved.
 //
 
 import UIKit
-
 import WebKit
 import SafariServices
+import BMKit
 
 class LoansViewController: UITableViewController {
 
     enum State {
-        case loans([Item])
+        case loans([LoanItem])
         case notLoggedIn
     }
     var state: State = .notLoggedIn
-    var loader: GhostLoader?
     var isFirstLaunch = true
     var lastRefreshDate: Date?
 
@@ -124,14 +123,15 @@ class LoansViewController: UITableViewController {
     }
 
     func loadDemoData() {
-        let fileName = "DemoAccountLoans"
-        let path = Bundle(for: type(of: self)).path(forResource: fileName, ofType: "html")
-        let html = try? String(contentsOfFile: path!)
-        let loans = PageParser.parseLoans(html: html!)
-        reloadData(state: .loans(loans!.items))
+        // TODO: re-implement
+        // let fileName = "DemoAccountLoans"
+        // let path = Bundle(for: type(of: self)).path(forResource: fileName, ofType: "html")
+        // let html = try? String(contentsOfFile: path!)
+        // let loans = PageParser.parseLoans(html: html!)
+        // reloadData(state: .loans(loans!.items))
     }
 
-    func item(at indexPath: IndexPath) -> Item? {
+    func item(at indexPath: IndexPath) -> LoanItem? {
         switch state {
         case .loans(let items):
             return items[indexPath.row]
@@ -175,32 +175,34 @@ class LoansViewController: UITableViewController {
     }
 
     @IBAction func refresh(sender: Any?) {
-        guard loader == nil, let credentials = Credentials.load(from: .standard) else {
+        guard let credentials = Credentials.load(from: .standard) else {
             return
         }
 
         configureToolbar(message: NSLocalizedString("Updating Account…", comment: ""), animated: false)
 
-        loader = GhostLoader(credentials: credentials, parentView: view, success: { (items) in
-            self.reloadData(state: .loans(items))
+        _ = LoanItem.fetch(with: credentials) { result in
+            switch result {
+            case .success(let items):
+                self.reloadData(state: .loans(items))
 
-            let itemCache = ItemCache(items: items)
-            ItemCache.save(items: itemCache, to: .standard)
+                let itemCache = ItemCache(items: items)
+                ItemCache.save(items: itemCache, to: .standard)
 
-            self.refreshControl?.endRefreshing()
-            self.configureToolbar(message: nil, animated: true)
-            self.loader = nil
-            self.lastRefreshDate = Date()
-        }) { (error) in
-            self.presentLoadingError(error)
-            self.refreshControl?.endRefreshing()
-            self.configureToolbar(message: nil, animated: true)
-            self.loader = nil
+                self.refreshControl?.endRefreshing()
+                self.configureToolbar(message: nil, animated: true)
+                self.lastRefreshDate = Date()
+
+            case .failure(let error):
+                self.presentLoadingError(error)
+                self.refreshControl?.endRefreshing()
+                self.configureToolbar(message: nil, animated: true)
+            }
         }
     }
 
-    func openInGoodreads(item: Item) {
-        guard let query = item.title.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+    func openInGoodreads(item: LoanItem) {
+        guard let query = item.title?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
             let url = URL(string: "https://www.goodreads.com/search?q=\(query)") else {
                 return
         }

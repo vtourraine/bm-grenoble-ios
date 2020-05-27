@@ -3,10 +3,11 @@
 //  bm
 //
 //  Created by Vincent Tourraine on 03/08/2019.
-//  Copyright © 2019 Studio AMANgA. All rights reserved.
+//  Copyright © 2019-2020 Studio AMANgA. All rights reserved.
 //
 
 import UIKit
+import BMKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
@@ -21,10 +22,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var activityIndicatorView: UIActivityIndicatorView?
     @IBOutlet var statusBarBackground: UIView?
 
-    var loader: GhostLoader?
     var currentTextFieldTopConstraint: NSLayoutConstraint?
 
-    // MARK - View life cycle
+    // MARK: - View life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,31 +123,47 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         configure(loading: true)
 
-        let credentials = Credentials(userIdentifier: subscriberNumber, password: password)
-        loader = GhostLoader(credentials: credentials, parentView: view, success: { (items) in
-            self.configure(loading: false)
+        _ = Authenticate.authenticate(username: subscriberNumber, password: password) { result in
+            switch result {
+            case .success(let credentials):
+                credentials.save(to: .standard)
+                self.fetchItems(with: credentials)
 
-            credentials.save(to: .standard)
-            let itemCache = ItemCache(items: items)
-            ItemCache.save(items: itemCache, to: .standard)
-
-            self.loader = nil
-
-            if let presentingTabBarController = self.presentingViewController as? UITabBarController,
-                let navigationController = presentingTabBarController.viewControllers?.first as? UINavigationController,
-                let viewController = navigationController.topViewController as? LoansViewController {
-                viewController.reloadData(state: .loans(items))
+            case .failure(let error):
+                self.configure(loading: false)
+                self.presentLoadingError(error)
             }
-            self.dismiss(animated: true, completion: nil)
-        }) { (error) in
-            self.configure(loading: false)
-            self.presentLoadingError(error)
-            self.loader = nil
         }
     }
 
     @IBAction func dismiss(_ sender: Any?) {
         dismiss(animated: true, completion: nil)
+    }
+
+    private func fetchItems(with credentials: Credentials) {
+        _ = LoanItem.fetch(with: credentials) { result in
+            self.configure(loading: false)
+
+            switch result {
+            case .success(let items):
+                let itemCache = ItemCache(items: items)
+                ItemCache.save(items: itemCache, to: .standard)
+
+                self.dismissAfterSuccessfulLogin(with: items)
+
+            case .failure(let error):
+                self.presentLoadingError(error)
+            }
+        }
+    }
+
+    private func dismissAfterSuccessfulLogin(with items: [LoanItem]) {
+        if let presentingTabBarController = self.presentingViewController as? UITabBarController,
+            let navigationController = presentingTabBarController.viewControllers?.first as? UINavigationController,
+            let viewController = navigationController.topViewController as? LoansViewController {
+            viewController.reloadData(state: .loans(items))
+        }
+        self.dismiss(animated: true, completion: nil)
     }
 
     // MARK: - Text field delegate

@@ -3,10 +3,11 @@
 //  bm
 //
 //  Created by Vincent Tourraine on 07/08/2019.
-//  Copyright © 2019 Studio AMANgA. All rights reserved.
+//  Copyright © 2019-2020 Studio AMANgA. All rights reserved.
 //
 
 import UIKit
+import BMKit
 
 class CardViewController: UIViewController {
 

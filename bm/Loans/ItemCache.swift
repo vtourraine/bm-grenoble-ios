@@ -3,13 +3,14 @@
 //  bm
 //
 //  Created by Vincent Tourraine on 01/08/2019.
-//  Copyright © 2019 Studio AMANgA. All rights reserved.
+//  Copyright © 2019-2020 Studio AMANgA. All rights reserved.
 //
 
 import Foundation
+import BMKit
 
 struct ItemCache: Codable {
-    let items: [Item]
+    let items: [LoanItem]
 
     static let Key = "ItemsCache"
 
@@ -19,11 +20,12 @@ struct ItemCache: Codable {
     }
 
     static func load(from userDefaults: UserDefaults) -> ItemCache? {
-        guard let encodedData = userDefaults.data(forKey: ItemCache.Key) else {
+        guard let encodedData = userDefaults.data(forKey: ItemCache.Key),
+            let objects = try? JSONDecoder().decode(ItemCache.self, from: encodedData) else {
             return nil
         }
 
-        return try! JSONDecoder().decode(ItemCache.self, from: encodedData)
+        return objects
     }
 
     static func remove(from userDefaults: UserDefaults) {

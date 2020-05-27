@@ -3,11 +3,12 @@
 //  bm
 //
 //  Created by Vincent Tourraine on 27/09/2019.
-//  Copyright © 2019 Studio AMANgA. All rights reserved.
+//  Copyright © 2019-2020 Studio AMANgA. All rights reserved.
 //
 
 import UIKit
 import MessageUI
+import BMKit
 
 class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
@@ -65,13 +66,7 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
         presentSafariViewController(url)
     }
 
-    @objc func openAccountInWebBrowser(sender: Any?) {
-        let url = URL(string: GhostWebView.AccountURL)!
-        presentSafariViewController(url)
-    }
-
     @IBAction func signOut(_ sender: Any) {
-
         guard let presentingTabBarController = presentingViewController as? UITabBarController,
             let navigationController = presentingTabBarController.viewControllers?.first as? UINavigationController,
             let viewController = navigationController.topViewController as? LoansViewController else {
