@@ -3,7 +3,7 @@
 ## 1.3.2
 
 - [x] Add message about temporary opening hours
-
+- [x] Fix library sync
 
 ## 1.3.1
 
