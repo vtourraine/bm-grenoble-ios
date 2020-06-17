@@ -1,9 +1,17 @@
 # BM Grenoble
 
+
+## 1.3.3
+
+- [x] Update libraries opening hours
+
+
 ## 1.3.2
 
-- [x] Add message about temporary opening hours
-- [x] Fix library sync
+2020-05-28
+
+- Add message about temporary opening hours
+- Fix library sync
 
 ## 1.3.1
 

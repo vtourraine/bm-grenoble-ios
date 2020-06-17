@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>lastUpdate</key>
-	<date>2019-09-30T14:26:18Z</date>
+	<date>2020-06-17T14:26:18Z</date>
 	<key>libraries</key>
 	<array>
 		<dict>
@@ -12,19 +12,8 @@
 			<key>webpage</key>
 			<string>https://www.bm-grenoble.fr/650-bibliotheque-d-etude-et-du-patrimoine.htm?</string>
 			<key>openingTime</key>
-			<string>Fermeture pour travaux à partir du 1er juillet à début 2020 
-
-Année scolaire 2019 - 2020 
-Mardi: 10h-19h 
-Mercredi: 10h-19h 
-Jeudi: 13h-19h 
-Vendredi: 10h-19h 
-Samedi : 10h-18h 
-
-Vacances scolaires : noël, février, pâques 
-du mardi au samedi: 13h-18h 
-
-Fermeture le samedi de Pâques.</string>
+			<string>Sur rendez-vous.
+Fermeture pour travaux le 1er juillet 2019, réouverture septembre-octobre 2020.</string>
 			<key>latitude</key>
 			<real>45.1853165</real>
 			<key>longitude</key>
@@ -45,18 +34,8 @@ Fermeture le samedi de Pâques.</string>
 			<key>webpage</key>
 			<string>https://www.bm-grenoble.fr/657-bibliotheque-municipale-internationale.htm?</string>
 			<key>openingTime</key>
-			<string>Année scolaire 2019 / 2020 
-Mardi: 17h - 19h 
-Mercredi: 14h - 18h 
-Jeudi: 17h - 19h 
-Vendredi: 17h - 19h 
-Samedi: 10h-12h30 / 14h-17h 
-
-Vacances scolaires 
-du mardi au vendredi : 14h - 18h 
-samedi : 10h - 13h 
-
-Fermeture le samedi de Pâques. </string>
+			<string>Du mardi au vendredi : 14h-18h
+Samedi : 10h-13h</string>
 			<key>latitude</key>
 			<real>45.1952996</real>
 			<key>longitude</key>
@@ -77,13 +56,7 @@ Fermeture le samedi de Pâques. </string>
 			<key>webpage</key>
 			<string>https://www.bm-grenoble.fr/658-bibliotheque-des-relais-lecture.htm?</string>
 			<key>openingTime</key>
-			<string>Année 2019 / 2020 
-Accueil sur rendez-vous 
-Lundi : 14h-17h 
-Mardi : 9h-18h 
-Mercredi : 9h - 18h 
-Jeudi : 9h - 18h 
-Vendredi : 9h - 18h</string>
+			<string>Sur rendez-vous</string>
 			<key>latitude</key>
 			<real>45.1568105</real>
 			<key>longitude</key>
@@ -104,12 +77,8 @@ Vendredi : 9h - 18h</string>
 			<key>webpage</key>
 			<string>https://www.bm-grenoble.fr/647-bibliotheque-abbaye-les-bains.htm?</string>
 			<key>openingTime</key>
-			<string>Année scolaire 2019 - 2020 
-Mardi : 15h-18h30 
-Mercredi : 10h-12h30 / 14h-18h 
-Jeudi : accueil de groupes 
-Vendredi : 15h-18h30 
-Samedi : 10h-12h30 et 14h-18h</string>
+			<string>Mardi, vendredi : 15h-18h30
+Mercredi, jeudi, samedi : 10h-13h</string>
 			<key>latitude</key>
 			<real>45.1793553</real>
 			<key>longitude</key>
@@ -130,10 +99,8 @@ Samedi : 10h-12h30 et 14h-18h</string>
 			<key>webpage</key>
 			<string>https://www.bm-grenoble.fr/648-bibliotheque-alliance.htm?</string>
 			<key>openingTime</key>
-			<string>Année scolaire 2019 - 2020 
-Mardi : 14h-19h 
-Mercredi : 10h-13h / 14h-18h 
-Jeudi /vendredi : accueil de groupes 
+			<string>Mardi : 14h-19h
+Mercredi : 10h-13h / 14h-18h
 Samedi : 10h-13h / 14h-17h</string>
 			<key>latitude</key>
 			<real>45.1734066</real>
@@ -155,15 +122,8 @@ Samedi : 10h-13h / 14h-17h</string>
 			<key>webpage</key>
 			<string>https://www.bm-grenoble.fr/644-bibliotheque-arlequin.htm?</string>
 			<key>openingTime</key>
-			<string>Année scolaire 2019 - 2020 
-Mardi : 14h - 18h 
-Mercredi : 14h - 18h 
-Jeudi : 10h - 13h 
-Vendredi : 14h - 18h 
-Samedi : 10h - 13h 
-Ouverture de l’espace presse aux horaires du Patio 
-
-Fermeture le samedi de Pâques.</string>
+			<string>Mercredi, jeudi, samedi : 10h-13h
+Mardi, vendredi : 14h-18h</string>
 			<key>latitude</key>
 			<real>45.163893</real>
 			<key>longitude</key>
@@ -184,17 +144,8 @@ Fermeture le samedi de Pâques.</string>
 			<key>webpage</key>
 			<string>https://www.bm-grenoble.fr/653-centre-ville.htm?</string>
 			<key>openingTime</key>
-			<string>Année scolaire 2019 - 2020 
-Mardi : 13h-18h30 
-Mercredi : 11h-18h30 
-Jeudi : 13h-18h30 
-Vendredi : 13h-18h30 
-Samedi : 11h-18h30 
-
-Vacances scolaires 2019-2020 
-Du mardi au samedi 13h-18h 
-
-Fermeture le samedi de Pâques.</string>
+			<string>Du mardi au samedi :
+13h-18h</string>
 			<key>latitude</key>
 			<real>45.1902786</real>
 			<key>longitude</key>
@@ -215,15 +166,8 @@ Fermeture le samedi de Pâques.</string>
 			<key>webpage</key>
 			<string>https://www.bm-grenoble.fr/649-bibliotheque-eaux-claires.htm?</string>
 			<key>openingTime</key>
-			<string>Année scolaire 2019 / 2020 
-Mardi : 15h -18h30 
-Mercredi : 10h -12h30 et 14h -18h 
-Jeudi : accueil de groupes 
-Vendredi : 15h -18h30 
-Samedi : 10h -12h30 et 14h -18h 
-
-
-Fermeture le samedi de Pâques.</string>
+			<string>Mardi, vendredi : 15h-18h30
+Mercredi, jeudi, samedi : 10h-13h</string>
 			<key>latitude</key>
 			<real>45.1755315</real>
 			<key>longitude</key>
@@ -244,17 +188,7 @@ Fermeture le samedi de Pâques.</string>
 			<key>webpage</key>
 			<string>https://www.bm-grenoble.fr/652-jardin-de-ville.htm?</string>
 			<key>openingTime</key>
-			<string>Année scolaire 2019 - 2020 
-Mardi : 16h -18h 
-Mercredi : 10h -12h / 14h -18h 
-Jeudi : accueil de groupes 
-Vendredi : 16h -18h 
-Samedi : 10h-12h / 14h-18h 
-
-Vacances scolaires : 
-même horaire avec mardi et vendredi : 15h- 18h 
-
-Fermeture le samedi de Pâques</string>
+			<string>Actuellement en travaux</string>
 			<key>latitude</key>
 			<real>45.1923764</real>
 			<key>longitude</key>
@@ -275,14 +209,8 @@ Fermeture le samedi de Pâques</string>
 			<key>webpage</key>
 			<string>https://www.bm-grenoble.fr/654-kateb-yacine.htm?</string>
 			<key>openingTime</key>
-			<string>Année scolaire 2019 / 2020 
-Mardi : 12h à 18h30 
-Mercredi : 12h à 18h30 
-Jeudi : 12h à 18h30 
-Vendredi : 12h à 18h30 
-Samedi : 12h à 18h30 
-
-Fermée le samedi de Pâques.</string>
+			<string>Du mardi au samedi :
+13h-18h</string>
 			<key>latitude</key>
 			<real>45.157186</real>
 			<key>longitude</key>
@@ -303,14 +231,8 @@ Fermée le samedi de Pâques.</string>
 			<key>webpage</key>
 			<string>https://www.bm-grenoble.fr/667-saint-bruno.htm?</string>
 			<key>openingTime</key>
-			<string>Année scolaire 2019 / 2020 
-Mardi : 15h - 18h30 
-Mercredi : 10h –12h30 / 14h–18h 
-Jeudi : accueil de groupes 
-Vendredi : 15h – 18h30 
-Samedi : 10h–12h30 / 14h -18h 
-
-Fermeture le samedi de Pâques.</string>
+			<string>Mardi, vendredi : 15h-18h30
+Mercredi, jeudi, samedi : 10h-13h</string>
 			<key>latitude</key>
 			<real>45.1877699</real>
 			<key>longitude</key>
@@ -331,14 +253,8 @@ Fermeture le samedi de Pâques.</string>
 			<key>webpage</key>
 			<string>https://www.bm-grenoble.fr/656-teisseire-malherbe.htm?</string>
 			<key>openingTime</key>
-			<string>Année scolaire 2019 / 2020 
-Mardi: 15h -18h30 
-Mercredi: 10h -12h30 et 14h-18h 
-Jeudi : accueil de groupes 
-Vendredi: 15h -18h30 
-Samedi: 10h -12h30 et 14h -18h 
-
-Fermeture le samedi de Pâques</string>
+			<string>Mardi, vendredi : 15h-18h30
+Mercredi, jeudi, samedi : 10h-13h</string>
 			<key>latitude</key>
 			<real>45.1707803</real>
 			<key>longitude</key>
@@ -359,8 +275,7 @@ Fermeture le samedi de Pâques</string>
 			<key>webpage</key>
 			<string>https://www.bm-grenoble.fr/605-l-artotheque.htm?</string>
 			<key>openingTime</key>
-			<string>L’artothèque située à la bibliothèque d&apos;étude et du patrimoine est fermée pour travaux jusqu&apos;au début 2020. 
-Les prêts d’œuvres d&apos;art continuent dans certaines bibliothèques du réseau.</string>
+			<string>L’artothèque est fermée au public du 1er juillet 2019 jusqu’en septembre-octobre 2020.</string>
 			<key>latitude</key>
 			<real>45.1853165</real>
 			<key>longitude</key>
