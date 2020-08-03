@@ -1,9 +1,15 @@
 # BM Grenoble
 
+## 1.3.4
+
+- [x] Store credentials in keychain
+
 
 ## 1.3.3
 
-- [x] Update libraries opening hours
+2020-06-18
+
+- Update libraries opening hours
 
 
 ## 1.3.2

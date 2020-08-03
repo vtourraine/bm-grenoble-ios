@@ -15,6 +15,7 @@
 		D70A2B69234247F300AC9405 /* Libraries.plist in Resources */ = {isa = PBXBuildFile; fileRef = D70A2B67234247F300AC9405 /* Libraries.plist */; };
 		D70A2B6B2342489A00AC9405 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70A2B6A2342489A00AC9405 /* Library.swift */; };
 		D70A2B6D23424BC400AC9405 /* LibrariesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70A2B6C23424BC400AC9405 /* LibrariesViewController.swift */; };
+		D71F32AB24D8B303002526CD /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = D71F32AA24D8B303002526CD /* KeychainAccess */; };
 		D72BBA91233B8DC500F5A1CB /* TestAccountLoansEmpty.html in Resources */ = {isa = PBXBuildFile; fileRef = D72BBA90233B8DC500F5A1CB /* TestAccountLoansEmpty.html */; };
 		D73968EB23D1ECCC00F01645 /* DemoAccountLoans.html in Resources */ = {isa = PBXBuildFile; fileRef = D73968EA23D1ECCC00F01645 /* DemoAccountLoans.html */; };
 		D75DB3B322FBFD84008C7499 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D75DB3B122FBFD84008C7499 /* Localizable.strings */; };
@@ -83,6 +84,7 @@
 		D70A2B68234247F300AC9405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Libraries.plist; sourceTree = "<group>"; };
 		D70A2B6A2342489A00AC9405 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		D70A2B6C23424BC400AC9405 /* LibrariesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariesViewController.swift; sourceTree = "<group>"; };
+		D71F32AC24D8B42E002526CD /* bm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = bm.entitlements; sourceTree = "<group>"; };
 		D72BBA90233B8DC500F5A1CB /* TestAccountLoansEmpty.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TestAccountLoansEmpty.html; sourceTree = "<group>"; };
 		D73968EA23D1ECCC00F01645 /* DemoAccountLoans.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DemoAccountLoans.html; sourceTree = "<group>"; };
 		D75DB3B222FBFD84008C7499 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D71F32AB24D8B303002526CD /* KeychainAccess in Frameworks */,
 				D7697DF323CB5DE100010011 /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,6 +202,7 @@
 				D70212CD22F0E43E00E3972E /* Assets.xcassets */,
 				D70212CF22F0E43E00E3972E /* LaunchScreen.storyboard */,
 				D70212D222F0E43E00E3972E /* Info.plist */,
+				D71F32AC24D8B42E002526CD /* bm.entitlements */,
 				D7A8833622FB798900C209DC /* BridgingHeader.h */,
 				D75DB3B122FBFD84008C7499 /* Localizable.strings */,
 				D7C1D20B234F6CC800FC9B96 /* InfoPlist.strings */,
@@ -336,6 +340,7 @@
 			name = bm;
 			packageProductDependencies = (
 				D7697DF223CB5DE100010011 /* AlamofireImage */,
+				D71F32AA24D8B303002526CD /* KeychainAccess */,
 			);
 			productName = bm;
 			productReference = D70212C322F0E43C00E3972E /* bm.app */;
@@ -390,6 +395,7 @@
 			mainGroup = D70212BA22F0E43C00E3972E;
 			packageReferences = (
 				D7697DF123CB5DE100010011 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
+				D71F32A924D8B303002526CD /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = D70212C422F0E43C00E3972E /* Products */;
 			projectDirPath = "";
@@ -677,6 +683,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = bm/bm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 39;
 				DEVELOPMENT_TEAM = 77S3V3W24J;
@@ -698,6 +705,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = bm/bm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 39;
 				DEVELOPMENT_TEAM = 77S3V3W24J;
@@ -788,6 +796,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D71F32A924D8B303002526CD /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.0;
+			};
+		};
 		D7697DF123CB5DE100010011 /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
@@ -799,6 +815,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D71F32AA24D8B303002526CD /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D71F32A924D8B303002526CD /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
 		D7697DF223CB5DE100010011 /* AlamofireImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D7697DF123CB5DE100010011 /* XCRemoteSwiftPackageReference "AlamofireImage" */;

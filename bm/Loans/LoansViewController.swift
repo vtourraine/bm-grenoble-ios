@@ -3,7 +3,7 @@
 //  bm
 //
 //  Created by Vincent Tourraine on 30/07/2019.
-//  Copyright © 2019 Studio AMANgA. All rights reserved.
+//  Copyright © 2019-2020 Studio AMANgA. All rights reserved.
 //
 
 import UIKit
@@ -48,7 +48,7 @@ class LoansViewController: UITableViewController {
 
         tableView.tableFooterView = UIView(frame: CGRect.zero)
 
-        if Credentials.load(from: .standard) == nil {
+        if Credentials.load(from: Credentials.defaultKeychain()) == nil {
             reloadData(state: .notLoggedIn)
         }
         else if let itemCache = ItemCache.load(from: .standard) {
@@ -63,7 +63,7 @@ class LoansViewController: UITableViewController {
 
         if isFirstLaunch {
             // loadDemoData()
-            if Credentials.load(from: .standard) != nil {
+            if Credentials.load(from: Credentials.defaultKeychain()) != nil {
                 refresh(sender: nil)
             }
 
@@ -77,7 +77,7 @@ class LoansViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let aboutViewController = segue.destination as? AboutViewController {
-            let userIsLoggedIn = (Credentials.load(from: .standard) != nil)
+            let userIsLoggedIn = (Credentials.load(from: Credentials.defaultKeychain()) != nil)
             aboutViewController.userIsLoggedIn = userIsLoggedIn
         }
     }
@@ -175,7 +175,7 @@ class LoansViewController: UITableViewController {
     }
 
     @IBAction func refresh(sender: Any?) {
-        guard loader == nil, let credentials = Credentials.load(from: .standard) else {
+        guard loader == nil, let credentials = Credentials.load(from: Credentials.defaultKeychain()) else {
             return
         }
 

@@ -21,7 +21,6 @@ The Grenoble Municipal Library doesn’t offer a public API to check your accoun
 
 - Agenda
 - Local notification for reminders
-- Store credentials in Keychain
 - Items cover image
 - Renew loans
 - Reservations
