@@ -15,7 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var lastSelectedViewController: UIViewController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        #if targetEnvironment(macCatalyst)
+        if let titlebar = window?.windowScene?.titlebar {
+            titlebar.titleVisibility = .hidden
+            titlebar.toolbar = nil
+        }
+        #endif
+
         return true
     }
 
@@ -26,6 +33,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             tabBarViewController.delegate = self
             viewController.refreshIfNecessary()
         }
+    }
+
+    @available(iOS 13.0, *)
+    override func buildMenu(with builder: UIMenuBuilder) {
+        super.buildMenu(with: builder)
+
+        builder.remove(menu: .services)
+        builder.remove(menu: .format)
+        builder.remove(menu: .toolbar)
+        builder.remove(menu: .help)
+    }
+
+    override func validate(_ command: UICommand) {
+        print(command)
     }
 }
 

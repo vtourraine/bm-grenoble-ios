@@ -1,7 +1,8 @@
 # BM Grenoble
 
-## 1.3.4
+## 1.4
 
+- [ ] macOS version
 - [x] Store credentials in keychain
 
 

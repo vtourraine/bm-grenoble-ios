@@ -74,7 +74,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D70212C322F0E43C00E3972E /* bm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bm.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D70212C322F0E43C00E3972E /* BM Grenoble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BM Grenoble.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D70212C622F0E43C00E3972E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Sources/AppDelegate.swift; sourceTree = "<group>"; };
 		D70212C822F0E43C00E3972E /* LoansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoansViewController.swift; sourceTree = "<group>"; };
 		D70212CB22F0E43C00E3972E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -181,7 +181,7 @@
 		D70212C422F0E43C00E3972E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D70212C322F0E43C00E3972E /* bm.app */,
+				D70212C322F0E43C00E3972E /* BM Grenoble.app */,
 				D786E6E122F194EC00AD1D36 /* bmTests.xctest */,
 			);
 			name = Products;
@@ -325,9 +325,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D70212C222F0E43C00E3972E /* bm */ = {
+		D70212C222F0E43C00E3972E /* BM Grenoble */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D70212D522F0E43E00E3972E /* Build configuration list for PBXNativeTarget "bm" */;
+			buildConfigurationList = D70212D522F0E43E00E3972E /* Build configuration list for PBXNativeTarget "BM Grenoble" */;
 			buildPhases = (
 				D70212BF22F0E43C00E3972E /* Sources */,
 				D70212C022F0E43C00E3972E /* Frameworks */,
@@ -337,13 +337,13 @@
 			);
 			dependencies = (
 			);
-			name = bm;
+			name = "BM Grenoble";
 			packageProductDependencies = (
 				D7697DF223CB5DE100010011 /* AlamofireImage */,
 				D71F32AA24D8B303002526CD /* KeychainAccess */,
 			);
 			productName = bm;
-			productReference = D70212C322F0E43C00E3972E /* bm.app */;
+			productReference = D70212C322F0E43C00E3972E /* BM Grenoble.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D786E6E022F194EC00AD1D36 /* bmTests */ = {
@@ -401,7 +401,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D70212C222F0E43C00E3972E /* bm */,
+				D70212C222F0E43C00E3972E /* BM Grenoble */,
 				D786E6E022F194EC00AD1D36 /* bmTests */,
 			);
 		};
@@ -496,7 +496,7 @@
 /* Begin PBXTargetDependency section */
 		D786E6E722F194EC00AD1D36 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D70212C222F0E43C00E3972E /* bm */;
+			target = D70212C222F0E43C00E3972E /* BM Grenoble */;
 			targetProxy = D786E6E622F194EC00AD1D36 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -695,6 +695,7 @@
 				MARKETING_VERSION = 1.3.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.studioamanga.bmg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = bm/BridgingHeader.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -717,6 +718,7 @@
 				MARKETING_VERSION = 1.3.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.studioamanga.bmg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = bm/BridgingHeader.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -775,7 +777,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D70212D522F0E43E00E3972E /* Build configuration list for PBXNativeTarget "bm" */ = {
+		D70212D522F0E43E00E3972E /* Build configuration list for PBXNativeTarget "BM Grenoble" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D70212D622F0E43E00E3972E /* Debug */,

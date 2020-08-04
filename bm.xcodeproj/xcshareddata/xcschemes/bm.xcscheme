@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D70212C222F0E43C00E3972E"
-               BuildableName = "bm.app"
-               BlueprintName = "bm"
+               BuildableName = "BM Grenoble.app"
+               BlueprintName = "BM Grenoble"
                ReferencedContainer = "container:bm.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -31,8 +31,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D70212C222F0E43C00E3972E"
-            BuildableName = "bm.app"
-            BlueprintName = "bm"
+            BuildableName = "BM Grenoble.app"
+            BlueprintName = "BM Grenoble"
             ReferencedContainer = "container:bm.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,8 +64,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D70212C222F0E43C00E3972E"
-            BuildableName = "bm.app"
-            BlueprintName = "bm"
+            BuildableName = "BM Grenoble.app"
+            BlueprintName = "BM Grenoble"
             ReferencedContainer = "container:bm.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -81,8 +81,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D70212C222F0E43C00E3972E"
-            BuildableName = "bm.app"
-            BlueprintName = "bm"
+            BuildableName = "BM Grenoble.app"
+            BlueprintName = "BM Grenoble"
             ReferencedContainer = "container:bm.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
