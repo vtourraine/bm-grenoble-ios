@@ -68,4 +68,8 @@ extension Credentials {
     static func defaultKeychain() -> Keychain {
         return Keychain(service: "com.studioamanga.bmg", accessGroup: "77S3V3W24J.com.studioamanga.bmg.shared").synchronizable(true)
     }
+
+    static func sharedCredentials() -> Credentials? {
+        return load(from: Credentials.defaultKeychain())
+    }
 }

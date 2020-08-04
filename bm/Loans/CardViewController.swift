@@ -60,7 +60,7 @@ class CardViewController: UIViewController {
     }
 
     func barCode() -> String? {
-        guard let credentials = Credentials.load(from: Credentials.defaultKeychain()) else {
+        guard let credentials = Credentials.sharedCredentials() else {
             return nil
         }
 
