@@ -44,10 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         builder.remove(menu: .toolbar)
         builder.remove(menu: .help)
     }
-
-    override func validate(_ command: UICommand) {
-        print(command)
-    }
 }
 
 extension AppDelegate: UITabBarControllerDelegate {
