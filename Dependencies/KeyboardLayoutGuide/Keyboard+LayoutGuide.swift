@@ -128,9 +128,13 @@ extension Notification {
         guard let keyboardFrame = userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
             return nil
         }
+
+        // https://stackoverflow.com/a/57899013/135712
+        let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+
         // Weirdly enough UIKeyboardFrameEndUserInfoKey doesn't have the same behaviour
         // in ios 10 or iOS 11 so we can't rely on v.cgRectValue.width
-        let screenHeight = UIApplication.shared.keyWindow?.bounds.height ?? UIScreen.main.bounds.height
+        let screenHeight = keyWindow?.bounds.height ?? UIScreen.main.bounds.height
         return screenHeight - keyboardFrame.cgRectValue.minY
     }
 }

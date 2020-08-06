@@ -49,15 +49,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        #if !targetEnvironment(macCatalyst)
         statusBarBackground?.frame = UIApplication.shared.statusBarFrame
+        #endif
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
 
+        #if !targetEnvironment(macCatalyst)
         coordinator.animateAlongsideTransition(in: nil, animation: nil) { _ in
             self.statusBarBackground?.frame = UIApplication.shared.statusBarFrame
         }
+        #endif
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {

@@ -7,4 +7,5 @@
 */
 
 "CFBundleDisplayName" = "Library";
+"CFBundleName" = "Library";
 "NSLocationWhenInUseUsageDescription" = "Display your location on the libraries map.";
