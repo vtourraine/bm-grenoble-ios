@@ -66,5 +66,9 @@ class AgendaViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = agendaItems[indexPath.row]
         presentSafariViewController(item.link, readerMode: true)
+
+        #if targetEnvironment(macCatalyst)
+        tableView.deselectRow(at: indexPath, animated: true)
+        #endif
     }
 }
