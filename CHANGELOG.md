@@ -2,7 +2,7 @@
 
 ## 1.4
 
-- [ ] macOS version
+- [x] macOS version
 - [x] Store credentials in keychain
 
 
