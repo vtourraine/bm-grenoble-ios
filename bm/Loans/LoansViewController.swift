@@ -46,6 +46,7 @@ class LoansViewController: UITableViewController {
         extendedLayoutIncludesOpaqueBars = true
         refreshControl?.tintColor = .white
 
+        tableView.backgroundColor = .systemBackground
         tableView.tableFooterView = UIView(frame: CGRect.zero)
 
         if Credentials.sharedCredentials() == nil {
@@ -205,11 +206,15 @@ class LoansViewController: UITableViewController {
                 return
         }
 
+        #if targetEnvironment(macCatalyst)
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        #else
         UIApplication.shared.open(url, options: [.universalLinksOnly: true]) { (result) in
             if result == false {
                 self.presentSafariViewController(url)
             }
         }
+        #endif
     }
 
     @IBAction func presentLoginScreen(sender: Any?) {
