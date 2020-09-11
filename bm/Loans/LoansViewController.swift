@@ -46,7 +46,9 @@ class LoansViewController: UITableViewController {
         extendedLayoutIncludesOpaqueBars = true
         refreshControl?.tintColor = .white
 
-        tableView.backgroundColor = .systemBackground
+        if #available(iOS 13.0, *) {
+            tableView.backgroundColor = .systemBackground
+        }
         tableView.tableFooterView = UIView(frame: CGRect.zero)
 
         if Credentials.sharedCredentials() == nil {
