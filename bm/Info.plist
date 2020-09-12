@@ -41,6 +41,8 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSLocationUsageDescription</key>
+	<string>Display user location on libraries map</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Display user location on libraries map</string>
 	<key>UILaunchStoryboardName</key>
