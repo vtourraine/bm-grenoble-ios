@@ -2,8 +2,10 @@
 
 ## 1.4
 
-- [x] macOS version
-- [x] Store credentials in keychain
+2020-09-12
+
+- macOS version
+- Store credentials in keychain
 
 
 ## 1.3.3
