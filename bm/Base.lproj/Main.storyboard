@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F3H-UV-44c">
-    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -14,49 +14,49 @@
             <objects>
                 <tableViewController id="0tc-H2-wTF" customClass="LoansViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hlY-P1-kT6">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="99" id="MwC-WM-zvl" customClass="ItemTableViewCell" customModule="bm" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="768" height="99"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="99"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MwC-WM-zvl" id="mjm-QP-Ng5">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="99"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Puf-XW-Fhn">
-                                            <rect key="frame" x="108" y="10" width="35.5" height="20.5"/>
+                                            <rect key="frame" x="80" y="10" width="35.5" height="20.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Author" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYn-Ef-mhS">
-                                            <rect key="frame" x="108" y="38.5" width="46.5" height="18"/>
+                                            <rect key="frame" x="80" y="38.5" width="46.5" height="18"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="À rendre pour le" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPV-XU-Xqf">
-                                            <rect key="frame" x="629" y="12" width="91" height="14.5"/>
+                                            <rect key="frame" x="303" y="12" width="91" height="14.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                             <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="##/##/####" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6P-h4-bcp">
-                                            <rect key="frame" x="629" y="30.5" width="91" height="19.5"/>
+                                            <rect key="frame" x="303" y="30.5" width="91" height="19.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                             <color key="textColor" name="BMRed"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="N jours" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7RN-x0-EWP">
-                                            <rect key="frame" x="629" y="54" width="91" height="14.5"/>
+                                            <rect key="frame" x="303" y="54" width="91" height="14.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                             <color key="textColor" name="BMRed"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Library" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAi-GO-wrn">
-                                            <rect key="frame" x="629" y="73.5" width="91" height="14.5"/>
+                                            <rect key="frame" x="303" y="73.5" width="91" height="14.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="nfi-3h-Z5r"/>
                                             </constraints>
@@ -65,7 +65,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FeX-H3-rDV">
-                                            <rect key="frame" x="48" y="8" width="52" height="72"/>
+                                            <rect key="frame" x="20" y="8" width="52" height="72"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="52" id="ANt-Pg-Jwa"/>
                                                 <constraint firstAttribute="height" constant="72" id="RIB-ii-k9H"/>
@@ -134,23 +134,23 @@
             <objects>
                 <viewController id="PL0-mD-zDP" customClass="LoginViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mlj-V2-tCE">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="B" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9r-BL-j0B">
-                                <rect key="frame" x="220.5" y="38" width="69" height="127"/>
+                                <rect key="frame" x="71.5" y="38" width="69" height="127"/>
                                 <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="100"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="•" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qvz-hV-V32">
-                                <rect key="frame" x="235" y="120" width="40" height="102"/>
+                                <rect key="frame" x="86" y="120" width="40" height="102"/>
                                 <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="80"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSi-YR-LDc">
-                                <rect key="frame" x="309.5" y="60" width="183" height="123"/>
+                                <rect key="frame" x="160.5" y="60" width="183" height="123"/>
                                 <string key="text">Bibliothèque
 Municipale
 Grenoble</string>
@@ -159,7 +159,7 @@ Grenoble</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0100000000000" textAlignment="natural" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PVm-hQ-O1V" customClass="UITextFieldPadding" customModule="bm" customModuleProvider="target">
-                                <rect key="frame" x="20" y="271.5" width="672" height="44"/>
+                                <rect key="frame" x="20" y="271.5" width="374" height="44"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="Oe8-0G-eCB"/>
@@ -177,7 +177,7 @@ Grenoble</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gjJ-B3-c0R" customClass="UITextFieldPadding" customModule="bm" customModuleProvider="target">
-                                <rect key="frame" x="20" y="408" width="672" height="44"/>
+                                <rect key="frame" x="20" y="426" width="374" height="44"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <accessibility key="accessibilityConfiguration" label="Password"/>
                                 <constraints>
@@ -190,25 +190,25 @@ Grenoble</string>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Mot de passe" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o0r-Zn-Yh6">
-                                <rect key="frame" x="20" y="379.5" width="107" height="20.5"/>
+                                <rect key="frame" x="20" y="397.5" width="107" height="20.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Ce numéro est le nombre à 13 chiffres commençant par 01 sur votre carte d’abonné" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZr-Vg-AWa">
-                                <rect key="frame" x="20" y="323.5" width="672" height="16"/>
+                                <rect key="frame" x="20" y="323.5" width="374" height="34"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="En cas d’oubli de mot de passe, merci de vous rendre dans la bibliothèque municipale de Grenoble de votre choix." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXp-gq-osV">
-                                <rect key="frame" x="20" y="460" width="672" height="34"/>
+                                <rect key="frame" x="20" y="478" width="374" height="34"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Pl-18-t0M">
-                                <rect key="frame" x="20" y="534" width="146" height="44"/>
+                                <rect key="frame" x="20" y="552" width="146" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="LBH-p3-UnN"/>
@@ -223,7 +223,7 @@ Grenoble</string>
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gPF-SO-2nI">
-                                <rect key="frame" x="186" y="537.5" width="37" height="37"/>
+                                <rect key="frame" x="186" y="555.5" width="37" height="37"/>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9wA-qQ-ef7">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
@@ -231,7 +231,7 @@ Grenoble</string>
                                 <color key="backgroundColor" name="BMRedBackground"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPg-Vz-JsP">
-                                <rect key="frame" x="648" y="20" width="44" height="44"/>
+                                <rect key="frame" x="350" y="20" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="gWM-Bx-mhk"/>
                                     <constraint firstAttribute="height" constant="44" id="nk0-s3-ehR"/>
@@ -302,17 +302,17 @@ Grenoble</string>
             <objects>
                 <viewController id="waW-up-oNj" customClass="LibrariesViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nqw-UU-Jhb">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8G-TR-K3c">
-                                <rect key="frame" x="350" y="0.0" width="418" height="863.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="364.5"/>
                                 <connections>
                                     <outlet property="delegate" destination="waW-up-oNj" id="ePg-Wg-NDr"/>
                                 </connections>
                             </mapView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2cB-5K-pqq">
-                                <rect key="frame" x="0.0" y="0.0" width="350" height="863.5"/>
+                                <rect key="frame" x="0.0" y="364.5" width="414" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="IVI-ZV-srX"/>
@@ -320,14 +320,14 @@ Grenoble</string>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="Gkh-ij-mPH" style="IBUITableViewCellStyleDefault" id="ajY-fx-KSN">
-                                        <rect key="frame" x="0.0" y="28" width="350" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ajY-fx-KSN" id="cbC-kw-VYW">
-                                            <rect key="frame" x="0.0" y="0.0" width="324" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Gkh-ij-mPH">
-                                                    <rect key="frame" x="15" y="0.0" width="301" height="43.5"/>
+                                                    <rect key="frame" x="20" y="0.0" width="355" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
@@ -357,7 +357,7 @@ Grenoble</string>
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KSg-6h-Qag">
-                                <rect key="frame" x="715" y="8" width="45" height="45"/>
+                                <rect key="frame" x="361" y="8" width="45" height="45"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <state key="normal" image="Location"/>
@@ -365,44 +365,68 @@ Grenoble</string>
                                     <action selector="reframeMap:" destination="waW-up-oNj" eventType="touchUpInside" id="ru9-PJ-OsN"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7qc-yC-oHI" userLabel="Separator View (Large Screen)">
+                                <rect key="frame" x="0.0" y="0.0" width="1" height="664.5"/>
+                                <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="k5X-HV-xWl"/>
+                                </constraints>
+                                <variation key="heightClass=regular-widthClass=regular" hidden="NO"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gDQ-CX-mI8" userLabel="Separator View">
+                                <rect key="frame" x="0.0" y="363.5" width="414" height="1"/>
+                                <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="okk-qe-T7k"/>
+                                </constraints>
+                                <variation key="heightClass=regular-widthClass=regular" hidden="YES"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="7qc-yC-oHI" firstAttribute="leading" secondItem="d8G-TR-K3c" secondAttribute="leading" id="1bB-Uy-dzY"/>
                             <constraint firstItem="2cB-5K-pqq" firstAttribute="leading" secondItem="Nqw-UU-Jhb" secondAttribute="leading" id="33N-zK-zbr"/>
                             <constraint firstItem="2cB-5K-pqq" firstAttribute="top" secondItem="Gpt-bO-5QK" secondAttribute="top" id="3gW-NG-MAv"/>
                             <constraint firstItem="d8G-TR-K3c" firstAttribute="leading" secondItem="Nqw-UU-Jhb" secondAttribute="leading" id="5Hu-Gz-kLc"/>
                             <constraint firstItem="Gpt-bO-5QK" firstAttribute="bottom" secondItem="2cB-5K-pqq" secondAttribute="bottom" id="EBZ-Ne-rJH"/>
                             <constraint firstItem="d8G-TR-K3c" firstAttribute="trailing" secondItem="KSg-6h-Qag" secondAttribute="trailing" constant="8" id="GlA-j8-XSc"/>
                             <constraint firstAttribute="trailing" secondItem="2cB-5K-pqq" secondAttribute="trailing" id="OLT-a4-tk4"/>
+                            <constraint firstItem="7qc-yC-oHI" firstAttribute="top" secondItem="Gpt-bO-5QK" secondAttribute="top" id="Wno-aX-nyx"/>
+                            <constraint firstItem="gDQ-CX-mI8" firstAttribute="leading" secondItem="Gpt-bO-5QK" secondAttribute="leading" id="X08-jd-zNd"/>
                             <constraint firstItem="Gpt-bO-5QK" firstAttribute="bottom" secondItem="d8G-TR-K3c" secondAttribute="bottom" id="a23-eX-DCZ"/>
+                            <constraint firstItem="Gpt-bO-5QK" firstAttribute="trailing" secondItem="gDQ-CX-mI8" secondAttribute="trailing" id="dC3-4j-eZB"/>
                             <constraint firstItem="KSg-6h-Qag" firstAttribute="top" secondItem="d8G-TR-K3c" secondAttribute="top" constant="8" id="dGy-ET-V1r"/>
                             <constraint firstItem="2cB-5K-pqq" firstAttribute="top" secondItem="d8G-TR-K3c" secondAttribute="bottom" id="ffN-gw-9pZ"/>
                             <constraint firstItem="d8G-TR-K3c" firstAttribute="top" secondItem="Gpt-bO-5QK" secondAttribute="top" id="hzp-WT-3Jm"/>
+                            <constraint firstItem="Gpt-bO-5QK" firstAttribute="bottom" secondItem="7qc-yC-oHI" secondAttribute="bottom" id="ieZ-is-SVD"/>
                             <constraint firstItem="d8G-TR-K3c" firstAttribute="leading" secondItem="2cB-5K-pqq" secondAttribute="trailing" id="nre-Sp-seC"/>
+                            <constraint firstItem="gDQ-CX-mI8" firstAttribute="bottom" secondItem="d8G-TR-K3c" secondAttribute="bottom" id="r25-Ad-c7h"/>
                             <constraint firstAttribute="trailing" secondItem="d8G-TR-K3c" secondAttribute="trailing" id="yGM-ok-fsa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Gpt-bO-5QK"/>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="3gW-NG-MAv"/>
                                 <exclude reference="a23-eX-DCZ"/>
                                 <exclude reference="nre-Sp-seC"/>
+                                <exclude reference="3gW-NG-MAv"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
                             <mask key="constraints">
-                                <include reference="3gW-NG-MAv"/>
-                                <exclude reference="OLT-a4-tk4"/>
-                                <exclude reference="ffN-gw-9pZ"/>
                                 <include reference="a23-eX-DCZ"/>
                                 <exclude reference="5Hu-Gz-kLc"/>
                                 <include reference="nre-Sp-seC"/>
+                                <include reference="3gW-NG-MAv"/>
+                                <exclude reference="OLT-a4-tk4"/>
+                                <exclude reference="ffN-gw-9pZ"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Bibliothèques" id="8EO-ei-fs0"/>
                     <connections>
                         <outlet property="mapView" destination="d8G-TR-K3c" id="VSM-3O-NeE"/>
+                        <outlet property="separatorHeight" destination="okk-qe-T7k" id="HM4-Tx-eXc"/>
+                        <outlet property="separatorWidth" destination="k5X-HV-xWl" id="iLf-M9-rPY"/>
                         <outlet property="showUserLocationButton" destination="KSg-6h-Qag" id="IRY-hH-VFC"/>
                         <outlet property="tableView" destination="2cB-5K-pqq" id="grr-tw-TuW"/>
                         <segue destination="jda-3I-IlC" kind="show" identifier="Show" id="u8M-tx-SLd"/>
@@ -417,11 +441,11 @@ Grenoble</string>
             <objects>
                 <viewController id="jda-3I-IlC" customClass="LibraryViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WNT-80-mFt">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l7r-IP-lc9">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="200"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="RM4-q6-YHE">
                                         <variation key="heightClass=compact-widthClass=compact" constant="50"/>
@@ -432,39 +456,39 @@ Grenoble</string>
                                 </connections>
                             </mapView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XwD-3y-dh1">
-                                <rect key="frame" x="0.0" y="200" width="768" height="774"/>
+                                <rect key="frame" x="0.0" y="200" width="414" height="608"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rNi-bC-CE4">
-                                        <rect key="frame" x="0.0" y="0.0" width="768" height="509.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="509.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E0c-zz-c0i">
-                                                <rect key="frame" x="52" y="14" width="32" height="32"/>
+                                                <rect key="frame" x="12" y="14" width="32" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="E0c-zz-c0i" secondAttribute="height" multiplier="1:1" id="ddu-HI-urw"/>
                                                     <constraint firstAttribute="width" constant="32" id="pMn-bM-tTX"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horaires" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NlP-Jq-fMW">
-                                                <rect key="frame" x="92" y="20" width="656" height="20.5"/>
+                                                <rect key="frame" x="52" y="20" width="342" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RIp-oA-mKw">
-                                                <rect key="frame" x="52" y="70.5" width="32" height="32"/>
+                                                <rect key="frame" x="12" y="70.5" width="32" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="32" id="SyS-T9-F7s"/>
                                                     <constraint firstAttribute="width" secondItem="RIp-oA-mKw" secondAttribute="height" multiplier="1:1" id="xIm-NU-qG3"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adresse" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICa-V1-EsS">
-                                                <rect key="frame" x="92" y="75.5" width="656" height="20.5"/>
+                                                <rect key="frame" x="52" y="75.5" width="342" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZr-f5-NAp">
-                                                <rect key="frame" x="92" y="133" width="584" height="44"/>
+                                                <rect key="frame" x="52" y="133" width="310" height="44"/>
                                                 <color key="backgroundColor" name="BMRed"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="85r-Gg-vhi"/>
@@ -480,20 +504,20 @@ Grenoble</string>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1hw-tv-7fn">
-                                                <rect key="frame" x="52" y="197" width="32" height="32"/>
+                                                <rect key="frame" x="12" y="197" width="32" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="32" id="4vm-FQ-t9k"/>
                                                     <constraint firstAttribute="width" secondItem="1hw-tv-7fn" secondAttribute="height" multiplier="1:1" id="OrH-fX-BkR"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Numéro de téléphone " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j57-8T-2sm">
-                                                <rect key="frame" x="92" y="202" width="656" height="20.5"/>
+                                                <rect key="frame" x="52" y="202" width="342" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVd-NC-r0a">
-                                                <rect key="frame" x="92" y="230.5" width="584" height="44"/>
+                                                <rect key="frame" x="52" y="230.5" width="310" height="44"/>
                                                 <color key="backgroundColor" name="BMRed"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="1cY-rb-YCo"/>
@@ -509,20 +533,20 @@ Grenoble</string>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wXA-xD-8YH">
-                                                <rect key="frame" x="52" y="294.5" width="32" height="32"/>
+                                                <rect key="frame" x="12" y="294.5" width="32" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="wXA-xD-8YH" secondAttribute="height" multiplier="1:1" id="i3d-xf-JAw"/>
                                                     <constraint firstAttribute="width" constant="32" id="ox1-UA-kNR"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sba-1I-OC3">
-                                                <rect key="frame" x="92" y="299.5" width="41" height="20.5"/>
+                                                <rect key="frame" x="52" y="299.5" width="41" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NgA-q0-0MU">
-                                                <rect key="frame" x="92" y="328" width="584" height="44"/>
+                                                <rect key="frame" x="52" y="328" width="310" height="44"/>
                                                 <color key="backgroundColor" name="BMRed"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="0of-L1-mwp"/>
@@ -538,20 +562,20 @@ Grenoble</string>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BpG-th-KWA">
-                                                <rect key="frame" x="52" y="392" width="32" height="32"/>
+                                                <rect key="frame" x="12" y="392" width="32" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="BpG-th-KWA" secondAttribute="height" multiplier="1:1" id="XZ6-CR-GPE"/>
                                                     <constraint firstAttribute="width" constant="32" id="YAg-5l-TI9"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Site web" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ksc-Or-n3y">
-                                                <rect key="frame" x="92" y="397" width="65.5" height="20.5"/>
+                                                <rect key="frame" x="52" y="397" width="65.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNv-vc-eWV">
-                                                <rect key="frame" x="92" y="425.5" width="584" height="44"/>
+                                                <rect key="frame" x="52" y="425.5" width="310" height="44"/>
                                                 <color key="backgroundColor" name="BMRed"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="NAG-TO-g68"/>
@@ -567,7 +591,7 @@ Grenoble</string>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="♿︎ Accessible PMR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vao-HP-9uK">
-                                                <rect key="frame" x="92" y="104" width="137" height="21"/>
+                                                <rect key="frame" x="52" y="104" width="137" height="21"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -680,7 +704,7 @@ Grenoble</string>
                     <tabBarItem key="tabBarItem" title="Prêts en cours" image="Books" landscapeImage="BooksCompact" id="kMU-d9-2Gk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="81E-91-uNE">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="110.5"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
                         <textAttributes key="titleTextAttributes">
@@ -704,17 +728,17 @@ Grenoble</string>
             <objects>
                 <viewController id="x0T-HL-1kO" customClass="CardViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xfZ-dD-61F">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="•" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y96-q8-d4L">
-                                <rect key="frame" x="235" y="140" width="40" height="102"/>
+                                <rect key="frame" x="86" y="140" width="40" height="102"/>
                                 <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="80"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9w-yg-gIP">
-                                <rect key="frame" x="309.5" y="80" width="183" height="123"/>
+                                <rect key="frame" x="160.5" y="80" width="183" height="123"/>
                                 <string key="text">Bibliothèque
 Municipale
 Grenoble</string>
@@ -723,7 +747,7 @@ Grenoble</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsN-tn-aSG" userLabel="Card Super Parent View">
-                                <rect key="frame" x="216" y="283" width="280" height="180"/>
+                                <rect key="frame" x="67" y="283" width="280" height="180"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7cH-2F-cnZ">
                                         <rect key="frame" x="40" y="40" width="200" height="100"/>
@@ -743,7 +767,7 @@ Grenoble</string>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQi-uG-iqN">
-                                <rect key="frame" x="307" y="920" width="98" height="44"/>
+                                <rect key="frame" x="158" y="744" width="98" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="JNN-dC-g7S"/>
@@ -758,7 +782,7 @@ Grenoble</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="B" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qf9-jg-ImT">
-                                <rect key="frame" x="220.5" y="58" width="69" height="127"/>
+                                <rect key="frame" x="71.5" y="58" width="69" height="127"/>
                                 <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="100"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -794,23 +818,23 @@ Grenoble</string>
             <objects>
                 <viewController id="Jvg-U0-YiR" customClass="AboutViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4jh-FD-miU">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="À propos de cette application" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84U-tD-cec">
-                                <rect key="frame" x="40" y="40" width="600" height="41"/>
+                                <rect key="frame" x="40" y="40" width="302" height="82"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cette application n’est pas affiliée à la bibliothèque municipale de Grenoble." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kuz-Uy-z9F">
-                                <rect key="frame" x="40" y="101" width="632" height="20.5"/>
+                                <rect key="frame" x="40" y="142" width="334" height="42.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ajh-Ex-586">
-                                <rect key="frame" x="40" y="161.5" width="146" height="44"/>
+                                <rect key="frame" x="40" y="224.5" width="146" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="fIO-mS-NIG"/>
@@ -825,7 +849,7 @@ Grenoble</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUS-EH-qRF">
-                                <rect key="frame" x="40" y="225.5" width="239" height="44"/>
+                                <rect key="frame" x="40" y="288.5" width="239" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="OHX-ld-laX"/>
@@ -840,7 +864,7 @@ Grenoble</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeU-7O-JdP">
-                                <rect key="frame" x="40" y="289.5" width="166" height="44"/>
+                                <rect key="frame" x="40" y="352.5" width="166" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="xeR-YK-8gL"/>
@@ -855,7 +879,7 @@ Grenoble</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M5w-0J-Kh2">
-                                <rect key="frame" x="648" y="20" width="44" height="44"/>
+                                <rect key="frame" x="350" y="20" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="FuZ-ax-wrJ"/>
                                     <constraint firstAttribute="width" constant="44" id="uCK-EL-eWW"/>
@@ -911,7 +935,7 @@ Grenoble</string>
                     <tabBarItem key="tabBarItem" title="Bibliothèques" image="Location" landscapeImage="LocationCompact" id="PDh-Mg-nUs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="0IM-VL-DLa">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="110.5"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
                         <textAttributes key="titleTextAttributes">
@@ -935,17 +959,17 @@ Grenoble</string>
             <objects>
                 <viewController id="soS-MW-X3t" customClass="SearchViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E0S-4G-7GY">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Recherche" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ea8-2F-l1Z">
-                                <rect key="frame" x="40" y="40" width="156.5" height="41"/>
+                                <rect key="frame" x="40" y="84" width="156.5" height="41"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QsP-Rc-Dt1">
-                                <rect key="frame" x="40" y="515" width="133" height="44"/>
+                                <rect key="frame" x="40" y="456.5" width="133" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="cIV-lW-tyi"/>
@@ -960,7 +984,7 @@ Grenoble</string>
                                 </connections>
                             </button>
                             <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Titre, auteur" translatesAutoresizingMaskIntoConstraints="NO" id="Reo-Q7-eVd">
-                                <rect key="frame" x="40" y="419" width="688" height="56"/>
+                                <rect key="frame" x="40" y="360.5" width="334" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="yn0-2r-Gad"/>
                                 </constraints>
@@ -1032,19 +1056,19 @@ Grenoble</string>
             <objects>
                 <tableViewController id="eya-IN-vI3" customClass="NewsViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WXR-D2-g4h">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="VTu-bW-DFZ" customClass="NewsTableViewCell" customModule="bm" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="768" height="108.5"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="108.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VTu-bW-DFZ" id="fUA-UG-DfI">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="108.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="108.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZx-z8-NaI">
-                                            <rect key="frame" x="150" y="8" width="550" height="60"/>
+                                            <rect key="frame" x="122" y="8" width="252" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="YNd-Yb-3da"/>
                                             </constraints>
@@ -1053,7 +1077,7 @@ Grenoble</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="chJ-Z6-ZGp">
-                                            <rect key="frame" x="48" y="10" width="90" height="60"/>
+                                            <rect key="frame" x="20" y="10" width="90" height="60"/>
                                             <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="60" id="MTl-eC-9ha"/>
@@ -1061,13 +1085,13 @@ Grenoble</string>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pae-aX-krK">
-                                            <rect key="frame" x="48" y="78.5" width="672" height="18"/>
+                                            <rect key="frame" x="20" y="78.5" width="374" height="18"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O9t-cZ-tuY">
-                                            <rect key="frame" x="704" y="32" width="16" height="16"/>
+                                            <rect key="frame" x="378" y="32" width="16" height="16"/>
                                             <color key="tintColor" systemColor="tertiaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="O9t-cZ-tuY" secondAttribute="height" multiplier="1:1" id="YHI-Te-WfA"/>
@@ -1117,7 +1141,7 @@ Grenoble</string>
                     <tabBarItem key="tabBarItem" title="Actualité" image="News" landscapeImage="NewsCompact" id="e0Q-pb-YTt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="TZZ-PG-ELm">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="110.5"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
                         <textAttributes key="titleTextAttributes">
@@ -1141,19 +1165,19 @@ Grenoble</string>
             <objects>
                 <tableViewController id="GaQ-e7-QGj" customClass="AgendaViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jqn-fK-gyq">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="brW-cu-Vhs" customClass="AgendaTableViewCell" customModule="bm" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="768" height="168"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="168"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="brW-cu-Vhs" id="rcY-m3-q9y">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="168"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="168"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKr-R8-PJj">
-                                            <rect key="frame" x="150" y="8" width="550" height="60"/>
+                                            <rect key="frame" x="122" y="8" width="252" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="LE0-MD-Myu"/>
                                             </constraints>
@@ -1162,7 +1186,7 @@ Grenoble</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RF8-Yc-bSI">
-                                            <rect key="frame" x="48" y="10" width="90" height="60"/>
+                                            <rect key="frame" x="20" y="10" width="90" height="60"/>
                                             <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="90" id="gME-8P-HKP"/>
@@ -1170,13 +1194,13 @@ Grenoble</string>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEV-gs-I4f">
-                                            <rect key="frame" x="48" y="135.5" width="672" height="20.5"/>
+                                            <rect key="frame" x="20" y="135.5" width="374" height="20.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fPH-uW-0Ca">
-                                            <rect key="frame" x="704" y="32" width="16" height="16"/>
+                                            <rect key="frame" x="378" y="32" width="16" height="16"/>
                                             <color key="tintColor" systemColor="tertiaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="16" id="FEq-sf-ZLY"/>
@@ -1185,13 +1209,13 @@ Grenoble</string>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfy-Wl-n6g">
-                                            <rect key="frame" x="48" y="78.5" width="672" height="20.5"/>
+                                            <rect key="frame" x="20" y="78.5" width="374" height="20.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" name="BMRed"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWf-oM-gGe">
-                                            <rect key="frame" x="48" y="107" width="672" height="20.5"/>
+                                            <rect key="frame" x="20" y="107" width="374" height="20.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -1245,7 +1269,7 @@ Grenoble</string>
                     <tabBarItem key="tabBarItem" title="Agenda" image="Calendar" landscapeImage="CalendarCompact" id="7C3-cu-WC2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="uUU-HX-xAk">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="110.5"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
                         <textAttributes key="titleTextAttributes">

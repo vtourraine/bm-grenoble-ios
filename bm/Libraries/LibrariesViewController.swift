@@ -21,6 +21,8 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet var tableView: UITableView?
     @IBOutlet var mapView: MKMapView?
     @IBOutlet var showUserLocationButton: UIButton?
+    @IBOutlet var separatorWidth: NSLayoutConstraint?
+    @IBOutlet var separatorHeight: NSLayoutConstraint?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,9 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
         navigationController?.configureCustomAppearance()
 
         tableView?.tableFooterView = UIView(frame: CGRect.zero)
+
+        separatorWidth?.constant = 1.0 / UIScreen.main.scale
+        separatorHeight?.constant = 1.0 / UIScreen.main.scale
 
         mapView?.setRegion(defaultcoordinateRegion, animated: false)
 
