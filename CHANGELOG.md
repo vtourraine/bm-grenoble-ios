@@ -1,5 +1,10 @@
 # BM Grenoble
 
+## 1.4.1 (work in progress)
+
+- [x] Alternate libraries layout for large screens
+
+
 ## 1.4
 
 2020-09-12

@@ -27,6 +27,8 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
 
         navigationController?.configureCustomAppearance()
 
+        tableView?.tableFooterView = UIView(frame: CGRect.zero)
+
         mapView?.setRegion(defaultcoordinateRegion, animated: false)
 
         if let libraries = libraries?.libraries {
