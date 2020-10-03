@@ -27,11 +27,16 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet var mapView: MKMapView?
     @IBOutlet var metadataView: UIView?
+    @IBOutlet var separatorWidth: NSLayoutConstraint?
+    @IBOutlet var separatorHeight: NSLayoutConstraint?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         metadataView?.subviews.filter({$0.isKind(of: UIButton.self)}).forEach({$0.configureRoundCorners()})
+
+        separatorWidth?.constant = 1.0 / UIScreen.main.scale
+        separatorHeight?.constant = 1.0 / UIScreen.main.scale
 
         if #available(iOS 13.0, *) {
             openingTimeImageView?.image = UIImage(systemName: "clock")
@@ -44,6 +49,16 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
         if let library = library {
             configure(with: library)
         }
+
+        let largeScreen = traitCollection.horizontalSizeClass == .regular && traitCollection.verticalSizeClass == .regular
+        navigationItem.largeTitleDisplayMode = largeScreen ? .automatic : .never
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        let largeScreen = traitCollection.horizontalSizeClass == .regular && traitCollection.verticalSizeClass == .regular
+        navigationItem.largeTitleDisplayMode = largeScreen ? .automatic : .never
     }
 
     func configure(with library: Library) {

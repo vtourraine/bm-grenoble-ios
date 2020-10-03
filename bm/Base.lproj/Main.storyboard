@@ -406,19 +406,19 @@ Grenoble</string>
                         <viewLayoutGuide key="safeArea" id="Gpt-bO-5QK"/>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="3gW-NG-MAv"/>
                                 <exclude reference="a23-eX-DCZ"/>
                                 <exclude reference="nre-Sp-seC"/>
-                                <exclude reference="3gW-NG-MAv"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
                             <mask key="constraints">
-                                <include reference="a23-eX-DCZ"/>
-                                <exclude reference="5Hu-Gz-kLc"/>
-                                <include reference="nre-Sp-seC"/>
                                 <include reference="3gW-NG-MAv"/>
                                 <exclude reference="OLT-a4-tk4"/>
                                 <exclude reference="ffN-gw-9pZ"/>
+                                <include reference="a23-eX-DCZ"/>
+                                <exclude reference="5Hu-Gz-kLc"/>
+                                <include reference="nre-Sp-seC"/>
                             </mask>
                         </variation>
                     </view>
@@ -445,50 +445,55 @@ Grenoble</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l7r-IP-lc9">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="200"/>
+                                <rect key="frame" x="350" y="0.0" width="674" height="668"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="RM4-q6-YHE">
                                         <variation key="heightClass=compact-widthClass=compact" constant="50"/>
                                     </constraint>
                                 </constraints>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <exclude reference="RM4-q6-YHE"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outlet property="delegate" destination="jda-3I-IlC" id="MpA-xO-yBk"/>
                                 </connections>
                             </mapView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XwD-3y-dh1">
-                                <rect key="frame" x="0.0" y="200" width="1024" height="518"/>
+                                <rect key="frame" x="0.0" y="0.0" width="350" height="668"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rNi-bC-CE4">
-                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="509.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="509.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E0c-zz-c0i">
-                                                <rect key="frame" x="180" y="14" width="32" height="32"/>
+                                                <rect key="frame" x="12" y="14" width="32" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="E0c-zz-c0i" secondAttribute="height" multiplier="1:1" id="ddu-HI-urw"/>
                                                     <constraint firstAttribute="width" constant="32" id="pMn-bM-tTX"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horaires" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NlP-Jq-fMW">
-                                                <rect key="frame" x="220" y="20" width="784" height="20.5"/>
+                                                <rect key="frame" x="52" y="20" width="278" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RIp-oA-mKw">
-                                                <rect key="frame" x="180" y="70.5" width="32" height="32"/>
+                                                <rect key="frame" x="12" y="70.5" width="32" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="32" id="SyS-T9-F7s"/>
                                                     <constraint firstAttribute="width" secondItem="RIp-oA-mKw" secondAttribute="height" multiplier="1:1" id="xIm-NU-qG3"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adresse" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICa-V1-EsS">
-                                                <rect key="frame" x="220" y="75.5" width="784" height="20.5"/>
+                                                <rect key="frame" x="52" y="75.5" width="278" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZr-f5-NAp">
-                                                <rect key="frame" x="220" y="133" width="584" height="44"/>
+                                                <rect key="frame" x="52" y="133" width="246" height="44"/>
                                                 <color key="backgroundColor" name="BMRed"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="85r-Gg-vhi"/>
@@ -504,20 +509,20 @@ Grenoble</string>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1hw-tv-7fn">
-                                                <rect key="frame" x="180" y="197" width="32" height="32"/>
+                                                <rect key="frame" x="12" y="197" width="32" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="32" id="4vm-FQ-t9k"/>
                                                     <constraint firstAttribute="width" secondItem="1hw-tv-7fn" secondAttribute="height" multiplier="1:1" id="OrH-fX-BkR"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Numéro de téléphone " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j57-8T-2sm">
-                                                <rect key="frame" x="220" y="202" width="784" height="20.5"/>
+                                                <rect key="frame" x="52" y="202" width="278" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVd-NC-r0a">
-                                                <rect key="frame" x="220" y="230.5" width="584" height="44"/>
+                                                <rect key="frame" x="52" y="230.5" width="246" height="44"/>
                                                 <color key="backgroundColor" name="BMRed"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="1cY-rb-YCo"/>
@@ -533,20 +538,20 @@ Grenoble</string>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wXA-xD-8YH">
-                                                <rect key="frame" x="180" y="294.5" width="32" height="32"/>
+                                                <rect key="frame" x="12" y="294.5" width="32" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="wXA-xD-8YH" secondAttribute="height" multiplier="1:1" id="i3d-xf-JAw"/>
                                                     <constraint firstAttribute="width" constant="32" id="ox1-UA-kNR"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sba-1I-OC3">
-                                                <rect key="frame" x="220" y="299.5" width="41" height="20.5"/>
+                                                <rect key="frame" x="52" y="299.5" width="41" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NgA-q0-0MU">
-                                                <rect key="frame" x="220" y="328" width="584" height="44"/>
+                                                <rect key="frame" x="52" y="328" width="246" height="44"/>
                                                 <color key="backgroundColor" name="BMRed"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="0of-L1-mwp"/>
@@ -562,20 +567,20 @@ Grenoble</string>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BpG-th-KWA">
-                                                <rect key="frame" x="180" y="392" width="32" height="32"/>
+                                                <rect key="frame" x="12" y="392" width="32" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="BpG-th-KWA" secondAttribute="height" multiplier="1:1" id="XZ6-CR-GPE"/>
                                                     <constraint firstAttribute="width" constant="32" id="YAg-5l-TI9"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Site web" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ksc-Or-n3y">
-                                                <rect key="frame" x="220" y="397" width="65.5" height="20.5"/>
+                                                <rect key="frame" x="52" y="397" width="65.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNv-vc-eWV">
-                                                <rect key="frame" x="220" y="425.5" width="584" height="44"/>
+                                                <rect key="frame" x="52" y="425.5" width="246" height="44"/>
                                                 <color key="backgroundColor" name="BMRed"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="NAG-TO-g68"/>
@@ -591,7 +596,7 @@ Grenoble</string>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="♿︎ Accessible PMR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vao-HP-9uK">
-                                                <rect key="frame" x="220" y="104" width="137" height="21"/>
+                                                <rect key="frame" x="52" y="104" width="137" height="21"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -655,6 +660,7 @@ Grenoble</string>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="rNi-bC-CE4" firstAttribute="trailing" secondItem="s1q-ki-Qdx" secondAttribute="trailing" id="Bml-EV-iuk"/>
+                                    <constraint firstAttribute="width" constant="350" id="MNU-eS-4Li"/>
                                     <constraint firstItem="rNi-bC-CE4" firstAttribute="bottom" secondItem="s1q-ki-Qdx" secondAttribute="bottom" id="Sko-4x-07c"/>
                                     <constraint firstItem="rNi-bC-CE4" firstAttribute="width" secondItem="WZ6-5t-VzP" secondAttribute="width" id="WYb-zX-blW"/>
                                     <constraint firstItem="rNi-bC-CE4" firstAttribute="top" secondItem="s1q-ki-Qdx" secondAttribute="top" id="hWo-39-8kb"/>
@@ -662,19 +668,71 @@ Grenoble</string>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="s1q-ki-Qdx"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="WZ6-5t-VzP"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="MNU-eS-4Li"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="MNU-eS-4Li"/>
+                                    </mask>
+                                </variation>
                             </scrollView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dT4-dm-Bmb" userLabel="Separator View (Large Screen)">
+                                <rect key="frame" x="350" y="0.0" width="1" height="668"/>
+                                <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="fSW-17-YbH"/>
+                                </constraints>
+                                <variation key="heightClass=regular-widthClass=regular" hidden="NO"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zg0-MI-ViL" userLabel="Separator View">
+                                <rect key="frame" x="0.0" y="667" width="1024" height="1"/>
+                                <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="LsZ-UO-9OY"/>
+                                </constraints>
+                                <variation key="heightClass=regular-widthClass=regular" hidden="YES"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="l7r-IP-lc9" firstAttribute="leading" secondItem="XwD-3y-dh1" secondAttribute="trailing" id="2rP-fV-vWU"/>
+                            <constraint firstItem="Zg0-MI-ViL" firstAttribute="bottom" secondItem="l7r-IP-lc9" secondAttribute="bottom" id="5uW-Va-k3K"/>
                             <constraint firstItem="l7r-IP-lc9" firstAttribute="top" secondItem="ghT-EI-b6h" secondAttribute="top" id="7ng-dE-ssS"/>
-                            <constraint firstAttribute="bottom" secondItem="XwD-3y-dh1" secondAttribute="bottom" id="JHL-cf-MCp"/>
+                            <constraint firstItem="Zg0-MI-ViL" firstAttribute="leading" secondItem="ghT-EI-b6h" secondAttribute="leading" id="J9E-9W-nkZ"/>
+                            <constraint firstItem="ghT-EI-b6h" firstAttribute="bottom" secondItem="XwD-3y-dh1" secondAttribute="bottom" id="JHL-cf-MCp"/>
+                            <constraint firstItem="ghT-EI-b6h" firstAttribute="bottom" secondItem="dT4-dm-Bmb" secondAttribute="bottom" id="K4N-IV-VTh"/>
+                            <constraint firstItem="ghT-EI-b6h" firstAttribute="trailing" secondItem="Zg0-MI-ViL" secondAttribute="trailing" id="Pcw-jA-eOT"/>
+                            <constraint firstItem="XwD-3y-dh1" firstAttribute="top" secondItem="ghT-EI-b6h" secondAttribute="top" id="Tvi-5N-xAD"/>
                             <constraint firstAttribute="trailing" secondItem="l7r-IP-lc9" secondAttribute="trailing" id="XR1-KB-NRA"/>
+                            <constraint firstItem="dT4-dm-Bmb" firstAttribute="top" secondItem="ghT-EI-b6h" secondAttribute="top" id="cVF-mn-jMb"/>
                             <constraint firstItem="l7r-IP-lc9" firstAttribute="leading" secondItem="WNT-80-mFt" secondAttribute="leading" id="hjs-r6-v4U"/>
                             <constraint firstItem="XwD-3y-dh1" firstAttribute="trailing" secondItem="ghT-EI-b6h" secondAttribute="trailing" id="qMu-Cj-awR"/>
+                            <constraint firstItem="dT4-dm-Bmb" firstAttribute="leading" secondItem="l7r-IP-lc9" secondAttribute="leading" id="tJA-I8-oqQ"/>
+                            <constraint firstItem="ghT-EI-b6h" firstAttribute="bottom" secondItem="l7r-IP-lc9" secondAttribute="bottom" id="vOu-Cc-CdP"/>
                             <constraint firstItem="XwD-3y-dh1" firstAttribute="top" secondItem="l7r-IP-lc9" secondAttribute="bottom" id="wv7-qQ-zOs"/>
                             <constraint firstItem="ghT-EI-b6h" firstAttribute="leading" secondItem="XwD-3y-dh1" secondAttribute="leading" id="zPm-P4-XGK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ghT-EI-b6h"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Tvi-5N-xAD"/>
+                                <exclude reference="vOu-Cc-CdP"/>
+                                <exclude reference="2rP-fV-vWU"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="Tvi-5N-xAD"/>
+                                <exclude reference="qMu-Cj-awR"/>
+                                <exclude reference="wv7-qQ-zOs"/>
+                                <include reference="vOu-Cc-CdP"/>
+                                <include reference="2rP-fV-vWU"/>
+                                <exclude reference="hjs-r6-v4U"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="t8V-jG-15t"/>
                     <connections>
@@ -689,6 +747,8 @@ Grenoble</string>
                         <outlet property="openingTimeLabel" destination="NlP-Jq-fMW" id="OO7-ls-lmK"/>
                         <outlet property="phoneImageView" destination="1hw-tv-7fn" id="J9J-5k-cEd"/>
                         <outlet property="phoneLabel" destination="j57-8T-2sm" id="ZRl-nW-hm9"/>
+                        <outlet property="separatorHeight" destination="LsZ-UO-9OY" id="kCC-ud-2tB"/>
+                        <outlet property="separatorWidth" destination="fSW-17-YbH" id="guX-Gz-du4"/>
                         <outlet property="websiteImageView" destination="BpG-th-KWA" id="Ouz-Qo-5ab"/>
                         <outlet property="websiteLabel" destination="Ksc-Or-n3y" id="RK7-L4-dXN"/>
                     </connections>
@@ -704,7 +764,7 @@ Grenoble</string>
                     <tabBarItem key="tabBarItem" title="Prêts en cours" image="Books" landscapeImage="BooksCompact" id="kMU-d9-2Gk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="81E-91-uNE">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="102"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="110.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
                         <textAttributes key="titleTextAttributes">
@@ -935,7 +995,7 @@ Grenoble</string>
                     <tabBarItem key="tabBarItem" title="Bibliothèques" image="Location" landscapeImage="LocationCompact" id="PDh-Mg-nUs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="0IM-VL-DLa">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="110.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="102"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
                         <textAttributes key="titleTextAttributes">
