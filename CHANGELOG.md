@@ -3,7 +3,7 @@
 ## 1.4.1 (work in progress)
 
 - [x] Alternate libraries layout for large screens
-- [x] Update search layout to follow readable width
+- [x] Update layout to follow readable width (loans placeholder, search)
 
 
 ## 1.4
