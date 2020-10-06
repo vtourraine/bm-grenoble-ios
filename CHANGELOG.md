@@ -1,5 +1,10 @@
 # BM Grenoble
 
+## 1.4.2 (work in progress)
+
+- [x] Add news and agenda contextual menu (Open in Browser, Share)
+
+
 ## 1.4.1
 
 2020-10-06
