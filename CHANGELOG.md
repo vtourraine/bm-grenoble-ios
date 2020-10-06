@@ -1,9 +1,11 @@
 # BM Grenoble
 
-## 1.4.1 (work in progress)
+## 1.4.1
 
-- [x] Alternate libraries layout for large screens
-- [x] Update layout to follow readable width (loans placeholder, search)
+2020-10-06
+
+- Alternate Libraries and Library screens layout for large screens
+- Update layout to follow readable width (loans placeholder, search)
 
 
 ## 1.4
