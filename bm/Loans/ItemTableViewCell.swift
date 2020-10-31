@@ -50,7 +50,7 @@ class ItemTableViewCell: UITableViewCell {
 
         thumbnail?.layer.cornerRadius = 2
         if let image = item.image {
-            thumbnail?.af_setImage(withURL: image)
+            thumbnail?.af.setImage(withURL: image)
             thumbnail?.backgroundColor = nil
             thumbnail?.contentMode = .scaleAspectFit
         }

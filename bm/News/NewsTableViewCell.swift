@@ -23,7 +23,7 @@ extension NewsTableViewCell {
 
         thumbnail?.layer.cornerRadius = 8
         if let image = item.image {
-            thumbnail?.af_setImage(withURL: image)
+            thumbnail?.af.setImage(withURL: image)
         }
         else {
             thumbnail?.image = nil
