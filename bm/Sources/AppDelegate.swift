@@ -23,7 +23,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         #endif
 
+        updateTabBarIcons()
+
         return true
+    }
+
+    func updateTabBarIcons() {
+        guard let tabBarViewController = window?.rootViewController as? UITabBarController else {
+            return
+        }
+
+        if #available(iOS 14.0, *) {
+            tabBarViewController.viewControllers?[0].tabBarItem.image = UIImage(systemName: "books.vertical")
+            tabBarViewController.viewControllers?[1].tabBarItem.image = UIImage(systemName: "newspaper")
+            tabBarViewController.viewControllers?[2].tabBarItem.image = UIImage(systemName: "calendar")
+            tabBarViewController.viewControllers?[3].tabBarItem.image = UIImage(systemName: "building.2")
+        }
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
