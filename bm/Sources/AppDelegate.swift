@@ -34,10 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         if #available(iOS 14.0, *) {
-            tabBarViewController.viewControllers?[0].tabBarItem.image = UIImage(systemName: "books.vertical")
+            tabBarViewController.viewControllers?[0].tabBarItem.image = UIImage(systemName: "books.vertical.fill")
             tabBarViewController.viewControllers?[1].tabBarItem.image = UIImage(systemName: "newspaper")
             tabBarViewController.viewControllers?[2].tabBarItem.image = UIImage(systemName: "calendar")
-            tabBarViewController.viewControllers?[3].tabBarItem.image = UIImage(systemName: "building.2")
+            tabBarViewController.viewControllers?[3].tabBarItem.image = UIImage(systemName: "building.2.fill")
         }
     }
 
