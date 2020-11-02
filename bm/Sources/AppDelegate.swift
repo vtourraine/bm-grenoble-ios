@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             tabBarViewController.viewControllers?[0].tabBarItem.image = UIImage(systemName: "books.vertical.fill")
             tabBarViewController.viewControllers?[1].tabBarItem.image = UIImage(systemName: "newspaper")
             tabBarViewController.viewControllers?[2].tabBarItem.image = UIImage(systemName: "calendar")
-            tabBarViewController.viewControllers?[3].tabBarItem.image = UIImage(systemName: "building.2.fill")
+            tabBarViewController.viewControllers?[3].tabBarItem.image = UIImage(systemName: "building.2")
         }
     }
 
