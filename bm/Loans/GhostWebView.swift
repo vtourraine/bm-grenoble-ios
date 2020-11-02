@@ -111,8 +111,8 @@ class GhostWebView: WKWebView {
       let rawValue: String
     }
 
-    private let UsernameTextField = TagIdentifier(rawValue: "stdPage:pagecontentReplaced:msgLogin:j_idt477:j_idt482:userName")
-    private let PasswordTextField = TagIdentifier(rawValue: "stdPage:pagecontentReplaced:msgLogin:j_idt477:j_idt482:password")
+    private let UsernameTextField = TagIdentifier(rawValue: "stdPage:pagecontentReplaced:msgLogin:j_idt464:j_idt469:userName")
+    private let PasswordTextField = TagIdentifier(rawValue: "stdPage:pagecontentReplaced:msgLogin:j_idt464:j_idt469:password")
 
     convenience init() {
         let webConfiguration = WKWebViewConfiguration()

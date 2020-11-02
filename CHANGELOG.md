@@ -5,6 +5,7 @@
 - [x] Optimized for iOS 14
 - [x] Update tab bar icons (iOS 14)
 - [x] Add news and agenda contextual menu (Open in Browser, Share)
+- [x] Fix library sync
 
 
 ## 1.4.1
@@ -36,6 +37,7 @@
 
 - Add message about temporary opening hours
 - Fix library sync
+
 
 ## 1.3.1
 
