@@ -1,12 +1,14 @@
 # BM Grenoble
 
-## 1.4.2 (work in progress)
+## 1.4.2
 
-- [x] Optimized for iOS 14
-- [x] Update tab bar icons (iOS 14)
-- [x] Add news and agenda contextual menu (Open in Browser, Share)
-- [x] Update libraries opening hours
-- [x] Fix library sync
+2020-11-03
+
+- Optimized for iOS 14
+- Update tab bar icons (iOS 14)
+- Add News and Agenda contextual menu (Open in Browser, Share)
+- Update libraries opening hours
+- Fix library sync
 
 
 ## 1.4.1
