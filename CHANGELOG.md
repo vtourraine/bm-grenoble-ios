@@ -1,5 +1,10 @@
 # BM Grenoble
 
+## 1.4.3
+
+- [x] Optimized for macOS Big Sur
+
+
 ## 1.4.2
 
 2020-11-03
