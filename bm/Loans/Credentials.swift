@@ -15,27 +15,6 @@ struct Credentials: Codable {
 }
 
 extension Credentials {
-    static let Key = "Credentials"
-
-    func save(to userDefaults: UserDefaults) {
-        let data = try? JSONEncoder().encode(self)
-        userDefaults.set(data, forKey: Credentials.Key)
-    }
-
-    static func load(from userDefaults: UserDefaults) -> Credentials? {
-        guard let encodedData = userDefaults.data(forKey: Credentials.Key) else {
-            return nil
-        }
-
-        return try! JSONDecoder().decode(Credentials.self, from: encodedData)
-    }
-
-    static func remove(from userDefaults: UserDefaults) {
-        userDefaults.removeObject(forKey: Credentials.Key)
-    }
-}
-
-extension Credentials {
     static let UserIdentifierKey = "UserIdentifier"
     static let PasswordKey = "Password"
 
@@ -46,15 +25,8 @@ extension Credentials {
 
     static func load(from keychain: Keychain) -> Credentials? {
         guard let userIdentifier = keychain[Credentials.UserIdentifierKey],
-            let password = keychain[Credentials.PasswordKey] else {
-                if let legacyCredentials = Credentials.load(from: .standard) {
-                    // Migrate existing credentials from UserDefaults to Keychain
-                    legacyCredentials.save(to: keychain)
-                    Credentials.remove(from: .standard)
-                    return legacyCredentials
-                }
-
-                return nil
+              let password = keychain[Credentials.PasswordKey] else {
+            return nil
         }
 
         return Credentials(userIdentifier: userIdentifier, password: password)

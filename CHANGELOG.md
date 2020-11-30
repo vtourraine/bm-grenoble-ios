@@ -3,6 +3,8 @@
 ## 1.4.3
 
 - [x] Optimized for macOS Big Sur
+- [ ] Move Info screen to About window (macOS)
+- [ ] Fix signing out
 
 
 ## 1.4.2

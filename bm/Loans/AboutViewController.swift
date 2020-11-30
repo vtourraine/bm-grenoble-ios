@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 
-class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class AboutViewController: UIViewController {
 
     @IBOutlet var closeButton: UIButton?
     @IBOutlet var contactButton: UIButton?
@@ -44,20 +44,24 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
     // MARK: - Actions
 
     @IBAction func contact(_ sender: Any?) {
+        AboutViewController.contact(from: self, delegate: self)
+    }
+
+    static func contact(from presentingViewController: UIViewController, delegate: MFMailComposeViewControllerDelegate) {
         let emailAddress = "studioamanga@gmail.com"
 
         guard MFMailComposeViewController.canSendMail() else {
             let alertController = UIAlertController(title: NSLocalizedString("Contact", comment: ""), message: emailAddress, preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: nil))
-            present(alertController, animated: true, completion: nil)
+            presentingViewController.present(alertController, animated: true, completion: nil)
             return
         }
 
         let viewController = MFMailComposeViewController()
         viewController.setToRecipients([emailAddress])
         viewController.setSubject(NSLocalizedString("BM Grenoble", comment: ""))
-        viewController.mailComposeDelegate = self
-        present(viewController, animated: true, completion: nil)
+        viewController.mailComposeDelegate = delegate
+        presentingViewController.present(viewController, animated: true, completion: nil)
     }
 
     @IBAction func openCodeRepository(_ sender: Any?) {
@@ -71,29 +75,33 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
     }
 
     @IBAction func signOut(_ sender: Any) {
+        guard let tabBarController = presentingViewController as? UITabBarController else {
+                return
+        }
 
-        guard let presentingTabBarController = presentingViewController as? UITabBarController,
-            let navigationController = presentingTabBarController.viewControllers?.first as? UINavigationController,
+        AboutViewController.signOut(from: tabBarController)
+
+        dismiss(animated: true)
+    }
+
+    static func signOut(from tabBarController: UITabBarController) {
+        guard let navigationController = tabBarController.viewControllers?.first as? UINavigationController,
             let viewController = navigationController.topViewController as? LoansViewController else {
                 return
         }
 
-        Credentials.remove(from: .standard)
+        Credentials.remove(from: Credentials.defaultKeychain())
         ItemCache.remove(from: .standard)
 
         viewController.reloadData(state: .notLoggedIn)
-
-        dismiss(animated: true) {
-            viewController.presentLoginScreen(sender: nil)
-        }
     }
 
     @IBAction func dismiss(_ sender: Any?) {
         dismiss(animated: true, completion: nil)
     }
+}
 
-    // MARK: - MFMailComposeViewControllerDelegate
-
+extension AboutViewController: MFMailComposeViewControllerDelegate {
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }

@@ -34,7 +34,8 @@ class LoansViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        #if !targetEnvironment(macCatalyst)
         let infoButton = UIButton(type: .infoLight)
         infoButton.tintColor = .white
         infoButton.addTarget(self, action: #selector(openAboutScreen(sender:)), for: .touchUpInside)
@@ -42,6 +43,7 @@ class LoansViewController: UITableViewController {
         infoButton.frame = CGRect(x: 0, y: 0, width: MinimumTargetSize, height: MinimumTargetSize)
         let infoBarButtonItem = UIBarButtonItem(customView: infoButton)
         navigationItem.rightBarButtonItem = infoBarButtonItem
+        #endif
 
         extendedLayoutIncludesOpaqueBars = true
         refreshControl?.tintColor = .white

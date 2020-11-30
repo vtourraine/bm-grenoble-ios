@@ -131,7 +131,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loader = GhostLoader(credentials: credentials, parentView: view, success: { (items) in
             self.configure(loading: false)
 
-            credentials.save(to: .standard)
+            credentials.save(to: Credentials.defaultKeychain())
             let itemCache = ItemCache(items: items)
             ItemCache.save(items: itemCache, to: .standard)
 

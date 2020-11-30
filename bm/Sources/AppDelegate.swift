@@ -3,10 +3,11 @@
 //  bm
 //
 //  Created by Vincent Tourraine on 30/07/2019.
-//  Copyright © 2019 Studio AMANgA. All rights reserved.
+//  Copyright © 2019-2020 Studio AMANgA. All rights reserved.
 //
 
 import UIKit
+import MessageUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -58,6 +59,58 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         builder.remove(menu: .format)
         builder.remove(menu: .toolbar)
         builder.remove(menu: .help)
+        builder.insertSibling(AppDelegate.helpMenu(), afterMenu: .window)
+        builder.insertChild(AppDelegate.fileMenu(), atEndOfMenu: .file)
+    }
+
+    override func validate(_ command: UICommand) {
+        switch command.action {
+        case #selector(askToSignOut):
+            command.attributes = canAskToSignOut() ? [] : .disabled
+        default:
+            break
+        }
+    }
+}
+
+extension AppDelegate {
+    class func fileMenu() -> UIMenu {
+        let signOut = UICommand(title: NSLocalizedString("Sign Out…", comment: ""), image: nil, action: #selector(AppDelegate.askToSignOut))
+        return UIMenu(title: "", image: nil, identifier: UIMenu.Identifier("com.studioamanga.bmg.menus.file"), options: .displayInline, children: [signOut])
+    }
+
+    class func helpMenu() -> UIMenu {
+        let contact = UIKeyCommand(title: NSLocalizedString("Contact Support", comment: ""), image: nil, action: #selector(AppDelegate.contactSupport), input: "", modifierFlags: [], propertyList: nil)
+        return UIMenu(title: NSLocalizedString("Help", comment: ""), image: nil, identifier: UIMenu.Identifier("com.studioamanga.bmg.menus.help"), options: [], children: [contact])
+    }
+
+    @objc func canAskToSignOut() ->Bool {
+        return Credentials.sharedCredentials() != nil
+    }
+
+    @objc func askToSignOut() {
+        guard let viewController = window?.rootViewController else {
+            return
+        }
+
+        let alertController = UIAlertController(title: NSLocalizedString("Are you sure you want to sign out?", comment: ""), message: nil, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Sign Out", comment: ""), style: .destructive) { _ in 
+            self.signOut()
+        })
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+        viewController.present(alertController, animated: true, completion: nil)
+    }
+
+    @objc func contactSupport() {
+        if let viewController = window?.rootViewController {
+            AboutViewController.contact(from: viewController, delegate: self)
+        }
+    }
+
+    func signOut() {
+        if let viewController = window?.rootViewController as? UITabBarController {
+            AboutViewController.signOut(from: viewController)
+        }
     }
 }
 
@@ -72,5 +125,11 @@ extension AppDelegate: UITabBarControllerDelegate {
         }
 
         lastSelectedViewController = viewController
+    }
+}
+
+extension AppDelegate: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }
