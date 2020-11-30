@@ -63,6 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         builder.insertChild(AppDelegate.fileMenu(), atEndOfMenu: .file)
     }
 
+    @available(iOS 13.0, *)
     override func validate(_ command: UICommand) {
         switch command.action {
         case #selector(askToSignOut):
@@ -73,6 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+@available(iOS 13.0, *)
 extension AppDelegate {
     class func fileMenu() -> UIMenu {
         let signOut = UICommand(title: NSLocalizedString("Sign Out…", comment: ""), image: nil, action: #selector(AppDelegate.askToSignOut))
