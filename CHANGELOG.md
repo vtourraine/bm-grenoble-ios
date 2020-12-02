@@ -1,5 +1,10 @@
 # BM Grenoble
 
+## 1.4.4 (work in progress)
+
+- [ ] Update app icon
+
+
 ## 1.4.3
 
 2020-12-01
