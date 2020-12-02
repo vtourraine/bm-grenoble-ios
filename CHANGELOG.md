@@ -2,9 +2,11 @@
 
 ## 1.4.3
 
-- [x] Optimized for macOS Big Sur
-- [x] Move Info screen to About window (macOS)
-- [x] Fix signing out
+2020-12-01
+
+- Optimized for macOS Big Sur
+- Move Info screen to About window (macOS)
+- Fix signing out
 
 
 ## 1.4.2
