@@ -2,7 +2,8 @@
 
 ## 1.4.4 (work in progress)
 
-- [ ] Update app icon
+- [x] Fix library sync
+- [x] Update app icon
 
 
 ## 1.4.3

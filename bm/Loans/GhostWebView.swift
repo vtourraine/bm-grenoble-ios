@@ -103,9 +103,9 @@ class GhostLoader: NSObject, WKNavigationDelegate {
 }
 
 class GhostWebView: WKWebView {
-    static let RootURL = "http://catalogue.bm-grenoble.fr"
-    static let AccountURL = "http://catalogue.bm-grenoble.fr/in/faces/account.xhtml"
-    static let AccountLoansURL = "http://catalogue.bm-grenoble.fr/in/faces/accountLoans.xhtml"
+    static let RootURL = "https://catalogue.bm-grenoble.fr"
+    static let AccountURL = "https://catalogue.bm-grenoble.fr/in/faces/account.xhtml"
+    static let AccountLoansURL = "https://catalogue.bm-grenoble.fr/in/faces/accountLoans.xhtml"
 
     struct TagIdentifier: RawRepresentable, Hashable, Codable {
       let rawValue: String
