@@ -1,9 +1,11 @@
 # BM Grenoble
 
-## 1.4.4 (work in progress)
+## 1.4.4
 
-- [x] Fix library sync
-- [x] Update app icon
+2021-02-25
+
+- Update app icon
+- Fix library sync
 
 
 ## 1.4.3
