@@ -101,7 +101,7 @@ class LoansViewController: UITableViewController {
 
     func configureEmptyListPlaceholder() {
         let label = UILabel(frame: .zero)
-        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.font = .preferredFont(forTextStyle: .title1)
         label.textColor = .gray
         label.textAlignment = .center
         label.text = NSLocalizedString("No Current Loans", comment: "")
