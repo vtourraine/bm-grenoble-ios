@@ -25,7 +25,7 @@ extension NetworkError: LocalizedError {
 
 extension URLRequest {
     init(endpoint: String, credentials: Credentials) {
-        let url = URL(string: "https://catalogue-test.bm-grenoble.fr/in/rest/api/\(endpoint)")!
+        let url = URL(string: "https://catalogue.bm-grenoble.fr/in/rest/api/\(endpoint)")!
         self.init(url: url)
         httpMethod = "GET"
         allHTTPHeaderFields = ["Content-Type": "application/json", "Authorization": "Bearer \(credentials.token)"]
