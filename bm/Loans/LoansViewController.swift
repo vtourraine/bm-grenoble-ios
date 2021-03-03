@@ -33,7 +33,8 @@ class LoansViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        #if !targetEnvironment(macCatalyst)
         let infoButton = UIButton(type: .infoLight)
         infoButton.tintColor = .white
         infoButton.addTarget(self, action: #selector(openAboutScreen(sender:)), for: .touchUpInside)
@@ -41,13 +42,17 @@ class LoansViewController: UITableViewController {
         infoButton.frame = CGRect(x: 0, y: 0, width: MinimumTargetSize, height: MinimumTargetSize)
         let infoBarButtonItem = UIBarButtonItem(customView: infoButton)
         navigationItem.rightBarButtonItem = infoBarButtonItem
+        #endif
 
         extendedLayoutIncludesOpaqueBars = true
         refreshControl?.tintColor = .white
 
+        if #available(iOS 13.0, *) {
+            tableView.backgroundColor = .systemBackground
+        }
         tableView.tableFooterView = UIView(frame: CGRect.zero)
 
-        if Credentials.load(from: .standard) == nil {
+        if Credentials.sharedCredentials() == nil {
             reloadData(state: .notLoggedIn)
         }
         else if let itemCache = ItemCache.load(from: .standard) {
@@ -62,7 +67,7 @@ class LoansViewController: UITableViewController {
 
         if isFirstLaunch {
             // loadDemoData()
-            if Credentials.load(from: .standard) != nil {
+            if Credentials.sharedCredentials() != nil {
                 refresh(sender: nil)
             }
 
@@ -76,7 +81,7 @@ class LoansViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let aboutViewController = segue.destination as? AboutViewController {
-            let userIsLoggedIn = (Credentials.load(from: .standard) != nil)
+            let userIsLoggedIn = (Credentials.sharedCredentials() != nil)
             aboutViewController.userIsLoggedIn = userIsLoggedIn
         }
     }
@@ -175,7 +180,7 @@ class LoansViewController: UITableViewController {
     }
 
     @IBAction func refresh(sender: Any?) {
-        guard let credentials = Credentials.load(from: .standard) else {
+        guard let credentials = Credentials.sharedCredentials() else {
             return
         }
 
@@ -207,11 +212,15 @@ class LoansViewController: UITableViewController {
                 return
         }
 
+        #if targetEnvironment(macCatalyst)
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        #else
         UIApplication.shared.open(url, options: [.universalLinksOnly: true]) { (result) in
             if result == false {
                 self.presentSafariViewController(url)
             }
         }
+        #endif
     }
 
     @IBAction func presentLoginScreen(sender: Any?) {

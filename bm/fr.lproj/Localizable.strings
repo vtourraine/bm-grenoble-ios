@@ -15,8 +15,17 @@
 "Show Subscriber Card" = "Afficher ma carte abonné";
 "Open Account in Safari" = "Ouvrir le compte abonné avec Safari";
 
+"Sign Out…" = "Se déconnecter…";
+"Are you sure you want to sign out?" = "Êtes-vous sûr de vouloir vous déconnecter ?";
+"Sign Out" = "Se déconnecter";
+"Help" = "Aide";
+"Contact" = "Contact";
+"Contact Support" = "Contacter le support";
+
 "Updating Account…" = "Mise à jour du compte…";
 "No Current Loans" = "Aucun prêt en cours";
 "Connection Error" = "Erreur de connexion";
 "Invalid subscriber number or password" = "Numéro d’abonné(e) ou mot de passe incorrect";
 "Search on Goodreads" = "Rechercher sur Goodreads";
+"Share" = "Partager";
+"Open in Browser" = "Ouvrir dans le navigateur";

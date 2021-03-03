@@ -15,6 +15,7 @@
 		D70A2B69234247F300AC9405 /* Libraries.plist in Resources */ = {isa = PBXBuildFile; fileRef = D70A2B67234247F300AC9405 /* Libraries.plist */; };
 		D70A2B6B2342489A00AC9405 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70A2B6A2342489A00AC9405 /* Library.swift */; };
 		D70A2B6D23424BC400AC9405 /* LibrariesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70A2B6C23424BC400AC9405 /* LibrariesViewController.swift */; };
+		D71F32AB24D8B303002526CD /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = D71F32AA24D8B303002526CD /* KeychainAccess */; };
 		D72BBA91233B8DC500F5A1CB /* TestAccountLoansEmpty.html in Resources */ = {isa = PBXBuildFile; fileRef = D72BBA90233B8DC500F5A1CB /* TestAccountLoansEmpty.html */; };
 		D73968EB23D1ECCC00F01645 /* DemoAccountLoans.html in Resources */ = {isa = PBXBuildFile; fileRef = D73968EA23D1ECCC00F01645 /* DemoAccountLoans.html */; };
 		D75DB3B322FBFD84008C7499 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D75DB3B122FBFD84008C7499 /* Localizable.strings */; };
@@ -43,6 +44,7 @@
 		D78C460B2379AACA00313AD8 /* LoansNotLoggedInView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78C46092379AACA00313AD8 /* LoansNotLoggedInView.xib */; };
 		D7910BCB23717A3200A0DC31 /* LibrariesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7910BCA23717A3200A0DC31 /* LibrariesTests.swift */; };
 		D794D59B241BAE0D00208C05 /* BMKit in Frameworks */ = {isa = PBXBuildFile; productRef = D794D59A241BAE0D00208C05 /* BMKit */; };
+		D798F4BF2571037D00143373 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = D798F4C12571037D00143373 /* Credits.html */; };
 		D79ABC0E233DF079007ADE6E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79ABC0D233DF079007ADE6E /* AboutViewController.swift */; };
 		D7A0A2E423E032F30039D934 /* AgendaItemCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A0A2E323E032F30039D934 /* AgendaItemCache.swift */; };
 		D7A0A2EA23E1828D0039D934 /* TestAgenda3.html in Resources */ = {isa = PBXBuildFile; fileRef = D7A0A2E823E1828D0039D934 /* TestAgenda3.html */; };
@@ -71,7 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D70212C322F0E43C00E3972E /* bm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bm.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D70212C322F0E43C00E3972E /* BM Grenoble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BM Grenoble.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D70212C622F0E43C00E3972E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Sources/AppDelegate.swift; sourceTree = "<group>"; };
 		D70212C822F0E43C00E3972E /* LoansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoansViewController.swift; sourceTree = "<group>"; };
 		D70212CB22F0E43C00E3972E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 		D70A2B68234247F300AC9405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Libraries.plist; sourceTree = "<group>"; };
 		D70A2B6A2342489A00AC9405 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		D70A2B6C23424BC400AC9405 /* LibrariesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariesViewController.swift; sourceTree = "<group>"; };
+		D71F32AC24D8B42E002526CD /* bm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = bm.entitlements; sourceTree = "<group>"; };
 		D72BBA90233B8DC500F5A1CB /* TestAccountLoansEmpty.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TestAccountLoansEmpty.html; sourceTree = "<group>"; };
 		D73968EA23D1ECCC00F01645 /* DemoAccountLoans.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DemoAccountLoans.html; sourceTree = "<group>"; };
 		D75DB3B222FBFD84008C7499 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -117,6 +120,8 @@
 		D78C460D2379AF0700313AD8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = ../en.lproj/LoansNotLoggedInView.strings; sourceTree = "<group>"; };
 		D78C460F2379AF0A00313AD8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = ../fr.lproj/LoansNotLoggedInView.strings; sourceTree = "<group>"; };
 		D7910BCA23717A3200A0DC31 /* LibrariesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariesTests.swift; sourceTree = "<group>"; };
+		D798F4C02571037D00143373 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Credits.html; sourceTree = "<group>"; };
+		D798F4C4257103AA00143373 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = fr; path = fr.lproj/Credits.html; sourceTree = "<group>"; };
 		D79ABC0D233DF079007ADE6E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		D7A0A2E323E032F30039D934 /* AgendaItemCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaItemCache.swift; sourceTree = "<group>"; };
 		D7A0A2E823E1828D0039D934 /* TestAgenda3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TestAgenda3.html; sourceTree = "<group>"; };
@@ -146,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D794D59B241BAE0D00208C05 /* BMKit in Frameworks */,
+				D71F32AB24D8B303002526CD /* KeychainAccess in Frameworks */,
 				D7697DF323CB5DE100010011 /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,7 +183,7 @@
 		D70212C422F0E43C00E3972E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D70212C322F0E43C00E3972E /* bm.app */,
+				D70212C322F0E43C00E3972E /* BM Grenoble.app */,
 				D786E6E122F194EC00AD1D36 /* bmTests.xctest */,
 			);
 			name = Products;
@@ -200,9 +206,11 @@
 				D70212CD22F0E43E00E3972E /* Assets.xcassets */,
 				D70212CF22F0E43E00E3972E /* LaunchScreen.storyboard */,
 				D70212D222F0E43E00E3972E /* Info.plist */,
+				D71F32AC24D8B42E002526CD /* bm.entitlements */,
 				D7A8833622FB798900C209DC /* BridgingHeader.h */,
 				D75DB3B122FBFD84008C7499 /* Localizable.strings */,
 				D7C1D20B234F6CC800FC9B96 /* InfoPlist.strings */,
+				D798F4C12571037D00143373 /* Credits.html */,
 			);
 			path = bm;
 			sourceTree = "<group>";
@@ -340,9 +348,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D70212C222F0E43C00E3972E /* bm */ = {
+		D70212C222F0E43C00E3972E /* BM Grenoble */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D70212D522F0E43E00E3972E /* Build configuration list for PBXNativeTarget "bm" */;
+			buildConfigurationList = D70212D522F0E43E00E3972E /* Build configuration list for PBXNativeTarget "BM Grenoble" */;
 			buildPhases = (
 				D70212BF22F0E43C00E3972E /* Sources */,
 				D70212C022F0E43C00E3972E /* Frameworks */,
@@ -353,13 +361,14 @@
 			dependencies = (
 				D794D599241BAE0700208C05 /* PBXTargetDependency */,
 			);
-			name = bm;
+			name = "BM Grenoble";
 			packageProductDependencies = (
 				D7697DF223CB5DE100010011 /* AlamofireImage */,
 				D794D59A241BAE0D00208C05 /* BMKit */,
+				D71F32AA24D8B303002526CD /* KeychainAccess */,
 			);
 			productName = bm;
-			productReference = D70212C322F0E43C00E3972E /* bm.app */;
+			productReference = D70212C322F0E43C00E3972E /* BM Grenoble.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D786E6E022F194EC00AD1D36 /* bmTests */ = {
@@ -387,7 +396,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1030;
-				LastUpgradeCheck = 1030;
+				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = "Studio AMANgA";
 				TargetAttributes = {
 					D70212C222F0E43C00E3972E = {
@@ -411,12 +420,13 @@
 			mainGroup = D70212BA22F0E43C00E3972E;
 			packageReferences = (
 				D7697DF123CB5DE100010011 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
+				D71F32A924D8B303002526CD /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = D70212C422F0E43C00E3972E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D70212C222F0E43C00E3972E /* bm */,
+				D70212C222F0E43C00E3972E /* BM Grenoble */,
 				D786E6E022F194EC00AD1D36 /* bmTests */,
 			);
 		};
@@ -431,6 +441,7 @@
 				D7C1D20D234F6CC800FC9B96 /* InfoPlist.strings in Resources */,
 				D75DB3B322FBFD84008C7499 /* Localizable.strings in Resources */,
 				D70A2B69234247F300AC9405 /* Libraries.plist in Resources */,
+				D798F4BF2571037D00143373 /* Credits.html in Resources */,
 				D70212CE22F0E43E00E3972E /* Assets.xcassets in Resources */,
 				D70212CC22F0E43C00E3972E /* Main.storyboard in Resources */,
 				D73968EB23D1ECCC00F01645 /* DemoAccountLoans.html in Resources */,
@@ -508,7 +519,7 @@
 /* Begin PBXTargetDependency section */
 		D786E6E722F194EC00AD1D36 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D70212C222F0E43C00E3972E /* bm */;
+			target = D70212C222F0E43C00E3972E /* BM Grenoble */;
 			targetProxy = D786E6E622F194EC00AD1D36 /* PBXContainerItemProxy */;
 		};
 		D794D599241BAE0700208C05 /* PBXTargetDependency */ = {
@@ -565,6 +576,15 @@
 			name = LoansNotLoggedInView.xib;
 			sourceTree = "<group>";
 		};
+		D798F4C12571037D00143373 /* Credits.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D798F4C02571037D00143373 /* Base */,
+				D798F4C4257103AA00143373 /* fr */,
+			);
+			name = Credits.html;
+			sourceTree = "<group>";
+		};
 		D7C1D20B234F6CC800FC9B96 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -604,6 +624,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -666,6 +687,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -699,17 +721,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = bm/bm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 53;
 				DEVELOPMENT_TEAM = 77S3V3W24J;
 				INFOPLIST_FILE = bm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.4.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.studioamanga.bmg;
+				PRODUCT_MODULE_NAME = bm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = bm/BridgingHeader.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -720,17 +745,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = bm/bm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 53;
 				DEVELOPMENT_TEAM = 77S3V3W24J;
 				INFOPLIST_FILE = bm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.4.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.studioamanga.bmg;
+				PRODUCT_MODULE_NAME = bm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = bm/BridgingHeader.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -753,7 +781,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bm.app/bm";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BM Grenoble.app/BM Grenoble";
 			};
 			name = Debug;
 		};
@@ -773,7 +801,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bm.app/bm";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BM Grenoble.app/BM Grenoble";
 			};
 			name = Release;
 		};
@@ -789,7 +817,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D70212D522F0E43E00E3972E /* Build configuration list for PBXNativeTarget "bm" */ = {
+		D70212D522F0E43E00E3972E /* Build configuration list for PBXNativeTarget "BM Grenoble" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D70212D622F0E43E00E3972E /* Debug */,
@@ -810,17 +838,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D71F32A924D8B303002526CD /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.0;
+			};
+		};
 		D7697DF123CB5DE100010011 /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.6.0;
+				minimumVersion = 4.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D71F32AA24D8B303002526CD /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D71F32A924D8B303002526CD /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
 		D7697DF223CB5DE100010011 /* AlamofireImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D7697DF123CB5DE100010011 /* XCRemoteSwiftPackageReference "AlamofireImage" */;

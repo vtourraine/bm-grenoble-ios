@@ -1,15 +1,76 @@
 # BM Grenoble
 
-## 1.4 (work in progress)
+## 1.5 (work in progress)
 
 - [ ] Sync with new web frontend
     - [ ] Loans
     - [ ] Search
 
 
-## 1.3.1 (work in progress)
+## 1.4.4
 
-- [x] Fix agenda library name with dash
+2021-02-25
+
+- Update app icon
+- Fix library sync
+
+
+## 1.4.3
+
+2020-12-01
+
+- Optimized for macOS Big Sur
+- Move Info screen to About window (macOS)
+- Fix signing out
+
+
+## 1.4.2
+
+2020-11-03
+
+- Optimized for iOS 14
+- Update tab bar icons (iOS 14)
+- Add News and Agenda contextual menu (Open in Browser, Share)
+- Update libraries opening hours
+- Fix library sync
+
+
+## 1.4.1
+
+2020-10-06
+
+- Alternate Libraries and Library screens layout for large screens
+- Update layout to follow readable width (loans placeholder, search)
+
+
+## 1.4
+
+2020-09-12
+
+- macOS version
+- Store credentials in keychain
+
+
+## 1.3.3
+
+2020-06-18
+
+- Update libraries opening hours
+
+
+## 1.3.2
+
+2020-05-28
+
+- Add message about temporary opening hours
+- Fix library sync
+
+
+## 1.3.1
+
+2020-02-25
+
+- Fix agenda library name with dash
 
 
 ## 1.3

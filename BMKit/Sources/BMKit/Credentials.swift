@@ -6,26 +6,31 @@
 //
 
 import Foundation
+import KeychainAccess
 
 public struct Credentials: Codable {
     public let token: String
     public let userIdentifier: String
 
     private enum CodingKeys: String, CodingKey {
-        case token, userIdentifier = "userid"
+        case token
+        case userIdentifier = "userid"
     }
 }
 
 public extension Credentials {
     static let Key = "Credentials"
 
-    func save(to userDefaults: UserDefaults) {
-        let data = try? JSONEncoder().encode(self)
-        userDefaults.set(data, forKey: Credentials.Key)
+    func save(to keychain: Keychain) {
+        guard let data = try? JSONEncoder().encode(self) else {
+            return
+        }
+
+        try? keychain.set(data, key: Credentials.Key)
     }
 
-    static func load(from userDefaults: UserDefaults) -> Credentials? {
-        guard let encodedData = userDefaults.data(forKey: Credentials.Key) else {
+    static func load(from keychain: Keychain) -> Credentials? {
+        guard let encodedData = try? keychain.getData(Credentials.Key) else {
             return nil
         }
 
@@ -33,8 +38,15 @@ public extension Credentials {
         return credentials
     }
 
-    static func remove(from userDefaults: UserDefaults) {
-        userDefaults.removeObject(forKey: Credentials.Key)
+    static func remove(from keychain: Keychain) {
+        try? keychain.remove(Credentials.Key)
+    }
+
+    static func defaultKeychain() -> Keychain {
+        return Keychain(service: "com.studioamanga.bmg", accessGroup: "77S3V3W24J.com.studioamanga.bmg.shared").synchronizable(true)
+    }
+
+    static func sharedCredentials() -> Credentials? {
+        return load(from: Credentials.defaultKeychain())
     }
 }
-

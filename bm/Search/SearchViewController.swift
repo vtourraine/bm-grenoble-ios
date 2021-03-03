@@ -40,6 +40,12 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         searchButton?.configureRoundCorners()
 
         closeButton?.configureCloseButton()
+
+        let guide = view.readableContentGuide
+        if let searchButton = searchButton {
+            guide.leadingAnchor.constraint(equalTo: searchButton.leadingAnchor).isActive = true
+            guide.trailingAnchor.constraint(equalTo: searchButton.trailingAnchor).isActive = true
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {

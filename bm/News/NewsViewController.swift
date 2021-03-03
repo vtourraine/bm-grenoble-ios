@@ -67,5 +67,39 @@ class NewsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = newsItems[indexPath.row]
         presentSafariViewController(item.link, readerMode: true)
+
+        #if targetEnvironment(macCatalyst)
+        tableView.deselectRow(at: indexPath, animated: true)
+        #endif
+    }
+
+    @available(iOS 13.0, *)
+    override func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        let item = newsItems[indexPath.row]
+
+        #if targetEnvironment(macCatalyst)
+        #else
+        let openInBrowserAction = UIAction(title: NSLocalizedString("Open in Browser", comment: ""), image: UIImage(systemName: "safari")) { (action) in
+            UIApplication.shared.open(item.link, options: [:], completionHandler: nil)
+        }
+        #endif
+
+        let shareAction = UIAction(title: NSLocalizedString("Share", comment: ""), image: UIImage(systemName: "square.and.arrow.up")) { (action) in
+            let viewController = UIActivityViewController(activityItems: [item.link], applicationActivities: nil)
+            viewController.popoverPresentationController?.sourceView = tableView
+            viewController.popoverPresentationController?.sourceRect = tableView.rectForRow(at: indexPath)
+            self.present(viewController, animated: true, completion: nil)
+        }
+
+        #if targetEnvironment(macCatalyst)
+        let children = [shareAction]
+        #else
+        let children = [openInBrowserAction, shareAction]
+        #endif
+
+        let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: { _ -> UIMenu? in
+            return UIMenu(title: "", children: children)
+        })
+        return configuration
     }
 }
