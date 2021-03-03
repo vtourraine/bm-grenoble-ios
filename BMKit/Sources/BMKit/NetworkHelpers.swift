@@ -35,6 +35,15 @@ extension URLRequest {
 extension URLSession {
     func fetch<T>(_ type: T.Type, request: URLRequest, completion: @escaping (Result<T, Error>) -> Void) -> URLSessionTask where T : Decodable {
         let task = dataTask(with: request) { data, response, error in
+            /*
+             // Save to file for debug
+             if #available(iOS 10.0, *) {
+                 let path = FileManager.default.temporaryDirectory.appendingPathComponent("data.json")
+                 try? data!.write(to: path)
+                 print("Save to: \(path)")
+             }
+             */
+
             let decoder = JSONDecoder()
             guard error == nil, let data = data, let object = try? decoder.decode(T.self, from: data) else {
                 let completionError = URLSession.networkError(with: error, response: response)
