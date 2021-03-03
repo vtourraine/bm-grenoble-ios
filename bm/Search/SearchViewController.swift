@@ -73,7 +73,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
                 return
         }
 
-        let urlString = "https://catalogue-test.bm-grenoble.fr/in/faces/browse.xhtml?query=\(encodedQuery)"
+        let urlString = "https://catalogue.bm-grenoble.fr/query?q=\(encodedQuery)"
 
         if let url = URL(string: urlString) {
             presentSafariViewController(url)
