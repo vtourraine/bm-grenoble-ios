@@ -127,7 +127,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         configure(loading: true)
 
-        _ = Authenticate.authenticate(username: subscriberNumber, password: password) { result in
+        URLSession.shared.connect(username: subscriberNumber, password: password) { result in
             switch result {
             case .success(let credentials):
                 credentials.save(to: Credentials.defaultKeychain())
@@ -145,7 +145,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     private func fetchItems(with credentials: Credentials) {
-        _ = LoanItem.fetch(with: credentials) { result in
+        Item.fetch(with: credentials) { result in
             self.configure(loading: false)
 
             switch result {
@@ -161,7 +161,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-    private func dismissAfterSuccessfulLogin(with items: [LoanItem]) {
+    private func dismissAfterSuccessfulLogin(with items: [Item]) {
         if let presentingTabBarController = self.presentingViewController as? UITabBarController,
             let navigationController = presentingTabBarController.viewControllers?.first as? UINavigationController,
             let viewController = navigationController.topViewController as? LoansViewController {

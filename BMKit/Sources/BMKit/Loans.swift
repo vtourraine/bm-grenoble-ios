@@ -13,10 +13,10 @@ public struct LoanItem: Codable {
     public let isbn: String?
     public let library: String
     public let returnDateComponents: DateComponents
-    public let image: URL?
+    public let sequenceNumber: String
 
     private enum CodingKeys: String, CodingKey {
-        case title, author, isbn, returnDateComponents = "returnDate", library = "branch"
+        case title, author, isbn, returnDateComponents = "returnDate", library = "branch", sequenceNumber = "seqNo"
     }
 
     private enum LibraryCodingKeys: String, CodingKey {
@@ -43,14 +43,13 @@ public struct LoanItem: Codable {
         title = try values.decode(String.self, forKey: .title)
         author = try values.decode(String.self, forKey: .author)
         isbn = try values.decode(String.self, forKey: .isbn)
+        sequenceNumber = try values.decode(String.self, forKey: .sequenceNumber)
 
         let returnDateString = try values.decode(String.self, forKey: .returnDateComponents)
         returnDateComponents = try LoanItem.dateComponents(from: returnDateString)
 
         let branch = try values.nestedContainer(keyedBy: LibraryCodingKeys.self, forKey: .library)
         library = try branch.decode(String.self, forKey: .desc)
-
-        image = nil
     }
 }
 

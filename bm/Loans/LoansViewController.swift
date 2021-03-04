@@ -14,7 +14,7 @@ import BMKit
 class LoansViewController: UITableViewController {
 
     enum State {
-        case loans([LoanItem])
+        case loans([Item])
         case notLoggedIn
     }
     var state: State = .notLoggedIn
@@ -136,7 +136,7 @@ class LoansViewController: UITableViewController {
         // reloadData(state: .loans(loans!.items))
     }
 
-    func item(at indexPath: IndexPath) -> LoanItem? {
+    func item(at indexPath: IndexPath) -> Item? {
         switch state {
         case .loans(let items):
             return items[indexPath.row]
@@ -186,7 +186,7 @@ class LoansViewController: UITableViewController {
 
         configureToolbar(message: NSLocalizedString("Updating Account…", comment: ""), animated: false)
 
-        _ = LoanItem.fetch(with: credentials) { result in
+        Item.fetch(with: credentials) { result in
             switch result {
             case .success(let items):
                 self.reloadData(state: .loans(items))
@@ -206,8 +206,8 @@ class LoansViewController: UITableViewController {
         }
     }
 
-    func openInGoodreads(item: LoanItem) {
-        guard let query = item.title?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+    func openInGoodreads(item: Item) {
+        guard let query = item.title.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
             let url = URL(string: "https://www.goodreads.com/search?q=\(query)") else {
                 return
         }

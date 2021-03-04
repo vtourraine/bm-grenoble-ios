@@ -3,10 +3,11 @@
 //  bm
 //
 //  Created by Vincent Tourraine on 31/07/2019.
-//  Copyright © 2019 Studio AMANgA. All rights reserved.
+//  Copyright © 2019-2021 Studio AMANgA. All rights reserved.
 //
 
 import Foundation
+import BMKit
 
 struct Item: Codable {
     let title: String
@@ -17,6 +18,47 @@ struct Item: Codable {
 }
 
 extension Item {
+    static func fetch(with credentials: Credentials, completion: @escaping (Result<[Item], Error>) -> Void) {
+        _ = LoanItem.fetch(with: credentials) { result in
+            switch result {
+            case .success(let loanItems):
+                let sequenceNumbers = loanItems.map { $0.sequenceNumber }
+                _ = Document.fetch(sequenceNumbers, with: credentials) { resultFetchDocuments in
+                    switch resultFetchDocuments {
+                    case .success(let documents):
+                        let items = Item.items(with: loanItems, and: documents)
+                        completion(.success(items))
+
+                    case .failure(let fetchDocumentsError):
+                        completion(.failure(fetchDocumentsError))
+                    }
+                }
+
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    static func items(with loanItems: [LoanItem], and documents: [Document]) -> [Item] {
+        guard loanItems.count == documents.count else {
+            return []
+        }
+
+        var items = [Item]()
+
+        for loanItem in loanItems {
+            guard let document = documents.first(where: { $0.localNumber.hasSuffix(loanItem.sequenceNumber) }) else {
+                continue
+            }
+
+            let item = Item(title: loanItem.title ?? "", author: loanItem.author ?? "", library: loanItem.library, returnDateComponents: loanItem.returnDateComponents, image: document.imageURL)
+            items.append(item)
+        }
+
+        return items
+    }
+
     enum Category {
         case book
         case dvd

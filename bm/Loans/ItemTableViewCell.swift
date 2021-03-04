@@ -21,7 +21,7 @@ class ItemTableViewCell: UITableViewCell {
     @IBOutlet var returnNumberOfDaysLabel: UILabel?
     @IBOutlet var thumbnail: UIImageView?
 
-    func configure(item: LoanItem) {
+    func configure(item: Item) {
         titleLabel?.text = item.formattedTitle()
         authorLabel?.text = item.formattedAuthor()
         libraryLabel?.text = item.library

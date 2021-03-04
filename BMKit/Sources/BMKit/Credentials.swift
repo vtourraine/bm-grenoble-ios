@@ -10,12 +10,8 @@ import KeychainAccess
 
 public struct Credentials: Codable {
     public let token: String
+    public let settingsToken: String
     public let userIdentifier: String
-
-    private enum CodingKeys: String, CodingKey {
-        case token
-        case userIdentifier = "userid"
-    }
 }
 
 public extension Credentials {

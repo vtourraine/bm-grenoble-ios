@@ -20,8 +20,7 @@ final class LoansTests: XCTestCase {
         XCTAssertEqual(loans[0].returnDateComponents.day, 27)
         XCTAssertEqual(loans[0].returnDateComponents.month, 3)
         XCTAssertEqual(loans[0].returnDateComponents.year, 2020)
-        XCTAssertEqual(loans[0].image, nil)
-
+        
         XCTAssertEqual(loans[2].title, "Banana girl : jaune à l'extérieur, blanche à l'intérieur / Kei Lam")
         XCTAssertEqual(loans[2].author, "Lam, Kei (1985-....)")
         XCTAssertEqual(loans[2].isbn, "978-2-36846-108-2 17 EUR")

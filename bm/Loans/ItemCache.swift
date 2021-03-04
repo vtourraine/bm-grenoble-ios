@@ -10,7 +10,7 @@ import Foundation
 import BMKit
 
 struct ItemCache: Codable {
-    let items: [LoanItem]
+    let items: [Item]
 
     static let Key = "ItemsCache"
 
