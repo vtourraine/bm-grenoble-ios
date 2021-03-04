@@ -11,6 +11,7 @@ import BMKit
 
 struct Item: Codable {
     let title: String
+    let type: String
     let author: String
     let library: String
     let returnDateComponents: DateComponents
@@ -52,7 +53,7 @@ extension Item {
                 continue
             }
 
-            let item = Item(title: loanItem.title ?? "", author: loanItem.author ?? "", library: loanItem.library, returnDateComponents: loanItem.returnDateComponents, image: document.imageURL)
+            let item = Item(title: loanItem.title ?? "", type: document.type, author: loanItem.author ?? "", library: loanItem.library, returnDateComponents: loanItem.returnDateComponents, image: document.imageURL)
             items.append(item)
         }
 
@@ -61,24 +62,17 @@ extension Item {
 
     enum Category {
         case book
+        case cd
         case dvd
         case bluray
         case game
     }
 
     func category() -> Category {
-        let DVDPrefix = " [DVD]"
-        let BDPrefix = " [BLU-RAY]"
-        let gamePrefix = " [JEU]"
+        let cdType = "CD"
 
-        if title.contains(DVDPrefix) {
-            return .dvd
-        }
-        else if title.hasSuffix(BDPrefix) {
-            return .bluray
-        }
-        else if title.hasSuffix(gamePrefix) {
-            return .game
+        if type == cdType {
+            return .cd
         }
         else {
             return .book
@@ -86,12 +80,11 @@ extension Item {
     }
 
     func formattedTitle() -> String {
-        let DVDPrefix = " [DVD]"
-        let BDPrefix = " [BLU-RAY]"
-        let gamePrefix = " [JEU]"
-        let formattedTitle = title.replacingOccurrences(of: ": =", with: "–")
-
-        return formattedTitle.replacingOccurrences(of: DVDPrefix, with: "").replacingOccurrences(of: BDPrefix, with: "").replacingOccurrences(of: gamePrefix, with: "")
+        if let slash = title.range(of: " / ") {
+            return String(title[..<slash.lowerBound])
+        }
+        
+        return title
     }
 
     func formattedAuthor() -> String {

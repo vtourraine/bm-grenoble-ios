@@ -10,7 +10,7 @@ import XCTest
 
 final class AuthenticateTests: XCTestCase {
     func testParseResponse() throws {
-        let credentials = try decodeJSON(Credentials.self, from: "post-authenticate-response-body.json")
+        let credentials = try decodeJSON(AuthenticationResponse.self, from: "post-authenticate-response-body.json")
         XCTAssertEqual(credentials.token, "5dbb2956-6417-40ab-ad9c-910f6670eccc")
         XCTAssertEqual(credentials.userIdentifier, "0010001234359")
     }

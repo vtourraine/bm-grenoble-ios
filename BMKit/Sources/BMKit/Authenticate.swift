@@ -43,7 +43,7 @@ extension URLSession {
         let json = ["username": username, "password": password, "birthdate": "", "locale":"en"]
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
 
-        let url = URL(string: "https://catalogue.bm-grenoble.fr/in/rest/api/authenticate")!
+        let url = BaseURL.appendingPathComponent("in/rest/api/authenticate")
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.httpBody = jsonData

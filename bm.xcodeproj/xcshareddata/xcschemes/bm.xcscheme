@@ -47,6 +47,16 @@
                ReferencedContainer = "container:bm.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BMKitTests"
+               BuildableName = "BMKitTests"
+               BlueprintName = "BMKitTests"
+               ReferencedContainer = "container:BMKit">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

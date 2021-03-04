@@ -2,9 +2,7 @@
 
 ## 1.5 (work in progress)
 
-- [ ] Sync with new web frontend
-    - [ ] Loans
-    - [ ] Search
+- [ ] Sync with new API
 
 
 ## 1.4.4

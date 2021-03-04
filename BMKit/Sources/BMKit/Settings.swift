@@ -32,7 +32,7 @@ public class Settings {
 
 extension URLSession {
     public func fetchSettings(completion: @escaping (Result<String, Error>) -> Void) -> URLSessionTask {
-        let url = URL(string: "https://catalogue.bm-grenoble.fr/account/in/rest/api/settings.js")!
+        let url = BaseURL.appendingPathComponent("account/in/rest/api/settings.js")
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
 
