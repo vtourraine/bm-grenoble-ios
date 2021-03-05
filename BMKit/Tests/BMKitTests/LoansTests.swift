@@ -10,7 +10,7 @@ import XCTest
 
 final class LoansTests: XCTestCase {
     func testParseResponse() throws {
-        let loans = try decodeJSON([LoanItem].self, from: "get-loans-response-body.json")
+        let loans = try decodeJSON([Loan].self, from: "get-loans-response-body.json")
 
         XCTAssertEqual(loans.count, 3)
         XCTAssertEqual(loans[0].title, "We need to talk about Kevin [DVD] / Lynne Ramsay, réal. ; Lionel Shriver, adapt. ; avec Ezra Miller, John C. Reilly, Tilda Swinton.")

@@ -55,20 +55,19 @@ struct DocumentResponse: Codable {
     }
 }
 
-extension Document {
-    enum Parameters {
-        enum Keys: String {
-            case locale
-            case ids
-        }
+extension URLRequest {
+    internal static func fetchDocumentsRequest(_ ids: [String], with credentials: Credentials) -> URLRequest {
+        let parameters = ["locale": "en",
+                          "ids": ids.joined(separator: ",")]
+        return URLRequest(endpoint: "resolveBySeqNo", credentials: credentials, parameters: parameters)
     }
+}
 
-    public static func fetch(_ ids: [String], with credentials: Credentials, completion: @escaping (Result<[Document], Error>) -> Void) -> URLSessionTask {
-        let parameters = [Parameters.Keys.locale.rawValue: "en",
-                          Parameters.Keys.ids.rawValue: ids.joined(separator: ",")]
-        let request = URLRequest(endpoint: "resolveBySeqNo", credentials: credentials, parameters: parameters)
+extension URLSession {
+    public func fetchDocuments(_ ids: [String], with credentials: Credentials, completion: @escaping (Result<[Document], Error>) -> Void) -> URLSessionTask {
+        let request = URLRequest.fetchDocumentsRequest(ids, with: credentials)
 
-        return URLSession.shared.fetch(DocumentResponse.self, request: request) { (result) in
+        return fetch(DocumentResponse.self, request: request) { result in
             switch result {
             case .success(let response):
                 completion(.success(response.results))

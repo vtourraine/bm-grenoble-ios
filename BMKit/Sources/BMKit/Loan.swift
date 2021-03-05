@@ -1,5 +1,5 @@
 //
-//  Loans.swift
+//  Loan.swift
 //  BMKit
 //
 //  Created by Vincent Tourraine on 13/03/2020.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct LoanItem: Codable {
+public struct Loan: Codable {
     public let title: String?
     public let author: String?
     public let isbn: String?
@@ -46,16 +46,16 @@ public struct LoanItem: Codable {
         sequenceNumber = try values.decode(String.self, forKey: .sequenceNumber)
 
         let returnDateString = try values.decode(String.self, forKey: .returnDateComponents)
-        returnDateComponents = try LoanItem.dateComponents(from: returnDateString)
+        returnDateComponents = try Loan.dateComponents(from: returnDateString)
 
         let branch = try values.nestedContainer(keyedBy: LibraryCodingKeys.self, forKey: .library)
         library = try branch.decode(String.self, forKey: .desc)
     }
 }
 
-extension LoanItem {
-    public static func fetch(with credentials: Credentials, completion: @escaping (Result<[LoanItem], Error>) -> Void) -> URLSessionTask {
+extension URLSession {
+    public func fetchLoans(with credentials: Credentials, completion: @escaping (Result<[Loan], Error>) -> Void) -> URLSessionTask {
         let request = URLRequest(endpoint: "loans", credentials: credentials)
-        return URLSession.shared.fetch([LoanItem].self, request: request, completion: completion)
+        return fetch([Loan].self, request: request, completion: completion)
     }
 }

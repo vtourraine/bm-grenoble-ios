@@ -87,7 +87,7 @@ extension AppDelegate {
         return UIMenu(title: NSLocalizedString("Help", comment: ""), image: nil, identifier: UIMenu.Identifier("com.studioamanga.bmg.menus.help"), options: [], children: [contact])
     }
 
-    @objc func canAskToSignOut() ->Bool {
+    @objc func canAskToSignOut() -> Bool {
         return Credentials.sharedCredentials() != nil
     }
 

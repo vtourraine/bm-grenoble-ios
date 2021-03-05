@@ -9,32 +9,16 @@ import Foundation
 
 let BaseURL = URL(string: "https://catalogue.bm-grenoble.fr")!
 
-public enum NetworkError: Error {
-    case unauthorized
-    case unknown
-}
-
-extension NetworkError: LocalizedError {
-    public var errorDescription: String? {
-        switch self {
-        case .unauthorized:
-            return NSLocalizedString("Invalid subscriber number or password", comment: "")
-        case .unknown:
-            return nil
-        }
-    }
-}
-
 extension URLRequest {
     init(endpoint: String, credentials: Credentials, parameters: [String: String]? = nil) {
         let url = BaseURL.appendingPathComponent("in/rest/api").appendingPathComponent(endpoint)
+        self.init(url: url)
 
         if let parameters = parameters {
             let string = parameters.map { key, value in
                 return "\(key)=\(value)"
             }.joined(separator: "&")
 
-            self.init(url: url)
             httpMethod = "POST"
             httpBody = string.data(using: .utf8)
             allHTTPHeaderFields = ["Content-Type": "application/x-www-form-urlencoded",
@@ -43,21 +27,44 @@ extension URLRequest {
                                    "X-InMedia-Authorization": "Bearer \(credentials.token) \(credentials.settingsToken)"]
         }
         else {
-            let url = BaseURL.appendingPathComponent("in/rest/api").appendingPathComponent(endpoint)
-
-            self.init(url: url)
-
             httpMethod = "GET"
             allHTTPHeaderFields = ["Content-Type": "application/json",
                                    "Authorization": "Bearer \(credentials.token)"]
         }
-
     }
 }
 
 extension URLSession {
     func fetch<T>(_ type: T.Type, request: URLRequest, completion: @escaping (Result<T, Error>) -> Void) -> URLSessionTask where T : Decodable {
+        return fetchData(request: request) { result in
+            switch result {
+            case .success(let data):
+                if let object = try? JSONDecoder().decode(T.self, from: data) {
+                    completion(.success(object))
+                }
+                else {
+                    completion(.failure(NetworkError.invalidData))
+                }
+
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    public func fetchData(request: URLRequest, completion: @escaping (Result<Data, Error>) -> Void) -> URLSessionTask {
         let task = dataTask(with: request) { data, response, error in
+            guard error == nil,
+                  let data = data,
+                  let httpResponse = response as? HTTPURLResponse,
+                  httpResponse.statusCode != 401 else {
+                let completionError = NetworkError.networkError(with: error, response: response)
+                DispatchQueue.main.async {
+                    completion(.failure(completionError))
+                }
+                return
+            }
+
             /*
              // Save to file for debug
              if #available(iOS 10.0, *) {
@@ -67,33 +74,13 @@ extension URLSession {
              }
              */
 
-            let decoder = JSONDecoder()
-            guard error == nil, let data = data, let object = try? decoder.decode(T.self, from: data) else {
-                let completionError = URLSession.networkError(with: error, response: response)
-                DispatchQueue.main.async {
-                    completion(.failure(completionError))
-                }
-                return
-            }
-
             DispatchQueue.main.async {
-                completion(.success(object))
+                completion(.success(data))
             }
         }
-        
-        task.resume()
-        return task
-    }
 
-    internal static func networkError(with error: Error?, response: URLResponse?) -> Error {
-        if let response = response as? HTTPURLResponse, response.statusCode == 401 {
-            return NetworkError.unauthorized
-        }
-        else if let error = error {
-            return error
-        }
-        else {
-            return NetworkError.unknown
-        }
+        task.resume()
+
+        return task
     }
 }

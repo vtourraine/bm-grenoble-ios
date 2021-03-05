@@ -9,7 +9,7 @@
 import BMKit
 import KeychainAccess
 
-public extension Credentials {
+extension Credentials {
     static let Key = "Credentials"
 
     func save(to keychain: Keychain) {
@@ -32,7 +32,9 @@ public extension Credentials {
     static func remove(from keychain: Keychain) {
         try? keychain.remove(Credentials.Key)
     }
+}
 
+extension Credentials {
     static func defaultKeychain() -> Keychain {
         return Keychain(service: "com.studioamanga.bmg", accessGroup: "77S3V3W24J.com.studioamanga.bmg.shared").synchronizable(true)
     }

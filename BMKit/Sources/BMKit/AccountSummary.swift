@@ -12,9 +12,9 @@ public struct AccountSummary: Codable {
     let lastName: String?
 }
 
-extension AccountSummary {
-    public static func fetch(credentials: Credentials, completion: @escaping (Result<AccountSummary, Error>) -> Void) -> URLSessionTask {
+extension URLSession {
+    public func fetchAccountSummary(with credentials: Credentials, completion: @escaping (Result<AccountSummary, Error>) -> Void) -> URLSessionTask {
         let request = URLRequest(endpoint: "accountSummary", credentials: credentials)
-        return URLSession.shared.fetch(self, request: request, completion: completion)
+        return fetch(AccountSummary.self, request: request, completion: completion)
     }
 }

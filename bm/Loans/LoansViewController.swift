@@ -186,7 +186,7 @@ class LoansViewController: UITableViewController {
 
         configureToolbar(message: NSLocalizedString("Updating Account…", comment: ""), animated: false)
 
-        Item.fetch(with: credentials) { result in
+        Item.fetchItems(with: credentials) { result in
             switch result {
             case .success(let items):
                 self.reloadData(state: .loans(items))

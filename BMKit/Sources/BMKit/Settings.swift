@@ -33,25 +33,21 @@ public class Settings {
 extension URLSession {
     public func fetchSettings(completion: @escaping (Result<String, Error>) -> Void) -> URLSessionTask {
         let url = BaseURL.appendingPathComponent("account/in/rest/api/settings.js")
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
+        let request = URLRequest(url: url)
 
-        let task = dataTask(with: request) { data, response, error in
-            guard error == nil, let data = data,
-                  let apiToken = Settings.apiToken(from: data) else {
-                let completionError = URLSession.networkError(with: error, response: response)
-                DispatchQueue.main.async {
-                    completion(.failure(completionError))
+        return fetchData(request: request) { result in
+            switch result {
+            case .success(let data):
+                if let apiToken = Settings.apiToken(from: data) {
+                    completion(.success(apiToken))
                 }
-                return
-            }
+                else {
+                    completion(.failure(NetworkError.unknown))
+                }
 
-            DispatchQueue.main.async {
-                completion(.success(apiToken))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
-
-        task.resume()
-        return task
     }
 }

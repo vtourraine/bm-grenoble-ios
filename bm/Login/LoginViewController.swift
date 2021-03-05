@@ -145,7 +145,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     private func fetchItems(with credentials: Credentials) {
-        Item.fetch(with: credentials) { result in
+        Item.fetchItems(with: credentials) { result in
             self.configure(loading: false)
 
             switch result {
