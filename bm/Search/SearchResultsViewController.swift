@@ -16,34 +16,13 @@ struct SearchResult {
 
 class SearchResultsViewController: UITableViewController {
 
-    let searchResults: [SearchResult]
+    var searchResults: [SearchResult] = []
 
     private struct K {
         static let cellIdentifier = "Cell"
     }
 
-    // MARK: - Initializers
-
-    init(with searchResults: [SearchResult]) {
-        self.searchResults = searchResults
-
-        super.init(style: .plain)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError()
-    }
-
     // MARK: - View life cycle
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        title = NSLocalizedString("Search Results", comment: "")
-
-        tableView.cellLayoutMarginsFollowReadableWidth = true
-        tableView.register(SearchResultsCell.self, forCellReuseIdentifier: K.cellIdentifier)
-    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

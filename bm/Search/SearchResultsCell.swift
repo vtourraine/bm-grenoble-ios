@@ -10,52 +10,45 @@ import UIKit
 import BMKit
 
 class SearchResultsCell: UITableViewCell {
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError()
-    }
+    @IBOutlet var titleLabel: UILabel?
+    @IBOutlet var authorLabel: UILabel?
+    @IBOutlet var availabilityLabel: UILabel?
+    @IBOutlet var availabilityImageView: UIImageView?
+    @IBOutlet var thumbnail: UIImageView?
 
     func configure(with searchResult: SearchResult) {
         selectionStyle = .none
 
-        textLabel?.text = searchResult.document.formattedTitle()
-        textLabel?.font = .preferredFont(forTextStyle: .headline)
-        if #available(iOS 13.0, *) {
-            textLabel?.textColor = .label
-        }
-
-        var detailText = ""
+        titleLabel?.text = searchResult.document.formattedTitle()
 
         if let firstCreator = searchResult.document.meta.creators?.first,
            let components = firstCreator.nameComponents() {
-            detailText = PersonNameComponentsFormatter.localizedString(from: components, style: .default)
-            detailText.append("\n")
+            authorLabel?.text = PersonNameComponentsFormatter.localizedString(from: components, style: .default)
         }
 
         if searchResult.availability.isAvailable {
-            detailText.append(NSLocalizedString("Document available", comment: ""))
+            availabilityLabel?.text = NSLocalizedString("Document available", comment: "")
+
+            if #available(iOS 13.0, *) {
+                availabilityImageView?.image = UIImage(systemName: "checkmark.circle.fill")
+                availabilityImageView?.tintColor = .systemGreen
+            }
         }
         else {
-            detailText.append(NSLocalizedString("Document not available", comment: ""))
+            availabilityLabel?.text = NSLocalizedString("Document not available", comment: "")
+
+            if #available(iOS 13.0, *) {
+                availabilityImageView?.image = UIImage(systemName: "xmark.octagon.fill")
+                availabilityImageView?.tintColor = .red
+            }
         }
 
-        detailTextLabel?.text = detailText
-        detailTextLabel?.numberOfLines = 0
-        detailTextLabel?.font = .preferredFont(forTextStyle: .subheadline)
-
-        if #available(iOS 13.0, *) {
-            detailTextLabel?.textColor = .secondaryLabel
+        if let image = searchResult.document.imageURL {
+            imageView?.af.setImage(withURL: image)
+            imageView?.backgroundColor = nil
+            imageView?.contentMode = .scaleAspectFit
         }
-
-//        if let image = document.imageURL {
-//            imageView?.af.setImage(withURL: image)
-//            imageView?.backgroundColor = nil
-//            imageView?.contentMode = .scaleAspectFit
-//        }
-//        else {
+        else {
             if #available(iOS 13.0, *) {
                 let imageName = searchResult.document.systemImageNameForType()
                 imageView?.image = UIImage(systemName: imageName)
@@ -66,6 +59,6 @@ class SearchResultsCell: UITableViewCell {
             else {
                 imageView?.image = nil
             }
-//        }
+        }
     }
 }

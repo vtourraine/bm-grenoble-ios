@@ -19,6 +19,12 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         return .lightContent
     }
 
+    private struct K {
+        struct ViewControllerIdentifiers {
+            static let searchResults = "SearchResultsViewController"
+        }
+    }
+
     // MARK: - View life cycle
 
     override func viewDidLoad() {
@@ -133,8 +139,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
                 _ = urlSession.stockAvailability(for: documentsIdentifiers, with: token) { stockAvailabilityResult in
                     switch stockAvailabilityResult {
                     case .success(let availability):
-                        if let searchResults = SearchViewController.searchResults(with: documents, availability: availability) {
-                            let viewController = SearchResultsViewController(with: searchResults)
+                        if let viewController = self.storyboard?.instantiateViewController(withIdentifier: K.ViewControllerIdentifiers.searchResults) as? SearchResultsViewController,
+                           let searchResults = SearchViewController.searchResults(with: documents, availability: availability) {
+                            viewController.searchResults = searchResults
                             self.navigationController?.pushViewController(viewController, animated: true)
                         }
 
