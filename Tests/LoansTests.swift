@@ -13,7 +13,7 @@ import XCTest
 class LoansTest: XCTestCase {
 
     func testTitleFormatting() {
-        let document = Document(title: "To love is to love / Jehnny Beth, chant, comp., p", localNumber: "", type: "", meta: Document.Meta(creators: []))
+        let document = Document(identifier: "", title: "To love is to love / Jehnny Beth, chant, comp., p", localNumber: "", type: "", meta: Document.Meta(creators: []))
         XCTAssertEqual(document.formattedTitle(), "To love is to love")
     }
 }

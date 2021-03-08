@@ -9,9 +9,14 @@
 import UIKit
 import BMKit
 
+struct SearchResult {
+    let document: Document
+    let availability: StockAvailability
+}
+
 class SearchResultsViewController: UITableViewController {
 
-    var documents: [Document]
+    let searchResults: [SearchResult]
 
     private struct K {
         static let cellIdentifier = "Cell"
@@ -19,8 +24,8 @@ class SearchResultsViewController: UITableViewController {
 
     // MARK: - Initializers
 
-    init(with documents: [Document]) {
-        self.documents = documents
+    init(with searchResults: [SearchResult]) {
+        self.searchResults = searchResults
 
         super.init(style: .plain)
     }
@@ -36,6 +41,7 @@ class SearchResultsViewController: UITableViewController {
 
         title = NSLocalizedString("Search Results", comment: "")
 
+        tableView.cellLayoutMarginsFollowReadableWidth = true
         tableView.register(SearchResultsCell.self, forCellReuseIdentifier: K.cellIdentifier)
     }
 
@@ -48,14 +54,14 @@ class SearchResultsViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return documents.count
+        return searchResults.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! SearchResultsCell
-        let document = documents[indexPath.row]
-        cell.configure(with: document)
-
+        let searchResult = searchResults[indexPath.row]
+        cell.configure(with: searchResult)
+        
         return cell
     }
 }

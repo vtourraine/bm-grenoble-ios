@@ -8,6 +8,7 @@
 import Foundation
 
 public struct Document: Codable {
+    public let identifier: String
     public let localNumber: String
     public let title: String
     public let type: String
@@ -15,6 +16,7 @@ public struct Document: Codable {
     public let meta: Meta
 
     private enum CodingKeys: String, CodingKey {
+        case identifier = "id"
         case localNumber = "LocalNumber"
         case title
         case type = "zmatIndex"
@@ -53,7 +55,8 @@ public struct Document: Codable {
         }
     }
 
-    public init(title: String, localNumber: String, type: String, meta: Meta, imageURL: URL? = nil) {
+    public init(identifier: String, title: String, localNumber: String, type: String, meta: Meta, imageURL: URL? = nil) {
+        self.identifier = identifier
         self.title = title
         self.localNumber = localNumber
         self.type = type
@@ -66,6 +69,9 @@ public struct Document: Codable {
 
         let localNumberContainer = try values.decode([Value].self, forKey: .localNumber)
         localNumber = localNumberContainer.first!.value
+
+        let identifierContainer = try values.decode([Value].self, forKey: .identifier)
+        identifier = identifierContainer.first!.value
 
         let titleContainer = try values.decode([Value].self, forKey: .title)
         title = titleContainer.first!.value

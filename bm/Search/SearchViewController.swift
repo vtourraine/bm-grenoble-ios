@@ -9,18 +9,17 @@
 import UIKit
 import BMKit
 
-class SearchEngine {
-    static func encodedQuery(for query: String) -> String? {
-        let formattedQuery = query.replacingOccurrences(of: " ", with: "+")
-        return formattedQuery.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-    }
-}
-
 class SearchViewController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet var closeButton: UIButton?
     @IBOutlet var searchButton: UIButton?
     @IBOutlet var searchBar: UISearchBar?
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
+    // MARK: - View life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +52,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         super.viewWillAppear(animated)
 
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        configureOutlets(enabled: true)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -61,8 +61,27 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         // searchBar?.becomeFirstResponder()
     }
 
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+    // MARK: - Configuration
+
+    func configureOutlets(enabled: Bool) {
+        if #available(iOS 13.0, *) {
+            searchBar?.searchTextField.isEnabled = enabled
+        }
+
+        searchButton?.isEnabled = enabled
+        searchButton?.titleLabel?.alpha = enabled ? 1.0 : 0.5
+    }
+
+    func showNoSearchResults() {
+        let alert = UIAlertController(title: NSLocalizedString("No Result Found", comment: ""), message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+
+    func showSearchError(error: Error) {
+        let alert = UIAlertController(title: NSLocalizedString("Search Error", comment: ""), message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 
     // MARK: - Actions
@@ -75,39 +94,61 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         searchBar.resignFirstResponder()
 
         guard let trimmedQuery = searchBar.text?.trimmingCharacters(in: .whitespaces),
-            trimmedQuery.isEmpty == false,
-            let encodedQuery = SearchEngine.encodedQuery(for: trimmedQuery) else {
+            trimmedQuery.isEmpty == false else {
                 return
         }
 
-        guard let credentials = Credentials.sharedCredentials() else {
-            return
+        if let credentials = Credentials.sharedCredentials() {
+            configureOutlets(enabled: false)
+            search(for: trimmedQuery, with: credentials.settingsToken)
         }
-        
-        _ = URLSession.shared.search(for: trimmedQuery, with: credentials) { result in
+        else {
+            let urlSession = URLSession.shared
+            _ = urlSession.fetchSettings { result in
+                switch result {
+                case .success(let token):
+                    self.search(for: trimmedQuery, with: token)
+
+                case .failure(let error):
+                    self.configureOutlets(enabled: true)
+                    self.showSearchError(error: error)
+                }
+            }
+        }
+    }
+
+    func search(for query: String, with token: String) {
+        let urlSession = URLSession.shared
+        _ = urlSession.search(for: query, with: token) { result in
             switch result {
             case .success(let documents):
-                if documents.isEmpty {
-                    let alert = UIAlertController(title: NSLocalizedString("No Result Found", comment: ""), message: nil, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+                guard !documents.isEmpty else {
+                    self.configureOutlets(enabled: true)
+                    self.showNoSearchResults()
+                    return
                 }
-                else {
-                    let viewController = SearchResultsViewController(with: documents)
-                    self.navigationController?.pushViewController(viewController, animated: true)
+
+                let documentsIdentifiers = documents.map { $0.identifier }
+
+                _ = urlSession.stockAvailability(for: documentsIdentifiers, with: token) { stockAvailabilityResult in
+                    switch stockAvailabilityResult {
+                    case .success(let availability):
+                        if let searchResults = SearchViewController.searchResults(with: documents, availability: availability) {
+                            let viewController = SearchResultsViewController(with: searchResults)
+                            self.navigationController?.pushViewController(viewController, animated: true)
+                        }
+
+                    case .failure(let stockAvailabilityResultError):
+                        self.configureOutlets(enabled: true)
+                        self.showSearchError(error: stockAvailabilityResultError)
+                    }
                 }
 
             case .failure(let error):
-                let alert = UIAlertController(title: NSLocalizedString("Search Error", comment: ""), message: error.localizedDescription, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                self.configureOutlets(enabled: true)
+                self.showSearchError(error: error)
             }
         }
-//        let urlString = "https://catalogue.bm-grenoble.fr/query?q=\(encodedQuery)"
-//
-//        if let url = URL(string: urlString) {
-//            presentSafariViewController(url)
-//        }
     }
 
     @IBAction func resignSearchField(_ sender: Any?) {
@@ -122,5 +163,20 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         search(nil)
+    }
+}
+
+extension SearchViewController {
+    static func searchResults(with documents: [Document], availability: StockAvailabilityResponse) -> [SearchResult]? {
+        var results = [SearchResult]()
+        for document in documents {
+            guard let stock = availability[document.identifier] else {
+                return nil
+            }
+
+            results.append(SearchResult(document: document, availability: stock))
+        }
+
+        return results
     }
 }

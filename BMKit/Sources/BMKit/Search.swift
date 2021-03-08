@@ -8,7 +8,7 @@
 import Foundation
 
 extension URLRequest {
-    internal static func searchRequest(for query: String, with credentials: Credentials) -> URLRequest {
+    internal static func searchRequest(for query: String, with token: String) -> URLRequest {
         struct Parameters: Encodable {
             let query: [String]
             let queryIdentifier: String
@@ -20,13 +20,13 @@ extension URLRequest {
         }
 
         let parameters = Parameters(query: [query], queryIdentifier: "NONE")
-        return URLRequest(post: "search", credentials: credentials, jsonParameters: parameters)
+        return URLRequest(post: "search", token: token, jsonParameters: parameters)
     }
 }
 
 extension URLSession {
-    public func search(for query: String, with credentials: Credentials, completion: @escaping (Result<[Document], Error>) -> Void) -> URLSessionTask {
-        let request = URLRequest.searchRequest(for: query, with: credentials)
+    public func search(for query: String, with token: String, completion: @escaping (Result<[Document], Error>) -> Void) -> URLSessionTask {
+        let request = URLRequest.searchRequest(for: query, with: token)
 
         return fetch(DocumentResponse.self, request: request) { result in
             switch result {

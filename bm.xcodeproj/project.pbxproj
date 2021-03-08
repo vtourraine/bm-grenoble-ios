@@ -39,7 +39,6 @@
 		D78618AC22F30A4400CB3403 /* ItemCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78618AB22F30A4400CB3403 /* ItemCache.swift */; };
 		D786E6DA22F1911A00AD1D36 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D786E6D922F1911A00AD1D36 /* Item.swift */; };
 		D786E6F022F1B42C00AD1D36 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D786E6EF22F1B42C00AD1D36 /* ItemTableViewCell.swift */; };
-		D78C460823785EE400313AD8 /* SearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C460723785EE400313AD8 /* SearchTests.swift */; };
 		D78C460B2379AACA00313AD8 /* LoansNotLoggedInView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78C46092379AACA00313AD8 /* LoansNotLoggedInView.xib */; };
 		D7910BCB23717A3200A0DC31 /* LibrariesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7910BCA23717A3200A0DC31 /* LibrariesTests.swift */; };
 		D794D59B241BAE0D00208C05 /* BMKit in Frameworks */ = {isa = PBXBuildFile; productRef = D794D59A241BAE0D00208C05 /* BMKit */; };
@@ -112,7 +111,6 @@
 		D786E6E122F194EC00AD1D36 /* bmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D786E6E522F194EC00AD1D36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D786E6EF22F1B42C00AD1D36 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
-		D78C460723785EE400313AD8 /* SearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTests.swift; sourceTree = "<group>"; };
 		D78C460A2379AACA00313AD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = bm/Base.lproj/LoansNotLoggedInView.xib; sourceTree = SOURCE_ROOT; };
 		D78C460D2379AF0700313AD8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = ../en.lproj/LoansNotLoggedInView.strings; sourceTree = "<group>"; };
 		D78C460F2379AF0A00313AD8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = ../fr.lproj/LoansNotLoggedInView.strings; sourceTree = "<group>"; };
@@ -250,7 +248,6 @@
 				D78200A723C739A300C3A699 /* NewsTests.swift */,
 				D7697DEF23CA0E4600010011 /* AgendaTests.swift */,
 				D7910BCA23717A3200A0DC31 /* LibrariesTests.swift */,
-				D78C460723785EE400313AD8 /* SearchTests.swift */,
 				D786E6E522F194EC00AD1D36 /* Info.plist */,
 				D73968EA23D1ECCC00F01645 /* DemoAccountLoans.html */,
 				D78200A523C7399100C3A699 /* TestNews1.html */,
@@ -499,7 +496,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7697DF023CA0E4600010011 /* AgendaTests.swift in Sources */,
-				D78C460823785EE400313AD8 /* SearchTests.swift in Sources */,
 				D78200A823C739A300C3A699 /* NewsTests.swift in Sources */,
 				D7910BCB23717A3200A0DC31 /* LibrariesTests.swift in Sources */,
 				D709845925F1374D00C8C30C /* LoansTests.swift in Sources */,

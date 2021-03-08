@@ -18,24 +18,34 @@ class SearchResultsCell: UITableViewCell {
         fatalError()
     }
 
-    func configure(with document: Document) {
+    func configure(with searchResult: SearchResult) {
         selectionStyle = .none
 
-        textLabel?.text = document.formattedTitle()
+        textLabel?.text = searchResult.document.formattedTitle()
         textLabel?.font = .preferredFont(forTextStyle: .headline)
         if #available(iOS 13.0, *) {
             textLabel?.textColor = .label
         }
 
-        if let firstCreator = document.meta.creators?.first,
+        var detailText = ""
+
+        if let firstCreator = searchResult.document.meta.creators?.first,
            let components = firstCreator.nameComponents() {
-            detailTextLabel?.text = PersonNameComponentsFormatter.localizedString(from: components, style: .default)
-        }
-        else {
-            detailTextLabel?.text = nil
+            detailText = PersonNameComponentsFormatter.localizedString(from: components, style: .default)
+            detailText.append("\n")
         }
 
+        if searchResult.availability.isAvailable {
+            detailText.append(NSLocalizedString("Document available", comment: ""))
+        }
+        else {
+            detailText.append(NSLocalizedString("Document not available", comment: ""))
+        }
+
+        detailTextLabel?.text = detailText
+        detailTextLabel?.numberOfLines = 0
         detailTextLabel?.font = .preferredFont(forTextStyle: .subheadline)
+
         if #available(iOS 13.0, *) {
             detailTextLabel?.textColor = .secondaryLabel
         }
@@ -47,7 +57,7 @@ class SearchResultsCell: UITableViewCell {
 //        }
 //        else {
             if #available(iOS 13.0, *) {
-                let imageName = document.systemImageNameForType()
+                let imageName = searchResult.document.systemImageNameForType()
                 imageView?.image = UIImage(systemName: imageName)
                 imageView?.preferredSymbolConfiguration = UIImage.SymbolConfiguration(scale: .large)
                 imageView?.tintColor = .secondaryLabel

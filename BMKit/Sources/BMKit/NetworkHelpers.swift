@@ -19,6 +19,24 @@ extension URLRequest {
                                "Authorization": "Bearer \(credentials.token)"]
     }
 
+    init?(get endpoint: String, token: String, urlParameters parameters: [String: String]) {
+        let url = BaseURL.appendingPathComponent("in/rest/api").appendingPathComponent(endpoint)
+        guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
+            return nil
+        }
+
+        urlComponents.queryItems = parameters.map({ URLQueryItem(name: $0, value: $1)})
+        guard let urlWithParamters = urlComponents.url else {
+            return nil
+        }
+
+        self.init(url: urlWithParamters)
+
+        httpMethod = "GET"
+        allHTTPHeaderFields = ["Content-Type": "application/json",
+                               "Authorization": "Bearer \(token)"]
+    }
+
     init(post endpoint: String, credentials: Credentials, formEncodedParameters parameters: [String: String]) {
         let url = BaseURL.appendingPathComponent("in/rest/api").appendingPathComponent(endpoint)
         self.init(url: url)
@@ -35,7 +53,7 @@ extension URLRequest {
                                "X-InMedia-Authorization": "Bearer \(credentials.token) \(credentials.settingsToken)"]
     }
 
-    init<T: Encodable>(post endpoint: String, credentials: Credentials, jsonParameters parameters: T) {
+    init<T: Encodable>(post endpoint: String, token: String, jsonParameters parameters: T) {
         let url = BaseURL.appendingPathComponent("in/rest/api").appendingPathComponent(endpoint)
         self.init(url: url)
 
@@ -44,8 +62,7 @@ extension URLRequest {
         httpMethod = "POST"
         httpBody = bodyData
         allHTTPHeaderFields = ["Content-Type": "application/json",
-                               "Authorization": "Bearer \(credentials.token)",
-                               "X-InMedia-Authorization": "Bearer \(credentials.token) \(credentials.settingsToken)"]
+                               "X-InMedia-Authorization": "Bearer \(token)"]
     }
 }
 
