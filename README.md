@@ -14,12 +14,12 @@ The Grenoble Municipal Library doesn’t offer a public API to check your accoun
 
 - List current loans
 - News
+- Agenda
 - Libraries list with info and map
 - Search books
 
 ## Roadmap
 
-- Agenda
 - Local notification for reminders
 - Items cover image
 - Renew loans
