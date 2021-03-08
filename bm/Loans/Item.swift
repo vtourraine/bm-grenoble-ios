@@ -56,7 +56,7 @@ extension Item {
             }
 
             let author: String
-            if let firstCreator = document.meta.creators.first,
+            if let firstCreator = document.meta.creators?.first,
                let components = firstCreator.nameComponents() {
                 author = PersonNameComponentsFormatter.localizedString(from: components, style: .default)
             }
@@ -70,31 +70,29 @@ extension Item {
 
         return items
     }
+}
 
-    enum Category {
-        case book
-        case cd
-        case dvd
-        case bluray
-        case game
-    }
-
-    func category() -> Category {
-        let cdType = "CD"
-
-        if type == cdType {
-            return .cd
-        }
-        else {
-            return .book
-        }
-    }
-
+extension Document {
     func formattedTitle() -> String {
         if let slash = title.range(of: " / ") {
             return String(title[..<slash.lowerBound])
         }
         
         return title
+    }
+
+    static func systemImageName(for type: String) -> String {
+        switch type {
+        case "DVD":
+            return "tv"
+        case "CD":
+            return "smallcircle.circle"
+        default:
+            return "book"
+        }
+    }
+
+    func systemImageNameForType() -> String {
+        return Document.systemImageName(for: type)
     }
 }

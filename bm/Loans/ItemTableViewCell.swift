@@ -22,7 +22,7 @@ class ItemTableViewCell: UITableViewCell {
     @IBOutlet var thumbnail: UIImageView?
 
     func configure(item: Item) {
-        titleLabel?.text = item.formattedTitle()
+        titleLabel?.text = item.title
         authorLabel?.text = item.author
         libraryLabel?.text = item.library
 
@@ -57,16 +57,7 @@ class ItemTableViewCell: UITableViewCell {
         }
         else {
             if #available(iOS 13.0, *) {
-                let imageName: String
-                switch item.category() {
-                case .dvd, .bluray:
-                    imageName = "tv"
-                case .game:
-                    imageName = "gamecontroller"
-                default:
-                    imageName = "book"
-                }
-
+                let imageName = Document.systemImageName(for: item.type)
                 thumbnail?.image = UIImage(systemName: imageName)
                 thumbnail?.preferredSymbolConfiguration = UIImage.SymbolConfiguration(scale: .large)
                 thumbnail?.tintColor = .secondaryLabel

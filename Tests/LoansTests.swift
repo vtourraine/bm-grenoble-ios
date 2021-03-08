@@ -7,12 +7,13 @@
 //
 
 import XCTest
+@testable import BMKit
 @testable import bm
 
 class LoansTest: XCTestCase {
 
     func testTitleFormatting() {
-        let item = Item(title: "To love is to love / Jehnny Beth, chant, comp., p", type: "", author: "", library: "", returnDateComponents: DateComponents(), image: nil)
-        XCTAssertEqual(item.formattedTitle(), "To love is to love")
+        let document = Document(title: "To love is to love / Jehnny Beth, chant, comp., p", localNumber: "", type: "", meta: Document.Meta(creators: []))
+        XCTAssertEqual(document.formattedTitle(), "To love is to love")
     }
 }

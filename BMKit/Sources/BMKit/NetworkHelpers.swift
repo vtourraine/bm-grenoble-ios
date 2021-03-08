@@ -10,27 +10,42 @@ import Foundation
 let BaseURL = URL(string: "https://catalogue.bm-grenoble.fr")!
 
 extension URLRequest {
-    init(endpoint: String, credentials: Credentials, parameters: [String: String]? = nil) {
+    init(get endpoint: String, credentials: Credentials) {
         let url = BaseURL.appendingPathComponent("in/rest/api").appendingPathComponent(endpoint)
         self.init(url: url)
 
-        if let parameters = parameters {
-            let string = parameters.map { key, value in
-                return "\(key)=\(value)"
-            }.joined(separator: "&")
+        httpMethod = "GET"
+        allHTTPHeaderFields = ["Content-Type": "application/json",
+                               "Authorization": "Bearer \(credentials.token)"]
+    }
 
-            httpMethod = "POST"
-            httpBody = string.data(using: .utf8)
-            allHTTPHeaderFields = ["Content-Type": "application/x-www-form-urlencoded",
-                                   "Authorization": "Bearer \(credentials.token)",
-                                   "Content-Length": String(string.count),
-                                   "X-InMedia-Authorization": "Bearer \(credentials.token) \(credentials.settingsToken)"]
-        }
-        else {
-            httpMethod = "GET"
-            allHTTPHeaderFields = ["Content-Type": "application/json",
-                                   "Authorization": "Bearer \(credentials.token)"]
-        }
+    init(post endpoint: String, credentials: Credentials, formEncodedParameters parameters: [String: String]) {
+        let url = BaseURL.appendingPathComponent("in/rest/api").appendingPathComponent(endpoint)
+        self.init(url: url)
+
+        let string = parameters.map { key, value in
+            return "\(key)=\(value)"
+        }.joined(separator: "&")
+
+        httpMethod = "POST"
+        httpBody = string.data(using: .utf8)
+        allHTTPHeaderFields = ["Content-Type": "application/x-www-form-urlencoded",
+                               "Authorization": "Bearer \(credentials.token)",
+                               "Content-Length": String(string.count),
+                               "X-InMedia-Authorization": "Bearer \(credentials.token) \(credentials.settingsToken)"]
+    }
+
+    init<T: Encodable>(post endpoint: String, credentials: Credentials, jsonParameters parameters: T) {
+        let url = BaseURL.appendingPathComponent("in/rest/api").appendingPathComponent(endpoint)
+        self.init(url: url)
+
+        let bodyData = try? JSONEncoder().encode(parameters)
+
+        httpMethod = "POST"
+        httpBody = bodyData
+        allHTTPHeaderFields = ["Content-Type": "application/json",
+                               "Authorization": "Bearer \(credentials.token)",
+                               "X-InMedia-Authorization": "Bearer \(credentials.token) \(credentials.settingsToken)"]
     }
 }
 
@@ -68,9 +83,9 @@ extension URLSession {
             /*
              // Save to file for debug
              if #available(iOS 10.0, *) {
-                 let path = FileManager.default.temporaryDirectory.appendingPathComponent("data.json")
-                 try? data!.write(to: path)
-                 print("Save to: \(path)")
+             let path = FileManager.default.temporaryDirectory.appendingPathComponent("data.json")
+             try? data.write(to: path)
+             print("Save to: \(path)")
              }
              */
 

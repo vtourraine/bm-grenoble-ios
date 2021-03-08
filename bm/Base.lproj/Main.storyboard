@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F3H-UV-44c">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F3H-UV-44c">
     <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -1024,13 +1024,13 @@ Grenoble</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Recherche" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ea8-2F-l1Z">
-                                <rect key="frame" x="40" y="40" width="156.5" height="41"/>
+                                <rect key="frame" x="40" y="90" width="156.5" height="41"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QsP-Rc-Dt1">
-                                <rect key="frame" x="40" y="387" width="132" height="44"/>
+                                <rect key="frame" x="40" y="412" width="132" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="cIV-lW-tyi"/>
@@ -1045,7 +1045,7 @@ Grenoble</string>
                                 </connections>
                             </button>
                             <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Titre, auteur" translatesAutoresizingMaskIntoConstraints="NO" id="Reo-Q7-eVd">
-                                <rect key="frame" x="40" y="291" width="944" height="56"/>
+                                <rect key="frame" x="40" y="316" width="944" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="yn0-2r-Gad"/>
                                 </constraints>
@@ -1075,7 +1075,7 @@ Grenoble</string>
                             <outletCollection property="gestureRecognizers" destination="ZFQ-8t-Drr" appends="YES" id="DwA-Qd-L6u"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="Kq6-uL-4cb"/>
+                    <navigationItem key="navigationItem" id="x6n-ne-ZD5"/>
                     <connections>
                         <outlet property="searchBar" destination="Reo-Q7-eVd" id="agu-Dx-6s7"/>
                         <outlet property="searchButton" destination="QsP-Rc-Dt1" id="xVV-hx-gWS"/>
@@ -1088,7 +1088,7 @@ Grenoble</string>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2046" y="2405"/>
+            <point key="canvasLocation" x="2769.7265625" y="2404.6875"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="GCA-fj-s79">
@@ -1106,7 +1106,7 @@ Grenoble</string>
                         <segue destination="ktH-Df-Yro" kind="relationship" relationship="viewControllers" id="fAR-In-fcC"/>
                         <segue destination="vRB-X1-egP" kind="relationship" relationship="viewControllers" id="rPX-lx-xUH"/>
                         <segue destination="PWm-tb-Pfv" kind="relationship" relationship="viewControllers" id="UU6-ut-c3G"/>
-                        <segue destination="soS-MW-X3t" kind="relationship" relationship="viewControllers" id="Sgo-FC-NBu"/>
+                        <segue destination="LbV-cD-hNz" kind="relationship" relationship="viewControllers" id="Sgo-FC-NBu"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a4a-j1-yFa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1349,6 +1349,25 @@ Grenoble</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o6a-Wl-xNl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1983" y="782"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LxA-Xv-1Yx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LbV-cD-hNz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="Kq6-uL-4cb"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gQl-iX-cK7">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="soS-MW-X3t" kind="relationship" relationship="rootViewController" id="Md9-Ew-5T2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vwg-jQ-4yu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2045.5078124999998" y="2404.6875"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

@@ -3,10 +3,11 @@
 //  bm
 //
 //  Created by Vincent Tourraine on 01/10/2019.
-//  Copyright © 2019 Studio AMANgA. All rights reserved.
+//  Copyright © 2019-2021 Studio AMANgA. All rights reserved.
 //
 
 import UIKit
+import BMKit
 
 class SearchEngine {
     static func encodedQuery(for query: String) -> String? {
@@ -48,6 +49,12 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
@@ -73,11 +80,34 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
                 return
         }
 
-        let urlString = "https://catalogue.bm-grenoble.fr/query?q=\(encodedQuery)"
-
-        if let url = URL(string: urlString) {
-            presentSafariViewController(url)
+        guard let credentials = Credentials.sharedCredentials() else {
+            return
         }
+        
+        _ = URLSession.shared.search(for: trimmedQuery, with: credentials) { result in
+            switch result {
+            case .success(let documents):
+                if documents.isEmpty {
+                    let alert = UIAlertController(title: NSLocalizedString("No Result Found", comment: ""), message: nil, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                else {
+                    let viewController = SearchResultsViewController(with: documents)
+                    self.navigationController?.pushViewController(viewController, animated: true)
+                }
+
+            case .failure(let error):
+                let alert = UIAlertController(title: NSLocalizedString("Search Error", comment: ""), message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+//        let urlString = "https://catalogue.bm-grenoble.fr/query?q=\(encodedQuery)"
+//
+//        if let url = URL(string: urlString) {
+//            presentSafariViewController(url)
+//        }
     }
 
     @IBAction func resignSearchField(_ sender: Any?) {

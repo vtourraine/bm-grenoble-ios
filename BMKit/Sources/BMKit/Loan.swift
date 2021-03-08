@@ -55,7 +55,7 @@ public struct Loan: Codable {
 
 extension URLSession {
     public func fetchLoans(with credentials: Credentials, completion: @escaping (Result<[Loan], Error>) -> Void) -> URLSessionTask {
-        let request = URLRequest(endpoint: "loans", credentials: credentials)
+        let request = URLRequest(get: "loans", credentials: credentials)
         return fetch([Loan].self, request: request, completion: completion)
     }
 }

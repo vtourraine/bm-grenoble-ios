@@ -27,7 +27,7 @@ public struct Document: Codable {
     }
 
     public struct Meta: Codable {
-        public let creators: [Creator]
+        public let creators: [Creator]?
 
         private enum CodingKeys: String, CodingKey {
             case creators = "creator"
@@ -51,6 +51,14 @@ public struct Document: Codable {
         public func nameComponents() -> PersonNameComponents? {
             return PersonNameComponentsFormatter().personNameComponents(from: name)
         }
+    }
+
+    public init(title: String, localNumber: String, type: String, meta: Meta, imageURL: URL? = nil) {
+        self.title = title
+        self.localNumber = localNumber
+        self.type = type
+        self.meta = meta
+        self.imageURL = imageURL
     }
 
     public init(from decoder: Decoder) throws {
@@ -90,7 +98,7 @@ extension URLRequest {
     internal static func fetchDocumentsRequest(_ ids: [String], with credentials: Credentials) -> URLRequest {
         let parameters = ["locale": "en",
                           "ids": ids.joined(separator: ",")]
-        return URLRequest(endpoint: "resolveBySeqNo", credentials: credentials, parameters: parameters)
+        return URLRequest(post: "resolveBySeqNo", credentials: credentials, formEncodedParameters: parameters)
     }
 }
 
