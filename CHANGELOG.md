@@ -1,5 +1,10 @@
 # BM Grenoble
 
+## 1.5.1 (work in progress)
+
+- [x] Support formatted authors names
+
+
 ## 1.5
 
 2021-03-06

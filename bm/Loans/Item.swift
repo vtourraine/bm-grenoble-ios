@@ -55,7 +55,16 @@ extension Item {
                 continue
             }
 
-            let item = Item(title: loanItem.title ?? "", type: document.type, author: loanItem.author ?? "", library: loanItem.library, returnDateComponents: loanItem.returnDateComponents, image: document.imageURL)
+            let author: String
+            if let firstCreator = document.meta.creators.first,
+               let components = firstCreator.nameComponents() {
+                author = PersonNameComponentsFormatter.localizedString(from: components, style: .default)
+            }
+            else {
+                author = ""
+            }
+
+            let item = Item(title: loanItem.title ?? "", type: document.type, author: author, library: loanItem.library, returnDateComponents: loanItem.returnDateComponents, image: document.imageURL)
             items.append(item)
         }
 
@@ -87,18 +96,5 @@ extension Item {
         }
         
         return title
-    }
-
-    func formattedAuthor() -> String {
-        guard var firstAuthor = author.components(separatedBy: ";").first else {
-            return author
-        }
-
-        let extras = ["texte de", ", réal.", "réalisé par", "scénario"]
-        for extra in extras {
-            firstAuthor = firstAuthor.replacingOccurrences(of: extra, with: "")
-        }
-
-        return firstAuthor.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }

@@ -23,7 +23,7 @@ class ItemTableViewCell: UITableViewCell {
 
     func configure(item: Item) {
         titleLabel?.text = item.formattedTitle()
-        authorLabel?.text = item.formattedAuthor()
+        authorLabel?.text = item.author
         libraryLabel?.text = item.library
 
         if let formattedReturnDate = formattedReturnDate(components: item.returnDateComponents) {

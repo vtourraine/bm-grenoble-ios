@@ -12,16 +12,45 @@ public struct Document: Codable {
     public let title: String
     public let type: String
     public let imageURL: URL?
+    public let meta: Meta
 
     private enum CodingKeys: String, CodingKey {
         case localNumber = "LocalNumber"
         case title
         case type = "zmatIndex"
         case imageURL = "imageSource_256"
+        case meta
     }
 
     struct Value: Codable {
         public let value: String
+    }
+
+    public struct Meta: Codable {
+        public let creators: [Creator]
+
+        private enum CodingKeys: String, CodingKey {
+            case creators = "creator"
+        }
+    }
+
+    public struct Creator: Codable {
+        public let name: String
+
+        private enum CodingKeys: String, CodingKey {
+            case name = "value"
+        }
+
+        public init(from decoder: Decoder) throws {
+            let values = try decoder.container(keyedBy: CodingKeys.self)
+            let value = try values.decode(String.self, forKey: .name)
+            name = value
+        }
+
+        @available(iOS 10.0, *)
+        public func nameComponents() -> PersonNameComponents? {
+            return PersonNameComponentsFormatter().personNameComponents(from: name)
+        }
     }
 
     public init(from decoder: Decoder) throws {
@@ -44,6 +73,8 @@ public struct Document: Codable {
         else {
             imageURL = nil
         }
+
+        meta = try values.decode(Meta.self, forKey: .meta)
     }
 }
 
