@@ -1,8 +1,10 @@
 # BM Grenoble
 
-## 1.5 (work in progress)
+## 1.5
 
-- [ ] Sync with new API
+2021-03-06
+
+- Sync with new API
 
 
 ## 1.4.4
