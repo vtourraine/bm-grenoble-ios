@@ -2,7 +2,9 @@
 
 ## 1.5.1 (work in progress)
 
+- [ ] Native search
 - [x] Support formatted authors names
+- [x] Improve loading loans images 
 
 
 ## 1.5

@@ -44,9 +44,11 @@ class SearchResultsCell: UITableViewCell {
         }
 
         if let image = searchResult.document.imageURL {
-            imageView?.af.setImage(withURL: image)
-            imageView?.backgroundColor = nil
-            imageView?.contentMode = .scaleAspectFit
+            thumbnail?.backgroundColor = nil
+            thumbnail?.contentMode = .scaleAspectFit
+            thumbnail?.af.setImage(withURL: image, completion: { response in
+                self.setNeedsLayout()
+            })
         }
         else {
             if #available(iOS 13.0, *) {
