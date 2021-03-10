@@ -21,7 +21,7 @@ class SearchResultsCell: UITableViewCell {
 
         titleLabel?.text = searchResult.document.formattedTitle()
 
-        if let firstCreator = searchResult.document.meta.creators?.first,
+        if let firstCreator = searchResult.document.meta?.creators?.first,
            let components = firstCreator.nameComponents() {
             authorLabel?.text = PersonNameComponentsFormatter.localizedString(from: components, style: .default)
         }

@@ -29,4 +29,9 @@
 "Search on Goodreads" = "Rechercher sur Goodreads";
 "Share" = "Partager";
 "Open in Browser" = "Ouvrir dans le navigateur";
+"Search Results for “%@”" = "Résultats de recherche pour « %@ »";
+"Search Error" = "Erreur de recherche";
 "No Result Found" = "Aucun résultat trouvé";
+"Load More Results" = "Charger plus de résultats";
+"Document available" = "Document disponible";
+"Document not available" = "Document non disponible";

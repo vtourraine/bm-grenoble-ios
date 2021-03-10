@@ -13,7 +13,7 @@ public struct Document: Codable {
     public let title: String
     public let type: String
     public let imageURL: URL?
-    public let meta: Meta
+    public let meta: Meta?
 
     private enum CodingKeys: String, CodingKey {
         case identifier = "id"
@@ -88,15 +88,19 @@ public struct Document: Codable {
             imageURL = nil
         }
 
-        meta = try values.decode(Meta.self, forKey: .meta)
+        meta = try? values.decode(Meta.self, forKey: .meta)
     }
 }
 
-struct DocumentResponse: Codable {
-    let results: [Document]
+public struct DocumentResponse: Codable {
+    public let documents: [Document]
+    public let pagesCount: Int
+    public let pageIndex: Int
 
     private enum CodingKeys: String, CodingKey {
-        case results = "resultSet"
+        case documents = "resultSet"
+        case pagesCount = "maxPageNo"
+        case pageIndex = "pageNo"
     }
 }
 
@@ -109,17 +113,9 @@ extension URLRequest {
 }
 
 extension URLSession {
-    public func fetchDocuments(_ ids: [String], with credentials: Credentials, completion: @escaping (Result<[Document], Error>) -> Void) -> URLSessionTask {
+    public func fetchDocuments(_ ids: [String], with credentials: Credentials, completion: @escaping (Result<DocumentResponse, Error>) -> Void) -> URLSessionTask {
         let request = URLRequest.fetchDocumentsRequest(ids, with: credentials)
-
-        return fetch(DocumentResponse.self, request: request) { result in
-            switch result {
-            case .success(let response):
-                completion(.success(response.results))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+        return fetch(DocumentResponse.self, request: request, completion: completion)
     }
 }
 

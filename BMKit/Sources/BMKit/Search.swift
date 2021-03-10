@@ -8,33 +8,42 @@
 import Foundation
 
 extension URLRequest {
-    internal static func searchRequest(for query: String, with token: String) -> URLRequest {
-        struct Parameters: Encodable {
-            let query: [String]
-            let queryIdentifier: String
+    struct Parameters: Encodable {
+        let identifier: String
+        let query: [String]?
+        let pageSize: Int
+        let pageIndex: Int?
 
-            private enum CodingKeys: String, CodingKey {
-                case query
-                case queryIdentifier = "queryid"
-            }
+        private enum CodingKeys: String, CodingKey {
+            case identifier = "queryid"
+            case query
+            case pageSize
+            case pageIndex = "pageNo"
         }
+    }
 
-        let parameters = Parameters(query: [query], queryIdentifier: "NONE")
+    internal static func searchRequest(identifier:String, token: String, pageSize: Int, pageIndex: Int) -> URLRequest {
+        let parameters = Parameters(identifier: identifier, query: nil, pageSize: pageSize, pageIndex: pageIndex)
+        return URLRequest(post: "search", token: token, jsonParameters: parameters)
+    }
+
+    internal static func searchRequest(identifier:String, query: String, token: String, pageSize: Int) -> URLRequest {
+        let parameters = Parameters(identifier: "NONE", query: [query], pageSize: pageSize, pageIndex: nil)
         return URLRequest(post: "search", token: token, jsonParameters: parameters)
     }
 }
 
-extension URLSession {
-    public func search(for query: String, with token: String, completion: @escaping (Result<[Document], Error>) -> Void) -> URLSessionTask {
-        let request = URLRequest.searchRequest(for: query, with: token)
+public let DefaultPageSize: Int = 10
 
-        return fetch(DocumentResponse.self, request: request) { result in
-            switch result {
-            case .success(let response):
-                completion(.success(response.results))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+extension URLSession {
+
+    public func search(for query: String, with token: String, identifier: String, pageSize: Int = DefaultPageSize, completion: @escaping (Result<DocumentResponse, Error>) -> Void) -> URLSessionTask {
+        let request = URLRequest.searchRequest(identifier: identifier, query: query, token: token, pageSize: pageSize)
+        return fetch(DocumentResponse.self, request: request, completion: completion)
+    }
+
+    public func search(with token: String, identifier: String, pageIndex: Int, pageSize: Int = DefaultPageSize, completion: @escaping (Result<DocumentResponse, Error>) -> Void) -> URLSessionTask {
+        let request = URLRequest.searchRequest(identifier: identifier, token: token, pageSize: pageSize, pageIndex: pageIndex)
+        return fetch(DocumentResponse.self, request: request, completion: completion)
     }
 }

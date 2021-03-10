@@ -28,8 +28,8 @@ extension Item {
                 let sequenceNumbers = loanItems.map { $0.sequenceNumber }
                 _ = urlSession.fetchDocuments(sequenceNumbers, with: credentials) { resultFetchDocuments in
                     switch resultFetchDocuments {
-                    case .success(let documents):
-                        let items = Item.items(with: loanItems, and: documents)
+                    case .success(let response):
+                        let items = Item.items(with: loanItems, and: response.documents)
                         completion(.success(items))
 
                     case .failure(let fetchDocumentsError):
@@ -56,7 +56,7 @@ extension Item {
             }
 
             let author: String
-            if let firstCreator = document.meta.creators?.first,
+            if let firstCreator = document.meta?.creators?.first,
                let components = firstCreator.nameComponents() {
                 author = PersonNameComponentsFormatter.localizedString(from: components, style: .default)
             }
@@ -64,7 +64,7 @@ extension Item {
                 author = ""
             }
 
-            let item = Item(title: loanItem.title ?? "", type: document.type, author: author, library: loanItem.library, returnDateComponents: loanItem.returnDateComponents, image: document.imageURL)
+            let item = Item(title: document.formattedTitle(), type: document.type, author: author, library: loanItem.library, returnDateComponents: loanItem.returnDateComponents, image: document.imageURL)
             items.append(item)
         }
 

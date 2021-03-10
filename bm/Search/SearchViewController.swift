@@ -125,25 +125,23 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
 
     func search(for query: String, with token: String) {
         let urlSession = URLSession.shared
-        _ = urlSession.search(for: query, with: token) { result in
+        let queryIdentifier = UUID().uuidString
+
+        _ = urlSession.search(for: query, with: token, identifier: queryIdentifier) { result in
             switch result {
-            case .success(let documents):
-                guard !documents.isEmpty else {
+            case .success(let response):
+                guard !response.documents.isEmpty else {
                     self.configureOutlets(enabled: true)
                     self.showNoSearchResults()
                     return
                 }
 
-                let documentsIdentifiers = documents.map { $0.identifier }
+                let documentsIdentifiers = response.documents.map { $0.identifier }
 
                 _ = urlSession.stockAvailability(for: documentsIdentifiers, with: token) { stockAvailabilityResult in
                     switch stockAvailabilityResult {
                     case .success(let availability):
-                        if let viewController = self.storyboard?.instantiateViewController(withIdentifier: K.ViewControllerIdentifiers.searchResults) as? SearchResultsViewController,
-                           let searchResults = SearchViewController.searchResults(with: documents, availability: availability) {
-                            viewController.searchResults = searchResults
-                            self.navigationController?.pushViewController(viewController, animated: true)
-                        }
+                        self.presentSearchResults(query: query, identifier: queryIdentifier, token: token, response: response, availability: availability)
 
                     case .failure(let stockAvailabilityResultError):
                         self.configureOutlets(enabled: true)
@@ -156,6 +154,19 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
                 self.showSearchError(error: error)
             }
         }
+    }
+
+    func presentSearchResults(query: String, identifier: String, token: String, response: DocumentResponse, availability: StockAvailabilityResponse) {
+        guard let viewController = storyboard?.instantiateViewController(withIdentifier: K.ViewControllerIdentifiers.searchResults) as? SearchResultsViewController else {
+            return
+        }
+
+        viewController.title = String(format: NSLocalizedString("Search Results for “%@”", comment: ""), query)
+        viewController.configure(with: response, availabilityResponse: availability)
+        viewController.queryIdentifier = identifier
+        viewController.token = token
+
+        navigationController?.pushViewController(viewController, animated: true)
     }
 
     @IBAction func resignSearchField(_ sender: Any?) {
