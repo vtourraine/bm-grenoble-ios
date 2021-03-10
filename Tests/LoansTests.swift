@@ -13,7 +13,12 @@ import XCTest
 class LoansTest: XCTestCase {
 
     func testTitleFormatting() {
-        let document = Document(identifier: "", title: "To love is to love / Jehnny Beth, chant, comp., p", localNumber: "", type: "", meta: Document.Meta(creators: []))
+        let document = Document(identifier: "", title: "To love is to love / Jehnny Beth, chant, comp., p", localNumber: "", type: "")
         XCTAssertEqual(document.formattedTitle(), "To love is to love")
+    }
+
+    func testTitleFormattingTypeSuffix() {
+        let document = Document(identifier: "", title: "The social network [DVD] / David Fincher, réal. ; avec Jesse Eisenberg, Andrew Garfield, Justin Timberlake, Armie Hammer, Max Minghella. ; Aaron Sorkin, scénar.", localNumber: "", type: "DVD")
+        XCTAssertEqual(document.formattedTitle(), "The social network")
     }
 }

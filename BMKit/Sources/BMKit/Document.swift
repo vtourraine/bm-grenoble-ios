@@ -55,7 +55,7 @@ public struct Document: Codable {
         }
     }
 
-    public init(identifier: String, title: String, localNumber: String, type: String, meta: Meta, imageURL: URL? = nil) {
+    public init(identifier: String, title: String, localNumber: String, type: String, meta: Meta? = nil, imageURL: URL? = nil) {
         self.identifier = identifier
         self.title = title
         self.localNumber = localNumber

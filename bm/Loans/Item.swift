@@ -74,11 +74,16 @@ extension Item {
 
 extension Document {
     func formattedTitle() -> String {
-        if let slash = title.range(of: " / ") {
-            return String(title[..<slash.lowerBound])
+        var formattedTitle = title
+
+        if let slash = formattedTitle.range(of: " / ") {
+            formattedTitle = String(formattedTitle[..<slash.lowerBound])
         }
-        
-        return title
+
+        formattedTitle = formattedTitle.replacingOccurrences(of: "[\(type.uppercased())]", with: "")
+        formattedTitle = formattedTitle.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        return formattedTitle
     }
 
     static func systemImageName(for type: String) -> String {

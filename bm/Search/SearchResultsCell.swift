@@ -17,8 +17,6 @@ class SearchResultsCell: UITableViewCell {
     @IBOutlet var thumbnail: UIImageView?
 
     func configure(with searchResult: SearchResult) {
-        selectionStyle = .none
-
         titleLabel?.text = searchResult.document.formattedTitle()
 
         if let firstCreator = searchResult.document.meta?.creators?.first,
