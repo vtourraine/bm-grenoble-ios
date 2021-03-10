@@ -22,13 +22,13 @@ extension URLRequest {
         }
     }
 
-    internal static func searchRequest(identifier:String, token: String, pageSize: Int, pageIndex: Int) -> URLRequest {
-        let parameters = Parameters(identifier: identifier, query: nil, pageSize: pageSize, pageIndex: pageIndex)
-        return URLRequest(post: "search", token: token, jsonParameters: parameters)
-    }
+//    internal static func searchRequest(identifier:String, token: String, pageSize: Int, pageIndex: Int) -> URLRequest {
+//        let parameters = Parameters(identifier: identifier, query: nil, pageSize: pageSize, pageIndex: pageIndex)
+//        return URLRequest(post: "search", token: token, jsonParameters: parameters)
+//    }
 
-    internal static func searchRequest(identifier:String, query: String, token: String, pageSize: Int) -> URLRequest {
-        let parameters = Parameters(identifier: "NONE", query: [query], pageSize: pageSize, pageIndex: nil)
+    internal static func searchRequest(query: String, token: String, pageSize: Int, pageIndex: Int) -> URLRequest {
+        let parameters = Parameters(identifier: "NONE", query: [query], pageSize: pageSize, pageIndex: pageIndex)
         return URLRequest(post: "search", token: token, jsonParameters: parameters)
     }
 }
@@ -37,13 +37,13 @@ public let DefaultPageSize: Int = 10
 
 extension URLSession {
 
-    public func search(for query: String, with token: String, identifier: String, pageSize: Int = DefaultPageSize, completion: @escaping (Result<DocumentResponse, Error>) -> Void) -> URLSessionTask {
-        let request = URLRequest.searchRequest(identifier: identifier, query: query, token: token, pageSize: pageSize)
+    public func search(for query: String, with token: String, pageSize: Int = DefaultPageSize, pageIndex: Int = 1, completion: @escaping (Result<DocumentResponse, Error>) -> Void) -> URLSessionTask {
+        let request = URLRequest.searchRequest(query: query, token: token, pageSize: pageSize, pageIndex: pageIndex)
         return fetch(DocumentResponse.self, request: request, completion: completion)
     }
 
-    public func search(with token: String, identifier: String, pageIndex: Int, pageSize: Int = DefaultPageSize, completion: @escaping (Result<DocumentResponse, Error>) -> Void) -> URLSessionTask {
-        let request = URLRequest.searchRequest(identifier: identifier, token: token, pageSize: pageSize, pageIndex: pageIndex)
-        return fetch(DocumentResponse.self, request: request, completion: completion)
-    }
+//    public func search(with token: String, identifier: String, pageIndex: Int, pageSize: Int = DefaultPageSize, completion: @escaping (Result<DocumentResponse, Error>) -> Void) -> URLSessionTask {
+//        let request = URLRequest.searchRequest(identifier: identifier, token: token, pageSize: pageSize, pageIndex: pageIndex)
+//        return fetch(DocumentResponse.self, request: request, completion: completion)
+//    }
 }

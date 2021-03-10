@@ -16,7 +16,7 @@ struct SearchResult {
 
 class SearchResultsViewController: UITableViewController {
 
-    var queryIdentifier: String? = nil
+    var query: String? = nil
     var token: String? = nil
     var searchResults: [SearchResult] = []
     var showLoadMoreResults = false
@@ -47,13 +47,13 @@ class SearchResultsViewController: UITableViewController {
     func loadNextPage() {
         guard let token = token,
               let nextPageIndex = nextPageIndex,
-              let queryIdentifier = queryIdentifier else {
+              let query = query else {
             return
         }
 
         let urlSession = URLSession.shared
 
-        _ = urlSession.search(with: token, identifier: queryIdentifier, pageIndex: nextPageIndex) { result in
+        _ = urlSession.search(for: query, with: token, pageIndex: nextPageIndex) { result in
             switch result {
             case .success(let response):
                 let documentsIdentifiers = response.documents.map { $0.identifier }
@@ -61,12 +61,20 @@ class SearchResultsViewController: UITableViewController {
                 _ = urlSession.stockAvailability(for: documentsIdentifiers, with: token) { stockAvailabilityResult in
                     switch stockAvailabilityResult {
                     case .success(let availability):
+                        let lowerRange = self.searchResults.count
+
                         self.configure(with: response, availabilityResponse: availability)
 
                         let upperRange = self.searchResults.count
-                        let lowerRange = upperRange - response.documents.count
                         let newIndexPaths = (lowerRange..<upperRange).map { IndexPath(row: $0, section: Section.documents.rawValue) }
+
+                        self.tableView.beginUpdates()
                         self.tableView.insertRows(at: newIndexPaths, with: .top)
+                        if !self.showLoadMoreResults {
+                            let loadMoreIndexPath = IndexPath(row: 0, section: Section.loadMore.rawValue)
+                            self.tableView.deleteRows(at: [loadMoreIndexPath], with: .automatic)
+                        }
+                        self.tableView.endUpdates()
 
                     case .failure(let stockAvailabilityResultError):
                         self.showSearchError(error: stockAvailabilityResultError)

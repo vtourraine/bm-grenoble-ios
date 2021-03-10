@@ -125,9 +125,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
 
     func search(for query: String, with token: String) {
         let urlSession = URLSession.shared
-        let queryIdentifier = UUID().uuidString
 
-        _ = urlSession.search(for: query, with: token, identifier: queryIdentifier) { result in
+        _ = urlSession.search(for: query, with: token) { result in
             switch result {
             case .success(let response):
                 guard !response.documents.isEmpty else {
@@ -141,7 +140,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
                 _ = urlSession.stockAvailability(for: documentsIdentifiers, with: token) { stockAvailabilityResult in
                     switch stockAvailabilityResult {
                     case .success(let availability):
-                        self.presentSearchResults(query: query, identifier: queryIdentifier, token: token, response: response, availability: availability)
+                        self.presentSearchResults(query: query, token: token, response: response, availability: availability)
 
                     case .failure(let stockAvailabilityResultError):
                         self.configureOutlets(enabled: true)
@@ -156,14 +155,14 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         }
     }
 
-    func presentSearchResults(query: String, identifier: String, token: String, response: DocumentResponse, availability: StockAvailabilityResponse) {
+    func presentSearchResults(query: String, token: String, response: DocumentResponse, availability: StockAvailabilityResponse) {
         guard let viewController = storyboard?.instantiateViewController(withIdentifier: K.ViewControllerIdentifiers.searchResults) as? SearchResultsViewController else {
             return
         }
 
         viewController.title = String(format: NSLocalizedString("Search Results for “%@”", comment: ""), query)
         viewController.configure(with: response, availabilityResponse: availability)
-        viewController.queryIdentifier = identifier
+        viewController.query = query
         viewController.token = token
 
         navigationController?.pushViewController(viewController, animated: true)
