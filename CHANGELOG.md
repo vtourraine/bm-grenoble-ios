@@ -1,6 +1,6 @@
 # BM Grenoble
 
-## 1.5.1 (work in progress)
+## 1.6 (work in progress)
 
 - [x] Native search
 - [x] Support formatted authors names
