@@ -6,7 +6,8 @@
 - [x] Card screen
 - [x] Add “Lost Password” button on Login screen
 - [x] Support formatted authors names
-- [x] Improve loading loans images 
+- [x] Improve loading loans images
+- [x] Fix search text color in Dark Mode
 
 
 ## 1.5

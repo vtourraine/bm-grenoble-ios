@@ -38,7 +38,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         if #available(iOS 13.0, *) {
             searchBar?.searchTextField.backgroundColor = .white
             searchBar?.searchTextField.textColor = .black
+            searchBar?.barStyle = .black
         }
+
         searchBar?.backgroundColor = .white
         searchBar?.backgroundImage = UIImage()
         searchBar?.isTranslucent = true
