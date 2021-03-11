@@ -6,17 +6,14 @@ iOS application for the Grenoble Municipal Library ([bibliothèque municipale de
 
 ![Screenshot](https://www.vtourraine.net/blog/img/2019/bibliotheque-grenoble/bm-grenoble.png)
 
-## How it works
-
-The Grenoble Municipal Library doesn’t offer a public API to check your account status and loans. This app uses a hidden web view instead, programmatically signing in with the user credentials, then extracting the relevant data by parsing the HTML pages.
-
 ## Features
 
 - List current loans
 - News
 - Agenda
 - Libraries list with info and map
-- Search books
+- Search documents
+- Subscriber card: in-app barcodes are difficult to scan in libraries
 
 ## Roadmap
 
@@ -24,12 +21,6 @@ The Grenoble Municipal Library doesn’t offer a public API to check your accoun
 - Renew loans
 - Reservations
 - Multiple accounts support
-
-## Experimental features
-
-These features are being implemented, and might be available in beta version, but not on the App Store.
-
-- Subscriber card: in-app barcodes are difficult to scan in libraries
 
 ## Bug report
 
