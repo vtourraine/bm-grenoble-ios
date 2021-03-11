@@ -21,7 +21,6 @@ The Grenoble Municipal Library doesn’t offer a public API to check your accoun
 ## Roadmap
 
 - Local notification for reminders
-- Items cover image
 - Renew loans
 - Reservations
 - Multiple accounts support

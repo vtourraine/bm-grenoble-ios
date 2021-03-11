@@ -3,6 +3,7 @@
 ## 1.6 (work in progress)
 
 - [x] Native search
+- [x] Card screen
 - [x] Support formatted authors names
 - [x] Improve loading loans images 
 

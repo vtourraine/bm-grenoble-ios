@@ -33,16 +33,10 @@ class LoansViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let userLoggedIn = (Credentials.sharedCredentials() != nil)
         
-        #if !targetEnvironment(macCatalyst)
-        let infoButton = UIButton(type: .infoLight)
-        infoButton.tintColor = .white
-        infoButton.addTarget(self, action: #selector(openAboutScreen(sender:)), for: .touchUpInside)
-        let MinimumTargetSize: CGFloat = 44
-        infoButton.frame = CGRect(x: 0, y: 0, width: MinimumTargetSize, height: MinimumTargetSize)
-        let infoBarButtonItem = UIBarButtonItem(customView: infoButton)
-        navigationItem.rightBarButtonItem = infoBarButtonItem
-        #endif
+        configureBarButtonItems(userLoggedIn: userLoggedIn)
 
         extendedLayoutIncludesOpaqueBars = true
         refreshControl?.tintColor = .white
@@ -52,7 +46,7 @@ class LoansViewController: UITableViewController {
         }
         tableView.tableFooterView = UIView(frame: CGRect.zero)
 
-        if Credentials.sharedCredentials() == nil {
+        if !userLoggedIn {
             reloadData(state: .notLoggedIn)
         }
         else if let itemCache = ItemCache.load(from: .standard) {
@@ -161,6 +155,32 @@ class LoansViewController: UITableViewController {
         navigationController?.setToolbarHidden(false, animated: animated)
     }
 
+    func configureBarButtonItems(userLoggedIn: Bool) {
+        #if !targetEnvironment(macCatalyst)
+        let infoButton = UIButton(type: .infoLight)
+        infoButton.tintColor = .white
+        infoButton.addTarget(self, action: #selector(openAboutScreen(sender:)), for: .touchUpInside)
+        let MinimumTargetSize: CGFloat = 44
+        infoButton.frame = CGRect(x: 0, y: 0, width: MinimumTargetSize, height: MinimumTargetSize)
+        let infoBarButtonItem = UIBarButtonItem(customView: infoButton)
+
+        if userLoggedIn {
+            let cardBarButtonItem: UIBarButtonItem
+            if #available(iOS 13.0, *) {
+                cardBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "creditcard"), style: .plain, target: self, action: #selector(openCardScreen(sender:)))
+            }
+            else {
+                cardBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Card", comment: ""), style: .plain, target: self, action: #selector(openCardScreen(sender:)))
+            }
+
+            navigationItem.rightBarButtonItems = [infoBarButtonItem, cardBarButtonItem]
+        }
+        else {
+            navigationItem.rightBarButtonItems = [infoBarButtonItem]
+        }
+        #endif
+    }
+
     func refreshIfNecessary() {
         guard let lastRefreshDate = lastRefreshDate else {
             return
@@ -176,7 +196,11 @@ class LoansViewController: UITableViewController {
     // MARK: - Actions
 
     @objc func openAboutScreen(sender: Any) {
-        self.performSegue(withIdentifier: self.AboutSegueIdentifier, sender: nil)
+        performSegue(withIdentifier: AboutSegueIdentifier, sender: nil)
+    }
+
+    @objc func openCardScreen(sender: Any) {
+        performSegue(withIdentifier: CardSegueIdentifier, sender: nil)
     }
 
     @IBAction func refresh(sender: Any?) {
