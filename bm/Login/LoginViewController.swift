@@ -167,7 +167,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             let viewController = navigationController.topViewController as? LoansViewController {
             viewController.reloadData(state: .loans(items))
         }
-        self.dismiss(animated: true, completion: nil)
+
+        dismiss(animated: true, completion: nil)
     }
 
     // MARK: - Text field delegate

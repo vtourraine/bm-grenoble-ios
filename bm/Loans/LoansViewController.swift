@@ -34,10 +34,6 @@ class LoansViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let userLoggedIn = (Credentials.sharedCredentials() != nil)
-        
-        configureBarButtonItems(userLoggedIn: userLoggedIn)
-
         extendedLayoutIncludesOpaqueBars = true
         refreshControl?.tintColor = .white
 
@@ -46,7 +42,7 @@ class LoansViewController: UITableViewController {
         }
         tableView.tableFooterView = UIView(frame: CGRect.zero)
 
-        if !userLoggedIn {
+        if Credentials.sharedCredentials() == nil {
             reloadData(state: .notLoggedIn)
         }
         else if let itemCache = ItemCache.load(from: .standard) {
@@ -115,9 +111,11 @@ class LoansViewController: UITableViewController {
             else {
                 tableView.backgroundView = nil
             }
+            configureBarButtonItems(userLoggedIn: true)
 
         case .notLoggedIn:
             configureNotLoggedInPlaceholder()
+            configureBarButtonItems(userLoggedIn: false)
         }
     }
 
