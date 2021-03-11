@@ -3,7 +3,7 @@
 //  bm
 //
 //  Created by Vincent Tourraine on 03/08/2019.
-//  Copyright © 2019-2020 Studio AMANgA. All rights reserved.
+//  Copyright © 2019-2021 Studio AMANgA. All rights reserved.
 //
 
 import UIKit
@@ -19,6 +19,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var passwordLabel: UILabel?
     @IBOutlet var passwordTextField: UITextField?
     @IBOutlet var connectButton: UIButton?
+    @IBOutlet var forgotPasswordButton: UIButton?
     @IBOutlet var activityIndicatorView: UIActivityIndicatorView?
     @IBOutlet var statusBarBackground: UIView?
 
@@ -35,6 +36,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         subscriberNumberTextField?.configureRoundCorners()
         passwordTextField?.configureRoundCorners()
+
+        forgotPasswordButton?.titleLabel?.adjustsFontForContentSizeCategory = true
 
         if let connectButton = connectButton {
             connectButton.titleLabel?.adjustsFontForContentSizeCategory = true
@@ -138,6 +141,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.presentLoadingError(error)
             }
         }
+    }
+
+    @IBAction func presentResetPassword(_ sender: Any?) {
+        let url = URL(string: "https://catalogue.bm-grenoble.fr/recover")!
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 
     @IBAction func dismiss(_ sender: Any?) {
