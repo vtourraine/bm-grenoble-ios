@@ -3,7 +3,7 @@
 ## 1.6 (work in progress)
 
 - [x] Native search
-- [x] Card screen
+- [x] Card screen (iOS)
 - [x] Add “Lost Password” button on Login screen
 - [x] Support formatted authors names
 - [x] Improve loading loans images
