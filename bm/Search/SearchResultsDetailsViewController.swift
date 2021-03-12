@@ -43,10 +43,14 @@ class SearchResultsDetailsViewController: UITableViewController {
                 switch result {
                 case .success(let notices):
                     self.notices = notices
-                    self.tableView.reloadData()
+
+                    let sections = IndexSet(integer: Section.availability.rawValue)
+                    self.tableView.reloadSections(sections, with: .automatic)
 
                 case .failure(let error):
-                    break
+                    let alert = UIAlertController(title: NSLocalizedString("Error", comment: ""), message: error.localizedDescription, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                 }
             }
         }
@@ -72,7 +76,7 @@ class SearchResultsDetailsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch Section(rawValue: section) {
         case .availability:
-            return NSLocalizedString("Where to find it?", comment: "")
+            return notices.isEmpty ? nil : NSLocalizedString("Where to find it?", comment: "")
         default:
             return nil
         }
