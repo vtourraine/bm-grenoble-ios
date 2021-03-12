@@ -22,11 +22,6 @@ extension URLRequest {
         }
     }
 
-//    internal static func searchRequest(identifier:String, token: String, pageSize: Int, pageIndex: Int) -> URLRequest {
-//        let parameters = Parameters(identifier: identifier, query: nil, pageSize: pageSize, pageIndex: pageIndex)
-//        return URLRequest(post: "search", token: token, jsonParameters: parameters)
-//    }
-
     internal static func searchRequest(query: String, token: String, pageSize: Int, pageIndex: Int) -> URLRequest {
         let parameters = Parameters(identifier: "NONE", query: [query], pageSize: pageSize, pageIndex: pageIndex)
         return URLRequest(post: "search", token: token, jsonParameters: parameters)
@@ -41,9 +36,4 @@ extension URLSession {
         let request = URLRequest.searchRequest(query: query, token: token, pageSize: pageSize, pageIndex: pageIndex)
         return fetch(DocumentResponse.self, request: request, completion: completion)
     }
-
-//    public func search(with token: String, identifier: String, pageIndex: Int, pageSize: Int = DefaultPageSize, completion: @escaping (Result<DocumentResponse, Error>) -> Void) -> URLSessionTask {
-//        let request = URLRequest.searchRequest(identifier: identifier, token: token, pageSize: pageSize, pageIndex: pageIndex)
-//        return fetch(DocumentResponse.self, request: request, completion: completion)
-//    }
 }

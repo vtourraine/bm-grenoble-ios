@@ -42,6 +42,17 @@ class SearchResultsViewController: UITableViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? SearchResultsDetailsViewController,
+           let indexPath = tableView.indexPathForSelectedRow {
+            let searchResult = searchResults[indexPath.row]
+            viewController.searchResult = searchResult
+            viewController.token = token
+        }
+    }
+
     // MARK: - Actions
 
     func loadNextPage() {
@@ -156,11 +167,7 @@ class SearchResultsViewController: UITableViewController {
             tableView.deselectRow(at: indexPath, animated: true)
             loadNextPage()
 
-        case .documents:
-            let document = searchResults[indexPath.row].document
-            open(document)
-
-        case .none:
+        case .documents, .none:
             break
         }
     }
