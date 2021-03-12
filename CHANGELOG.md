@@ -1,5 +1,8 @@
 # BM Grenoble
 
+## 1.6.1 (work in progress)
+
+
 ## 1.6 (work in progress)
 
 - [x] Native search
