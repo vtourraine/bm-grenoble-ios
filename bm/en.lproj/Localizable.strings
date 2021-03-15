@@ -37,3 +37,10 @@
 "Document available" = "Document available";
 "Document not available" = "Document not available";
 "Where to find it?" = "Where to find it?";
+
+"Available" = "Available";
+"Loaned" = "Loaned";
+"Reserved" = "Reserved";
+"Under reparation" = "Under reparation";
+"On-site communication" = "On-site communication";
+"To transfer to another library" = "To transfer to another library";

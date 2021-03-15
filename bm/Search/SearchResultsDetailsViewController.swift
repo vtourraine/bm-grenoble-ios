@@ -88,7 +88,16 @@ class SearchResultsDetailsViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifier.notice, for: indexPath)
             let notice = notices[indexPath.row]
             cell.textLabel?.text = notice.branch
-            cell.detailTextLabel?.text = notice.status
+            cell.detailTextLabel?.text = notice.localizedStatus()
+
+            switch notice.availability() {
+            case .available:
+                cell.accessoryView = UIImageView(image: UIImage(systemName: "checkmark.circle.fill"))
+                cell.accessoryView?.tintColor = .systemGreen
+            case .notAvailable:
+                cell.accessoryView = UIImageView(image: UIImage(systemName: "xmark.octagon.fill"))
+                cell.accessoryView?.tintColor = .systemRed
+            }
 
             return cell
 
@@ -100,6 +109,27 @@ class SearchResultsDetailsViewController: UITableViewController {
             }
 
             return cell
+        }
+    }
+}
+
+extension Notice {
+    func localizedStatus() -> String {
+        switch status {
+        case "Avalaible":
+            return NSLocalizedString("Available", comment: "")
+        case "Loaned":
+            return NSLocalizedString("Loaned", comment: "")
+        case "Réservé":
+            return NSLocalizedString("Reserved", comment: "")
+        case "En réparation":
+            return NSLocalizedString("Under reparation", comment: "")
+        case "Communication sur place":
+            return NSLocalizedString("On-site communication", comment: "")
+        case "A transférer autre bib.":
+            return NSLocalizedString("To transfer to another library", comment: "")
+        default:
+            return status
         }
     }
 }

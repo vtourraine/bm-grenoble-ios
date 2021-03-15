@@ -37,7 +37,7 @@ class SearchResultsCell: UITableViewCell {
 
             if #available(iOS 13.0, *) {
                 availabilityImageView?.image = UIImage(systemName: "xmark.octagon.fill")
-                availabilityImageView?.tintColor = .red
+                availabilityImageView?.tintColor = .systemRed
             }
         }
 

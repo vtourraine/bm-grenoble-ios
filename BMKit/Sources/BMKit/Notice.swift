@@ -30,6 +30,22 @@ public struct Notice: Codable {
     }
 }
 
+extension Notice {
+    public enum Status {
+        case available
+        case notAvailable
+    }
+
+    public func availability() -> Status {
+        if status == "Avalaible" {
+            return .available
+        }
+        else {
+            return .notAvailable
+        }
+    }
+}
+
 public struct NoticeResponse: Codable {
     let notices: [Notice]
 
