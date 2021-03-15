@@ -37,7 +37,7 @@ extension Notice {
     }
 
     public func availability() -> Status {
-        if status == "Avalaible" {
+        if status == "Avalaible" || status == "Communication sur place" {
             return .available
         }
         else {
