@@ -3,14 +3,16 @@
 ## 1.6.1 (work in progress)
 
 
-## 1.6 (work in progress)
+## 1.6
 
-- [x] Native search
-- [x] Card screen (iOS)
-- [x] Add “Lost Password” button on Login screen
-- [x] Support formatted authors names
-- [x] Improve loading loans images
-- [x] Fix search text color in Dark Mode
+2021-03-12
+
+- Native search
+- Add Library Card screen (iOS only)
+- Add “Lost Password” on Login screen
+- Support formatted authors names
+- Improve loading cover images
+- Fix search text color in Dark Mode
 
 
 ## 1.5
