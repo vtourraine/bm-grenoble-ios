@@ -89,14 +89,16 @@ class SearchResultsDetailsViewController: UITableViewController {
             let notice = notices[indexPath.row]
             cell.textLabel?.text = notice.branch
             cell.detailTextLabel?.text = notice.localizedStatus()
-
-            switch notice.availability() {
-            case .available:
-                cell.accessoryView = UIImageView(image: UIImage(systemName: "checkmark.circle.fill"))
-                cell.accessoryView?.tintColor = .systemGreen
-            case .notAvailable:
-                cell.accessoryView = UIImageView(image: UIImage(systemName: "xmark.octagon.fill"))
-                cell.accessoryView?.tintColor = .systemRed
+            
+            if #available(iOS 13.0, *) {
+                switch notice.availability() {
+                case .available:
+                    cell.accessoryView = UIImageView(image: UIImage(systemName: "checkmark.circle.fill"))
+                    cell.accessoryView?.tintColor = .systemGreen
+                case .notAvailable:
+                    cell.accessoryView = UIImageView(image: UIImage(systemName: "xmark.octagon.fill"))
+                    cell.accessoryView?.tintColor = .systemRed
+                }
             }
 
             return cell
