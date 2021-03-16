@@ -47,7 +47,7 @@ extension Notice {
 }
 
 public struct NoticeResponse: Codable {
-    let notices: [Notice]
+    let notices: [Notice]?
 
     private enum CodingKeys: String, CodingKey {
         case notices = "monographicCopies"
@@ -70,7 +70,7 @@ extension URLSession {
         return fetch(NoticeResponse.self, request: request) { result in
             switch result {
             case .success(let response):
-                completion(.success(response.notices))
+                completion(.success(response.notices ?? []))
             case .failure(let error):
                 completion(.failure(error))
             }

@@ -13,10 +13,16 @@ final class NoticeTests: XCTestCase {
     func testParseResponse() throws {
         let response = try decodeJSON(NoticeResponse.self, from: "get-notice-response-body.json")
 
-        XCTAssertEqual(response.notices.count, 4)
+        XCTAssertEqual(response.notices?.count, 4)
 
-        let notice = try XCTUnwrap(response.notices.first)
+        let notice = try XCTUnwrap(response.notices?.first)
         XCTAssertEqual(notice.branch, "Centre Ville")
         XCTAssertEqual(notice.status, "Loaned")
+    }
+
+    func testParseResponse2() throws {
+        let response = try decodeJSON(NoticeResponse.self, from: "get-notice-response-body-2.json")
+
+        XCTAssertNil(response.notices)
     }
 }

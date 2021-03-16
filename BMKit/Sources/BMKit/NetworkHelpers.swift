@@ -98,13 +98,14 @@ extension URLSession {
             }
 
             /*
-             // Save to file for debug
-             if #available(iOS 10.0, *) {
-             let path = FileManager.default.temporaryDirectory.appendingPathComponent("data.json")
-             try? data.write(to: path)
-             print("Save to: \(path)")
-             }
-             */
+            // Save to file for debug
+            if #available(iOS 10.0, *) {
+                let path = FileManager.default.temporaryDirectory.appendingPathComponent("data.json")
+                try? data.write(to: path)
+                print("Request: \(request.url!.absoluteString)")
+                print("Save to: \(path)")
+            }
+            */
 
             DispatchQueue.main.async {
                 completion(.success(data))
