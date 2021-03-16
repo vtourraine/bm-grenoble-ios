@@ -2,6 +2,8 @@
 
 ## 1.6.1 (work in progress)
 
+- [x] Update libraries opening hours
+
 
 ## 1.6
 

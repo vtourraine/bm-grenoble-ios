@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>lastUpdate</key>
-	<date>2020-11-02T14:26:18Z</date>
+	<date>2021-03-16T00:00:00Z</date>
 	<key>libraries</key>
 	<array>
 		<dict>
@@ -12,8 +12,14 @@
 			<key>webpage</key>
 			<string>https://www.bm-grenoble.fr/650-bibliotheque-d-etude-et-du-patrimoine.htm?</string>
 			<key>openingTime</key>
-			<string>Sur rendez-vous.
-Fermeture pour travaux le 1er juillet 2019, réouverture mi-décembre 2020.</string>
+			<string>En raison du couvre-feu, les horaires sont réduits : fermeture au plus tard à 17h30.
+
+Mardi : 10h - 17h30 
+Mercredi : 10h - 17h30
+Jeudi : 13h - 17h30
+Vendredi : 10h - 17h30
+Samedi : 10h - 17h30
+Vacances scolaires : du mardi au samedi : 13h - 18h</string>
 			<key>latitude</key>
 			<real>45.1853165</real>
 			<key>longitude</key>
@@ -34,15 +40,19 @@ Fermeture pour travaux le 1er juillet 2019, réouverture mi-décembre 2020.</str
 			<key>webpage</key>
 			<string>https://www.bm-grenoble.fr/657-bibliotheque-municipale-internationale.htm?</string>
 			<key>openingTime</key>
-			<string>Mardi : 17h - 19h 
-Mercredi : 14h - 18h 
-Jeudi : 17h - 19h 
-Vendredi : 17h - 19h 
+			<string>En raison du couvre-feu, les horaires sont réduits : fermeture au plus tard à 17h30.
+
+Mardi : 17h - 17h30
+Mercredi : 14h - 17h30
+Jeudi : 17h - 17h30
+Vendredi : 17h - 17h30
 Samedi : 10h - 12h30 / 14h - 17h 
 
 Vacances scolaires : 
 Du mardi au vendredi : 14h - 18h 
-Samedi : 10h - 13h</string>
+Samedi : 10h - 13h
+
+Fermeture lundi et samedi de Pâques</string>
 			<key>latitude</key>
 			<real>45.1952996</real>
 			<key>longitude</key>
@@ -65,7 +75,7 @@ Samedi : 10h - 13h</string>
 			<key>openingTime</key>
 			<string>Sur rendez-vous : 
 Lundi : 14h - 17h 
-Du mardi au vendredi : 9h - 18h</string>
+Du mardi au vendredi : 9h - 17h30</string>
 			<key>latitude</key>
 			<real>45.1568105</real>
 			<key>longitude</key>
@@ -86,11 +96,15 @@ Du mardi au vendredi : 9h - 18h</string>
 			<key>webpage</key>
 			<string>https://www.bm-grenoble.fr/647-bibliotheque-abbaye-les-bains.htm?</string>
 			<key>openingTime</key>
-			<string>Mardi : 15h - 18h30 
-Mercredi : 10h - 12h30 / 14h - 18h 
+			<string>En raison du couvre-feu, les horaires sont réduits : fermeture au plus tard à 17h30.
+
+Mardi : 15h - 17h30 
+Mercredi : 10h - 12h30 / 14h - 17h30 
 Jeudi : accueil de groupes 
-Vendredi : 15h - 18h30 
-Samedi : 10h - 12h30 / 14h - 18h</string>
+Vendredi : 15h - 17h30 
+Samedi : 10h - 12h30 / 14h - 17h30
+
+Fermeture lundi et samedi de Pâques</string>
 			<key>latitude</key>
 			<real>45.1793553</real>
 			<key>longitude</key>
@@ -111,10 +125,14 @@ Samedi : 10h - 12h30 / 14h - 18h</string>
 			<key>webpage</key>
 			<string>https://www.bm-grenoble.fr/648-bibliotheque-alliance.htm?</string>
 			<key>openingTime</key>
-			<string>Mardi : 14h - 19h
-Mercredi : 10h - 13h / 14h - 18h 
+			<string>En raison du couvre-feu, les horaires sont réduits : fermeture au plus tard à 17h30.
+
+Mardi : 14h - 17h30
+Mercredi : 10h - 13h / 14h - 17h30
 Jeudi et vendredi : accueil de groupes 
-Samedi : 10h - 13h / 14h - 17h</string>
+Samedi : 10h - 13h / 14h - 17h
+
+Fermeture lundi et samedi de Pâques</string>
 			<key>latitude</key>
 			<real>45.1734066</real>
 			<key>longitude</key>
@@ -135,12 +153,15 @@ Samedi : 10h - 13h / 14h - 17h</string>
 			<key>webpage</key>
 			<string>https://www.bm-grenoble.fr/644-bibliotheque-arlequin.htm?</string>
 			<key>openingTime</key>
-			<string>Mardi : 14h - 18h 
-Mercredi : 14h - 18h 
+			<string>En raison du couvre-feu, les horaires sont réduits : fermeture au plus tard à 17h30.
+
+Mardi : 14h - 17h30
+Mercredi : 14h - 17h30
 Jeudi : 10h - 13h 
-Vendredi : 14h - 18h 
-Samedi : 10h - 13h 
-Ouverture de l'espace presse aux horaires du Patio </string>
+Vendredi : 14h - 17h30
+Samedi : 10h - 13h
+
+Fermeture lundi et samedi de Pâques</string>
 			<key>latitude</key>
 			<real>45.163893</real>
 			<key>longitude</key>
@@ -161,11 +182,17 @@ Ouverture de l'espace presse aux horaires du Patio </string>
 			<key>webpage</key>
 			<string>https://www.bm-grenoble.fr/653-centre-ville.htm?</string>
 			<key>openingTime</key>
-			<string>Mardi : 13h - 18h30 
-Mercredi : 11h - 18h30 
-Jeudi : 13h - 18h30 
-Vendredi : 13h - 18h30 
-Samedi : 11h - 18h30</string>
+			<string>En raison du couvre-feu, les horaires sont réduits : fermeture au plus tard à 17h30.
+
+Mardi : 13h - 17h30
+Mercredi : 11h - 17h30
+Jeudi : 13h - 17h30
+Vendredi : 13h - 17h30
+Samedi : 11h - 17h30
+
+Vacances scolaires : du mardi au samedi de 13h à 17h30
+
+Fermeture lundi et samedi de Pâques</string>
 			<key>latitude</key>
 			<real>45.1902786</real>
 			<key>longitude</key>
@@ -186,11 +213,15 @@ Samedi : 11h - 18h30</string>
 			<key>webpage</key>
 			<string>https://www.bm-grenoble.fr/649-bibliotheque-eaux-claires.htm?</string>
 			<key>openingTime</key>
-			<string>Mardi : 15h - 18h30 
-Mercredi : 10h - 12h30 / 14h - 18h 
+			<string>En raison du couvre-feu, les horaires sont réduits : fermeture au plus tard à 17h30.
+
+Mardi : 15h - 17h30
+Mercredi : 10h - 12h30 / 14h - 17h30
 Jeudi : accueil de groupes 
-Vendredi : 15h - 18h30 
-Samedi : 10h - 12h30 / 14h - 18h</string>
+Vendredi : 15h - 17h30
+Samedi : 10h - 12h30 / 14h - 17h30
+
+Fermeture lundi et samedi de Pâques</string>
 			<key>latitude</key>
 			<real>45.1755315</real>
 			<key>longitude</key>
@@ -211,7 +242,12 @@ Samedi : 10h - 12h30 / 14h - 18h</string>
 			<key>webpage</key>
 			<string>https://www.bm-grenoble.fr/652-jardin-de-ville.htm?</string>
 			<key>openingTime</key>
-			<string>Actuellement en travaux. Collections transférées à la bibliothèque Centre-Ville.</string>
+			<string>En raison du couvre-feu, les horaires sont réduits : fermeture au plus tard à 17h30.
+
+Mardi : 16h - 17h30
+Mercredi : 10h - 12h / 14h - 17h30
+Vendredi : 16h - 17h30
+Samedi : 10h - 12h / 14h - 17h30</string>
 			<key>latitude</key>
 			<real>45.1923764</real>
 			<key>longitude</key>
@@ -232,7 +268,13 @@ Samedi : 10h - 12h30 / 14h - 18h</string>
 			<key>webpage</key>
 			<string>https://www.bm-grenoble.fr/654-kateb-yacine.htm?</string>
 			<key>openingTime</key>
-			<string>Du mardi au samedi : 12h - 18h30</string>
+			<string>En raison du couvre-feu, les horaires sont réduits : fermeture au plus tard à 17h30.
+
+Du mardi au samedi : 12h - 17h30
+
+Vacances scolaires (été uniquement) : du mardi au samedi de 13h à 18h
+
+Fermeture lundi et samedi de Pâques</string>
 			<key>latitude</key>
 			<real>45.157186</real>
 			<key>longitude</key>
@@ -253,11 +295,15 @@ Samedi : 10h - 12h30 / 14h - 18h</string>
 			<key>webpage</key>
 			<string>https://www.bm-grenoble.fr/667-saint-bruno.htm?</string>
 			<key>openingTime</key>
-			<string>Mardi : 15h - 18h30 
-Mercredi : 10h - 12h30 / 14h - 18h 
+			<string>En raison du couvre-feu, les horaires sont réduits : fermeture au plus tard à 17h30.
+
+Mardi : 15h - 17h30
+Mercredi : 10h - 12h30 / 14h - 17h30
 Jeudi : accueil de groupes 
-Vendredi : 15h - 18h30 
-Samedi : 10h - 12h30 / 14h - 18h</string>
+Vendredi : 15h - 17h30 
+Samedi : 10h - 12h30 / 14h - 17h30
+
+Fermeture lundi et samedi de Pâques</string>
 			<key>latitude</key>
 			<real>45.1877699</real>
 			<key>longitude</key>
@@ -278,11 +324,15 @@ Samedi : 10h - 12h30 / 14h - 18h</string>
 			<key>webpage</key>
 			<string>https://www.bm-grenoble.fr/656-teisseire-malherbe.htm?</string>
 			<key>openingTime</key>
-			<string>Mardi : 15h - 18h30 
-Mercredi : 10h - 12h30 / 14h - 18h 
+			<string>En raison du couvre-feu, les horaires sont réduits : fermeture au plus tard à 17h30.
+
+Mardi : 15h - 17h30
+Mercredi : 10h - 12h30 / 14h - 17h30
 Jeudi : accueil de groupes 
-Vendredi : 15h - 18h30 
-Samedi : 10h - 12h30 / 14h - 18h</string>
+Vendredi : 15h - 17h30
+Samedi : 10h - 12h30 / 14h - 17h30
+
+Fermeture lundi et samedi de Pâques</string>
 			<key>latitude</key>
 			<real>45.1707803</real>
 			<key>longitude</key>
@@ -303,7 +353,9 @@ Samedi : 10h - 12h30 / 14h - 18h</string>
 			<key>webpage</key>
 			<string>https://www.bm-grenoble.fr/605-l-artotheque.htm?</string>
 			<key>openingTime</key>
-			<string>L’artothèque est fermée au public du 1er juillet 2019 jusqu’en septembre-octobre 2020.</string>
+			<string>En raison du couvre-feu, les horaires sont réduits : fermeture au plus tard à 17h30.
+
+Du mardi au samedi : 13h - 17h30</string>
 			<key>latitude</key>
 			<real>45.1853165</real>
 			<key>longitude</key>
