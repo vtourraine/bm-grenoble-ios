@@ -2,6 +2,7 @@
 
 ## 1.6.1 (work in progress)
 
+- [x] Search details and availability
 - [x] Update libraries opening hours
 
 
