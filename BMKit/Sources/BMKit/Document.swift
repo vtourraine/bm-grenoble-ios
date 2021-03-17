@@ -12,6 +12,7 @@ public struct Document: Codable {
     public let localNumber: String
     public let title: String
     public let type: String
+    public let ark: String
     public let imageURL: URL?
     public let meta: Meta?
 
@@ -19,6 +20,7 @@ public struct Document: Codable {
         case identifier = "id"
         case localNumber = "LocalNumber"
         case title
+        case ark
         case type = "zmatIndex"
         case imageURL = "imageSource_128"
         case meta
@@ -55,13 +57,14 @@ public struct Document: Codable {
         }
     }
 
-    public init(identifier: String, title: String, localNumber: String, type: String, meta: Meta? = nil, imageURL: URL? = nil) {
+    public init(identifier: String, title: String, localNumber: String, type: String, meta: Meta? = nil, imageURL: URL? = nil, ark: String = "") {
         self.identifier = identifier
         self.title = title
         self.localNumber = localNumber
         self.type = type
         self.meta = meta
         self.imageURL = imageURL
+        self.ark = ark
     }
 
     public init(from decoder: Decoder) throws {
@@ -78,6 +81,9 @@ public struct Document: Codable {
 
         let typeContainer = try values.decode([Value].self, forKey: .type)
         type = typeContainer.first!.value
+
+        let arkContainer = try values.decode([Value].self, forKey: .ark)
+        ark = arkContainer.first!.value
 
         let imageURLContainer = try values.decode([Value].self, forKey: .imageURL)
         if let firstValue = imageURLContainer.first {

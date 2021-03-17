@@ -50,10 +50,20 @@ class ItemTableViewCell: UITableViewCell {
         }
 
         thumbnail?.layer.cornerRadius = 2
+
+        let placeholderImage: UIImage?
+        if #available(iOS 13.0, *) {
+            let imageName = Document.systemImageName(for: item.type)
+            placeholderImage = UIImage(systemName: imageName)
+        }
+        else {
+            placeholderImage = nil
+        }
+
         if let imageURL = item.image {
             thumbnail?.backgroundColor = nil
             thumbnail?.contentMode = .scaleAspectFit
-            thumbnail?.af.setImage(withURL: imageURL, completion: { response in
+            thumbnail?.af.setImage(withURL: imageURL, placeholderImage: placeholderImage, completion: { response in
                 if let data = response.data {
                     self.thumbnail?.image = UIImage(data: data)
                     self.setNeedsLayout()
@@ -62,8 +72,7 @@ class ItemTableViewCell: UITableViewCell {
         }
         else {
             if #available(iOS 13.0, *) {
-                let imageName = Document.systemImageName(for: item.type)
-                thumbnail?.image = UIImage(systemName: imageName)
+                thumbnail?.image = placeholderImage
                 thumbnail?.preferredSymbolConfiguration = UIImage.SymbolConfiguration(scale: .large)
                 thumbnail?.tintColor = .secondaryLabel
                 thumbnail?.backgroundColor = .systemFill

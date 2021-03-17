@@ -3,6 +3,7 @@
 ## 1.6.1 (work in progress)
 
 - [x] Search details and availability
+- [x] Add loans and search results image placeholders
 - [x] Update libraries opening hours
 - [x] Add English localization in Library screen
 - [x] Improve Dynamic Type support in Library screen

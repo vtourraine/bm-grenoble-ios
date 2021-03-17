@@ -1576,7 +1576,13 @@ Grenoble</string>
                             <outlet property="delegate" destination="QdB-QO-xO4" id="LlB-2H-wEG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="eS3-ny-gN1"/>
+                    <navigationItem key="navigationItem" id="eS3-ny-gN1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="wga-43-37e">
+                            <connections>
+                                <action selector="share:" destination="QdB-QO-xO4" id="KLF-hQ-lzz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HVS-Tz-uW1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

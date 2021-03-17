@@ -36,24 +36,60 @@ class SearchResultsDetailsViewController: UITableViewController {
 
         tableView.tableFooterView = UIView(frame: .zero)
 
-        if let searchResult = searchResult,
-           let token = token {
+        if #available(iOS 13.0, *) {
+            let browserItem = UIBarButtonItem(image: UIImage(systemName: "safari"), style: .plain, target: self, action: #selector(openWebpage(_:)))
+            let shareItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(share(_:)))
+            navigationItem.rightBarButtonItems = [shareItem, browserItem]
+        }
+
+        fetchNotice()
+    }
+
+    // MARK: - Actions
+
+    func fetchNotice() {
+        guard let searchResult = searchResult,
+              let token = token else {
+            return
+        }
+
         let urlSession = URLSession.shared
-            _ = urlSession.fetchNotice(searchResult.document.identifier, with: token) { result in
-                switch result {
-                case .success(let notices):
-                    self.notices = notices
+        _ = urlSession.fetchNotice(searchResult.document.identifier, with: token) { result in
+            switch result {
+            case .success(let notices):
+                self.notices = notices
 
-                    let sections = IndexSet(integer: Section.availability.rawValue)
-                    self.tableView.reloadSections(sections, with: .automatic)
+                let sections = IndexSet(integer: Section.availability.rawValue)
+                self.tableView.reloadSections(sections, with: .automatic)
 
-                case .failure(let error):
-                    let alert = UIAlertController(title: NSLocalizedString("Error", comment: ""), message: error.localizedDescription, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                }
+            case .failure(let error):
+                let alert = UIAlertController(title: NSLocalizedString("Error", comment: ""), message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }
         }
+    }
+
+    @IBAction func openWebpage(_ sender: UIBarButtonItem?) {
+        guard let searchResult = searchResult else {
+            return
+        }
+
+        let url = searchResult.document.webpage()
+        presentSafariViewController(url)
+    }
+
+    @IBAction func share(_ sender: UIBarButtonItem?) {
+        guard let searchResult = searchResult else {
+            return
+        }
+
+        let title = searchResult.document.title
+        let url = searchResult.document.webpage()
+
+        let viewController = UIActivityViewController(activityItems: [title, url], applicationActivities: nil)
+        viewController.popoverPresentationController?.barButtonItem = sender
+        present(viewController, animated: true, completion: nil)
     }
 
     // MARK: - Table view data source
@@ -133,5 +169,11 @@ extension Notice {
         default:
             return status
         }
+    }
+}
+
+extension Document {
+    func webpage() -> URL {
+        return BaseURL.appendingPathComponent("ark:/" + ark)
     }
 }

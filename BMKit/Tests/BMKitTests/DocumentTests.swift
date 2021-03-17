@@ -17,13 +17,16 @@ final class DocumentTests: XCTestCase {
         XCTAssertEqual(response.pageIndex, 1)
 
         XCTAssertEqual(response.documents.count, 4)
-        XCTAssertEqual(response.documents[0].title, "Adrastée. 1 / Mathieu Bablet")
-        XCTAssertEqual(response.documents[0].type, "Livres")
-        XCTAssertEqual(response.documents[0].meta?.creators?.count, 1)
-        let creatorNameComponents = try XCTUnwrap(response.documents[0].meta?.creators?[0].nameComponents())
+
+        let document = response.documents[0]
+        XCTAssertEqual(document.title, "Adrastée. 1 / Mathieu Bablet")
+        XCTAssertEqual(document.type, "Livres")
+        XCTAssertEqual(document.ark, "66349/pf0001314033")
+        XCTAssertEqual(document.meta?.creators?.count, 1)
+        let creatorNameComponents = try XCTUnwrap(document.meta?.creators?[0].nameComponents())
         XCTAssertEqual(creatorNameComponents.givenName, "Mathieu")
         XCTAssertEqual(creatorNameComponents.familyName, "Bablet")
-        XCTAssertEqual(response.documents[0].imageURL?.absoluteString, "https://catalogue.bm-grenoble.fr/in/rest/Thumb/image?id=p%3A%3Ausmarcdef_0001314033&isbn=9782359104035&ean=9782359104035&author=Bablet%2C+Mathieu+%281987-....%29&title=Adrast%C3%A9e.+1+%2F+Mathieu+Bablet&year=2013&publisher=Ankama&TypeOfDocument=GrenoblePhysicalDocument&mat=Livres&ct=true&size=128&isPhysical=1")
+        XCTAssertEqual(document.imageURL?.absoluteString, "https://catalogue.bm-grenoble.fr/in/rest/Thumb/image?id=p%3A%3Ausmarcdef_0001314033&isbn=9782359104035&ean=9782359104035&author=Bablet%2C+Mathieu+%281987-....%29&title=Adrast%C3%A9e.+1+%2F+Mathieu+Bablet&year=2013&publisher=Ankama&TypeOfDocument=GrenoblePhysicalDocument&mat=Livres&ct=true&size=128&isPhysical=1")
     }
 
     func testParseResponseWithCDs() throws {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-let BaseURL = URL(string: "https://catalogue.bm-grenoble.fr")!
+public let BaseURL = URL(string: "https://catalogue.bm-grenoble.fr")!
 
 extension URLRequest {
     init(get endpoint: String, credentials: Credentials) {

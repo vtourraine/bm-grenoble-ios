@@ -41,17 +41,26 @@ class SearchResultsCell: UITableViewCell {
             }
         }
 
+        let placeholderImage: UIImage?
+
+        if #available(iOS 13.0, *) {
+            let imageName = searchResult.document.systemImageNameForType()
+            placeholderImage = UIImage(systemName: imageName)
+        }
+        else {
+            placeholderImage = nil
+        }
+
         if let image = searchResult.document.imageURL {
             thumbnail?.backgroundColor = nil
             thumbnail?.contentMode = .scaleAspectFit
-            thumbnail?.af.setImage(withURL: image, completion: { response in
+            thumbnail?.af.setImage(withURL: image, placeholderImage: placeholderImage, completion: { response in
                 self.setNeedsLayout()
             })
         }
         else {
             if #available(iOS 13.0, *) {
-                let imageName = searchResult.document.systemImageNameForType()
-                imageView?.image = UIImage(systemName: imageName)
+                imageView?.image = placeholderImage
                 imageView?.preferredSymbolConfiguration = UIImage.SymbolConfiguration(scale: .large)
                 imageView?.tintColor = .secondaryLabel
                 imageView?.contentMode = .center
