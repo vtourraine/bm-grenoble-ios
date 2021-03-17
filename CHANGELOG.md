@@ -3,6 +3,8 @@
 ## 1.6.1 (work in progress)
 
 - [x] Update libraries opening hours
+- [x] Add English localization in Library screen
+- [x] Improve Dynamic Type support in Library screen
 
 
 ## 1.6

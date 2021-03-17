@@ -19,8 +19,23 @@
 /* Class = "UIButton"; text = "Mot de passe oublié ?"; ObjectID = "tOO-PD-mgN"; */
 "tOO-PD-mgN.normalTitle" = "Mot de passe oublié ?";
 
+/* Class = "UIButton"; text = "Ouvrir site web"; ObjectID = "BNv-vc-eWV"; */
+"BNv-vc-eWV.normalTitle" = "Ouvrir site web";
+
+/* Class = "UIButton"; text = "Ouvrir dans Plans"; ObjectID = "cZr-f5-NAp"; */
+"cZr-f5-NAp.normalTitle" = "Ouvrir dans Plans";
+
+/* Class = "UIButton"; text = "Appeler"; ObjectID = "hVd-NC-r0a"; */
+"hVd-NC-r0a.normalTitle" = "Appeler";
+
+/* Class = "UIButton"; text = "Envoyer email"; ObjectID = "NgA-q0-0MU"; */
+"NgA-q0-0MU.normalTitle" = "Envoyer email";
+
 /* Class = "UILabel"; text = "À rendre pour le"; ObjectID = "PPV-XU-Xqf"; */
 "PPV-XU-Xqf.text" = "À rendre pour le";
+
+/* Class = "UILabel"; text = "⚠️ Les horaires sont sujets à changement. Vous pouvez consulter le site web pour confirmer ces informations."; ObjectID = "xC7-b9-oOC"; */
+"xC7-b9-oOC.text" = "⚠️ Les horaires sont sujets à changement. Vous pouvez consulter le site web pour confirmer ces informations.";
 
 /* Class = "UITextField"; placeholder = "0100000000000"; ObjectID = "PVm-hQ-O1V"; */
 "PVm-hQ-O1V.placeholder" = "0100000000000";
