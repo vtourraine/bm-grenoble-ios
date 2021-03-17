@@ -20,6 +20,21 @@
 /* Class = "UIButton"; text = "Mot de passe oublié ?"; ObjectID = "tOO-PD-mgN"; */
 "tOO-PD-mgN.normalTitle" = "Lost password?";
 
+/* Class = "UIButton"; text = "Ouvrir site web"; ObjectID = "BNv-vc-eWV"; */
+"BNv-vc-eWV.normalTitle" = "Open Website";
+
+/* Class = "UIButton"; text = "Ouvrir dans Plans"; ObjectID = "cZr-f5-NAp"; */
+"cZr-f5-NAp.normalTitle" = "Open in Maps";
+
+/* Class = "UIButton"; text = "Appeler"; ObjectID = "hVd-NC-r0a"; */
+"hVd-NC-r0a.normalTitle" = "Make Phone Call";
+
+/* Class = "UIButton"; text = "Envoyer email"; ObjectID = "NgA-q0-0MU"; */
+"NgA-q0-0MU.normalTitle" = "Send Email";
+
+/* Class = "UILabel"; text = "⚠️ Les horaires sont sujets à changement. Vous pouvez consulter le site web pour confirmer ces informations."; ObjectID = "xC7-b9-oOC"; */
+"xC7-b9-oOC.text" = "⚠️ Opening hours are subject to change. You can check the website to confirm this information.";
+
 /* Class = "UILabel"; text = "À rendre pour le"; ObjectID = "PPV-XU-Xqf"; */
 "PPV-XU-Xqf.text" = "To return before";
 

@@ -3,7 +3,7 @@
 //  bm
 //
 //  Created by Vincent Tourraine on 25/10/2019.
-//  Copyright © 2019 Studio AMANgA. All rights reserved.
+//  Copyright © 2019-2021 Studio AMANgA. All rights reserved.
 //
 
 import Foundation
@@ -33,7 +33,10 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        metadataView?.subviews.filter({$0.isKind(of: UIButton.self)}).forEach({$0.configureRoundCorners()})
+        metadataView?.subviews.filter({$0.isKind(of: UIButton.self)}).forEach({
+            $0.configureRoundCorners()
+            ($0 as? UIButton)?.titleLabel?.adjustsFontForContentSizeCategory = true
+        })
 
         separatorWidth?.constant = 1.0 / UIScreen.main.scale
         separatorHeight?.constant = 1.0 / UIScreen.main.scale
