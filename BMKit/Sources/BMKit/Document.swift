@@ -21,7 +21,7 @@ public struct Document: Codable {
         case localNumber = "LocalNumber"
         case title
         case ark
-        case type = "zmatIndex"
+        case type = "zmatDisplay"
         case imageURL = "imageSource_128"
         case meta
     }

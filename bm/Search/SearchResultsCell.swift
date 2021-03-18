@@ -15,13 +15,18 @@ class SearchResultsCell: UITableViewCell {
     @IBOutlet var availabilityLabel: UILabel?
     @IBOutlet var availabilityImageView: UIImageView?
     @IBOutlet var thumbnail: UIImageView?
+    @IBOutlet var typeLabel: UILabel?
 
     func configure(with searchResult: SearchResult) {
         titleLabel?.text = searchResult.document.formattedTitle()
+        typeLabel?.text = searchResult.document.localizedType()
 
         if let firstCreator = searchResult.document.meta?.creators?.first,
            let components = firstCreator.nameComponents() {
             authorLabel?.text = PersonNameComponentsFormatter.localizedString(from: components, style: .default)
+        }
+        else {
+            authorLabel?.text = searchResult.document.meta?.creators?.first?.name
         }
 
         if searchResult.availability.isAvailable {

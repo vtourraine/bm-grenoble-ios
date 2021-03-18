@@ -1526,14 +1526,23 @@ Grenoble</string>
                                                 <constraint firstAttribute="height" constant="144" id="oTn-p8-Cgy"/>
                                             </constraints>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Type" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zd7-k7-oKy">
+                                            <rect key="frame" x="292" y="64.5" width="33.5" height="18"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="zd7-k7-oKy" secondAttribute="trailing" id="5ic-tl-JNA"/>
+                                        <constraint firstItem="zd7-k7-oKy" firstAttribute="top" secondItem="2pa-j9-deB" secondAttribute="bottom" constant="8" symbolic="YES" id="6QX-dR-6nE"/>
                                         <constraint firstItem="2pa-j9-deB" firstAttribute="top" secondItem="fXy-aR-INc" secondAttribute="bottom" constant="8" symbolic="YES" id="Cia-og-xBc"/>
                                         <constraint firstItem="2pa-j9-deB" firstAttribute="leading" secondItem="fXy-aR-INc" secondAttribute="leading" id="Cph-ev-mTT"/>
-                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="2pa-j9-deB" secondAttribute="bottom" id="Gze-HV-Ich"/>
                                         <constraint firstItem="fXy-aR-INc" firstAttribute="leading" secondItem="s2u-Qi-nCs" secondAttribute="trailing" constant="8" symbolic="YES" id="Jqf-wo-pNf"/>
                                         <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="2pa-j9-deB" secondAttribute="trailing" id="N8f-Lb-qaF"/>
                                         <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="s2u-Qi-nCs" secondAttribute="bottom" id="RB0-vm-cW4"/>
+                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="zd7-k7-oKy" secondAttribute="bottom" id="TqZ-f4-wYf"/>
+                                        <constraint firstItem="zd7-k7-oKy" firstAttribute="leading" secondItem="2pa-j9-deB" secondAttribute="leading" id="cR6-YB-345"/>
                                         <constraint firstItem="s2u-Qi-nCs" firstAttribute="top" secondItem="IUl-Kg-A7A" secondAttribute="top" constant="8" id="dgZ-0Z-UEA"/>
                                         <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="fXy-aR-INc" secondAttribute="trailing" id="oag-Nt-ZWy"/>
                                         <constraint firstItem="s2u-Qi-nCs" firstAttribute="leading" secondItem="IUl-Kg-A7A" secondAttribute="leadingMargin" id="wU3-Eu-EwX"/>
@@ -1544,6 +1553,7 @@ Grenoble</string>
                                     <outlet property="authorLabel" destination="2pa-j9-deB" id="wWS-DV-ZiR"/>
                                     <outlet property="thumbnail" destination="s2u-Qi-nCs" id="JfC-u0-1or"/>
                                     <outlet property="titleLabel" destination="fXy-aR-INc" id="6Dh-bi-pwE"/>
+                                    <outlet property="typeLabel" destination="zd7-k7-oKy" id="I53-7F-mho"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="NoticeCell" textLabel="OcY-1K-F2x" detailTextLabel="99n-Xe-lNb" style="IBUITableViewCellStyleValue1" id="Wha-lr-oHi">

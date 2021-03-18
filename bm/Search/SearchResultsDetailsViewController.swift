@@ -176,4 +176,17 @@ extension Document {
     func webpage() -> URL {
         return BaseURL.appendingPathComponent("ark:/" + ark)
     }
+
+    func localizedType() -> String {
+        switch type {
+        case "Books":
+            return NSLocalizedString("Book", comment: "")
+        case "Videos":
+            return NSLocalizedString("Video", comment: "")
+        case "Language learning aids":
+            return NSLocalizedString("Language learning aid", comment: "")
+        default:
+            return type
+        }
+    }
 }

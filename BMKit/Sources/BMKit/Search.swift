@@ -13,17 +13,19 @@ extension URLRequest {
         let query: [String]?
         let pageSize: Int
         let pageIndex: Int?
+        let locale: String
 
         private enum CodingKeys: String, CodingKey {
             case identifier = "queryid"
             case query
             case pageSize
             case pageIndex = "pageNo"
+            case locale
         }
     }
 
     internal static func searchRequest(query: String, token: String, pageSize: Int, pageIndex: Int) -> URLRequest {
-        let parameters = Parameters(identifier: "NONE", query: [query], pageSize: pageSize, pageIndex: pageIndex)
+        let parameters = Parameters(identifier: "NONE", query: [query], pageSize: pageSize, pageIndex: pageIndex, locale: "en")
         return URLRequest(post: "search", token: token, jsonParameters: parameters)
     }
 }
