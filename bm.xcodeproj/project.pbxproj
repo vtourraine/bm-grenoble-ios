@@ -58,6 +58,7 @@
 		D7CE68D223DCEEDB00197F50 /* AgendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE68D123DCEEDB00197F50 /* AgendaViewController.swift */; };
 		D7CE68D423DCF15000197F50 /* AgendaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE68D323DCF15000197F50 /* AgendaTableViewCell.swift */; };
 		D7E73EFC25FBAB0C00A9BF26 /* SearchResultsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E73EFB25FBAB0C00A9BF26 /* SearchResultsDetailsViewController.swift */; };
+		D7E73FEF2603B1A100A9BF26 /* Document+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E73FEE2603B1A100A9BF26 /* Document+Formatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +140,7 @@
 		D7CE68D123DCEEDB00197F50 /* AgendaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaViewController.swift; sourceTree = "<group>"; };
 		D7CE68D323DCF15000197F50 /* AgendaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaTableViewCell.swift; sourceTree = "<group>"; };
 		D7E73EFB25FBAB0C00A9BF26 /* SearchResultsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsDetailsViewController.swift; sourceTree = "<group>"; };
+		D7E73FEE2603B1A100A9BF26 /* Document+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Document+Formatter.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,6 +325,7 @@
 				D7A97B6825F65EF800EE1D5F /* SearchResultsViewController.swift */,
 				D7A97B6C25F665CE00EE1D5F /* SearchResultsCell.swift */,
 				D7E73EFB25FBAB0C00A9BF26 /* SearchResultsDetailsViewController.swift */,
+				D7E73FEE2603B1A100A9BF26 /* Document+Formatter.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				D7CE68D223DCEEDB00197F50 /* AgendaViewController.swift in Sources */,
 				D70212C922F0E43C00E3972E /* LoansViewController.swift in Sources */,
 				D7697DEA23CA0C8E00010011 /* AgendaItem.swift in Sources */,
+				D7E73FEF2603B1A100A9BF26 /* Document+Formatter.swift in Sources */,
 				D70212C722F0E43C00E3972E /* AppDelegate.swift in Sources */,
 				D7A0A2E423E032F30039D934 /* AgendaItemCache.swift in Sources */,
 				D786E6F022F1B42C00AD1D36 /* ItemTableViewCell.swift in Sources */,

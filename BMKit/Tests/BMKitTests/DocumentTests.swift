@@ -20,7 +20,7 @@ final class DocumentTests: XCTestCase {
 
         let document = response.documents[0]
         XCTAssertEqual(document.title, "Adrastée. 1 / Mathieu Bablet")
-        XCTAssertEqual(document.type, "Livres")
+        XCTAssertEqual(document.type, "Books")
         XCTAssertEqual(document.ark, "66349/pf0001314033")
         XCTAssertEqual(document.meta?.creators?.count, 1)
         let creatorNameComponents = try XCTUnwrap(document.meta?.creators?[0].nameComponents())
