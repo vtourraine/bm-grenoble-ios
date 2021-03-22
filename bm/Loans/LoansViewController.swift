@@ -3,7 +3,7 @@
 //  bm
 //
 //  Created by Vincent Tourraine on 30/07/2019.
-//  Copyright © 2019-2020 Studio AMANgA. All rights reserved.
+//  Copyright © 2019-2021 Studio AMANgA. All rights reserved.
 //
 
 import UIKit
@@ -17,6 +17,7 @@ class LoansViewController: UITableViewController {
         case loans([Item])
         case notLoggedIn
     }
+
     var state: State = .notLoggedIn
     var isFirstLaunch = true
     var lastRefreshDate: Date?
@@ -40,7 +41,7 @@ class LoansViewController: UITableViewController {
         if #available(iOS 13.0, *) {
             tableView.backgroundColor = .systemBackground
         }
-        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        tableView.tableFooterView = UIView(frame: .zero)
 
         if Credentials.sharedCredentials() == nil {
             reloadData(state: .notLoggedIn)
@@ -56,7 +57,6 @@ class LoansViewController: UITableViewController {
         super.viewDidAppear(animated)
 
         if isFirstLaunch {
-            // loadDemoData()
             if Credentials.sharedCredentials() != nil {
                 refresh(sender: nil)
             }
@@ -100,6 +100,9 @@ class LoansViewController: UITableViewController {
     }
 
     func reloadData(state: State) {
+        // loadDemoData()
+        // return
+
         self.state = state
         tableView.reloadData()
 
@@ -120,12 +123,19 @@ class LoansViewController: UITableViewController {
     }
 
     func loadDemoData() {
-        // TODO: re-implement
-        // let fileName = "DemoAccountLoans"
-        // let path = Bundle(for: type(of: self)).path(forResource: fileName, ofType: "html")
-        // let html = try? String(contentsOfFile: path!)
-        // let loans = PageParser.parseLoans(html: html!)
-        // reloadData(state: .loans(loans!.items))
+        var dateComponents = DateComponents()
+        dateComponents.year = 2021
+        dateComponents.month = 4
+        dateComponents.day = 15
+
+        let items = [
+            Item(identifier: "", isRenewable: false, title: "Sous le même ciel", type: "Books", author: "Britta Teckentrup", library: "Eaux Claires", returnDateComponents: dateComponents, image: URL(string: "https://images-na.ssl-images-amazon.com/images/I/81I38liMXCL.jpg")!),
+            Item(identifier: "", isRenewable: false, title: "A la recherche de Calvin et Hobbes : catalogue de l'exposition", type: "Books", author: "Bill Watterson", library: "Centre Ville", returnDateComponents: dateComponents, image: URL(string: "https://products-images.di-static.com/image/bill-watterson-a-la-recherche-de-calvin-et-hobbes/9782258117389-475x500-1.jpg")!),
+            Item(identifier: "", isRenewable: false, title: "Little Fires Everywhere", type: "Books", author: "Celeste Ng", library: "Bibliothèque municipale internationale", returnDateComponents: dateComponents, image: URL(string: "https://images-na.ssl-images-amazon.com/images/I/81wScwlTchL.jpg")!),
+            Item(identifier: "", isRenewable: false, title: "Hilda et le chien noir", type: "Books", author: "Luke Pearson", library: "Jardin de Ville", returnDateComponents: dateComponents, image: URL(string: "https://www.casterman.com/media/cache/couverture_large/casterman_img/Couvertures/9782203097223.jpg")!)]
+
+        state = .loans(items)
+        tableView.reloadData()
     }
 
     func item(at indexPath: IndexPath) -> Item? {
