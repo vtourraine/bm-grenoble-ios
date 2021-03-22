@@ -295,23 +295,20 @@ class LoansViewController: UITableViewController {
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    @available(iOS 13.0, *)
+    override func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         guard let item = self.item(at: indexPath) else {
             return nil
         }
 
-        let action = UIContextualAction(style: .normal, title: NSLocalizedString("Search on Goodreads", comment: "")) { (action, view, completion) in
+        let action = UIAction(title: NSLocalizedString("Search on Goodreads", comment: ""), image: UIImage(systemName: "safari")) { action in
             self.openInGoodreads(item: item)
-        }
-
-        if #available(iOS 13.0, *) {
-            action.image = UIImage(systemName: "safari")
         }
 
         var actions = [action]
 
         if item.isRenewable {
-            let renewAction = UIContextualAction(style: .normal, title: NSLocalizedString("Renew", comment: "")) { (action, view, completion) in
+            let renewAction = UIAction(title: NSLocalizedString("Renew", comment: "")) { action in
                 self.renew(item)
             }
 
@@ -322,8 +319,9 @@ class LoansViewController: UITableViewController {
             actions.append(renewAction)
         }
 
-        let configuration = UISwipeActionsConfiguration(actions: actions)
-        configuration.performsFirstActionWithFullSwipe = false
+        let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: { _ -> UIMenu? in
+            return UIMenu(title: "", children: actions)
+        })
         return configuration
     }
 }
