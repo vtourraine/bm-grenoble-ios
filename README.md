@@ -8,7 +8,7 @@ iOS application for the Grenoble Municipal Library ([bibliothèque municipale de
 
 ## Features
 
-- List current loans
+- List current loans, renew loans
 - News
 - Agenda
 - Libraries list with info and map
@@ -18,7 +18,6 @@ iOS application for the Grenoble Municipal Library ([bibliothèque municipale de
 ## Roadmap
 
 - Local notification for reminders
-- Renew loans
 - Reservations
 - Multiple accounts support
 
