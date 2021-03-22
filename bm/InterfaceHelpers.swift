@@ -3,7 +3,7 @@
 //  bm
 //
 //  Created by Vincent Tourraine on 09/08/2019.
-//  Copyright © 2019 Studio AMANgA. All rights reserved.
+//  Copyright © 2019-2021 Studio AMANgA. All rights reserved.
 //
 
 import UIKit
@@ -49,6 +49,12 @@ extension UIViewController {
         let viewController = SFSafariViewController(url: webpageURL, configuration: configuration)
         viewController.preferredControlTintColor = .BMRed
         present(viewController, animated: true, completion: nil)
+    }
+
+    func present(_ error: Error) {
+        let alert = UIAlertController(title: NSLocalizedString("Error", comment: ""), message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }
 

@@ -233,18 +233,15 @@ class LoansViewController: UITableViewController {
             return
         }
 
-        self.configureToolbar(message: NSLocalizedString("Renewing...", comment: ""), animated: true)
+        configureToolbar(message: NSLocalizedString("Renewing Document…", comment: ""), animated: true)
 
         let session = URLSession.shared
         _ = session.renew(item.identifier, with: credentials) { result in
             switch result {
             case .success:
                 self.refresh(sender: nil)
-
             case .failure(let error):
-                let alert = UIAlertController(title: NSLocalizedString("Error", comment: ""), message: error.localizedDescription, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                self.present(error)
             }
         }
     }
@@ -314,7 +311,6 @@ class LoansViewController: UITableViewController {
         var actions = [action]
 
         if item.isRenewable {
-            // FR: Renouveler
             let renewAction = UIContextualAction(style: .normal, title: NSLocalizedString("Renew", comment: "")) { (action, view, completion) in
                 self.renew(item)
             }

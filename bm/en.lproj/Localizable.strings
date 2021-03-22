@@ -22,14 +22,17 @@
 "Contact" = "Contact";
 "Contact Support" = "Contact Support";
 "Card" = "Card";
+"Error" = "Error";
 
 "Updating Account…" = "Updating Account…";
+"Renewing Document…" = "Renewing Document…";
 "No Current Loans" = "No Current Loans";
 "Connection Error" = "Connection Error";
 "Invalid subscriber number or password" = "Invalid subscriber number or password";
 "Search on Goodreads" = "Search on Goodreads";
 "Share" = "Share";
 "Open in Browser" = "Open in Browser";
+"Renew" = "Renew";
 "Search Results for “%@”" = "Search Results for “%@”";
 "Search Error" = "Search Error";
 "No Result Found" = "No Result Found";

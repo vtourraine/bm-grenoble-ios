@@ -3,7 +3,7 @@
   bm
 
   Created by Vincent Tourraine on 08/08/2019.
-  Copyright © 2019 Studio AMANgA. All rights reserved.
+  Copyright © 2019-2021 Studio AMANgA. All rights reserved.
 */
 
 "BM Grenoble" = "BM Grenoble";
@@ -22,14 +22,17 @@
 "Contact" = "Contact";
 "Contact Support" = "Contacter le support";
 "Card" = "Carte";
+"Error" = "Erreur";
 
 "Updating Account…" = "Mise à jour du compte…";
+"Renewing Document…" = "Renouvellement du document…";
 "No Current Loans" = "Aucun prêt en cours";
 "Connection Error" = "Erreur de connexion";
 "Invalid subscriber number or password" = "Numéro d’abonné(e) ou mot de passe incorrect";
 "Search on Goodreads" = "Rechercher sur Goodreads";
 "Share" = "Partager";
 "Open in Browser" = "Ouvrir dans le navigateur";
+"Renew" = "Renouveler";
 "Search Results for “%@”" = "Résultats de recherche pour « %@ »";
 "Search Error" = "Erreur de recherche";
 "No Result Found" = "Aucun résultat trouvé";
