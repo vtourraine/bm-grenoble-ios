@@ -10,6 +10,8 @@ import Foundation
 import BMKit
 
 struct Item: Codable {
+    let identifier: String
+    let isRenewable: Bool
     let title: String
     let type: String
     let author: String
@@ -50,8 +52,8 @@ extension Item {
 
         var items = [Item]()
 
-        for loanItem in loanItems {
-            guard let document = documents.first(where: { $0.localNumber.hasSuffix(loanItem.sequenceNumber) }) else {
+        for loan in loanItems {
+            guard let document = documents.first(where: { $0.localNumber.hasSuffix(loan.sequenceNumber) }) else {
                 continue
             }
 
@@ -64,7 +66,7 @@ extension Item {
                 author = ""
             }
 
-            let item = Item(title: document.formattedTitle(), type: document.type, author: author, library: loanItem.library, returnDateComponents: loanItem.returnDateComponents, image: document.imageURL)
+            let item = Item(identifier: loan.identifier, isRenewable: loan.isRenewable, title: document.formattedTitle(), type: document.type, author: author, library: loan.library, returnDateComponents: loan.returnDateComponents, image: document.imageURL)
             items.append(item)
         }
 
@@ -72,32 +74,3 @@ extension Item {
     }
 }
 
-extension Document {
-    func formattedTitle() -> String {
-        var formattedTitle = title
-
-        if let slash = formattedTitle.range(of: " / ") {
-            formattedTitle = String(formattedTitle[..<slash.lowerBound])
-        }
-
-        formattedTitle = formattedTitle.replacingOccurrences(of: "[\(type.uppercased())]", with: "")
-        formattedTitle = formattedTitle.trimmingCharacters(in: .whitespacesAndNewlines)
-
-        return formattedTitle
-    }
-
-    static func systemImageName(for type: String) -> String {
-        switch type {
-        case "DVD":
-            return "tv"
-        case "CD":
-            return "smallcircle.circle"
-        default:
-            return "book"
-        }
-    }
-
-    func systemImageNameForType() -> String {
-        return Document.systemImageName(for: type)
-    }
-}

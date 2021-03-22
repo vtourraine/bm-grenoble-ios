@@ -2,6 +2,7 @@
 
 ## 1.6.1 (work in progress)
 
+- [ ] Renew loans
 - [x] Search details and availability
 - [x] Add loans and search results image placeholders
 - [x] Update libraries opening hours

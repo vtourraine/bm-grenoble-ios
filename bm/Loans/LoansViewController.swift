@@ -228,6 +228,27 @@ class LoansViewController: UITableViewController {
         }
     }
 
+    func renew(_ item: Item) {
+        guard let credentials = Credentials.sharedCredentials() else {
+            return
+        }
+
+        self.configureToolbar(message: NSLocalizedString("Renewing...", comment: ""), animated: true)
+
+        let session = URLSession.shared
+        _ = session.renew(item.identifier, with: credentials) { result in
+            switch result {
+            case .success:
+                self.refresh(sender: nil)
+
+            case .failure(let error):
+                let alert = UIAlertController(title: NSLocalizedString("Error", comment: ""), message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+
     func openInGoodreads(item: Item) {
         guard let query = item.title.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
             let url = URL(string: "https://www.goodreads.com/search?q=\(query)") else {
@@ -290,7 +311,22 @@ class LoansViewController: UITableViewController {
             action.image = UIImage(systemName: "safari")
         }
 
-        let configuration = UISwipeActionsConfiguration(actions: [action])
+        var actions = [action]
+
+        if item.isRenewable {
+            // FR: Renouveler
+            let renewAction = UIContextualAction(style: .normal, title: NSLocalizedString("Renew", comment: "")) { (action, view, completion) in
+                self.renew(item)
+            }
+
+            if #available(iOS 14.0, *) {
+                renewAction.image = UIImage(systemName: "clock.arrow.circlepath")
+            }
+
+            actions.append(renewAction)
+        }
+
+        let configuration = UISwipeActionsConfiguration(actions: actions)
         configuration.performsFirstActionWithFullSwipe = false
         return configuration
     }

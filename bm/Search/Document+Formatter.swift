@@ -29,7 +29,36 @@ extension Notice {
     }
 }
 
+
 extension Document {
+    func formattedTitle() -> String {
+        var formattedTitle = title
+
+        if let slash = formattedTitle.range(of: " / ") {
+            formattedTitle = String(formattedTitle[..<slash.lowerBound])
+        }
+
+        formattedTitle = formattedTitle.replacingOccurrences(of: "[\(type.uppercased())]", with: "")
+        formattedTitle = formattedTitle.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        return formattedTitle
+    }
+
+    static func systemImageName(for type: String) -> String {
+        switch type {
+        case "DVD":
+            return "tv"
+        case "CD":
+            return "smallcircle.circle"
+        default:
+            return "book"
+        }
+    }
+
+    func systemImageNameForType() -> String {
+        return Document.systemImageName(for: type)
+    }
+
     func webpage() -> URL {
         return BaseURL.appendingPathComponent("ark:/" + ark)
     }
