@@ -101,7 +101,7 @@ class LoansViewController: UITableViewController {
 
     func reloadData(state: State) {
         // loadDemoData()
-        // return
+        // return;
 
         self.state = state
         tableView.reloadData()
