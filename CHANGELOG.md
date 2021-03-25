@@ -1,13 +1,15 @@
 # BM Grenoble
 
-## 1.6.1 (work in progress)
+## 1.6.1
 
-- [ ] Renew loans
-- [x] Search details and availability
-- [x] Add loans and search results image placeholders
-- [x] Update libraries opening hours
-- [x] Add English localization in Library screen
-- [x] Improve Dynamic Type support in Library screen
+2021-03-25
+
+- Renew loans
+- Search details and availability
+- Add loans and search results image placeholders
+- Update libraries opening hours
+- Add English localization in Library screen
+- Improve Dynamic Type support in Library screen
 
 
 ## 1.6
