@@ -6,6 +6,7 @@
 //  Copyright © 2021 Studio AMANgA. All rights reserved.
 //
 
+import Foundation
 import BMKit
 import KeychainAccess
 
