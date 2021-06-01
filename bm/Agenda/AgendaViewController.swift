@@ -3,7 +3,7 @@
 //  bm
 //
 //  Created by Vincent Tourraine on 25/01/2020.
-//  Copyright © 2020 Studio AMANgA. All rights reserved.
+//  Copyright © 2020-2021 Studio AMANgA. All rights reserved.
 //
 
 import UIKit
@@ -12,6 +12,7 @@ class AgendaViewController: UITableViewController {
 
     var agendaItems = [AgendaItem]()
     var isFirstLaunch = true
+    var filterTitle: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,42 @@ class AgendaViewController: UITableViewController {
         }
 
         navigationController?.configureCustomAppearance()
+
+        updateFilterButton()
+    }
+
+    func updateFilterButton() {
+        if #available(iOS 14.0, *) {
+            let image = UIImage(systemName: filterTitle == nil ? "line.horizontal.3.decrease.circle" : "line.horizontal.3.decrease.circle.fill")
+            let item = UIBarButtonItem(image: image, style: .plain, target: self, action: nil)
+
+            let libraries = librariesWithItems()
+            var items = [UIAction]()
+
+            for library in libraries {
+                let action = UIAction(title: library) { _ in
+                    if library == self.filterTitle {
+                        self.resetFilter()
+                    }
+                    else {
+                        self.filter(with: library)
+                    }
+                }
+
+                if library == filterTitle {
+                    action.state = .on
+                }
+                else {
+                    action.state = .off
+                }
+
+                items.append(action)
+            }
+
+            item.menu = UIMenu(title: "", image: nil, children: items)
+
+            navigationItem.rightBarButtonItem = item
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -30,10 +67,9 @@ class AgendaViewController: UITableViewController {
             AgendaParser.fetchAgendaItems { result in
                 switch (result) {
                 case .success(let items):
-                    self.agendaItems = items
-                    self.tableView.reloadData()
-
                     AgendaItemCache.save(items: items, to: .standard)
+
+                    self.filter(with: self.filterTitle)
 
                 case .failure:
                     break
@@ -46,6 +82,56 @@ class AgendaViewController: UITableViewController {
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+
+    // MARK: - Data
+
+    func librariesWithItems() -> [String] {
+        guard let cachedItems = AgendaItemCache.load(from: .standard) else {
+            return []
+        }
+
+        var libraries = [String]()
+
+        for item in cachedItems.items {
+            if let itemLibrary = item.library, !libraries.contains(itemLibrary), itemLibrary.count > 0 {
+                libraries.append(itemLibrary)
+            }
+        }
+
+        return libraries
+    }
+
+    // MARK: - Actions
+
+    func resetFilter() {
+        guard let cachedItems = AgendaItemCache.load(from: .standard) else {
+            return
+        }
+
+        agendaItems = cachedItems.items
+        filterTitle = nil
+        tableView.reloadData()
+        updateFilterButton()
+    }
+
+    func filter(with libraryName: String?) {
+        if libraryName == nil {
+            resetFilter()
+            return
+        }
+
+        guard let cachedItems = AgendaItemCache.load(from: .standard) else {
+            return
+        }
+
+        agendaItems = cachedItems.items.filter({ item in
+            return item.library == libraryName
+        })
+
+        filterTitle = libraryName
+        tableView.reloadData()
+        updateFilterButton()
     }
 
     // MARK: - Table view data source
@@ -62,6 +148,10 @@ class AgendaViewController: UITableViewController {
     }
 
     // MARK: - Table view delegate
+
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        filterTitle
+    }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = agendaItems[indexPath.row]
