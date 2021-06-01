@@ -2,6 +2,8 @@
 
 ## 1.6.2 (work in progress)
 
+- [x] Filter agenda by library (iOS 14, macOS 11)
+
 
 ## 1.6.1
 
