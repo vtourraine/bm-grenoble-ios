@@ -17,6 +17,9 @@ class AgendaViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.dragInteractionEnabled = true
+        tableView.dragDelegate = self
+
         if let cachedItems = AgendaItemCache.load(from: .standard) {
             agendaItems = cachedItems.items
         }
@@ -190,5 +193,17 @@ class AgendaViewController: UITableViewController {
             return UIMenu(title: "", children: children)
         })
         return configuration
+    }
+}
+
+extension AgendaViewController: UITableViewDragDelegate {
+    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        return dragItems(for: indexPath)
+    }
+
+    func dragItems(for indexPath: IndexPath) -> [UIDragItem] {
+        let item = agendaItems[indexPath.row]
+        let itemProvider = NSItemProvider(item: item.link as NSURL, typeIdentifier: kUTTypeURL as String)
+        return [UIDragItem(itemProvider: itemProvider)]
     }
 }
