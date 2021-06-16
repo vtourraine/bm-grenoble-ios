@@ -3,7 +3,7 @@
 ## 1.7 (work in progress)
 
 - [ ] Optimized for iOS 15, macOS 12
-- [ ] Add Location Button (iOS 15, macOS 12)
+- [ ] Add Location Button (iOS 15, macOS 12): wip, confirm on libraries, todo: library details
 
 
 ## 1.6.2 (work in progress)

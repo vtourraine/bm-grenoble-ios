@@ -3,12 +3,13 @@
 //  bm
 //
 //  Created by Vincent Tourraine on 30/09/2019.
-//  Copyright © 2019 Studio AMANgA. All rights reserved.
+//  Copyright © 2019-2021 Studio AMANgA. All rights reserved.
 //
 
 import UIKit
 import MapKit
 import CoreLocation
+import CoreLocationUI
 
 class LibrariesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate {
 
@@ -21,6 +22,7 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet var tableView: UITableView?
     @IBOutlet var mapView: MKMapView?
     @IBOutlet var showUserLocationButton: UIButton?
+    @IBOutlet var locationButton: UIView? // CLLocationButton
     @IBOutlet var separatorWidth: NSLayoutConstraint?
     @IBOutlet var separatorHeight: NSLayoutConstraint?
 
@@ -47,10 +49,33 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
             mapView?.addAnnotations(annotations)
         }
 
-        if #available(iOS 13.0, *) {
-            showUserLocationButton?.setImage(UIImage(systemName: "location.fill"), for: .normal)
+        if #available(iOS 15.0, *) {
+            let locationButton = CLLocationButton()
+            locationButton.icon = .arrowFilled
+            locationButton.cornerRadius = 22
+            locationButton.tintColor = .BMRed
+            locationButton.backgroundColor = .systemBackground
+            locationButton.translatesAutoresizingMaskIntoConstraints = false
+            locationButton.addTarget(self, action: #selector(reframeMap(_:)), for: .touchUpInside)
+
+            if let mapView = mapView {
+                view.insertSubview(locationButton, aboveSubview: mapView)
+
+                locationButton.topAnchor.constraint(equalTo: mapView.topAnchor, constant: 8).isActive = true
+                mapView.trailingAnchor.constraint(equalTo: locationButton.trailingAnchor, constant: 8).isActive = true
+            }
+
+            self.locationButton = locationButton
+
+            showUserLocationButton?.removeFromSuperview()
+            showUserLocationButton = nil
         }
-        showUserLocationButton?.configureRoundCorners()
+        else {
+            if #available(iOS 13.0, *) {
+                showUserLocationButton?.setImage(UIImage(systemName: "location.fill"), for: .normal)
+            }
+            showUserLocationButton?.configureRoundCorners()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -69,6 +94,14 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
 
     @IBAction func reframeMap(_ sender: Any?) {
         mapView?.setRegion(defaultcoordinateRegion, animated: true)
+
+        if #available(iOS 15.0, *) {
+            if sender is CLLocationButton {
+                locationManager.delegate = self
+                locationManager.startUpdatingLocation()
+                return
+            }
+        }
 
         let status = CLLocationManager.authorizationStatus()
         if status == .notDetermined {
@@ -134,6 +167,9 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         // Should display user location on map view
+        if status == .authorizedWhenInUse {
+            mapView?.showsUserLocation = true
+        }
     }
 }
 

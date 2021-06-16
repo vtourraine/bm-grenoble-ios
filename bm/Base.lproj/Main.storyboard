@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F3H-UV-44c">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F3H-UV-44c">
     <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -15,12 +15,12 @@
             <objects>
                 <tableViewController id="0tc-H2-wTF" customClass="LoansViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hlY-P1-kT6">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="698"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="99" id="MwC-WM-zvl" customClass="ItemTableViewCell" customModule="bm" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="1024" height="99"/>
+                                <rect key="frame" x="0.0" y="50" width="1024" height="99"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MwC-WM-zvl" id="mjm-QP-Ng5">
                                     <rect key="frame" x="0.0" y="0.0" width="1024" height="99"/>
@@ -135,7 +135,7 @@
             <objects>
                 <viewController id="PL0-mD-zDP" customClass="LoginViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mlj-V2-tCE">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="728"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="B" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9r-BL-j0B">
@@ -311,17 +311,17 @@ Grenoble</string>
             <objects>
                 <viewController id="waW-up-oNj" customClass="LibrariesViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nqw-UU-Jhb">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="646"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8G-TR-K3c">
-                                <rect key="frame" x="350" y="0.0" width="674" height="616"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8G-TR-K3c">
+                                <rect key="frame" x="350" y="0.0" width="674" height="596"/>
                                 <connections>
                                     <outlet property="delegate" destination="waW-up-oNj" id="ePg-Wg-NDr"/>
                                 </connections>
                             </mapView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2cB-5K-pqq">
-                                <rect key="frame" x="0.0" y="0.0" width="350" height="616"/>
+                                <rect key="frame" x="0.0" y="0.0" width="350" height="596"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="IVI-ZV-srX"/>
@@ -329,7 +329,7 @@ Grenoble</string>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="Gkh-ij-mPH" style="IBUITableViewCellStyleDefault" id="ajY-fx-KSN">
-                                        <rect key="frame" x="0.0" y="28" width="350" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="50" width="350" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ajY-fx-KSN" id="cbC-kw-VYW">
                                             <rect key="frame" x="0.0" y="0.0" width="323" height="43.5"/>
@@ -375,7 +375,7 @@ Grenoble</string>
                                 </connections>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7qc-yC-oHI" userLabel="Separator View (Large Screen)">
-                                <rect key="frame" x="350" y="0.0" width="1" height="616"/>
+                                <rect key="frame" x="350" y="0.0" width="1" height="596"/>
                                 <color key="backgroundColor" systemColor="separatorColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1" id="k5X-HV-xWl"/>
@@ -383,7 +383,7 @@ Grenoble</string>
                                 <variation key="heightClass=regular-widthClass=regular" hidden="NO"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gDQ-CX-mI8" userLabel="Separator View">
-                                <rect key="frame" x="0.0" y="615" width="1024" height="1"/>
+                                <rect key="frame" x="0.0" y="595" width="1024" height="1"/>
                                 <color key="backgroundColor" systemColor="separatorColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="okk-qe-T7k"/>
@@ -450,11 +450,11 @@ Grenoble</string>
             <objects>
                 <viewController id="jda-3I-IlC" customClass="LibraryViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WNT-80-mFt">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="698"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l7r-IP-lc9">
-                                <rect key="frame" x="350" y="0.0" width="674" height="668"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="l7r-IP-lc9">
+                                <rect key="frame" x="350" y="0.0" width="674" height="648"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="RM4-q6-YHE">
                                         <variation key="heightClass=compact-widthClass=compact" constant="50"/>
@@ -470,7 +470,7 @@ Grenoble</string>
                                 </connections>
                             </mapView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XwD-3y-dh1">
-                                <rect key="frame" x="0.0" y="0.0" width="350" height="668"/>
+                                <rect key="frame" x="0.0" y="0.0" width="350" height="648"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rNi-bC-CE4">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="606"/>
@@ -698,7 +698,7 @@ Grenoble</string>
                                 </variation>
                             </scrollView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dT4-dm-Bmb" userLabel="Separator View (Large Screen)">
-                                <rect key="frame" x="350" y="0.0" width="1" height="668"/>
+                                <rect key="frame" x="350" y="0.0" width="1" height="648"/>
                                 <color key="backgroundColor" systemColor="separatorColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1" id="fSW-17-YbH"/>
@@ -706,7 +706,7 @@ Grenoble</string>
                                 <variation key="heightClass=regular-widthClass=regular" hidden="NO"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zg0-MI-ViL" userLabel="Separator View">
-                                <rect key="frame" x="0.0" y="667" width="1024" height="1"/>
+                                <rect key="frame" x="0.0" y="647" width="1024" height="1"/>
                                 <color key="backgroundColor" systemColor="separatorColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="LsZ-UO-9OY"/>
@@ -782,7 +782,7 @@ Grenoble</string>
                     <tabBarItem key="tabBarItem" title="Prêts en cours" image="Books" id="kMU-d9-2Gk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="81E-91-uNE">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="102"/>
+                        <rect key="frame" x="0.0" y="20" width="1024" height="102"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
                         <textAttributes key="titleTextAttributes">
@@ -806,7 +806,7 @@ Grenoble</string>
             <objects>
                 <viewController id="x0T-HL-1kO" customClass="CardViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xfZ-dD-61F">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="728"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="•" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y96-q8-d4L">
@@ -896,7 +896,7 @@ Grenoble</string>
             <objects>
                 <viewController id="Jvg-U0-YiR" customClass="AboutViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4jh-FD-miU">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="728"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="À propos de cette application" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84U-tD-cec">
@@ -1013,7 +1013,7 @@ Grenoble</string>
                     <tabBarItem key="tabBarItem" title="Bibliothèques" image="Location" id="PDh-Mg-nUs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="0IM-VL-DLa">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="102"/>
+                        <rect key="frame" x="0.0" y="20" width="1024" height="102"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
                         <textAttributes key="titleTextAttributes">
@@ -1041,13 +1041,13 @@ Grenoble</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Recherche" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ea8-2F-l1Z">
-                                <rect key="frame" x="40" y="90" width="156.5" height="41"/>
+                                <rect key="frame" x="40" y="110" width="156.5" height="41"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QsP-Rc-Dt1">
-                                <rect key="frame" x="40" y="412" width="132" height="44"/>
+                                <rect key="frame" x="40" y="422" width="132" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="cIV-lW-tyi"/>
@@ -1062,7 +1062,7 @@ Grenoble</string>
                                 </connections>
                             </button>
                             <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Titre, auteur" translatesAutoresizingMaskIntoConstraints="NO" id="Reo-Q7-eVd">
-                                <rect key="frame" x="40" y="316" width="944" height="56"/>
+                                <rect key="frame" x="40" y="326" width="944" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="yn0-2r-Gad"/>
                                 </constraints>
@@ -1135,12 +1135,12 @@ Grenoble</string>
             <objects>
                 <tableViewController id="eya-IN-vI3" customClass="NewsViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WXR-D2-g4h">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="698"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="VTu-bW-DFZ" customClass="NewsTableViewCell" customModule="bm" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="1024" height="108.5"/>
+                                <rect key="frame" x="0.0" y="50" width="1024" height="108.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VTu-bW-DFZ" id="fUA-UG-DfI">
                                     <rect key="frame" x="0.0" y="0.0" width="1024" height="108.5"/>
@@ -1220,7 +1220,7 @@ Grenoble</string>
                     <tabBarItem key="tabBarItem" title="Actualité" image="News" id="e0Q-pb-YTt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="TZZ-PG-ELm">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="102"/>
+                        <rect key="frame" x="0.0" y="20" width="1024" height="102"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
                         <textAttributes key="titleTextAttributes">
@@ -1244,12 +1244,12 @@ Grenoble</string>
             <objects>
                 <tableViewController id="GaQ-e7-QGj" customClass="AgendaViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jqn-fK-gyq">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="698"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="brW-cu-Vhs" customClass="AgendaTableViewCell" customModule="bm" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="1024" height="168"/>
+                                <rect key="frame" x="0.0" y="50" width="1024" height="168"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="brW-cu-Vhs" id="rcY-m3-q9y">
                                     <rect key="frame" x="0.0" y="0.0" width="1024" height="168"/>
@@ -1348,7 +1348,7 @@ Grenoble</string>
                     <tabBarItem key="tabBarItem" title="Agenda" image="Calendar" id="7C3-cu-WC2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="uUU-HX-xAk">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="102"/>
+                        <rect key="frame" x="0.0" y="20" width="1024" height="102"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BMRed"/>
                         <textAttributes key="titleTextAttributes">
@@ -1374,7 +1374,7 @@ Grenoble</string>
                     <tabBarItem key="tabBarItem" systemItem="search" id="Kq6-uL-4cb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gQl-iX-cK7">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
+                        <rect key="frame" x="0.0" y="20" width="1024" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1396,7 +1396,7 @@ Grenoble</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DocumentCell" rowHeight="99" id="37g-cY-jnM" customClass="SearchResultsCell" customModule="bm" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="1024" height="99"/>
+                                <rect key="frame" x="0.0" y="50" width="1024" height="99"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="37g-cY-jnM" id="eFx-1z-KMj">
                                     <rect key="frame" x="0.0" y="0.0" width="833" height="99"/>
@@ -1462,7 +1462,7 @@ Grenoble</string>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActionCell" textLabel="SAW-M2-v2L" style="IBUITableViewCellStyleDefault" id="qwf-ET-MDq">
-                                <rect key="frame" x="0.0" y="127" width="1024" height="43.5"/>
+                                <rect key="frame" x="0.0" y="149" width="1024" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qwf-ET-MDq" id="cFm-by-05d">
                                     <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
@@ -1501,7 +1501,7 @@ Grenoble</string>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DocumentCell" rowHeight="167" id="mnn-sA-IAW" customClass="SearchResultsCell" customModule="bm" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="1024" height="167"/>
+                                <rect key="frame" x="0.0" y="50" width="1024" height="167"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mnn-sA-IAW" id="IUl-Kg-A7A">
                                     <rect key="frame" x="0.0" y="0.0" width="1024" height="167"/>
@@ -1557,7 +1557,7 @@ Grenoble</string>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="NoticeCell" textLabel="OcY-1K-F2x" detailTextLabel="99n-Xe-lNb" style="IBUITableViewCellStyleValue1" id="Wha-lr-oHi">
-                                <rect key="frame" x="0.0" y="195" width="1024" height="43.5"/>
+                                <rect key="frame" x="0.0" y="217" width="1024" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wha-lr-oHi" id="zcp-vO-dJN">
                                     <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
