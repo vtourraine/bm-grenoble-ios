@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MobileCoreServices
 
 class NewsViewController: UITableViewController {
 

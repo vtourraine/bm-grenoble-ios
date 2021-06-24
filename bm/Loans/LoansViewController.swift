@@ -229,11 +229,25 @@ class LoansViewController: UITableViewController {
                 self.refreshControl?.endRefreshing()
                 self.configureToolbar(message: nil, animated: true)
                 self.lastRefreshDate = Date()
+                self.fetchReservations(with: credentials)
 
             case .failure(let error):
                 self.presentLoadingError(error)
                 self.refreshControl?.endRefreshing()
                 self.configureToolbar(message: nil, animated: true)
+            }
+        }
+    }
+
+    func fetchReservations(with credentials: Credentials) {
+        let urlSession = URLSession.shared
+        _ = urlSession.fetchAccountPageReservation(with: credentials) { result in
+            switch (result) {
+            case .success(let page):
+                print("\(page)")
+
+            case .failure(let error):
+                self.presentLoadingError(error)
             }
         }
     }
