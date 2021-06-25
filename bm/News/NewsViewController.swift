@@ -18,7 +18,6 @@ class NewsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.dragInteractionEnabled = true
         tableView.dragDelegate = self
 
         if let cachedItems = NewsItemCache.load(from: .standard) {
