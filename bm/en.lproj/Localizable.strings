@@ -42,11 +42,13 @@
 "Where to find it?" = "Where to find it?";
 
 "Available" = "Available";
+"Not Available Yet" = "Not Available Yet";
 "Loaned" = "Loaned";
 "Reserved" = "Reserved";
 "Under reparation" = "Under reparation";
 "On-site communication" = "On-site communication";
 "To transfer to another library" = "To transfer to another library";
+"Reservations" = "Reservations";
 
 "Book" = "Book";
 "Language learning aid" = "Language learning aid";

@@ -10,7 +10,7 @@
 
 - [x] Filter agenda by library (iOS 14, macOS 11)
 - [ ] Add Drag and Drop support (news, agenda)
-- [ ] List reservations
+- [x] List reservations
 
 
 ## 1.6.1
