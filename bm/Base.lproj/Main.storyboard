@@ -106,7 +106,7 @@
                                     <outlet property="titleLabel" destination="Puf-XW-Fhn" id="7Dg-RI-cAG"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReservationCell" textLabel="l0s-0F-uWI" detailTextLabel="WjV-l1-7Fe" style="IBUITableViewCellStyleSubtitle" id="gPk-PF-DB9">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ReservationCell" textLabel="l0s-0F-uWI" detailTextLabel="WjV-l1-7Fe" style="IBUITableViewCellStyleSubtitle" id="gPk-PF-DB9">
                                 <rect key="frame" x="0.0" y="123.5" width="1024" height="50.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gPk-PF-DB9" id="kM0-lj-1By">
