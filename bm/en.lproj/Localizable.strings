@@ -29,6 +29,7 @@
 "No Current Loans" = "No Current Loans";
 "Connection Error" = "Connection Error";
 "Invalid subscriber number or password" = "Invalid subscriber number or password";
+"Forbidden access. You might need to sign out and log in again." = "Forbidden access. If the problem persists, try to sign out and log in again.";
 "Search on Goodreads" = "Search on Goodreads";
 "Share" = "Share";
 "Open in Browser" = "Open in Browser";

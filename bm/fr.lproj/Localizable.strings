@@ -29,6 +29,7 @@
 "No Current Loans" = "Aucun prêt en cours";
 "Connection Error" = "Erreur de connexion";
 "Invalid subscriber number or password" = "Numéro d’abonné(e) ou mot de passe incorrect";
+"Forbidden access. You might need to sign out and log in again." = "Accès refusé. Si le problème persiste, essayez de vous déconnecter et vous connecter à nouveau.";
 "Search on Goodreads" = "Rechercher sur Goodreads";
 "Share" = "Partager";
 "Open in Browser" = "Ouvrir dans le navigateur";
