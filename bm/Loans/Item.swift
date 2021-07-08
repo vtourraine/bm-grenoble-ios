@@ -20,15 +20,13 @@ struct Item: Codable {
     let image: URL?
 }
 
-extension Item {
-    static func fetchItems(with credentials: Credentials, completion: @escaping (Result<[Item], Error>) -> Void) {
-        let urlSession = URLSession.shared
-
-        _ = urlSession.fetchLoans(with: credentials) { result in
+extension URLSession {
+    func fetchItems(with credentials: Credentials, completion: @escaping (Result<[Item], Error>) -> Void) {
+        _ = fetchLoans(with: credentials) { result in
             switch result {
             case .success(let loanItems):
                 let sequenceNumbers = loanItems.map { $0.sequenceNumber }
-                _ = urlSession.fetchDocuments(sequenceNumbers, with: credentials) { resultFetchDocuments in
+                _ = self.fetchDocuments(sequenceNumbers, with: credentials) { resultFetchDocuments in
                     switch resultFetchDocuments {
                     case .success(let response):
                         let items = Item.items(with: loanItems, and: response.documents)
@@ -44,7 +42,9 @@ extension Item {
             }
         }
     }
+}
 
+extension Item {
     static func items(with loanItems: [Loan], and documents: [Document]) -> [Item] {
         guard loanItems.count == documents.count else {
             return []

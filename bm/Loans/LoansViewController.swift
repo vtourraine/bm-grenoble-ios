@@ -14,19 +14,35 @@ import BMKit
 class LoansViewController: UITableViewController {
 
     enum State {
-        case loans([Item])
+        case loans([Item], [AccountPageItem])
         case notLoggedIn
+    }
+
+    enum Section: Int, CaseIterable {
+        case loans = 0
+        case reservations = 1
     }
 
     var state: State = .notLoggedIn
     var isFirstLaunch = true
     var lastRefreshDate: Date?
 
-    let LoginSegueIdentifier = "Login"
-    let CardSegueIdentifier = "Card"
-    let AboutSegueIdentifier = "About"
-    let LibrariesSegueIdentifier = "Libraries"
-    let SearchSegueIdentifier = "Search"
+
+    private struct K {
+        struct CellIdentifier {
+            static let loan = "Cell"
+            static let reservation = "ReservationCell"
+        }
+
+        struct SegueIdentifier {
+            static let login = "Login"
+            static let card = "Card"
+            static let about = "About"
+            static let libraries = "Libraries"
+            static let search = "Search"
+        }
+    }
+
 
     let LoansNotLoggedInViewXIB = "LoansNotLoggedInView"
 
@@ -47,7 +63,7 @@ class LoansViewController: UITableViewController {
             reloadData(state: .notLoggedIn)
         }
         else if let itemCache = ItemCache.load(from: .standard) {
-            reloadData(state: .loans(itemCache.items))
+            reloadData(state: .loans(itemCache.items, []))
         }
 
         navigationController?.configureCustomAppearance()
@@ -107,7 +123,7 @@ class LoansViewController: UITableViewController {
         tableView.reloadData()
 
         switch state {
-        case .loans(let items):
+        case .loans(let items, _):
             if items.isEmpty {
                 configureEmptyListPlaceholder()
             }
@@ -134,14 +150,28 @@ class LoansViewController: UITableViewController {
             Item(identifier: "", isRenewable: false, title: "Little Fires Everywhere", type: "Books", author: "Celeste Ng", library: "Bibliothèque municipale internationale", returnDateComponents: dateComponents, image: URL(string: "https://images-na.ssl-images-amazon.com/images/I/81wScwlTchL.jpg")!),
             Item(identifier: "", isRenewable: false, title: "Hilda et le chien noir", type: "Books", author: "Luke Pearson", library: "Jardin de Ville", returnDateComponents: dateComponents, image: URL(string: "https://www.casterman.com/media/cache/couverture_large/casterman_img/Couvertures/9782203097223.jpg")!)]
 
-        state = .loans(items)
+        state = .loans(items, [])
         tableView.reloadData()
     }
 
     func item(at indexPath: IndexPath) -> Item? {
+        guard indexPath.section == Section.loans.rawValue else {
+            return nil
+        }
+
         switch state {
-        case .loans(let items):
+        case .loans(let items, _):
             return items[indexPath.row]
+
+        default:
+            return nil
+        }
+    }
+
+    func reservation(at indexPath: IndexPath) -> AccountPageItem? {
+        switch state {
+        case .loans(_, let reservations):
+            return reservations[indexPath.row]
 
         default:
             return nil
@@ -204,11 +234,11 @@ class LoansViewController: UITableViewController {
     // MARK: - Actions
 
     @objc func openAboutScreen(sender: Any) {
-        performSegue(withIdentifier: AboutSegueIdentifier, sender: nil)
+        performSegue(withIdentifier: K.SegueIdentifier.about, sender: nil)
     }
 
     @objc func openCardScreen(sender: Any) {
-        performSegue(withIdentifier: CardSegueIdentifier, sender: nil)
+        performSegue(withIdentifier: K.SegueIdentifier.card, sender: nil)
     }
 
     @IBAction func refresh(sender: Any?) {
@@ -218,17 +248,27 @@ class LoansViewController: UITableViewController {
 
         configureToolbar(message: NSLocalizedString("Updating Account…", comment: ""), animated: false)
 
-        Item.fetchItems(with: credentials) { result in
+        let session = URLSession.shared
+        session.fetchItems(with: credentials) { result in
             switch result {
             case .success(let items):
-                self.reloadData(state: .loans(items))
 
-                let itemCache = ItemCache(items: items)
-                ItemCache.save(items: itemCache, to: .standard)
+                _ = session.fetchAccountPageReservation(with: credentials) { result in
+                    switch (result) {
+                    case .success(let accountPage):
+                        self.reloadData(state: .loans(items, accountPage.items))
 
-                self.refreshControl?.endRefreshing()
-                self.configureToolbar(message: nil, animated: true)
-                self.lastRefreshDate = Date()
+                        let itemCache = ItemCache(items: items)
+                        ItemCache.save(items: itemCache, to: .standard)
+
+                        self.refreshControl?.endRefreshing()
+                        self.configureToolbar(message: nil, animated: true)
+                        self.lastRefreshDate = Date()
+
+                    case .failure(let error):
+                        self.presentLoadingError(error)
+                    }
+                }
 
             case .failure(let error):
                 self.presentLoadingError(error)
@@ -274,23 +314,50 @@ class LoansViewController: UITableViewController {
     }
 
     @IBAction func presentLoginScreen(sender: Any?) {
-        performSegue(withIdentifier: LoginSegueIdentifier, sender: sender)
+        performSegue(withIdentifier: K.SegueIdentifier.login, sender: sender)
     }
 
     @objc func presentLibrariesScreen(sender: Any?) {
-        performSegue(withIdentifier: LibrariesSegueIdentifier, sender: sender)
+        performSegue(withIdentifier: K.SegueIdentifier.libraries, sender: sender)
     }
 
     @objc func presentSearchScreen(sender: Any?) {
-        performSegue(withIdentifier: SearchSegueIdentifier, sender: sender)
+        performSegue(withIdentifier: K.SegueIdentifier.search, sender: sender)
     }
 
     // MARK: - Table view
 
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        switch state {
+        case .loans(_, let reservations):
+            return reservations.isEmpty ? 1 : 2
+
+        default:
+            return 0
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch Section(rawValue: section) {
+        case .reservations:
+            return NSLocalizedString("Reservations", comment: "")
+
+        default:
+            return nil
+        }
+    }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch state {
-        case .loans(let items):
-            return items.count
+        case .loans(let items, let reservations):
+            switch Section(rawValue: section) {
+            case .loans:
+                return items.count
+            case .reservations:
+                return reservations.count
+            default:
+                return 0
+            }
 
         default:
             return 0
@@ -298,11 +365,21 @@ class LoansViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ItemTableViewCell
-        if let item = self.item(at: indexPath) {
-            cell.configure(item: item)
+        switch Section(rawValue: indexPath.section) {
+        case .reservations:
+            let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifier.reservation, for: indexPath)
+            if let item = self.reservation(at: indexPath) {
+                cell.configure(with: item)
+            }
+            return cell
+
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifier.loan, for: indexPath) as! ItemTableViewCell
+            if let item = self.item(at: indexPath) {
+                cell.configure(item: item)
+            }
+            return cell
         }
-        return cell
     }
 
     @available(iOS 13.0, *)
@@ -350,6 +427,23 @@ extension UINavigationController {
             navigationBar.tintColor = .white
             navigationBar.scrollEdgeAppearance = appearance
             navigationBar.standardAppearance = appearance
+        }
+    }
+}
+
+extension UITableViewCell {
+    func configure(with item: AccountPageItem) {
+        textLabel?.text = item.data.title
+        if item.data.statusDescription == "globalErrorLeg_list.ReservationCard.RESV_AVAILABLE" {
+            detailTextLabel?.text = NSLocalizedString("Available", comment: "") + " (" + item.data.branch.name + ")"
+            if #available(iOS 13.0, *) {
+                imageView?.image = UIImage(systemName: "checkmark.circle.fill")
+                imageView?.tintColor = .systemGreen
+            }
+        }
+        else {
+            detailTextLabel?.text = NSLocalizedString("Not Available Yet", comment: "") + " (" + item.data.branch.name + ")"
+            imageView?.image = nil
         }
     }
 }

@@ -3,10 +3,11 @@
 //  bm
 //
 //  Created by Vincent Tourraine on 09/01/2020.
-//  Copyright © 2020 Studio AMANgA. All rights reserved.
+//  Copyright © 2020-2021 Studio AMANgA. All rights reserved.
 //
 
 import UIKit
+import MobileCoreServices
 
 class NewsViewController: UITableViewController {
 
@@ -16,6 +17,8 @@ class NewsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        tableView.dragDelegate = self
 
         if let cachedItems = NewsItemCache.load(from: .standard) {
             newsItems = cachedItems.items
@@ -101,5 +104,17 @@ class NewsViewController: UITableViewController {
             return UIMenu(title: "", children: children)
         })
         return configuration
+    }
+}
+
+extension NewsViewController: UITableViewDragDelegate {
+    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        return dragItems(for: indexPath)
+    }
+
+    func dragItems(for indexPath: IndexPath) -> [UIDragItem] {
+        let item = newsItems[indexPath.row]
+        let itemProvider = NSItemProvider(item: item.link as NSURL, typeIdentifier: kUTTypeURL as String)
+        return [UIDragItem(itemProvider: itemProvider)]
     }
 }

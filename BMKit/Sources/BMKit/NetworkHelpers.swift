@@ -89,7 +89,7 @@ extension URLSession {
             guard error == nil,
                   let data = data,
                   let httpResponse = response as? HTTPURLResponse,
-                  httpResponse.statusCode != 401 else {
+                  (httpResponse.statusCode != 401 && httpResponse.statusCode != 403) else {
                 let completionError = NetworkError.networkError(with: error, response: response)
                 DispatchQueue.main.async {
                     completion(.failure(completionError))

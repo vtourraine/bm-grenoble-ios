@@ -1,8 +1,16 @@
 # BM Grenoble
 
+## 1.7 (work in progress)
+
+- [ ] Optimized for iOS 15, macOS 12
+- [ ] Add Location Button (iOS 15, macOS 12)
+
+
 ## 1.6.2 (work in progress)
 
 - [x] Filter agenda by library (iOS 14, macOS 11)
+- [ ] Add Drag and Drop support (news, agenda)
+- [x] List reservations
 
 
 ## 1.6.1
