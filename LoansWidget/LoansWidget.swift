@@ -23,7 +23,8 @@ struct Provider: TimelineProvider {
             return
         }
 
-        Item.fetchItems(with: credentials) { result in
+        let session = URLSession.shared
+        session.fetchItems(with: credentials) { result in
             switch result {
             case .success(let items):
                 let entry = SimpleEntry(date: Date(), loan: items.first, signedIn: true, numberOfLoanedDocuments: 0, image: nil)
@@ -46,7 +47,8 @@ struct Provider: TimelineProvider {
             return
         }
 
-        Item.fetchItems(with: credentials) { result in
+        let session = URLSession.shared
+        session.fetchItems(with: credentials) { result in
             switch result {
             case .success(let items):
                 let entry = SimpleEntry(date: Date(), loan: items.first, signedIn: true, numberOfLoanedDocuments: items.count, image: nil)
