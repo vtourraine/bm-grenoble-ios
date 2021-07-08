@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  bm
+
+  Created by Vincent Tourraine on 08/07/2021.
+  Copyright © 2021 Studio AMANgA. All rights reserved.
+*/
+
+"Loans Widget" = "Widget prêts en cours";
+"Displays documents currently loaned." = "Affiche les documents en cours de prêt.";
+
+"Please open the app to sign in." = "Veuillez ouvrir l’application pour vous connecter.";
+"No Current Loans" = "Aucun prêt en cours";
+"Error Loading Widget" = "Erreur dans le chargement du widget";
+
+"Due: %@" = "Retour : %@";
+"%lld books loaned" = "%lld documents en cours de prêt";

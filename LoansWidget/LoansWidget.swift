@@ -72,7 +72,7 @@ struct SimpleEntry: TimelineEntry {
 }
 
 struct MessageView: View {
-    let text: String
+    let text: LocalizedStringKey
 
     var body: some View {
         ZStack {
@@ -80,6 +80,7 @@ struct MessageView: View {
             Text(text)
                 .font(.headline)
                 .foregroundColor(.white)
+                .padding()
         }
     }
 }
@@ -134,7 +135,7 @@ struct LoansWidget: Widget {
             LoansWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("Loans Widget")
-        .description("Shows you a list of the documents you currently loan.")
+        .description("Displays documents currently loaned.")
     }
 }
 
@@ -143,9 +144,11 @@ struct LoansWidget_Previews: PreviewProvider {
 
     static var previews: some View {
         LoansWidgetEntryView(entry: SimpleEntry(date: Date(), loan: item, signedIn: false, numberOfLoanedDocuments: 5, image: nil))
+            // .environment(\.locale, .init(identifier: "fr"))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
 
         LoansWidgetEntryView(entry: SimpleEntry(date: Date(), loan: item, signedIn: true, numberOfLoanedDocuments: 5, image: nil))
+            .environment(\.locale, .init(identifier: "fr"))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
