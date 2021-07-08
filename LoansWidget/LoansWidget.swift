@@ -100,7 +100,6 @@ struct LoansWidgetEntryView : View {
                 Color("WidgetBackground")
                 HStack {
                     VStack(alignment: .leading) {
-                        Spacer()
                         Text(loan.title)
                             .font(.headline)
                             .foregroundColor(.white)
@@ -110,6 +109,7 @@ struct LoansWidgetEntryView : View {
                         Text("Due: \(loan.returnDateComponents.formattedReturnDate()!.localizedDate)")
                             .font(.caption)
                             .foregroundColor(.white)
+                        Spacer()
                         Text("\(entry.numberOfLoanedDocuments) books loaned")
                             .font(.caption)
                             .foregroundColor(.white)
