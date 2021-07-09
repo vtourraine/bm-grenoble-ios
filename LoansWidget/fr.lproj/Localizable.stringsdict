@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>%lld documents loaned</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@VARIABLE@</string>
+		<key>VARIABLE</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string></string>
+			<key>one</key>
+			<string>Un document en cours de prêt</string>
+			<key>two</key>
+			<string></string>
+			<key>few</key>
+			<string></string>
+			<key>many</key>
+			<string></string>
+			<key>other</key>
+			<string>%lld documents en cours de prêt</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

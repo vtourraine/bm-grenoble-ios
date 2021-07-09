@@ -13,12 +13,13 @@ import BMKit
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), loan: nil, signedIn: true, numberOfLoanedDocuments: 0, image: nil)
+        let item = Item(identifier: "", isRenewable: false, title: "My Favorite Book", type: "book", author: "Jane Doe", library: "Library", returnDateComponents: DateComponents(calendar: nil, timeZone: nil, era: nil, year: 2021, month: 01, day: 01), image: nil)
+        return SimpleEntry(date: Date(), loan: item, signedIn: true, numberOfLoanedDocuments: 1, image: nil)
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
         guard let credentials = Credentials.sharedCredentials() else {
-            let entry = SimpleEntry(date: Date(), loan: nil, signedIn: false, numberOfLoanedDocuments: 0, image: nil)
+            let entry = placeholder(in: context)
             completion(entry)
             return
         }
@@ -27,7 +28,7 @@ struct Provider: TimelineProvider {
         session.fetchItems(with: credentials) { result in
             switch result {
             case .success(let items):
-                let entry = SimpleEntry(date: Date(), loan: items.first, signedIn: true, numberOfLoanedDocuments: 0, image: nil)
+                let entry = SimpleEntry(date: Date(), loan: items.first, signedIn: true, numberOfLoanedDocuments: items.count, image: nil)
                 completion(entry)
 
             case .failure:
@@ -111,7 +112,7 @@ struct LoansWidgetEntryView : View {
                             .font(.caption)
                             .foregroundColor(.white)
                         Spacer()
-                        Text("\(entry.numberOfLoanedDocuments) books loaned")
+                        Text("\(entry.numberOfLoanedDocuments) documents loaned")
                             .font(.caption)
                             .foregroundColor(.white)
                     }
@@ -136,6 +137,7 @@ struct LoansWidget: Widget {
         }
         .configurationDisplayName("Loans Widget")
         .description("Displays documents currently loaned.")
+        .supportedFamilies([.systemSmall, .systemMedium])
     }
 }
 
