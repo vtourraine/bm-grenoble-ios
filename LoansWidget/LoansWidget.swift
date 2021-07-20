@@ -76,7 +76,7 @@ struct MessageView: View {
     let text: LocalizedStringKey
 
     var body: some View {
-        ZStack {
+        ZStack(alignment: .top) {
             Color("WidgetBackground")
             Text(text)
                 .font(.headline)
@@ -101,7 +101,7 @@ struct LoansWidgetEntryView : View {
             ZStack {
                 Color("WidgetBackground")
                 HStack {
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 2) {
                         Text(loan.title)
                             .font(.headline)
                             .foregroundColor(.white)
