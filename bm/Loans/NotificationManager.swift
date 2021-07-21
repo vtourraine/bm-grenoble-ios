@@ -39,11 +39,12 @@ class NotificationManager {
         }
 
         let content = UNMutableNotificationContent()
-        content.title = NSLocalizedString("You have \(items.count) documents to return before \(formattedReturnDate)", comment: "")
+        content.title = NSLocalizedString("You have \(items.count) documents to return soon", comment: "")
+        content.subtitle = NSLocalizedString("Due \(formattedReturnDate.localizedDate)", comment: "")
         content.body = items.map({ "• \($0.title)" }).joined(separator: "\n")
 
         var notificationDateComponents = calendar.dateComponents([.year, .month, .day], from: notificationDate)
-        notificationDateComponents.hour = 12
+        notificationDateComponents.hour = 16
         let trigger = UNCalendarNotificationTrigger(dateMatching: notificationDateComponents, repeats: false)
 
         let uuidString = UUID().uuidString
