@@ -39,8 +39,8 @@ class NotificationManager {
         }
 
         let content = UNMutableNotificationContent()
-        content.title = NSLocalizedString("You have \(items.count) documents to return soon", comment: "")
-        content.subtitle = NSLocalizedString("Due \(formattedReturnDate.localizedDate)", comment: "")
+        content.title = String.localizedStringWithFormat(NSLocalizedString("%ld documents to return soon", comment: ""), items.count)
+        content.subtitle = String.localizedStringWithFormat(NSLocalizedString("Due %@", comment: ""), formattedReturnDate.localizedDate)
         content.body = items.map({ "• \($0.title)" }).joined(separator: "\n")
 
         var notificationDateComponents = calendar.dateComponents([.year, .month, .day], from: notificationDate)

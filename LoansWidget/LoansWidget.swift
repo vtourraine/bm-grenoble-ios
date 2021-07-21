@@ -142,7 +142,7 @@ struct LoansWidget: Widget {
 }
 
 struct LoansWidget_Previews: PreviewProvider {
-    static let item = Item(identifier: "", isRenewable: false, title: "Test", type: "book", author: "No Body", library: "Library", returnDateComponents: DateComponents(calendar: nil, timeZone: nil, era: nil, year: 2021, month: 01, day: 01), image: nil)
+    static let item = Item(identifier: "", isRenewable: false, title: "My Favorite Book in the World", type: "book", author: "No Body", library: "Library", returnDateComponents: DateComponents(calendar: nil, timeZone: nil, era: nil, year: 2021, month: 01, day: 01), image: nil)
 
     static var previews: some View {
         LoansWidgetEntryView(entry: SimpleEntry(date: Date(), loan: item, signedIn: false, numberOfLoanedDocuments: 5, image: nil))
