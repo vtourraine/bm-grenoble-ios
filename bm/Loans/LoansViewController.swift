@@ -131,6 +131,7 @@ class LoansViewController: UITableViewController {
                 tableView.backgroundView = nil
             }
             configureBarButtonItems(userLoggedIn: true)
+            NotificationManager.scheduleNotifications(for: items)
 
         case .notLoggedIn:
             configureNotLoggedInPlaceholder()
