@@ -14,7 +14,7 @@ import BMKit
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
         let item = Item(identifier: "", isRenewable: false, title: "My Favorite Book", type: "book", author: "Jane Doe", library: "Library", returnDateComponents: DateComponents(calendar: nil, timeZone: nil, era: nil, year: 2021, month: 01, day: 01), image: nil)
-        return SimpleEntry(date: Date(), loan: item, signedIn: true, numberOfLoanedDocuments: 1, image: nil)
+        return SimpleEntry(date: Date(), loan: item, signedIn: true, numberOfLoanedDocuments: 1)
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
@@ -28,11 +28,11 @@ struct Provider: TimelineProvider {
         session.fetchItems(with: credentials) { result in
             switch result {
             case .success(let items):
-                let entry = SimpleEntry(date: Date(), loan: items.first, signedIn: true, numberOfLoanedDocuments: items.count, image: nil)
+                let entry = SimpleEntry(date: Date(), loan: items.first, signedIn: true, numberOfLoanedDocuments: items.count)
                 completion(entry)
 
             case .failure:
-                let entry = SimpleEntry(date: Date(), loan: nil, signedIn: false, numberOfLoanedDocuments: 0, image: nil)
+                let entry = SimpleEntry(date: Date(), loan: nil, signedIn: false, numberOfLoanedDocuments: 0)
                 completion(entry)
                 return
             }
@@ -52,7 +52,7 @@ struct Provider: TimelineProvider {
         session.fetchItems(with: credentials) { result in
             switch result {
             case .success(let items):
-                let entry = SimpleEntry(date: Date(), loan: items.first, signedIn: true, numberOfLoanedDocuments: items.count, image: nil)
+                let entry = SimpleEntry(date: Date(), loan: items.first, signedIn: true, numberOfLoanedDocuments: items.count)
                 let timeline = Timeline(entries: [entry], policy: policy)
                 completion(timeline)
 
@@ -69,7 +69,6 @@ struct SimpleEntry: TimelineEntry {
     let loan: Item?
     let signedIn: Bool
     let numberOfLoanedDocuments: Int
-    let image: Image?
 }
 
 struct MessageView: View {
@@ -145,11 +144,11 @@ struct LoansWidget_Previews: PreviewProvider {
     static let item = Item(identifier: "", isRenewable: false, title: "My Favorite Book in the World", type: "book", author: "No Body", library: "Library", returnDateComponents: DateComponents(calendar: nil, timeZone: nil, era: nil, year: 2021, month: 01, day: 01), image: nil)
 
     static var previews: some View {
-        LoansWidgetEntryView(entry: SimpleEntry(date: Date(), loan: item, signedIn: false, numberOfLoanedDocuments: 5, image: nil))
+        LoansWidgetEntryView(entry: SimpleEntry(date: Date(), loan: item, signedIn: false, numberOfLoanedDocuments: 5))
             // .environment(\.locale, .init(identifier: "fr"))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
 
-        LoansWidgetEntryView(entry: SimpleEntry(date: Date(), loan: item, signedIn: true, numberOfLoanedDocuments: 5, image: nil))
+        LoansWidgetEntryView(entry: SimpleEntry(date: Date(), loan: item, signedIn: true, numberOfLoanedDocuments: 5))
             .environment(\.locale, .init(identifier: "fr"))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
