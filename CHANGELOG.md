@@ -9,6 +9,7 @@
 ## 1.7 (work in progress)
 
 - [x] Loans widget (iOS 14, macOS 11)
+- [x] Loans notifications (1 week before due date)
 - [x] Filter agenda by library (iOS 14, macOS 11)
 - [x] Add Drag and Drop support (news, agenda)
 - [x] List reservations
