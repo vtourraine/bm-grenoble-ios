@@ -40,7 +40,7 @@ struct Provider: TimelineProvider {
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        let policy = TimelineReloadPolicy.after(Date().addingTimeInterval(60*60))
+        let policy = TimelineReloadPolicy.after(Date().addingTimeInterval(60*60*12))
 
         guard let credentials = Credentials.sharedCredentials() else {
             let timeline = Timeline(entries: [SimpleEntry](), policy: policy)
