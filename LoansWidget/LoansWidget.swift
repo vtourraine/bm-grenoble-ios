@@ -77,10 +77,13 @@ struct MessageView: View {
     var body: some View {
         ZStack(alignment: .top) {
             Color("WidgetBackground")
-            Text(text)
-                .font(.headline)
-                .foregroundColor(.white)
-                .padding()
+            HStack {
+                Text(text)
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                Spacer()
+            }
         }
     }
 }
@@ -145,6 +148,10 @@ struct LoansWidget_Previews: PreviewProvider {
 
     static var previews: some View {
         LoansWidgetEntryView(entry: SimpleEntry(date: Date(), loan: item, signedIn: false, numberOfLoanedDocuments: 5))
+            // .environment(\.locale, .init(identifier: "fr"))
+            .previewContext(WidgetPreviewContext(family: .systemSmall))
+
+        LoansWidgetEntryView(entry: SimpleEntry(date: Date(), loan: nil, signedIn: true, numberOfLoanedDocuments: 0))
             // .environment(\.locale, .init(identifier: "fr"))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
 
