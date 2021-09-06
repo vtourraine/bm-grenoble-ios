@@ -87,7 +87,11 @@ class AgendaParser {
         }
 
         let category = infoStringComponents[0].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        let library = infoStringComponents[1].components(separatedBy: "  -").first?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        var library = infoStringComponents[1].components(separatedBy: "  -").first?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        
+        if library?.contains("<img") ?? false {
+            library = ""
+        }
 
         let image: URL?
         if let imageString = html.parse(between: "<img src=\"", and: "\""),

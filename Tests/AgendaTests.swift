@@ -3,7 +3,7 @@
 //  bmTests
 //
 //  Created by Vincent Tourraine on 11/01/2020.
-//  Copyright © 2020 Studio AMANgA. All rights reserved.
+//  Copyright © 2020-2021 Studio AMANgA. All rights reserved.
 //
 
 import XCTest
@@ -75,5 +75,17 @@ class AgendaTests: XCTestCase {
     func testParseAgendaItems3() throws {
         let parsedObjects = try loadItems(fromFileNamed: "TestAgenda3")
         XCTAssertNil(parsedObjects.pagination.nextPage)
+    }
+    
+    func testParseAgendaItems4() throws {
+        let parsedObjects = try loadItems(fromFileNamed: "TestAgenda4")
+        let items = parsedObjects.items
+        XCTAssertEqual(items.count, 10)
+        
+        let library0 = try XCTUnwrap(items[0].library)
+        XCTAssertEqual(library0, "")
+        
+        let library = try XCTUnwrap(items[1].library)
+        XCTAssertEqual(library, "")
     }
 }

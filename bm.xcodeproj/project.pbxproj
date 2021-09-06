@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB6CA75526E6B3CE0004F819 /* TestAgenda4.html in Resources */ = {isa = PBXBuildFile; fileRef = BB6CA75426E6B3CE0004F819 /* TestAgenda4.html */; };
 		D70212C722F0E43C00E3972E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70212C622F0E43C00E3972E /* AppDelegate.swift */; };
 		D70212C922F0E43C00E3972E /* LoansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70212C822F0E43C00E3972E /* LoansViewController.swift */; };
 		D70212CC22F0E43C00E3972E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D70212CA22F0E43C00E3972E /* Main.storyboard */; };
@@ -72,6 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BB6CA75426E6B3CE0004F819 /* TestAgenda4.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TestAgenda4.html; sourceTree = "<group>"; };
 		D70212C322F0E43C00E3972E /* BM Grenoble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BM Grenoble.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D70212C622F0E43C00E3972E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Sources/AppDelegate.swift; sourceTree = "<group>"; };
 		D70212C822F0E43C00E3972E /* LoansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoansViewController.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				D7697DEB23CA0DA100010011 /* TestAgenda1.html */,
 				D7A0A2E923E1828D0039D934 /* TestAgenda2.html */,
 				D7A0A2E823E1828D0039D934 /* TestAgenda3.html */,
+				BB6CA75426E6B3CE0004F819 /* TestAgenda4.html */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 			files = (
 				D7697DEC23CA0DA100010011 /* TestAgenda1.html in Resources */,
 				D7A0A2EB23E1828D0039D934 /* TestAgenda2.html in Resources */,
+				BB6CA75526E6B3CE0004F819 /* TestAgenda4.html in Resources */,
 				D7A0A2EA23E1828D0039D934 /* TestAgenda3.html in Resources */,
 				D78200A923C73AF700C3A699 /* TestNews1.html in Resources */,
 			);
