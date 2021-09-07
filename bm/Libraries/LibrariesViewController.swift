@@ -11,7 +11,7 @@ import MapKit
 import CoreLocation
 import CoreLocationUI
 
-class LibrariesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate {
+class LibrariesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate {
 
     let libraries = Libraries.loadCityLibraries()
     let locationManager = CLLocationManager()
@@ -98,7 +98,9 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
         if #available(iOS 15.0, *) {
             if sender is CLLocationButton {
                 locationManager.delegate = self
-                locationManager.startUpdatingLocation()
+                // locationManager.startUpdatingLocation()
+                // or?
+                // locationManager.requestLocation()
                 return
             }
         }
@@ -162,14 +164,23 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
             libraryViewController.library = library
         }
     }
+}
 
-    // MARK: - Location manager delegate
+extension LibrariesViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         // Should display user location on map view
         if status == .authorizedWhenInUse {
             mapView?.showsUserLocation = true
         }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        mapView?.showsUserLocation = true
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("\(error)")
     }
 }
 
