@@ -52,6 +52,11 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
         if let library = library {
             configure(with: library)
         }
+        
+        let status = CLLocationManager.authorizationStatus()
+        if status == .authorizedWhenInUse || status == .authorizedAlways {
+            mapView?.showsUserLocation = true
+        }
 
         let largeScreen = traitCollection.horizontalSizeClass == .regular && traitCollection.verticalSizeClass == .regular
         navigationItem.largeTitleDisplayMode = largeScreen ? .automatic : .never

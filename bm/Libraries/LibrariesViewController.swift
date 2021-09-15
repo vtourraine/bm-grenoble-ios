@@ -9,7 +9,9 @@
 import UIKit
 import MapKit
 import CoreLocation
+#if !targetEnvironment(macCatalyst)
 import CoreLocationUI
+#endif
 
 class LibrariesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate {
 
@@ -37,6 +39,11 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
         separatorHeight?.constant = 1.0 / UIScreen.main.scale
 
         mapView?.setRegion(defaultcoordinateRegion, animated: false)
+        
+        let status = CLLocationManager.authorizationStatus()
+        if status == .authorizedWhenInUse || status == .authorizedAlways {
+            mapView?.showsUserLocation = true
+        }
 
         if let libraries = libraries?.libraries {
             let annotations = libraries.map { (library) -> MKPointAnnotation in
@@ -49,6 +56,7 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
             mapView?.addAnnotations(annotations)
         }
 
+#if !targetEnvironment(macCatalyst)
         if #available(iOS 15.0, *) {
             let locationButton = CLLocationButton()
             locationButton.icon = .arrowFilled
@@ -76,6 +84,10 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
             }
             showUserLocationButton?.configureRoundCorners()
         }
+#else
+    showUserLocationButton?.setImage(UIImage(systemName: "location.fill"), for: .normal)
+    showUserLocationButton?.configureRoundCorners()
+#endif
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -95,15 +107,15 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBAction func reframeMap(_ sender: Any?) {
         mapView?.setRegion(defaultcoordinateRegion, animated: true)
 
+#if !targetEnvironment(macCatalyst)
         if #available(iOS 15.0, *) {
             if sender is CLLocationButton {
                 locationManager.delegate = self
-                // locationManager.startUpdatingLocation()
-                // or?
-                // locationManager.requestLocation()
+                locationManager.startUpdatingLocation()
                 return
             }
         }
+#endif
 
         let status = CLLocationManager.authorizationStatus()
         if status == .notDetermined {
@@ -170,7 +182,7 @@ extension LibrariesViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         // Should display user location on map view
-        if status == .authorizedWhenInUse {
+        if status == .authorizedWhenInUse || status == .authorizedAlways {
             mapView?.showsUserLocation = true
         }
     }

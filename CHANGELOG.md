@@ -2,14 +2,11 @@
 
 ## 1.7 (work in progress)
 
-- [ ] Optimized for iOS 15, macOS 12
-- [ ] Add Location Button (iOS 15, macOS 12): wip, confirm on libraries, todo: library details
-
-
-## 1.6.2 (work in progress)
-
+- [x] Optimized for iOS 15, macOS 12
+- [x] Add Location Button (iOS 15, macOS 12): wip, confirm on libraries, todo: library details
 - [x] Filter agenda by library (iOS 14, macOS 11)
-- [ ] Add Drag and Drop support (news, agenda)
+- [x] Add Drag and Drop support (news, agenda)
+- [x] Fix show current location on library maps
 
 
 ## 1.6.1
