@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>lastUpdate</key>
-	<date>2021-03-16T00:00:00Z</date>
+	<date>2021-11-08T00:00:00Z</date>
 	<key>libraries</key>
 	<array>
 		<dict>
@@ -12,14 +12,15 @@
 			<key>webpage</key>
 			<string>https://catalogue.bm-grenoble.fr/notice?id=h%3A%3A54cf5673-2378-4c0d-9262-9aaa72f715aa</string>
 			<key>openingTime</key>
-			<string>En raison du couvre-feu, les horaires sont réduits : fermeture au plus tard à 17h30.
+			<string>Mardi : 10h - 19h
+Mercredi : 10h - 19h
+Jeudi : 13h - 19h
+Vendredi : 10h - 19h
+Samedi : 10h - 18h
 
-Mardi : 10h - 17h30 
-Mercredi : 10h - 17h30
-Jeudi : 13h - 17h30
-Vendredi : 10h - 17h30
-Samedi : 10h - 17h30
-Vacances scolaires : du mardi au samedi : 13h - 18h</string>
+Vacances scolaires : du mardi au samedi de 13h à 18h
+
+Fermeture lundi et samedi de Pâques</string>
 			<key>latitude</key>
 			<real>45.1853165</real>
 			<key>longitude</key>
@@ -40,16 +41,14 @@ Vacances scolaires : du mardi au samedi : 13h - 18h</string>
 			<key>webpage</key>
 			<string>https://catalogue.bm-grenoble.fr/notice?id=h%3A%3A22b5383d-5bf1-41cb-888e-1efa97f6d755</string>
 			<key>openingTime</key>
-			<string>En raison du couvre-feu, les horaires sont réduits : fermeture au plus tard à 17h30.
-
-Mardi : 17h - 17h30
-Mercredi : 14h - 17h30
-Jeudi : 17h - 17h30
-Vendredi : 17h - 17h30
-Samedi : 10h - 12h30 / 14h - 17h 
+			<string>Mardi : 17h - 19h
+Mercredi : 14h - 18h
+Jeudi : 17h - 19h
+Vendredi : 17h - 19h
+Samedi : 10h - 12h30 / 14h - 17h
 
 Vacances scolaires : 
-Du mardi au vendredi : 14h - 18h 
+Du mardi au vendredi : 14h - 18h
 Samedi : 10h - 13h
 
 Fermeture lundi et samedi de Pâques</string>
@@ -73,9 +72,9 @@ Fermeture lundi et samedi de Pâques</string>
 			<key>webpage</key>
 			<string>https://catalogue.bm-grenoble.fr/notice?id=h%3A%3A855316a0-57f1-4e68-98cb-999d0f181842</string>
 			<key>openingTime</key>
-			<string>Sur rendez-vous : 
+			<string>Sur rendez-vous.
 Lundi : 14h - 17h 
-Du mardi au vendredi : 9h - 17h30</string>
+Du mardi au vendredi : 9h - 18h</string>
 			<key>latitude</key>
 			<real>45.1568105</real>
 			<key>longitude</key>
@@ -96,13 +95,11 @@ Du mardi au vendredi : 9h - 17h30</string>
 			<key>webpage</key>
 			<string>https://catalogue.bm-grenoble.fr/notice?id=h%3A%3A2ef62750-447d-48a4-afb7-24f388036087</string>
 			<key>openingTime</key>
-			<string>En raison du couvre-feu, les horaires sont réduits : fermeture au plus tard à 17h30.
-
-Mardi : 15h - 17h30 
-Mercredi : 10h - 12h30 / 14h - 17h30 
+			<string>Mardi : 15h - 18h30
+Mercredi : 10h - 12h30 / 14h - 18h
 Jeudi : accueil de groupes 
-Vendredi : 15h - 17h30 
-Samedi : 10h - 12h30 / 14h - 17h30
+Vendredi : 15h - 18h30
+Samedi : 10h - 12h30 / 14h - 18h
 
 Fermeture lundi et samedi de Pâques</string>
 			<key>latitude</key>
@@ -125,10 +122,8 @@ Fermeture lundi et samedi de Pâques</string>
 			<key>webpage</key>
 			<string>https://catalogue.bm-grenoble.fr/notice?id=h%3A%3A6f13c552-e9f7-4752-89cb-de1b737ebfb9</string>
 			<key>openingTime</key>
-			<string>En raison du couvre-feu, les horaires sont réduits : fermeture au plus tard à 17h30.
-
-Mardi : 14h - 17h30
-Mercredi : 10h - 13h / 14h - 17h30
+			<string>Mardi : 14h - 19h
+Mercredi : 10h - 13h / 14h - 18h
 Jeudi et vendredi : accueil de groupes 
 Samedi : 10h - 13h / 14h - 17h
 
@@ -153,12 +148,10 @@ Fermeture lundi et samedi de Pâques</string>
 			<key>webpage</key>
 			<string>https://catalogue.bm-grenoble.fr/notice?id=h%3A%3Aed3c3605-2cac-4d87-bcbd-e2838e659015</string>
 			<key>openingTime</key>
-			<string>En raison du couvre-feu, les horaires sont réduits : fermeture au plus tard à 17h30.
-
-Mardi : 14h - 17h30
-Mercredi : 14h - 17h30
+			<string>Mardi : 14h - 18h
+Mercredi : 14h - 18h
 Jeudi : 10h - 13h 
-Vendredi : 14h - 17h30
+Vendredi : 14h - 18h
 Samedi : 10h - 13h
 
 Fermeture lundi et samedi de Pâques</string>
@@ -182,15 +175,11 @@ Fermeture lundi et samedi de Pâques</string>
 			<key>webpage</key>
 			<string>https://catalogue.bm-grenoble.fr/notice?id=h%3A%3A24db28e9-5438-4226-86bb-25505b4b0538</string>
 			<key>openingTime</key>
-			<string>En raison du couvre-feu, les horaires sont réduits : fermeture au plus tard à 17h30.
-
-Mardi : 13h - 17h30
-Mercredi : 11h - 17h30
-Jeudi : 13h - 17h30
-Vendredi : 13h - 17h30
-Samedi : 11h - 17h30
-
-Vacances scolaires : du mardi au samedi de 13h à 17h30
+			<string>Mardi : 13h - 18h30
+Mercredi : 11h - 18h30
+Jeudi : 13h - 18h30
+Vendredi : 13h - 18h30
+Samedi : 11h - 18h30
 
 Fermeture lundi et samedi de Pâques</string>
 			<key>latitude</key>
@@ -213,13 +202,11 @@ Fermeture lundi et samedi de Pâques</string>
 			<key>webpage</key>
 			<string>https://catalogue.bm-grenoble.fr/notice?id=h%3A%3A75e63402-a291-425a-9174-86da7d6ed3b9</string>
 			<key>openingTime</key>
-			<string>En raison du couvre-feu, les horaires sont réduits : fermeture au plus tard à 17h30.
-
-Mardi : 15h - 17h30
-Mercredi : 10h - 12h30 / 14h - 17h30
+			<string>Mardi : 15h - 18h30
+Mercredi : 10h - 12h30 / 14h - 18h
 Jeudi : accueil de groupes 
-Vendredi : 15h - 17h30
-Samedi : 10h - 12h30 / 14h - 17h30
+Vendredi : 15h - 18h30
+Samedi : 10h - 12h30 / 14h - 18h
 
 Fermeture lundi et samedi de Pâques</string>
 			<key>latitude</key>
@@ -242,12 +229,14 @@ Fermeture lundi et samedi de Pâques</string>
 			<key>webpage</key>
 			<string>https://catalogue.bm-grenoble.fr/notice?id=h%3A%3Af85290c1-4f73-45ad-8fa4-95313c2a74a4</string>
 			<key>openingTime</key>
-			<string>En raison du couvre-feu, les horaires sont réduits : fermeture au plus tard à 17h30.
+			<string>Mardi : 16h - 18h
+Mercredi : 10h - 12h / 14h - 18h
+Vendredi : 16h - 18h
+Samedi : 10h - 12h / 14h - 18h
 
-Mardi : 16h - 17h30
-Mercredi : 10h - 12h / 14h - 17h30
-Vendredi : 16h - 17h30
-Samedi : 10h - 12h / 14h - 17h30</string>
+Vacances scolaires : mêmes horaires sauf mardi et vendredi de 15h à 18h
+
+Fermeture lundi et samedi de Pâques</string>
 			<key>latitude</key>
 			<real>45.1923764</real>
 			<key>longitude</key>
@@ -268,11 +257,7 @@ Samedi : 10h - 12h / 14h - 17h30</string>
 			<key>webpage</key>
 			<string>https://catalogue.bm-grenoble.fr/notice?id=h%3A%3A0ef0bec7-aae8-4174-a55d-cc5515c7125e</string>
 			<key>openingTime</key>
-			<string>En raison du couvre-feu, les horaires sont réduits : fermeture au plus tard à 17h30.
-
-Du mardi au samedi : 12h - 17h30
-
-Vacances scolaires (été uniquement) : du mardi au samedi de 13h à 18h
+			<string>Du mardi au samedi : 12h - 18h30
 
 Fermeture lundi et samedi de Pâques</string>
 			<key>latitude</key>
@@ -295,13 +280,11 @@ Fermeture lundi et samedi de Pâques</string>
 			<key>webpage</key>
 			<string>https://catalogue.bm-grenoble.fr/notice?id=h%3A%3Ab7e084c6-62af-484e-8f51-b633d775b662</string>
 			<key>openingTime</key>
-			<string>En raison du couvre-feu, les horaires sont réduits : fermeture au plus tard à 17h30.
-
-Mardi : 15h - 17h30
-Mercredi : 10h - 12h30 / 14h - 17h30
-Jeudi : accueil de groupes 
-Vendredi : 15h - 17h30 
-Samedi : 10h - 12h30 / 14h - 17h30
+			<string>Mardi : 15h - 18h30
+Mercredi : 10h - 12h30 / 14h - 18h
+Jeudi : accueil de groupes
+Vendredi : 15h - 18h30
+Samedi : 10h - 12h30 / 14h - 18h
 
 Fermeture lundi et samedi de Pâques</string>
 			<key>latitude</key>
@@ -324,13 +307,11 @@ Fermeture lundi et samedi de Pâques</string>
 			<key>webpage</key>
 			<string>https://catalogue.bm-grenoble.fr/notice?id=h%3A%3Af7feb977-89dc-429c-bfc4-45c5bdf2e983</string>
 			<key>openingTime</key>
-			<string>En raison du couvre-feu, les horaires sont réduits : fermeture au plus tard à 17h30.
-
-Mardi : 15h - 17h30
-Mercredi : 10h - 12h30 / 14h - 17h30
+			<string>Mardi : 15h - 18h30
+Mercredi : 10h - 12h30 / 14h - 18h
 Jeudi : accueil de groupes 
-Vendredi : 15h - 17h30
-Samedi : 10h - 12h30 / 14h - 17h30
+Vendredi : 15h - 18h30
+Samedi : 10h - 12h30 / 14h - 18h
 
 Fermeture lundi et samedi de Pâques</string>
 			<key>latitude</key>
@@ -353,9 +334,7 @@ Fermeture lundi et samedi de Pâques</string>
 			<key>webpage</key>
 			<string>https://www.bm-grenoble.fr/605-l-artotheque.htm?</string>
 			<key>openingTime</key>
-			<string>En raison du couvre-feu, les horaires sont réduits : fermeture au plus tard à 17h30.
-
-Du mardi au samedi : 13h - 17h30</string>
+			<string>Du mardi au samedi : 13h - 18h</string>
 			<key>latitude</key>
 			<real>45.1853165</real>
 			<key>longitude</key>
