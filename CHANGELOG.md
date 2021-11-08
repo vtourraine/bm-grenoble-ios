@@ -3,7 +3,7 @@
 ## 1.7 (work in progress)
 
 - [x] Optimized for iOS 15, iPadOS 15, and macOS 12
-- [x] Add Location Button (iOS 15, macOS 12): wip, confirm on libraries
+- [x] Add Location Button (iOS 15, macOS 12)
 - [x] Filter agenda by library (iOS 14, macOS 11)
 - [x] Add Drag and Drop support (News, Agenda)
 - [x] Update libraries opening hours
