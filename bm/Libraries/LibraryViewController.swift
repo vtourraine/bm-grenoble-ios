@@ -8,10 +8,14 @@
 
 import Foundation
 import MapKit
+#if !targetEnvironment(macCatalyst)
+import CoreLocationUI
+#endif
 
 class LibraryViewController: UIViewController, MKMapViewDelegate {
 
     var library: Library?
+    let locationManager = CLLocationManager()
 
     @IBOutlet var openingTimeLabel: UILabel?
     @IBOutlet var openingTimeImageView: UIImageView?
@@ -27,6 +31,8 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet var mapView: MKMapView?
     @IBOutlet var metadataView: UIView?
+    @IBOutlet var showUserLocationButton: UIButton?
+    @IBOutlet var locationButton: UIView? // CLLocationButton
     @IBOutlet var separatorWidth: NSLayoutConstraint?
     @IBOutlet var separatorHeight: NSLayoutConstraint?
 
@@ -60,6 +66,39 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
 
         let largeScreen = traitCollection.horizontalSizeClass == .regular && traitCollection.verticalSizeClass == .regular
         navigationItem.largeTitleDisplayMode = largeScreen ? .automatic : .never
+        
+#if !targetEnvironment(macCatalyst)
+        if #available(iOS 15.0, *) {
+            let locationButton = CLLocationButton()
+            locationButton.icon = .arrowFilled
+            locationButton.cornerRadius = 22
+            locationButton.tintColor = .BMRed
+            locationButton.backgroundColor = .systemBackground
+            locationButton.translatesAutoresizingMaskIntoConstraints = false
+            locationButton.addTarget(self, action: #selector(reframeMap(_:)), for: .touchUpInside)
+
+            if let mapView = mapView {
+                view.insertSubview(locationButton, aboveSubview: mapView)
+
+                locationButton.topAnchor.constraint(equalTo: mapView.topAnchor, constant: 8).isActive = true
+                mapView.trailingAnchor.constraint(equalTo: locationButton.trailingAnchor, constant: 8).isActive = true
+            }
+
+            self.locationButton = locationButton
+
+            showUserLocationButton?.removeFromSuperview()
+            showUserLocationButton = nil
+        }
+        else {
+            if #available(iOS 13.0, *) {
+                showUserLocationButton?.setImage(UIImage(systemName: "location.fill"), for: .normal)
+            }
+            showUserLocationButton?.configureRoundCorners()
+        }
+#else
+    showUserLocationButton?.setImage(UIImage(systemName: "location.fill"), for: .normal)
+    showUserLocationButton?.configureRoundCorners()
+#endif
     }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -98,6 +137,32 @@ import MessageUI
 
 // MARK: - Actions
 extension LibraryViewController: MFMailComposeViewControllerDelegate {
+
+    @IBAction func reframeMap(_ sender: Any?) {
+        guard let library = library else {
+            return
+        }
+
+        let regionRadius: CLLocationDistance = 500
+        let coordinateRegion = MKCoordinateRegion(center: library.location(), latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+        mapView?.setRegion(coordinateRegion, animated: true)
+
+#if !targetEnvironment(macCatalyst)
+        if #available(iOS 15.0, *) {
+            if sender is CLLocationButton {
+                locationManager.delegate = self
+                locationManager.startUpdatingLocation()
+                return
+            }
+        }
+#endif
+
+        let status = CLLocationManager.authorizationStatus()
+        if status == .notDetermined {
+            locationManager.delegate = self
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
 
     @IBAction func openInMaps(_ sender: Any?) {
         guard let library = library else {
@@ -151,5 +216,23 @@ extension LibraryViewController: MFMailComposeViewControllerDelegate {
 
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension LibraryViewController: CLLocationManagerDelegate {
+
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        // Should display user location on map view
+        if status == .authorizedWhenInUse || status == .authorizedAlways {
+            mapView?.showsUserLocation = true
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        mapView?.showsUserLocation = true
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        // print("\(error)")
     }
 }
