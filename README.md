@@ -8,16 +8,16 @@ iOS application for the Grenoble Municipal Library ([bibliothèque municipale de
 
 ## Features
 
-- List current loans, renew loans
+- List current loans, renew loans, notification for reminders
+- Reservations (read-only)
 - News
 - Agenda
 - Libraries list with info and map
 - Search documents
-- Subscriber card: in-app barcodes are difficult to scan in libraries
+- Subscriber card
 
 ## Roadmap
 
-- Local notification for reminders
 - Reservations
 - Multiple accounts support
 

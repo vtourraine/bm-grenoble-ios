@@ -29,6 +29,7 @@
 "No Current Loans" = "No Current Loans";
 "Connection Error" = "Connection Error";
 "Invalid subscriber number or password" = "Invalid subscriber number or password";
+"Forbidden access. You might need to sign out and log in again." = "Forbidden access. If the problem persists, try to sign out and log in again.";
 "Search on Goodreads" = "Search on Goodreads";
 "Share" = "Share";
 "Open in Browser" = "Open in Browser";
@@ -42,13 +43,17 @@
 "Where to find it?" = "Where to find it?";
 
 "Available" = "Available";
+"Not Available Yet" = "Not Available Yet";
 "Loaned" = "Loaned";
 "Reserved" = "Reserved";
 "Under reparation" = "Under reparation";
 "On-site communication" = "On-site communication";
 "To transfer to another library" = "To transfer to another library";
+"Reservations" = "Reservations";
 
 "Book" = "Book";
 "Language learning aid" = "Language learning aid";
 "Video" = "Video";
 "Score" = "Score";
+
+"Due %@" = "Due %@";

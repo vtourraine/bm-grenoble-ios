@@ -18,7 +18,6 @@ class AgendaViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.dragInteractionEnabled = true
         tableView.dragDelegate = self
 
         if let cachedItems = AgendaItemCache.load(from: .standard) {

@@ -26,7 +26,7 @@ class ItemTableViewCell: UITableViewCell {
         authorLabel?.text = item.author
         libraryLabel?.text = item.library
 
-        if let formattedReturnDate = formattedReturnDate(components: item.returnDateComponents) {
+        if let formattedReturnDate = item.returnDateComponents.formattedReturnDate() {
             returnDateLabel?.text = formattedReturnDate.localizedDate
             if formattedReturnDate.numberOfDays <= 0 {
                 returnNumberOfDaysLabel?.text = "⚠️ \(formattedReturnDate.localizedNumberOfDays)"
@@ -83,40 +83,5 @@ class ItemTableViewCell: UITableViewCell {
                 thumbnail?.backgroundColor = .lightGray
             }
         }
-    }
-
-    // We want the formatted return date in “full” style, but without the “year” information, for instance:
-    // “17 août” instead of “17 août 2019”
-    // "August 17" instead of "August 17, 2019"
-    func formattedReturnDate(components returnDateComponents: DateComponents) -> (localizedDate: String, numberOfDays:Int, localizedNumberOfDays: String)? {
-        let calendar = NSCalendar.current
-        guard let returnDate = calendar.date(from: returnDateComponents),
-            let returnDateShifted = calendar.date(byAdding: .day, value: 1, to: returnDate) else {
-                return nil
-        }
-
-        let localizedLongReturnDate = DateFormatter.localizedString(from: returnDate, dateStyle: .long, timeStyle: .none)
-        let localizedMediumReturnDate: String
-        let year = calendar.component(.year, from: returnDate)
-        let yearSuffixUS = ", \(year)"
-        let yearSuffixFR = " \(year)"
-        if localizedLongReturnDate.hasSuffix(yearSuffixUS) {
-            localizedMediumReturnDate = localizedLongReturnDate.replacingOccurrences(of: yearSuffixUS, with: "")
-        }
-        else if localizedLongReturnDate.hasSuffix(yearSuffixFR) {
-            localizedMediumReturnDate = localizedLongReturnDate.replacingOccurrences(of: yearSuffixFR, with: "")
-        }
-        else {
-            localizedMediumReturnDate = DateFormatter.localizedString(from: returnDate, dateStyle: .medium, timeStyle: .none)
-        }
-
-        let numberOfDays = calendar.dateComponents([.day], from: Date(), to: returnDateShifted)
-        guard let localizedNumberOfDays = DateComponentsFormatter.localizedString(from: numberOfDays, unitsStyle: .full),
-            let numberOfDaysValue = numberOfDays.day else {
-                return nil
-
-        }
-
-        return (localizedMediumReturnDate, numberOfDaysValue, localizedNumberOfDays)
     }
 }

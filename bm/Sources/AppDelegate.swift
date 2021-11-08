@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #endif
 
         updateTabBarIcons()
+        NotificationManager.askPermission()
 
         return true
     }

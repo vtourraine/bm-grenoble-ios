@@ -153,7 +153,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     private func fetchItems(with credentials: Credentials) {
-        Item.fetchItems(with: credentials) { result in
+        let session = URLSession.shared
+        session.fetchItems(with: credentials) { result in
             self.configure(loading: false)
 
             switch result {
@@ -173,7 +174,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if let presentingTabBarController = self.presentingViewController as? UITabBarController,
             let navigationController = presentingTabBarController.viewControllers?.first as? UINavigationController,
             let viewController = navigationController.topViewController as? LoansViewController {
-            viewController.reloadData(state: .loans(items))
+            viewController.reloadData(state: .loans(items, []))
         }
 
         dismiss(animated: true, completion: nil)

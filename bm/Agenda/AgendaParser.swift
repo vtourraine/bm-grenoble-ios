@@ -57,7 +57,7 @@ class AgendaParser {
         guard let linkString = html.parse(between: "<a href=\"", and: "\">"),
             let link = URL(string: "\(LinkRoot)\(linkString)"),
             let title = html.parse(between: "</span> - ", and: "</a>")?.cleanHTMLEntities(),
-            let infoString = html.parse(between: "class=\"alignleft\" alt=\"\">", and: "<p"),
+            let infoString = html.parse(between: "class=\"alignleft\" alt=\"\">", and: "<p")?.cleanHTMLEntities(),
             let summary = html.parse(between: "<p class=\"resume\">", and: "</p>")?.cleanHTMLEntitiesAndTags() else {
             return nil
         }
