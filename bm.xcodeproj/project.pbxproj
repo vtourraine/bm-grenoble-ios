@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BB6CA75526E6B3CE0004F819 /* TestAgenda4.html in Resources */ = {isa = PBXBuildFile; fileRef = BB6CA75426E6B3CE0004F819 /* TestAgenda4.html */; };
 		BB12181326979A5100FE050B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB12181526979A5100FE050B /* Localizable.strings */; };
+		BB6CA75526E6B3CE0004F819 /* TestAgenda4.html in Resources */ = {isa = PBXBuildFile; fileRef = BB6CA75426E6B3CE0004F819 /* TestAgenda4.html */; };
 		D70212C722F0E43C00E3972E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70212C622F0E43C00E3972E /* AppDelegate.swift */; };
 		D70212C922F0E43C00E3972E /* LoansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70212C822F0E43C00E3972E /* LoansViewController.swift */; };
 		D70212CC22F0E43C00E3972E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D70212CA22F0E43C00E3972E /* Main.storyboard */; };
@@ -109,9 +109,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		BB6CA75426E6B3CE0004F819 /* TestAgenda4.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TestAgenda4.html; sourceTree = "<group>"; };
 		BB12181426979A5100FE050B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BB12181626979A5600FE050B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BB6CA75426E6B3CE0004F819 /* TestAgenda4.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TestAgenda4.html; sourceTree = "<group>"; };
 		D70212C322F0E43C00E3972E /* BM Grenoble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BM Grenoble.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D70212C622F0E43C00E3972E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Sources/AppDelegate.swift; sourceTree = "<group>"; };
 		D70212C822F0E43C00E3972E /* LoansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoansViewController.swift; sourceTree = "<group>"; };
@@ -888,7 +888,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = bm/bm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 79;
+				CURRENT_PROJECT_VERSION = 80;
 				DEVELOPMENT_TEAM = 77S3V3W24J;
 				INFOPLIST_FILE = bm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -913,7 +913,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = bm/bm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 79;
+				CURRENT_PROJECT_VERSION = 80;
 				DEVELOPMENT_TEAM = 77S3V3W24J;
 				INFOPLIST_FILE = bm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -938,7 +938,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = LoansWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 79;
+				CURRENT_PROJECT_VERSION = 80;
 				DEVELOPMENT_TEAM = 77S3V3W24J;
 				INFOPLIST_FILE = LoansWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -964,7 +964,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = LoansWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 79;
+				CURRENT_PROJECT_VERSION = 80;
 				DEVELOPMENT_TEAM = 77S3V3W24J;
 				INFOPLIST_FILE = LoansWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
