@@ -42,6 +42,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             tabBarViewController.viewControllers?[2].tabBarItem.image = UIImage(systemName: "calendar")
             tabBarViewController.viewControllers?[3].tabBarItem.image = UIImage(systemName: "building.2")
         }
+        
+        if #available(iOS 15.0, *) {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = .systemBackground
+            tabBarViewController.tabBar.standardAppearance = appearance
+            tabBarViewController.tabBar.scrollEdgeAppearance = appearance
+        }
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
