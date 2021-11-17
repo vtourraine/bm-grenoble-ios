@@ -1,17 +1,19 @@
 # BM Grenoble
 
-## 1.7 (work in progress)
+## 1.7
 
-- [x] **Optimized for iOS 15, iPadOS 15, and macOS 12**
-- [x] **Loans widget (iOS 14, macOS 11)**
-- [x] **Loans notifications (1 week before due date)**
-- [x] List reservations
-- [x] Location Button (iOS 15, macOS 12)
-- [x] Filter agenda by library (iOS 14, macOS 11)
-- [x] Drag and Drop support (News, Agenda)
-- [x] Update libraries opening hours
-- [x] Improve agenda parsing
-- [x] Fix show current location on library maps
+2021-11-17
+
+- **Optimized for iOS 15, iPadOS 15, and macOS 12**
+- **Loans widget (iOS 14, macOS 11)**
+- **Loans notifications (1 week before due date)**
+- List reservations
+- Location Button (iOS 15, macOS 12)
+- Filter agenda by library (iOS 14, macOS 11)
+- Drag and Drop support (News, Agenda)
+- Update libraries opening hours
+- Improve agenda parsing
+- Fix show current location on library maps
 
 
 ## 1.6.1
