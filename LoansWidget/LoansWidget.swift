@@ -3,7 +3,7 @@
 //  LoansWidget
 //
 //  Created by Vincent Tourraine on 12/05/2021.
-//  Copyright © 2021 Studio AMANgA. All rights reserved.
+//  Copyright © 2021-2022 Studio AMANgA. All rights reserved.
 //
 
 import Foundation
@@ -32,7 +32,7 @@ struct Provider: TimelineProvider {
                 completion(entry)
 
             case .failure:
-                let entry = SimpleEntry(date: Date(), loan: nil, signedIn: false, numberOfLoanedDocuments: 0)
+                let entry = SimpleEntry(date: Date(), loan: nil, signedIn: false)
                 completion(entry)
                 return
             }
@@ -43,7 +43,7 @@ struct Provider: TimelineProvider {
         let policy = TimelineReloadPolicy.after(Date().addingTimeInterval(60*60*12))
 
         guard let credentials = Credentials.sharedCredentials() else {
-            let timeline = Timeline(entries: [SimpleEntry](), policy: policy)
+            let timeline = Timeline(entries: [SimpleEntry(date: Date(), loan: nil, signedIn: false)], policy: policy)
             completion(timeline)
             return
         }
@@ -56,8 +56,8 @@ struct Provider: TimelineProvider {
                 let timeline = Timeline(entries: [entry], policy: policy)
                 completion(timeline)
 
-            case .failure:
-                let timeline = Timeline(entries: [SimpleEntry](), policy: policy)
+            case .failure(let error):
+                let timeline = Timeline(entries: [SimpleEntry(date: Date(), text: "Cannot Refresh Loans (\(error.localizedDescription))")], policy: policy)
                 completion(timeline)
             }
         }
@@ -69,6 +69,17 @@ struct SimpleEntry: TimelineEntry {
     let loan: Item?
     let signedIn: Bool
     let numberOfLoanedDocuments: Int
+    let text: String?
+}
+
+extension SimpleEntry {
+    init(date: Date, loan: Item?, signedIn: Bool, numberOfLoanedDocuments: Int = 0) {
+        self.init(date: date, loan: loan, signedIn: signedIn, numberOfLoanedDocuments: numberOfLoanedDocuments, text: nil)
+    }
+    
+    init(date: Date, text: String) {
+        self.init(date: date, loan: nil, signedIn: false, numberOfLoanedDocuments: 0, text: text)
+    }
 }
 
 struct MessageView: View {
@@ -93,7 +104,10 @@ struct LoansWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        if !entry.signedIn {
+        if let text = entry.text {
+            MessageView(text: LocalizedStringKey(text))
+        }
+        else if !entry.signedIn {
             MessageView(text: "Please open the app to sign in.")
         }
         else if entry.numberOfLoanedDocuments == 0 {

@@ -14,6 +14,7 @@
 
 "Please open the app to sign in." = "Veuillez ouvrir l’application pour vous connecter.";
 "No Current Loans" = "Aucun prêt en cours";
-"Error Loading Widget" = "Erreur dans le chargement du widget";
+"Error Loading Widget" = "Erreur de chargement du widget";
 
 "Due: %@" = "Retour : %@";
+"Cannot Refresh Loans (%@)" = "Erreur de chargement (%@)";
