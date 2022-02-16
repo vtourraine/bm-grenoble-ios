@@ -57,7 +57,15 @@ struct Provider: TimelineProvider {
                 completion(timeline)
 
             case .failure(let error):
-                let timeline = Timeline(entries: [SimpleEntry(date: Date(), text: "Cannot Refresh Loans (\(error.localizedDescription))")], policy: policy)
+                let text: String
+                if (error as? NetworkError) == NetworkError.forbidden {
+                    text = "Please open the app to sign in."
+                }
+                else {
+                    text = "Cannot Refresh Loans (\(error.localizedDescription))"
+                }
+                
+                let timeline = Timeline(entries: [SimpleEntry(date: Date(), text: text)], policy: policy)
                 completion(timeline)
             }
         }
