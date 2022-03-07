@@ -1,8 +1,10 @@
 # BM Grenoble
 
-## 1.7.1 (work in progress)
+## 1.7.1
 
-- [x] Improve widget error messages
+2022-03-05
+
+- Improve widget error messages
 
 
 ## 1.7
