@@ -87,9 +87,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     }
 
     func showSearchError(error: Error) {
-        let alert = UIAlertController(title: NSLocalizedString("Search Error", comment: ""), message: error.localizedDescription, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
-        present(alert, animated: true, completion: nil)
+        presentError(error, theme: .error, title: NSLocalizedString("Search Error", comment: ""))
     }
 
     // MARK: - Actions

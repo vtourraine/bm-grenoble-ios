@@ -37,10 +37,13 @@ class UITextFieldPadding : UITextField {
 }
 
 extension UIViewController {
-    func presentLoadingError(_ error: Error?) {
+    func presentError(_ error: Error?, theme: Theme = .error, title: String = NSLocalizedString("Error", comment: "")) {
         let message = MessageView.viewFromNib(layout: .messageView)
-        message.configureTheme(.warning)
-        message.configureContent(title: "Connection Error", body: error?.localizedDescription ?? "")
+        message.configureTheme(theme)
+        if theme == .error {
+            message.backgroundColor = .BMRed
+        }
+        message.configureContent(title: title, body: error?.localizedDescription ?? "")
         message.button?.isHidden = true
 
         var config = SwiftMessages.Config()
@@ -48,6 +51,10 @@ extension UIViewController {
         config.presentationStyle = .bottom
 
         SwiftMessages.show(config: config, view: message)
+    }
+    
+    func presentLoadingError(_ error: Error?) {
+        presentError(error, theme: .warning, title: NSLocalizedString("Connection Error", comment: ""))
     }
 
     func presentSafariViewController(_ webpageURL: URL, readerMode: Bool = false) {

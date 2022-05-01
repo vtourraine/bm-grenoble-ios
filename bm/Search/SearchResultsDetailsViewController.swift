@@ -63,9 +63,7 @@ class SearchResultsDetailsViewController: UITableViewController {
                 self.tableView.reloadSections(sections, with: .automatic)
 
             case .failure(let error):
-                let alert = UIAlertController(title: NSLocalizedString("Error", comment: ""), message: error.localizedDescription, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                self.presentError(error)
             }
         }
     }
