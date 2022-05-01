@@ -179,21 +179,6 @@ class LoansViewController: UITableViewController {
         }
     }
 
-    func configureToolbar(message: String?, animated: Bool) {
-        guard let message = message else {
-            navigationController?.setToolbarHidden(true, animated: animated)
-            return
-        }
-
-        let spaceItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let label = UILabel(frame: .zero)
-        label.text = message
-        label.font = UIFont.preferredFont(forTextStyle: .footnote)
-        let labelItem = UIBarButtonItem(customView: label)
-        setToolbarItems([spaceItem, labelItem, spaceItem], animated: false)
-        navigationController?.setToolbarHidden(false, animated: animated)
-    }
-
     func configureBarButtonItems(userLoggedIn: Bool) {
         #if !targetEnvironment(macCatalyst)
         let infoButton = UIButton(type: .infoLight)
@@ -243,13 +228,12 @@ class LoansViewController: UITableViewController {
     }
 
     @IBAction func refresh(sender: Any?) {        
-        presentLoadingError(NetworkError.forbidden)
-        
         guard let credentials = Credentials.sharedCredentials() else {
+            refreshControl?.endRefreshing()
             return
         }
 
-        configureToolbar(message: NSLocalizedString("Updating Account…", comment: ""), animated: false)
+        presentInfo(NSLocalizedString("Updating Account…", comment: ""))
 
         let session = URLSession.shared
         session.fetchItems(with: credentials) { result in
@@ -265,7 +249,7 @@ class LoansViewController: UITableViewController {
                         ItemCache.save(items: itemCache, to: .standard)
 
                         self.refreshControl?.endRefreshing()
-                        self.configureToolbar(message: nil, animated: true)
+                        self.presentInfo(nil)
                         self.lastRefreshDate = Date()
 
                     case .failure(let error):
@@ -276,7 +260,6 @@ class LoansViewController: UITableViewController {
             case .failure(let error):
                 self.presentLoadingError(error)
                 self.refreshControl?.endRefreshing()
-                self.configureToolbar(message: nil, animated: true)
             }
         }
     }
@@ -286,7 +269,7 @@ class LoansViewController: UITableViewController {
             return
         }
 
-        configureToolbar(message: NSLocalizedString("Renewing Document…", comment: ""), animated: true)
+        presentInfo(NSLocalizedString("Renewing Document…", comment: ""))
 
         let session = URLSession.shared
         _ = session.renew(item.identifier, with: credentials) { result in

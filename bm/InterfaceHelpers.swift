@@ -37,6 +37,27 @@ class UITextFieldPadding : UITextField {
 }
 
 extension UIViewController {
+    func presentInfo(_ text: String?) {
+        guard let text = text else {
+            SwiftMessages.hide()
+            return
+        }
+
+        let message = MessageView.viewFromNib(layout: .statusLine)
+        message.configureTheme(.info)
+        message.configureContent(body: text)
+        if #available(iOS 13.0, *) {
+            message.backgroundColor = .systemBackground
+        }
+        message.button?.isHidden = true
+
+        var config = SwiftMessages.Config()
+        config.duration = .forever
+        config.presentationStyle = .bottom
+
+        SwiftMessages.show(config: config, view: message)
+    }
+    
     func presentError(_ error: Error?, theme: Theme = .error, title: String = NSLocalizedString("Error", comment: "")) {
         let message = MessageView.viewFromNib(layout: .messageView)
         message.configureTheme(theme)
