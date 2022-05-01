@@ -1,5 +1,10 @@
 # BM Grenoble
 
+## 1.7.2
+
+- [x] Non blocking error messages
+
+
 ## 1.7.1
 
 2022-03-05

@@ -242,7 +242,9 @@ class LoansViewController: UITableViewController {
         performSegue(withIdentifier: K.SegueIdentifier.card, sender: nil)
     }
 
-    @IBAction func refresh(sender: Any?) {
+    @IBAction func refresh(sender: Any?) {        
+        presentLoadingError(NetworkError.forbidden)
+        
         guard let credentials = Credentials.sharedCredentials() else {
             return
         }
