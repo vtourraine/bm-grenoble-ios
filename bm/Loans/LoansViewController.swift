@@ -239,7 +239,6 @@ class LoansViewController: UITableViewController {
         session.fetchItems(with: credentials) { result in
             switch result {
             case .success(let items):
-
                 _ = session.fetchAccountPageReservation(with: credentials) { result in
                     switch (result) {
                     case .success(let accountPage):
@@ -253,11 +252,13 @@ class LoansViewController: UITableViewController {
                         self.lastRefreshDate = Date()
 
                     case .failure(let error):
+                        self.presentInfo(nil)
                         self.presentLoadingError(error)
                     }
                 }
 
             case .failure(let error):
+                self.presentInfo(nil)
                 self.presentLoadingError(error)
                 self.refreshControl?.endRefreshing()
             }
@@ -277,6 +278,7 @@ class LoansViewController: UITableViewController {
             case .success:
                 self.refresh(sender: nil)
             case .failure(let error):
+                self.presentInfo(nil)
                 self.present(error)
             }
         }

@@ -64,6 +64,9 @@ extension UIViewController {
         if theme == .error {
             message.backgroundColor = .BMRed
         }
+        else if theme == .warning {
+            message.backgroundColor = .systemOrange
+        }
         message.configureContent(title: title, body: error?.localizedDescription ?? "")
         message.button?.isHidden = true
 
