@@ -130,10 +130,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         configure(loading: true)
 
-        URLSession.shared.connect(username: subscriberNumber, password: password) { result in
+        let urlSession = URLSession.shared
+        urlSession.connect(username: subscriberNumber, password: password) { result in
             switch result {
             case .success(let session):
-                session.save(to: Session.defaultKeychain())
+                let credentials = Credentials(username: subscriberNumber, password: password)
+                try? credentials.save(to: Credentials.defaultKeychain())
+
                 self.fetchItems(with: session)
 
             case .failure(let error):

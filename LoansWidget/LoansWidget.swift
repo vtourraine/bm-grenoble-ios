@@ -18,23 +18,31 @@ struct Provider: TimelineProvider {
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        guard let session = Session.sharedSession() else {
+        guard let credentials = Credentials.sharedCredentials() else {
             let entry = placeholder(in: context)
             completion(entry)
             return
         }
 
         let urlSession = URLSession.shared
-        urlSession.fetchItems(with: session) { result in
-            switch result {
-            case .success(let items):
-                let entry = SimpleEntry(date: Date(), loan: items.first, signedIn: true, numberOfLoanedDocuments: items.count)
-                completion(entry)
+        urlSession.connect(username: credentials.username, password: credentials.password) { connectResult in
+            switch connectResult {
+            case .success(let session):
+                urlSession.fetchItems(with: session) { result in
+                    switch result {
+                    case .success(let items):
+                        let entry = SimpleEntry(date: Date(), loan: items.first, signedIn: true, numberOfLoanedDocuments: items.count)
+                        completion(entry)
+
+                    case .failure:
+                        let entry = SimpleEntry(date: Date(), loan: nil, signedIn: false)
+                        completion(entry)
+                    }
+                }
 
             case .failure:
                 let entry = SimpleEntry(date: Date(), loan: nil, signedIn: false)
                 completion(entry)
-                return
             }
         }
     }
@@ -42,30 +50,41 @@ struct Provider: TimelineProvider {
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         let policy = TimelineReloadPolicy.after(Date().addingTimeInterval(60*60*12))
 
-        guard let session = Session.sharedSession() else {
-            let timeline = Timeline(entries: [SimpleEntry(date: Date(), loan: nil, signedIn: false)], policy: policy)
+        guard let credentials = Credentials.sharedCredentials() else {
+            let emptyEntry = SimpleEntry(date: Date(), loan: nil, signedIn: false)
+            let timeline = Timeline(entries: [emptyEntry], policy: policy)
             completion(timeline)
             return
         }
 
         let urlSession = URLSession.shared
-        urlSession.fetchItems(with: session) { result in
-            switch result {
-            case .success(let items):
-                let entry = SimpleEntry(date: Date(), loan: items.first, signedIn: true, numberOfLoanedDocuments: items.count)
-                let timeline = Timeline(entries: [entry], policy: policy)
-                completion(timeline)
+        urlSession.connect(username: credentials.username, password: credentials.password) { connectResult in
+            switch connectResult {
+            case .success(let session):
+                urlSession.fetchItems(with: session) { result in
+                    switch result {
+                    case .success(let items):
+                        let entry = SimpleEntry(date: Date(), loan: items.first, signedIn: true, numberOfLoanedDocuments: items.count)
+                        let timeline = Timeline(entries: [entry], policy: policy)
+                        completion(timeline)
 
-            case .failure(let error):
-                let text: String
-                if (error as? NetworkError) == NetworkError.forbidden {
-                    text = "Please open the app to sign in."
+                    case .failure(let error):
+                        let text: String
+                        if (error as? NetworkError) == NetworkError.forbidden {
+                            text = "Please open the app to sign in."
+                        }
+                        else {
+                            text = "Cannot Refresh Loans (\(error.localizedDescription))"
+                        }
+
+                        let timeline = Timeline(entries: [SimpleEntry(date: Date(), text: text)], policy: policy)
+                        completion(timeline)
+                    }
                 }
-                else {
-                    text = "Cannot Refresh Loans (\(error.localizedDescription))"
-                }
-                
-                let timeline = Timeline(entries: [SimpleEntry(date: Date(), text: text)], policy: policy)
+
+            case .failure(_):
+                let emptyEntry = SimpleEntry(date: Date(), loan: nil, signedIn: false)
+                let timeline = Timeline(entries: [emptyEntry], policy: policy)
                 completion(timeline)
             }
         }

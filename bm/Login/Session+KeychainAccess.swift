@@ -10,6 +10,7 @@ import Foundation
 import BMKit
 import KeychainAccess
 
+/*
 extension Session {
     static let Key = "Credentials"
 
@@ -44,3 +45,4 @@ extension Session {
         return load(from: Session.defaultKeychain())
     }
 }
+*/

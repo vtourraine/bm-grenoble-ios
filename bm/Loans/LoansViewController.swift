@@ -24,7 +24,7 @@ class LoansViewController: UITableViewController {
     }
 
     var state: State = .notLoggedIn
-    var isFirstLaunch = true
+    var session: Session?
     var lastRefreshDate: Date?
 
 
@@ -59,7 +59,7 @@ class LoansViewController: UITableViewController {
         }
         tableView.tableFooterView = UIView(frame: .zero)
 
-        if Session.sharedSession() == nil {
+        if Credentials.sharedCredentials() == nil {
             reloadData(state: .notLoggedIn)
         }
         else if let itemCache = ItemCache.load(from: .standard) {
@@ -72,12 +72,8 @@ class LoansViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        if isFirstLaunch {
-            if Session.sharedSession() != nil {
-                refresh(sender: nil)
-            }
-
-            isFirstLaunch = false
+        if Credentials.sharedCredentials() != nil, session == nil {
+            refresh(sender: nil)
         }
     }
 
@@ -87,7 +83,7 @@ class LoansViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let aboutViewController = segue.destination as? AboutViewController {
-            let userIsLoggedIn = (Session.sharedSession() != nil)
+            let userIsLoggedIn = (Credentials.sharedCredentials() != nil)
             aboutViewController.userIsLoggedIn = userIsLoggedIn
         }
     }
@@ -228,7 +224,7 @@ class LoansViewController: UITableViewController {
     }
 
     @IBAction func refresh(sender: Any?) {        
-        guard let session = Session.sharedSession() else {
+        guard let credentials = Credentials.sharedCredentials() else {
             refreshControl?.endRefreshing()
             return
         }
@@ -236,6 +232,24 @@ class LoansViewController: UITableViewController {
         presentInfo(NSLocalizedString("Updating Account…", comment: ""))
 
         let urlSession = URLSession.shared
+
+        guard let session = session else {
+            urlSession.connect(username: credentials.username, password: credentials.password) { result in
+                switch result {
+                case .success(let session):
+                    self.session = session
+                    self.refresh(sender: sender)
+
+                case .failure(let error):
+                    self.presentInfo(nil)
+                    self.presentLoadingError(error)
+                    self.refreshControl?.endRefreshing()
+                }
+            }
+
+            return
+        }
+
         urlSession.fetchItems(with: session) { result in
             switch result {
             case .success(let items):
@@ -266,7 +280,7 @@ class LoansViewController: UITableViewController {
     }
 
     func renew(_ item: Item) {
-        guard let session = Session.sharedSession() else {
+        guard let session = session else {
             return
         }
 

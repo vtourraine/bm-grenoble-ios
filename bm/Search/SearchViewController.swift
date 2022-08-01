@@ -104,11 +104,14 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
                 return
         }
 
+        // TODO: check it works
+        /*
         if let session = Session.sharedSession() {
             configureOutlets(enabled: false)
             search(for: trimmedQuery, with: session.settingsToken)
         }
         else {
+         */
             let urlSession = URLSession.shared
             _ = urlSession.fetchSettings { result in
                 switch result {
@@ -120,7 +123,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
                     self.showSearchError(error: error)
                 }
             }
+        /*
         }
+         */
     }
 
     func search(for query: String, with token: String) {

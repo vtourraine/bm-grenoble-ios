@@ -39,6 +39,7 @@ extension URLSession {
         }
     }
 
+    @discardableResult
     public func authenticate(username: String, password: String, completion: @escaping (Result<AuthenticationResponse, Error>) -> Void) -> URLSessionTask {
         let json = ["username": username, "password": password, "birthdate": "", "locale":"en"]
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
