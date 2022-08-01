@@ -1,5 +1,5 @@
 //
-//  Credentials+KeychainAccess.swift
+//  Session+KeychainAccess.swift
 //  BM Grenoble
 //
 //  Created by Vincent Tourraine on 05/03/2021.
@@ -10,7 +10,7 @@ import Foundation
 import BMKit
 import KeychainAccess
 
-extension Credentials {
+extension Session {
     static let Key = "Credentials"
 
     func save(to keychain: Keychain) {
@@ -18,29 +18,29 @@ extension Credentials {
             return
         }
 
-        try? keychain.set(data, key: Credentials.Key)
+        try? keychain.set(data, key: Session.Key)
     }
 
-    static func load(from keychain: Keychain) -> Credentials? {
-        guard let encodedData = try? keychain.getData(Credentials.Key) else {
+    static func load(from keychain: Keychain) -> Session? {
+        guard let encodedData = try? keychain.getData(Session.Key) else {
             return nil
         }
 
-        let credentials = try? JSONDecoder().decode(Credentials.self, from: encodedData)
-        return credentials
+        let session = try? JSONDecoder().decode(Session.self, from: encodedData)
+        return session
     }
 
     static func remove(from keychain: Keychain) {
-        try? keychain.remove(Credentials.Key)
+        try? keychain.remove(Session.Key)
     }
 }
 
-extension Credentials {
+extension Session {
     static func defaultKeychain() -> Keychain {
         return Keychain(service: "com.studioamanga.bmg", accessGroup: "77S3V3W24J.com.studioamanga.bmg.shared").synchronizable(true)
     }
 
-    static func sharedCredentials() -> Credentials? {
-        return load(from: Credentials.defaultKeychain())
+    static func sharedSession() -> Session? {
+        return load(from: Session.defaultKeychain())
     }
 }

@@ -111,16 +111,16 @@ public struct DocumentResponse: Codable {
 }
 
 extension URLRequest {
-    internal static func fetchDocumentsRequest(_ ids: [String], with credentials: Credentials) -> URLRequest {
+    internal static func fetchDocumentsRequest(_ ids: [String], with session: Session) -> URLRequest {
         let parameters = ["locale": "en",
                           "ids": ids.joined(separator: ",")]
-        return URLRequest(post: "resolveBySeqNo", credentials: credentials, formEncodedParameters: parameters)
+        return URLRequest(post: "resolveBySeqNo", session: session, formEncodedParameters: parameters)
     }
 }
 
 extension URLSession {
-    public func fetchDocuments(_ ids: [String], with credentials: Credentials, completion: @escaping (Result<DocumentResponse, Error>) -> Void) -> URLSessionTask {
-        let request = URLRequest.fetchDocumentsRequest(ids, with: credentials)
+    public func fetchDocuments(_ ids: [String], with session: Session, completion: @escaping (Result<DocumentResponse, Error>) -> Void) -> URLSessionTask {
+        let request = URLRequest.fetchDocumentsRequest(ids, with: session)
         return fetch(DocumentResponse.self, request: request, completion: completion)
     }
 }

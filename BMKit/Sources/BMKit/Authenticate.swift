@@ -18,15 +18,15 @@ public struct AuthenticationResponse: Codable {
 }
 
 extension URLSession {
-    public func connect(username: String, password: String, completion: @escaping (Result<Credentials, Error>) -> Void) {
+    public func connect(username: String, password: String, completion: @escaping (Result<Session, Error>) -> Void) {
         _ = authenticate(username: username, password: password) { authenticationResult in
             switch authenticationResult {
             case .success(let authenticationResponse):
                 _ = self.fetchSettings() { fetchSettingsResult in
                     switch fetchSettingsResult {
                     case .success(let settingsAPIToken):
-                        let credentials = Credentials(token: authenticationResponse.token, settingsToken: settingsAPIToken, userIdentifier: authenticationResponse.userIdentifier)
-                        completion(.success(credentials))
+                        let session = Session(token: authenticationResponse.token, settingsToken: settingsAPIToken, userIdentifier: authenticationResponse.userIdentifier)
+                        completion(.success(session))
 
                     case .failure(let error):
                         completion(.failure(error))

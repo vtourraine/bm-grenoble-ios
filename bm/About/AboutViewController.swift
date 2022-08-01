@@ -86,7 +86,7 @@ class AboutViewController: UIViewController {
                 return
         }
 
-        Credentials.remove(from: Credentials.defaultKeychain())
+        Session.remove(from: Session.defaultKeychain())
         ItemCache.remove(from: .standard)
 
         viewController.reloadData(state: .notLoggedIn)

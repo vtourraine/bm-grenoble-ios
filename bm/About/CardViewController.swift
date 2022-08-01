@@ -61,11 +61,11 @@ class CardViewController: UIViewController {
     }
 
     func barCode() -> String? {
-        guard let credentials = Credentials.sharedCredentials() else {
+        guard let session = Session.sharedSession() else {
             return nil
         }
 
-        let userIdentifier = credentials.userIdentifier
+        let userIdentifier = session.userIdentifier
         let BarCodeLenght = 13
 
         if userIdentifier.count == BarCodeLenght {

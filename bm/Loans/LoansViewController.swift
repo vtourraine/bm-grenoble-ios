@@ -59,7 +59,7 @@ class LoansViewController: UITableViewController {
         }
         tableView.tableFooterView = UIView(frame: .zero)
 
-        if Credentials.sharedCredentials() == nil {
+        if Session.sharedSession() == nil {
             reloadData(state: .notLoggedIn)
         }
         else if let itemCache = ItemCache.load(from: .standard) {
@@ -73,7 +73,7 @@ class LoansViewController: UITableViewController {
         super.viewDidAppear(animated)
 
         if isFirstLaunch {
-            if Credentials.sharedCredentials() != nil {
+            if Session.sharedSession() != nil {
                 refresh(sender: nil)
             }
 
@@ -87,7 +87,7 @@ class LoansViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let aboutViewController = segue.destination as? AboutViewController {
-            let userIsLoggedIn = (Credentials.sharedCredentials() != nil)
+            let userIsLoggedIn = (Session.sharedSession() != nil)
             aboutViewController.userIsLoggedIn = userIsLoggedIn
         }
     }
@@ -228,18 +228,18 @@ class LoansViewController: UITableViewController {
     }
 
     @IBAction func refresh(sender: Any?) {        
-        guard let credentials = Credentials.sharedCredentials() else {
+        guard let session = Session.sharedSession() else {
             refreshControl?.endRefreshing()
             return
         }
 
         presentInfo(NSLocalizedString("Updating Account…", comment: ""))
 
-        let session = URLSession.shared
-        session.fetchItems(with: credentials) { result in
+        let urlSession = URLSession.shared
+        urlSession.fetchItems(with: session) { result in
             switch result {
             case .success(let items):
-                _ = session.fetchAccountPageReservation(with: credentials) { result in
+                _ = urlSession.fetchAccountPageReservation(with: session) { result in
                     switch (result) {
                     case .success(let accountPage):
                         self.reloadData(state: .loans(items, accountPage.items))
@@ -266,14 +266,14 @@ class LoansViewController: UITableViewController {
     }
 
     func renew(_ item: Item) {
-        guard let credentials = Credentials.sharedCredentials() else {
+        guard let session = Session.sharedSession() else {
             return
         }
 
         presentInfo(NSLocalizedString("Renewing Document…", comment: ""))
 
-        let session = URLSession.shared
-        _ = session.renew(item.identifier, with: credentials) { result in
+        let urlSession = URLSession.shared
+        _ = urlSession.renew(item.identifier, with: session) { result in
             switch result {
             case .success:
                 self.refresh(sender: nil)

@@ -84,13 +84,13 @@ public struct RenewLoanResponse: Codable {
 }
 
 extension URLSession {
-    public func fetchLoans(with credentials: Credentials, completion: @escaping (Result<[Loan], Error>) -> Void) -> URLSessionTask {
-        let request = URLRequest(get: "loans", credentials: credentials)
+    public func fetchLoans(with session: Session, completion: @escaping (Result<[Loan], Error>) -> Void) -> URLSessionTask {
+        let request = URLRequest(get: "loans", session: session)
         return fetch([Loan].self, request: request, completion: completion)
     }
 
-    public func renew(_ loanIdentifier: String, with credentials: Credentials, completion: @escaping (Result<RenewLoanResponse, Error>) -> Void) -> URLSessionTask {
-        let request = URLRequest(get: "renewLoan", token: credentials.token, urlParameters: ["documentId": loanIdentifier])!
+    public func renew(_ loanIdentifier: String, with session: Session, completion: @escaping (Result<RenewLoanResponse, Error>) -> Void) -> URLSessionTask {
+        let request = URLRequest(get: "renewLoan", token: session.token, urlParameters: ["documentId": loanIdentifier])!
         return fetch(RenewLoanResponse.self, request: request, completion: completion)
     }
 }

@@ -104,9 +104,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
                 return
         }
 
-        if let credentials = Credentials.sharedCredentials() {
+        if let session = Session.sharedSession() {
             configureOutlets(enabled: false)
-            search(for: trimmedQuery, with: credentials.settingsToken)
+            search(for: trimmedQuery, with: session.settingsToken)
         }
         else {
             let urlSession = URLSession.shared

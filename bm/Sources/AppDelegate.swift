@@ -97,7 +97,7 @@ extension AppDelegate {
     }
 
     @objc func canAskToSignOut() -> Bool {
-        return Credentials.sharedCredentials() != nil
+        return Session.sharedSession() != nil
     }
 
     @objc func askToSignOut() {

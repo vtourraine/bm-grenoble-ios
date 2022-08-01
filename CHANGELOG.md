@@ -2,6 +2,7 @@
 
 ## 1.7.2
 
+- [ ] Save credentials to Keychain to refresh session automatically
 - [x] Non blocking error messages
 
 

@@ -10,13 +10,13 @@ import Foundation
 public let BaseURL = URL(string: "https://catalogue.bm-grenoble.fr")!
 
 extension URLRequest {
-    init(get endpoint: String, credentials: Credentials) {
+    init(get endpoint: String, session: Session) {
         let url = BaseURL.appendingPathComponent("in/rest/api").appendingPathComponent(endpoint)
         self.init(url: url)
 
         httpMethod = "GET"
         allHTTPHeaderFields = ["Content-Type": "application/json",
-                               "Authorization": "Bearer \(credentials.token)"]
+                               "Authorization": "Bearer \(session.token)"]
     }
 
     init?(get endpoint: String, token: String, urlParameters parameters: [String: String]) {
@@ -37,7 +37,7 @@ extension URLRequest {
                                "Authorization": "Bearer \(token)"]
     }
 
-    init(post endpoint: String, credentials: Credentials, formEncodedParameters parameters: [String: String]) {
+    init(post endpoint: String, session: Session, formEncodedParameters parameters: [String: String]) {
         let url = BaseURL.appendingPathComponent("in/rest/api").appendingPathComponent(endpoint)
         self.init(url: url)
 
@@ -48,9 +48,9 @@ extension URLRequest {
         httpMethod = "POST"
         httpBody = string.data(using: .utf8)
         allHTTPHeaderFields = ["Content-Type": "application/x-www-form-urlencoded",
-                               "Authorization": "Bearer \(credentials.token)",
+                               "Authorization": "Bearer \(session.token)",
                                "Content-Length": String(string.count),
-                               "X-InMedia-Authorization": "Bearer \(credentials.token) \(credentials.settingsToken)"]
+                               "X-InMedia-Authorization": "Bearer \(session.token) \(session.settingsToken)"]
     }
 
     init<T: Encodable>(post endpoint: String, token: String, jsonParameters parameters: T) {

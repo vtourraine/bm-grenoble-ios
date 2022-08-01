@@ -16,7 +16,7 @@
 		D70212CE22F0E43E00E3972E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D70212CD22F0E43E00E3972E /* Assets.xcassets */; };
 		D70212D122F0E43E00E3972E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D70212CF22F0E43E00E3972E /* LaunchScreen.storyboard */; };
 		D709845925F1374D00C8C30C /* LoansTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D709845825F1374D00C8C30C /* LoansTests.swift */; };
-		D709846125F2228500C8C30C /* Credentials+KeychainAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = D709846025F2228500C8C30C /* Credentials+KeychainAccess.swift */; };
+		D709846125F2228500C8C30C /* Session+KeychainAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = D709846025F2228500C8C30C /* Session+KeychainAccess.swift */; };
 		D70A2B69234247F300AC9405 /* Libraries.plist in Resources */ = {isa = PBXBuildFile; fileRef = D70A2B67234247F300AC9405 /* Libraries.plist */; };
 		D70A2B6B2342489A00AC9405 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70A2B6A2342489A00AC9405 /* Library.swift */; };
 		D70A2B6D23424BC400AC9405 /* LibrariesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70A2B6C23424BC400AC9405 /* LibrariesViewController.swift */; };
@@ -32,7 +32,7 @@
 		D749F952264BFABF005F500A /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = D749F951264BFABF005F500A /* AlamofireImage */; };
 		D749F954264BFAC2005F500A /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = D749F953264BFAC2005F500A /* KeychainAccess */; };
 		D749F956264BFACA005F500A /* BMKit in Frameworks */ = {isa = PBXBuildFile; productRef = D749F955264BFACA005F500A /* BMKit */; };
-		D749F957264C207E005F500A /* Credentials+KeychainAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = D709846025F2228500C8C30C /* Credentials+KeychainAccess.swift */; };
+		D749F957264C207E005F500A /* Session+KeychainAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = D709846025F2228500C8C30C /* Session+KeychainAccess.swift */; };
 		D75DB3B322FBFD84008C7499 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D75DB3B122FBFD84008C7499 /* Localizable.strings */; };
 		D75DB3BC22FD6369008C7499 /* InterfaceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75DB3BB22FD6369008C7499 /* InterfaceHelpers.swift */; };
 		D7614BAD2363A6B3000D7C99 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7614BAC2363A6B3000D7C99 /* LibraryViewController.swift */; };
@@ -121,7 +121,7 @@
 		D70212D022F0E43E00E3972E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D70212D222F0E43E00E3972E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D709845825F1374D00C8C30C /* LoansTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoansTests.swift; sourceTree = "<group>"; };
-		D709846025F2228500C8C30C /* Credentials+KeychainAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Credentials+KeychainAccess.swift"; sourceTree = "<group>"; };
+		D709846025F2228500C8C30C /* Session+KeychainAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+KeychainAccess.swift"; sourceTree = "<group>"; };
 		D70A2B68234247F300AC9405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Libraries.plist; sourceTree = "<group>"; };
 		D70A2B6A2342489A00AC9405 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		D70A2B6C23424BC400AC9405 /* LibrariesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariesViewController.swift; sourceTree = "<group>"; };
@@ -358,7 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				D7A8832322F5C4BA00C209DC /* LoginViewController.swift */,
-				D709846025F2228500C8C30C /* Credentials+KeychainAccess.swift */,
+				D709846025F2228500C8C30C /* Session+KeychainAccess.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -592,7 +592,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D709846125F2228500C8C30C /* Credentials+KeychainAccess.swift in Sources */,
+				D709846125F2228500C8C30C /* Session+KeychainAccess.swift in Sources */,
 				D78200AE23C7D77500C3A699 /* NewsItemCache.swift in Sources */,
 				D7A8832422F5C4BA00C209DC /* LoginViewController.swift in Sources */,
 				D78200A223C7381A00C3A699 /* NewsItem.swift in Sources */,
@@ -632,7 +632,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D749F957264C207E005F500A /* Credentials+KeychainAccess.swift in Sources */,
+				D749F957264C207E005F500A /* Session+KeychainAccess.swift in Sources */,
 				D749F950264BF9FF005F500A /* Document+Formatter.swift in Sources */,
 				D749F94F264BF999005F500A /* Item.swift in Sources */,
 				D749F943264BF8AD005F500A /* LoansWidget.swift in Sources */,

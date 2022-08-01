@@ -21,12 +21,12 @@ struct Item: Codable {
 }
 
 extension URLSession {
-    func fetchItems(with credentials: Credentials, completion: @escaping (Result<[Item], Error>) -> Void) {
-        _ = fetchLoans(with: credentials) { result in
+    func fetchItems(with session: Session, completion: @escaping (Result<[Item], Error>) -> Void) {
+        _ = fetchLoans(with: session) { result in
             switch result {
             case .success(let loanItems):
                 let sequenceNumbers = loanItems.map { $0.sequenceNumber }
-                _ = self.fetchDocuments(sequenceNumbers, with: credentials) { resultFetchDocuments in
+                _ = self.fetchDocuments(sequenceNumbers, with: session) { resultFetchDocuments in
                     switch resultFetchDocuments {
                     case .success(let response):
                         let items = Item.items(with: loanItems, and: response.documents)

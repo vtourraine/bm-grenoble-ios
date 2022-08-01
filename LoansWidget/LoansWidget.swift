@@ -18,14 +18,14 @@ struct Provider: TimelineProvider {
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        guard let credentials = Credentials.sharedCredentials() else {
+        guard let session = Session.sharedSession() else {
             let entry = placeholder(in: context)
             completion(entry)
             return
         }
 
-        let session = URLSession.shared
-        session.fetchItems(with: credentials) { result in
+        let urlSession = URLSession.shared
+        urlSession.fetchItems(with: session) { result in
             switch result {
             case .success(let items):
                 let entry = SimpleEntry(date: Date(), loan: items.first, signedIn: true, numberOfLoanedDocuments: items.count)
@@ -42,14 +42,14 @@ struct Provider: TimelineProvider {
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         let policy = TimelineReloadPolicy.after(Date().addingTimeInterval(60*60*12))
 
-        guard let credentials = Credentials.sharedCredentials() else {
+        guard let session = Session.sharedSession() else {
             let timeline = Timeline(entries: [SimpleEntry(date: Date(), loan: nil, signedIn: false)], policy: policy)
             completion(timeline)
             return
         }
 
-        let session = URLSession.shared
-        session.fetchItems(with: credentials) { result in
+        let urlSession = URLSession.shared
+        urlSession.fetchItems(with: session) { result in
             switch result {
             case .success(let items):
                 let entry = SimpleEntry(date: Date(), loan: items.first, signedIn: true, numberOfLoanedDocuments: items.count)

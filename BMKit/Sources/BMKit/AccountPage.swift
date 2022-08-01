@@ -30,8 +30,8 @@ public struct AccountPageItem: Codable {
 }
 
 extension URLSession {
-    public func fetchAccountPageReservation(with credentials: Credentials, completion: @escaping (Result<AccountPage, Error>) -> Void) -> URLSessionTask {
-        let request = URLRequest(get: "accountPage", token: credentials.token, urlParameters: ["type": "reservations", "pageNo": "1", "pageSize": "10", "locale": "en"])!
+    public func fetchAccountPageReservation(with session: Session, completion: @escaping (Result<AccountPage, Error>) -> Void) -> URLSessionTask {
+        let request = URLRequest(get: "accountPage", token: session.token, urlParameters: ["type": "reservations", "pageNo": "1", "pageSize": "10", "locale": "en"])!
         return fetch(AccountPage.self, request: request, completion: completion)
     }
 }

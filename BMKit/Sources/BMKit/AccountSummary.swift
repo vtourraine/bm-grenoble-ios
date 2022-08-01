@@ -13,8 +13,8 @@ public struct AccountSummary: Codable {
 }
 
 extension URLSession {
-    public func fetchAccountSummary(with credentials: Credentials, completion: @escaping (Result<AccountSummary, Error>) -> Void) -> URLSessionTask {
-        let request = URLRequest(get: "accountSummary", credentials: credentials)
+    public func fetchAccountSummary(with session: Session, completion: @escaping (Result<AccountSummary, Error>) -> Void) -> URLSessionTask {
+        let request = URLRequest(get: "accountSummary", session: session)
         return fetch(AccountSummary.self, request: request, completion: completion)
     }
 }

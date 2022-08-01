@@ -10,9 +10,9 @@ import XCTest
 
 final class AuthenticateTests: XCTestCase {
     func testParseResponse() throws {
-        let credentials = try decodeJSON(AuthenticationResponse.self, from: "post-authenticate-response-body.json")
-        XCTAssertEqual(credentials.token, "5dbb2956-6417-40ab-ad9c-910f6670eccc")
-        XCTAssertEqual(credentials.userIdentifier, "0010001234359")
+        let session = try decodeJSON(AuthenticationResponse.self, from: "post-authenticate-response-body.json")
+        XCTAssertEqual(session.token, "5dbb2956-6417-40ab-ad9c-910f6670eccc")
+        XCTAssertEqual(session.userIdentifier, "0010001234359")
     }
 
     static var allTests = [
