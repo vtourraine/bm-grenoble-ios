@@ -26,7 +26,7 @@ class LoansViewController: UITableViewController {
     var state: State = .notLoggedIn
     var session: Session?
     var lastRefreshDate: Date?
-
+    var retryCount = 0
 
     private struct K {
         struct CellIdentifier {
@@ -264,6 +264,7 @@ class LoansViewController: UITableViewController {
                         self.refreshControl?.endRefreshing()
                         self.presentInfo(nil)
                         self.lastRefreshDate = Date()
+                        self.retryCount = 0
 
                     case .failure(let error):
                         self.presentInfo(nil)
@@ -272,9 +273,20 @@ class LoansViewController: UITableViewController {
                 }
 
             case .failure(let error):
-                self.presentInfo(nil)
-                self.presentLoadingError(error)
                 self.refreshControl?.endRefreshing()
+                self.presentInfo(nil)
+
+                if self.retryCount == 0,
+                   case .forbidden = error as? NetworkError {
+                    self.session = nil
+                    self.retryCount += 1
+
+                    self.refresh(sender: nil)
+
+                    return
+                }
+
+                self.presentLoadingError(error)
             }
         }
     }
