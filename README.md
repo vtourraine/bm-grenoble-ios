@@ -18,8 +18,10 @@ iOS application for the Grenoble Municipal Library ([bibliothèque municipale de
 
 ## Roadmap
 
-- Reservations
 - Multiple accounts support
+- News widget
+- Agenda widget
+- Digital library links (in “Libraries”?)
 
 ## Bug report
 
