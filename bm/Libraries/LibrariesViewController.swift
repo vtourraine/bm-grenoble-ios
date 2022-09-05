@@ -17,9 +17,6 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
 
     let libraries = Libraries.loadCityLibraries()
     let locationManager = CLLocationManager()
-    let defaultcoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 45.1793553, longitude: 5.724542), latitudinalMeters: 9000, longitudinalMeters: 9000)
-
-    let ShowSegueIdentifier = "Show"
 
     @IBOutlet var tableView: UITableView?
     @IBOutlet var mapView: MKMapView?
@@ -27,6 +24,16 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet var locationButton: UIView? // CLLocationButton
     @IBOutlet var separatorWidth: NSLayoutConstraint?
     @IBOutlet var separatorHeight: NSLayoutConstraint?
+
+    struct K {
+        static let showSegueIdentifier = "Show"
+        static let defaultCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 45.1793553, longitude: 5.724542), latitudinalMeters: 9000, longitudinalMeters: 9000)
+    }
+
+    enum Section: Int, CaseIterable {
+        case libraries = 0
+        case digital
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +45,7 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
         separatorWidth?.constant = 1.0 / UIScreen.main.scale
         separatorHeight?.constant = 1.0 / UIScreen.main.scale
 
-        mapView?.setRegion(defaultcoordinateRegion, animated: false)
+        mapView?.setRegion(K.defaultCoordinateRegion, animated: false)
         
         let status = CLLocationManager.authorizationStatus()
         if status == .authorizedWhenInUse || status == .authorizedAlways {
@@ -105,7 +112,7 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
     // MARK: - Actions
 
     @IBAction func reframeMap(_ sender: Any?) {
-        mapView?.setRegion(defaultcoordinateRegion, animated: true)
+        mapView?.setRegion(K.defaultCoordinateRegion, animated: true)
 
 #if !targetEnvironment(macCatalyst)
         if #available(iOS 15.0, *) {
@@ -130,18 +137,46 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
 
     // MARK: - Table view data source
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return Section.allCases.count
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return libraries?.libraries.count ?? 0
+        switch Section(rawValue: section)! {
+        case .libraries:
+            return libraries?.libraries.count ?? 0
+        case .digital:
+            return 1
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        if let library = libraries?.libraries[indexPath.row] {
-            cell.textLabel?.text = library.name
-            cell.detailTextLabel?.text = library.openingTime
+
+        switch Section(rawValue: indexPath.section)! {
+        case .libraries:
+            if let library = libraries?.libraries[indexPath.row] {
+                cell.textLabel?.text = library.name
+                cell.detailTextLabel?.text = library.openingTime
+                cell.imageView?.image = nil
+            }
+
+        case .digital:
+            cell.textLabel?.text = NSLocalizedString("Digital Library", comment: "")
+            cell.detailTextLabel?.text = nil
+            if #available(iOS 13.0, *) {
+                cell.imageView?.image = UIImage(systemName: "ipad.and.iphone")
+            }
         }
 
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if Section(rawValue: indexPath.section)! == .digital {
+            let viewController = DigitalLibraryViewController(style: .plain)
+            navigationController?.pushViewController(viewController, animated: true)
+        }
     }
 
     // MARK: - Map view delegate
@@ -157,7 +192,7 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
                 return
         }
 
-        performSegue(withIdentifier: ShowSegueIdentifier, sender: library)
+        performSegue(withIdentifier: K.showSegueIdentifier, sender: library)
     }
 
     // MARK: - Navigation
@@ -175,6 +210,16 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
             let library = libraries?.libraries[indexPath.row] {
             libraryViewController.library = library
         }
+    }
+
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if let indexPath = tableView?.indexPathForSelectedRow,
+            let section = Section(rawValue: indexPath.section),
+            section == .digital {
+            return false
+        }
+
+        return true
     }
 }
 

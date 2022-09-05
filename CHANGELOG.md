@@ -2,7 +2,8 @@
 
 ## 1.7.2
 
-- [ ] Save credentials to Keychain to refresh session automatically
+- [x] List of Digital library services
+- [x] Save credentials to Keychain to refresh session automatically
 - [x] Non blocking error messages
 
 

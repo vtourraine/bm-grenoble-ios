@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BB12181326979A5100FE050B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB12181526979A5100FE050B /* Localizable.strings */; };
+		BB4AA3FB28C68DE5006DE4AE /* DigitalLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4AA3FA28C68DE5006DE4AE /* DigitalLibraryViewController.swift */; };
 		BB6CA75526E6B3CE0004F819 /* TestAgenda4.html in Resources */ = {isa = PBXBuildFile; fileRef = BB6CA75426E6B3CE0004F819 /* TestAgenda4.html */; };
 		BBBC736C281E7BA800B32C31 /* SwiftMessages in Frameworks */ = {isa = PBXBuildFile; productRef = BBBC736B281E7BA800B32C31 /* SwiftMessages */; };
 		D70212C722F0E43C00E3972E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70212C622F0E43C00E3972E /* AppDelegate.swift */; };
@@ -114,6 +115,7 @@
 /* Begin PBXFileReference section */
 		BB12181426979A5100FE050B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BB12181626979A5600FE050B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BB4AA3FA28C68DE5006DE4AE /* DigitalLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalLibraryViewController.swift; sourceTree = "<group>"; };
 		BB6CA75426E6B3CE0004F819 /* TestAgenda4.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TestAgenda4.html; sourceTree = "<group>"; };
 		D70212C322F0E43C00E3972E /* BM Grenoble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BM Grenoble.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D70212C622F0E43C00E3972E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Sources/AppDelegate.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 				D70A2B6A2342489A00AC9405 /* Library.swift */,
 				D70A2B6C23424BC400AC9405 /* LibrariesViewController.swift */,
 				D7614BAC2363A6B3000D7C99 /* LibraryViewController.swift */,
+				BB4AA3FA28C68DE5006DE4AE /* DigitalLibraryViewController.swift */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -622,6 +625,7 @@
 				D7A8832622F8132B00C209DC /* Keyboard+LayoutGuide.swift in Sources */,
 				D7A97B6925F65EF800EE1D5F /* SearchResultsViewController.swift in Sources */,
 				D78200AB23C7579F00C3A699 /* NewsViewController.swift in Sources */,
+				BB4AA3FB28C68DE5006DE4AE /* DigitalLibraryViewController.swift in Sources */,
 				D77F7EC0234371CA007B49A3 /* SearchViewController.swift in Sources */,
 				D7697DEE23CA0DAF00010011 /* AgendaParser.swift in Sources */,
 				D7A8832A22FB756700C209DC /* CardViewController.swift in Sources */,
