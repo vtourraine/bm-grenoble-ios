@@ -43,6 +43,7 @@ class DigitalLibraryViewController: UITableViewController {
         title = NSLocalizedString("Digital Library", comment: "")
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: K.cellIdentifier)
+        tableView.cellLayoutMarginsFollowReadableWidth = true
     }
 
     // MARK: - Table view data source
