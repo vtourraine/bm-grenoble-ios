@@ -3,6 +3,7 @@
 ## 1.7.2
 
 - [x] List of Digital library services
+- [x] Updated libraries webpage links
 - [x] Save credentials to Keychain to refresh session automatically
 - [x] Non blocking error messages
 

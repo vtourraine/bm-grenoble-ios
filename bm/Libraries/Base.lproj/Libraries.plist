@@ -10,6 +10,8 @@
 			<key>name</key>
 			<string>Bibliothèque d’étude et du patrimoine</string>
 			<key>webpage</key>
+			<string>https://www.bm-grenoble.fr/650-bibliotheque-d-etude-et-du-patrimoine.htm?</string>
+			<key>webpageCatalogue</key>
 			<string>https://catalogue.bm-grenoble.fr/notice?id=h%3A%3A54cf5673-2378-4c0d-9262-9aaa72f715aa</string>
 			<key>openingTime</key>
 			<string>Mardi : 10h - 19h
@@ -39,6 +41,8 @@ Fermeture lundi et samedi de Pâques</string>
 			<key>name</key>
 			<string>Bibliothèque municipale internationale</string>
 			<key>webpage</key>
+			<string>https://www.bm-grenoble.fr/657-bibliotheque-municipale-internationale.htm?</string>
+			<key>webpageCatalogue</key>
 			<string>https://catalogue.bm-grenoble.fr/notice?id=h%3A%3A22b5383d-5bf1-41cb-888e-1efa97f6d755</string>
 			<key>openingTime</key>
 			<string>Mardi : 17h - 19h
@@ -70,6 +74,8 @@ Fermeture lundi et samedi de Pâques</string>
 			<key>name</key>
 			<string>Bibliothèque des Relais Lecture</string>
 			<key>webpage</key>
+			<string>https://www.bm-grenoble.fr/658-bibliotheque-des-relais-lecture.htm?</string>
+			<key>webpageCatalogue</key>
 			<string>https://catalogue.bm-grenoble.fr/notice?id=h%3A%3A855316a0-57f1-4e68-98cb-999d0f181842</string>
 			<key>openingTime</key>
 			<string>Sur rendez-vous.
@@ -93,6 +99,8 @@ Du mardi au vendredi : 9h - 18h</string>
 			<key>name</key>
 			<string>Bibliothèque Abbaye-les-Bains</string>
 			<key>webpage</key>
+			<string>https://www.bm-grenoble.fr/647-bibliotheque-abbaye-les-bains.htm?</string>
+			<key>webpageCatalogue</key>
 			<string>https://catalogue.bm-grenoble.fr/notice?id=h%3A%3A2ef62750-447d-48a4-afb7-24f388036087</string>
 			<key>openingTime</key>
 			<string>Mardi : 15h - 18h30
@@ -120,6 +128,8 @@ Fermeture lundi et samedi de Pâques</string>
 			<key>name</key>
 			<string>Bibliothèque Alliance</string>
 			<key>webpage</key>
+			<string>https://www.bm-grenoble.fr/648-bibliotheque-alliance.htm?</string>
+			<key>webpageCatalogue</key>
 			<string>https://catalogue.bm-grenoble.fr/notice?id=h%3A%3A6f13c552-e9f7-4752-89cb-de1b737ebfb9</string>
 			<key>openingTime</key>
 			<string>Mardi : 14h - 19h
@@ -146,6 +156,8 @@ Fermeture lundi et samedi de Pâques</string>
 			<key>name</key>
 			<string>Bibliothèque Arlequin</string>
 			<key>webpage</key>
+			<string>https://www.bm-grenoble.fr/644-bibliotheque-arlequin.htm?</string>
+			<key>webpageCatalogue</key>
 			<string>https://catalogue.bm-grenoble.fr/notice?id=h%3A%3Aed3c3605-2cac-4d87-bcbd-e2838e659015</string>
 			<key>openingTime</key>
 			<string>Mardi : 14h - 18h
@@ -173,6 +185,8 @@ Fermeture lundi et samedi de Pâques</string>
 			<key>name</key>
 			<string>Bibliothèque Centre-Ville</string>
 			<key>webpage</key>
+			<string>https://www.bm-grenoble.fr/653-centre-ville.htm?</string>
+			<key>webpageCatalogue</key>
 			<string>https://catalogue.bm-grenoble.fr/notice?id=h%3A%3A24db28e9-5438-4226-86bb-25505b4b0538</string>
 			<key>openingTime</key>
 			<string>Mardi : 13h - 18h30
@@ -200,6 +214,8 @@ Fermeture lundi et samedi de Pâques</string>
 			<key>name</key>
 			<string>Bibliothèque Eaux-Claires Mistral</string>
 			<key>webpage</key>
+			<string>https://www.bm-grenoble.fr/649-bibliotheque-eaux-claires.htm?</string>
+			<key>webpageCatalogue</key>
 			<string>https://catalogue.bm-grenoble.fr/notice?id=h%3A%3A75e63402-a291-425a-9174-86da7d6ed3b9</string>
 			<key>openingTime</key>
 			<string>Mardi : 15h - 18h30
@@ -227,6 +243,8 @@ Fermeture lundi et samedi de Pâques</string>
 			<key>name</key>
 			<string>Bibliothèque Jardin de ville</string>
 			<key>webpage</key>
+			<string>https://www.bm-grenoble.fr/652-jardin-de-ville.htm?</string>
+			<key>webpageCatalogue</key>
 			<string>https://catalogue.bm-grenoble.fr/notice?id=h%3A%3Af85290c1-4f73-45ad-8fa4-95313c2a74a4</string>
 			<key>openingTime</key>
 			<string>Mardi : 16h - 18h
@@ -255,6 +273,8 @@ Fermeture lundi et samedi de Pâques</string>
 			<key>name</key>
 			<string>Bibliothèque Kateb Yacine</string>
 			<key>webpage</key>
+			<string>https://www.bm-grenoble.fr/654-kateb-yacine.htm?</string>
+			<key>webpageCatalogue</key>
 			<string>https://catalogue.bm-grenoble.fr/notice?id=h%3A%3A0ef0bec7-aae8-4174-a55d-cc5515c7125e</string>
 			<key>openingTime</key>
 			<string>Du mardi au samedi : 12h - 18h30
@@ -278,6 +298,8 @@ Fermeture lundi et samedi de Pâques</string>
 			<key>name</key>
 			<string>Bibliothèque Saint-Bruno</string>
 			<key>webpage</key>
+			<string>https://www.bm-grenoble.fr/667-saint-bruno.htm?</string>
+			<key>webpageCatalogue</key>
 			<string>https://catalogue.bm-grenoble.fr/notice?id=h%3A%3Ab7e084c6-62af-484e-8f51-b633d775b662</string>
 			<key>openingTime</key>
 			<string>Mardi : 15h - 18h30
@@ -305,6 +327,8 @@ Fermeture lundi et samedi de Pâques</string>
 			<key>name</key>
 			<string>Bibliothèque Teisseire Malherbe</string>
 			<key>webpage</key>
+			<string>https://www.bm-grenoble.fr/656-teisseire-malherbe.htm?</string>
+			<key>webpageCatalogue</key>
 			<string>https://catalogue.bm-grenoble.fr/notice?id=h%3A%3Af7feb977-89dc-429c-bfc4-45c5bdf2e983</string>
 			<key>openingTime</key>
 			<string>Mardi : 15h - 18h30
