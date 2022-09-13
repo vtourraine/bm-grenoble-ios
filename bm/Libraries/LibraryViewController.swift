@@ -68,7 +68,12 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
         navigationItem.largeTitleDisplayMode = largeScreen ? .automatic : .never
         
 #if !targetEnvironment(macCatalyst)
-        if #available(iOS 15.0, *) {
+        /*
+        if #available(iOS 16.0, *) {
+            showUserLocationButton?.setImage(UIImage(systemName: "location.fill"), for: .normal)
+            showUserLocationButton?.configureRoundCorners()
+        }
+        else if #available(iOS 15.0, *) {
             let locationButton = CLLocationButton()
             locationButton.icon = .arrowFilled
             locationButton.cornerRadius = 22
@@ -89,12 +94,12 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
             showUserLocationButton?.removeFromSuperview()
             showUserLocationButton = nil
         }
-        else {
+        else { */
             if #available(iOS 13.0, *) {
                 showUserLocationButton?.setImage(UIImage(systemName: "location.fill"), for: .normal)
             }
             showUserLocationButton?.configureRoundCorners()
-        }
+        // }
 #else
     showUserLocationButton?.setImage(UIImage(systemName: "location.fill"), for: .normal)
     showUserLocationButton?.configureRoundCorners()

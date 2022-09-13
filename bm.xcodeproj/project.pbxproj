@@ -27,7 +27,7 @@
 		D749F940264BF8AD005F500A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D749F93F264BF8AD005F500A /* SwiftUI.framework */; };
 		D749F943264BF8AD005F500A /* LoansWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D749F942264BF8AD005F500A /* LoansWidget.swift */; };
 		D749F945264BF8B0005F500A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D749F944264BF8B0005F500A /* Assets.xcassets */; };
-		D749F949264BF8B0005F500A /* LoansWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D749F93C264BF8AD005F500A /* LoansWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D749F949264BF8B0005F500A /* LoansWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D749F93C264BF8AD005F500A /* LoansWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D749F94F264BF999005F500A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D786E6D922F1911A00AD1D36 /* Item.swift */; };
 		D749F950264BF9FF005F500A /* Document+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E73FEE2603B1A100A9BF26 /* Document+Formatter.swift */; };
 		D749F952264BFABF005F500A /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = D749F951264BFABF005F500A /* AlamofireImage */; };
@@ -99,15 +99,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		D749F94E264BF8B0005F500A /* Embed App Extensions */ = {
+		D749F94E264BF8B0005F500A /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				D749F949264BF8B0005F500A /* LoansWidgetExtension.appex in Embed App Extensions */,
+				D749F949264BF8B0005F500A /* LoansWidgetExtension.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -445,7 +445,7 @@
 				D70212BF22F0E43C00E3972E /* Sources */,
 				D70212C022F0E43C00E3972E /* Frameworks */,
 				D70212C122F0E43C00E3972E /* Resources */,
-				D749F94E264BF8B0005F500A /* Embed App Extensions */,
+				D749F94E264BF8B0005F500A /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -511,7 +511,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1400;
 				ORGANIZATIONNAME = "Studio AMANgA";
 				TargetAttributes = {
 					D70212C222F0E43C00E3972E = {

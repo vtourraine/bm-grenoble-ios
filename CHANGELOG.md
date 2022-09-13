@@ -1,11 +1,18 @@
 # BM Grenoble
 
+## 1.7.3
+
+- [x] Optimized for iPadOS 16 and macOS 13
+
+
 ## 1.7.2
 
+- [x] Optimized for iOS 16
 - [x] List of Digital library services
 - [x] Updated libraries webpage links
 - [x] Save credentials to Keychain to refresh session automatically
 - [x] Non blocking error messages
+- [x] Remove Location Button (iOS 15)
 
 
 ## 1.7.1

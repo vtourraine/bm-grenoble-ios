@@ -64,9 +64,19 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
         }
 
 #if !targetEnvironment(macCatalyst)
-        if #available(iOS 15.0, *) {
-            let locationButton = CLLocationButton()
+
+        // CLLocationButton is crashing with iOS 16
+
+        /* if #available(iOS 16.0, *) {
+            showUserLocationButton?.setImage(UIImage(systemName: "location.fill"), for: .normal)
+            showUserLocationButton?.configureRoundCorners()
+        }
+        else if #available(iOS 15.0, *) {
+            // Experimental fix for iOS 16
+            // let locationButton = CLLocationButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+            let locationButton = CLLocationButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
             locationButton.icon = .arrowFilled
+            locationButton.label = .currentLocation
             locationButton.cornerRadius = 22
             locationButton.tintColor = .BMRed
             locationButton.backgroundColor = .systemBackground
@@ -76,6 +86,9 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
             if let mapView = mapView {
                 view.insertSubview(locationButton, aboveSubview: mapView)
 
+                // Experimental fix for iOS 16
+                // locationButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 40).isActive = true
+                // locationButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 40).isActive = true
                 locationButton.topAnchor.constraint(equalTo: mapView.topAnchor, constant: 8).isActive = true
                 mapView.trailingAnchor.constraint(equalTo: locationButton.trailingAnchor, constant: 8).isActive = true
             }
@@ -85,12 +98,12 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
             showUserLocationButton?.removeFromSuperview()
             showUserLocationButton = nil
         }
-        else {
+        else {*/
             if #available(iOS 13.0, *) {
                 showUserLocationButton?.setImage(UIImage(systemName: "location.fill"), for: .normal)
             }
             showUserLocationButton?.configureRoundCorners()
-        }
+        // }
 #else
     showUserLocationButton?.setImage(UIImage(systemName: "location.fill"), for: .normal)
     showUserLocationButton?.configureRoundCorners()
