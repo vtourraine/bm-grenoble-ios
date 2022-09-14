@@ -7,12 +7,14 @@
 
 ## 1.7.2
 
-- [x] Optimized for iOS 16
-- [x] List of Digital library services
-- [x] Updated libraries webpage links
-- [x] Save credentials to Keychain to refresh session automatically
-- [x] Non blocking error messages
-- [x] Remove Location Button (iOS 15)
+2022-09-14
+
+- Optimized for iOS 16
+- List of Digital library services
+- Updated libraries webpage links
+- Save credentials to Keychain to refresh session automatically
+- Non blocking error messages
+- Remove Location Button (iOS 15)
 
 
 ## 1.7.1
