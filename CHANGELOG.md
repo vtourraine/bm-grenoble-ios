@@ -2,7 +2,9 @@
 
 ## 1.7.3
 
-- [x] Optimized for iPadOS 16 and macOS 13
+2022-11-18
+
+- Optimized for iPadOS 16 and macOS 13
 
 
 ## 1.7.2
