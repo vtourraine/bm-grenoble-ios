@@ -2,8 +2,10 @@
 
 ## 1.8
 
+- Update libraries opening hours
 - Switch back from API to web view parser
 - Remove widget
+- Remove search
 
 
 ## 1.7.3
