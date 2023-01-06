@@ -251,42 +251,21 @@ class LoansViewController: UITableViewController {
         }
     }
 
-    /*
-    func renew(_ item: Item) {
-        guard let session = session else {
-            return
-        }
-
-        presentInfo(NSLocalizedString("Renewing Document…", comment: ""))
-
-        let urlSession = URLSession.shared
-        _ = urlSession.renew(item.identifier, with: session) { result in
-            switch result {
-            case .success:
-                self.refresh(sender: nil)
-            case .failure(let error):
-                self.presentInfo(nil)
-                self.present(error)
-            }
-        }
-    }
-     */
-
     func openInGoodreads(item: Item) {
         guard let query = item.title.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
             let url = URL(string: "https://www.goodreads.com/search?q=\(query)") else {
                 return
         }
 
-        #if targetEnvironment(macCatalyst)
+#if targetEnvironment(macCatalyst)
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        #else
+#else
         UIApplication.shared.open(url, options: [.universalLinksOnly: true]) { (result) in
             if result == false {
                 self.presentSafariViewController(url)
             }
         }
-        #endif
+#endif
     }
 
     @IBAction func presentLoginScreen(sender: Any?) {
@@ -368,25 +347,11 @@ class LoansViewController: UITableViewController {
             self.openInGoodreads(item: item)
         }
 
-        var actions = [action]
-
-        /*
-        if item.isRenewable {
-            let renewAction = UIAction(title: NSLocalizedString("Renew", comment: "")) { action in
-                self.renew(item)
-            }
-
-            if #available(iOS 14.0, *) {
-                renewAction.image = UIImage(systemName: "clock.arrow.circlepath")
-            }
-
-            actions.append(renewAction)
-        }
-         */
-
+        let actions = [action]
         let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: { _ -> UIMenu? in
             return UIMenu(title: "", children: actions)
         })
+
         return configuration
     }
 }
