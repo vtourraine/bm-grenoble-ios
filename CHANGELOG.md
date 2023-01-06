@@ -1,5 +1,11 @@
 # BM Grenoble
 
+## 1.8
+
+- Switch back from API to web view parser
+- Remove widget
+
+
 ## 1.7.3
 
 2022-11-18

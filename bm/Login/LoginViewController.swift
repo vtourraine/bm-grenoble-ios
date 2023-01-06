@@ -24,6 +24,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var statusBarBackground: UIView?
 
     var currentTextFieldTopConstraint: NSLayoutConstraint?
+    var loader: GhostLoader?
 
     // MARK: - View life cycle
 
@@ -130,6 +131,30 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         configure(loading: true)
 
+        let credentials = Credentials(username: subscriberNumber, password: password)
+
+        loader = GhostLoader(credentials: credentials, parentView: view, success: { (items) in
+            self.configure(loading: false)
+
+            try? credentials.save(to: Credentials.defaultKeychain())
+            let itemCache = ItemCache(items: items)
+            ItemCache.save(items: itemCache, to: .standard)
+
+            self.loader = nil
+
+            if let presentingTabBarController = self.presentingViewController as? UITabBarController,
+               let navigationController = presentingTabBarController.viewControllers?.first as? UINavigationController,
+               let viewController = navigationController.topViewController as? LoansViewController {
+                viewController.reloadData(state: .loans(items, []))
+            }
+            self.dismiss(animated: true, completion: nil)
+        }) { (error) in
+            self.configure(loading: false)
+            self.presentLoadingError(error)
+            self.loader = nil
+        }
+
+/*
         let urlSession = URLSession.shared
         urlSession.connect(username: subscriberNumber, password: password) { result in
             switch result {
@@ -144,6 +169,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.presentLoadingError(error)
             }
         }
+ */
     }
 
     @IBAction func presentResetPassword(_ sender: Any?) {

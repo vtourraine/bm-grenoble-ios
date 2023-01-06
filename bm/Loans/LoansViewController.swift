@@ -24,7 +24,7 @@ class LoansViewController: UITableViewController {
     }
 
     var state: State = .notLoggedIn
-    var session: Session?
+    var loader: GhostLoader?
     var lastRefreshDate: Date?
     var retryCount = 0
 
@@ -65,6 +65,9 @@ class LoansViewController: UITableViewController {
         else if let itemCache = ItemCache.load(from: .standard) {
             reloadData(state: .loans(itemCache.items, []))
         }
+        else {
+            configureBarButtonItems(userLoggedIn: true)
+        }
 
         navigationController?.configureCustomAppearance()
     }
@@ -72,7 +75,7 @@ class LoansViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        if Credentials.sharedCredentials() != nil, session == nil {
+        if Credentials.sharedCredentials() != nil {
             refresh(sender: nil)
         }
     }
@@ -223,74 +226,32 @@ class LoansViewController: UITableViewController {
         performSegue(withIdentifier: K.SegueIdentifier.card, sender: nil)
     }
 
-    @IBAction func refresh(sender: Any?) {        
-        guard let credentials = Credentials.sharedCredentials() else {
-            refreshControl?.endRefreshing()
+    @IBAction func refresh(sender: Any?) {
+        guard loader == nil, let credentials = Credentials.sharedCredentials() else {
             return
         }
 
         presentInfo(NSLocalizedString("Updating Account…", comment: ""))
 
-        let urlSession = URLSession.shared
+        loader = GhostLoader(credentials: credentials, parentView: view, success: { (items) in
+            self.reloadData(state: .loans(items, []))
 
-        guard let session = session else {
-            urlSession.connect(username: credentials.username, password: credentials.password) { result in
-                switch result {
-                case .success(let session):
-                    self.session = session
-                    self.refresh(sender: sender)
+            let itemCache = ItemCache(items: items)
+            ItemCache.save(items: itemCache, to: .standard)
 
-                case .failure(let error):
-                    self.presentInfo(nil)
-                    self.presentLoadingError(error)
-                    self.refreshControl?.endRefreshing()
-                }
-            }
-
-            return
-        }
-
-        urlSession.fetchItems(with: session) { result in
-            switch result {
-            case .success(let items):
-                _ = urlSession.fetchAccountPageReservation(with: session) { result in
-                    switch (result) {
-                    case .success(let accountPage):
-                        self.reloadData(state: .loans(items, accountPage.items))
-
-                        let itemCache = ItemCache(items: items)
-                        ItemCache.save(items: itemCache, to: .standard)
-
-                        self.refreshControl?.endRefreshing()
-                        self.presentInfo(nil)
-                        self.lastRefreshDate = Date()
-                        self.retryCount = 0
-
-                    case .failure(let error):
-                        self.presentInfo(nil)
-                        self.presentLoadingError(error)
-                    }
-                }
-
-            case .failure(let error):
-                self.refreshControl?.endRefreshing()
-                self.presentInfo(nil)
-
-                if self.retryCount == 0,
-                   case .forbidden = error as? NetworkError {
-                    self.session = nil
-                    self.retryCount += 1
-
-                    self.refresh(sender: nil)
-
-                    return
-                }
-
-                self.presentLoadingError(error)
-            }
+            self.refreshControl?.endRefreshing()
+            self.presentInfo(nil)
+            self.loader = nil
+            self.lastRefreshDate = Date()
+        }) { (error) in
+            self.presentLoadingError(error)
+            self.refreshControl?.endRefreshing()
+            self.presentInfo(nil)
+            self.loader = nil
         }
     }
 
+    /*
     func renew(_ item: Item) {
         guard let session = session else {
             return
@@ -309,6 +270,7 @@ class LoansViewController: UITableViewController {
             }
         }
     }
+     */
 
     func openInGoodreads(item: Item) {
         guard let query = item.title.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
@@ -408,6 +370,7 @@ class LoansViewController: UITableViewController {
 
         var actions = [action]
 
+        /*
         if item.isRenewable {
             let renewAction = UIAction(title: NSLocalizedString("Renew", comment: "")) { action in
                 self.renew(item)
@@ -419,6 +382,7 @@ class LoansViewController: UITableViewController {
 
             actions.append(renewAction)
         }
+         */
 
         let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: { _ -> UIMenu? in
             return UIMenu(title: "", children: actions)
