@@ -27,7 +27,14 @@ class PageParser {
             let pagination = parsePagination(html: html) else {
                 return nil
         }
-        let lis = ul.parseOccurences(between: "<div class=\"jss411\">", and: "</div></div></div>")
+        let lis: [String]
+        let lisA = ul.parseOccurences(between: "<div class=\"jss411\">", and: "</div></div></div>")
+        if !lisA.isEmpty {
+            lis = lisA
+        }
+        else {
+            lis = ul.parseOccurences(between: "<div class=\"jss627\">", and: "</div></div></div>")
+        }
         let items: [Item] = lis.compactMap({ li in
             return parseLoan(li: li)
         })
@@ -37,10 +44,20 @@ class PageParser {
 
     class func parseLoan(li: String) -> Item? {
         guard let titleLink = li.parse(between: "title=", and: "<div"),
-            let title = titleLink.parse(between: "\"", and: " /"),
-            let author = titleLink.parse(between: " /", and: "\">")?.trimmingCharacters(in: .whitespacesAndNewlines),
-              let returnDate = li.parse(between: "</span></div><div class=\"jss500\"><div class=\"jss390\">16/12/2022</div><span class=\"jss391\">Date de l'emprunt</span></div></li></div><div class=\"jss397\"><li class=\"jss193 jss393 jss196 jss201\"><div class=\"jss542 jss394\"><span class=\"material-icons jss140 jss398 primary\" aria-hidden=\"true\">keyboard_return</span></div><div class=\"jss500\"><div class=\"jss390\">", and: "</div><span class=\"jss391\">Date de retour</span>")?.trimmingCharacters(in: .whitespaces) else { //li.parse(between: "Emprunté à</span></td>\n<td><span class=\"colValue\">", and: "</span>") else {
-                return nil
+              let title = titleLink.parse(between: "\"", and: " /"),
+              let author = titleLink.parse(between: " /", and: "\">")?.trimmingCharacters(in: .whitespacesAndNewlines) else {
+            return nil
+        }
+
+        let returnDate: String
+        if let returnDate1 = li.parse(between: "keyboard_return</span></div><div class=\"jss500\"><div class=\"jss390\">", and: "</div><span class=\"jss391\">Date de retour</span>") {
+            returnDate = returnDate1
+        }
+        else if let returnDate2 = li.parse(between: "keyboard_return</span></div><div class=\"jss716\"><div class=\"jss606\">", and: "</div><span class=\"jss607\">Date de retour</span>") {
+            returnDate = returnDate2
+        }
+        else {
+            return nil
         }
 
         let library = ""
@@ -56,7 +73,7 @@ class PageParser {
             image = nil
         }
 
-        let returnDateRawComponents = returnDate.components(separatedBy: "/")
+        let returnDateRawComponents = returnDate.trimmingCharacters(in: .whitespaces).components(separatedBy: "/")
         var returnDateComponents = DateComponents()
         if (returnDateRawComponents.count == 3) {
             returnDateComponents.day = Int(returnDateRawComponents[0])

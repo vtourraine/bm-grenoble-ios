@@ -68,8 +68,11 @@ class GhostLoader: NSObject, WKNavigationDelegate {
         else if absoluteURLString.hasPrefix(GhostWebView.AccountLoansURL) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.webView.getHTML { (html) in
+                    #if DEBUG
                     let path = FileManager.default.temporaryDirectory.appendingPathComponent("data.html")
                     try? html.write(to: path, atomically: true, encoding: .utf8)
+                    print("🟣 HTML output: \(path)")
+                    #endif
 
                     if let loans = PageParser.parseLoans(html: html) {
                         self.items.append(contentsOf: loans.items)

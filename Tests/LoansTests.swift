@@ -37,6 +37,24 @@ class LoansTest: XCTestCase {
         XCTAssertEqual(item.returnDateComponents.year, 2023)
     }
 
+    func testParseLoans2() throws {
+        let loans = try loadLoans(fromFileNamed: "TestLoans-2022-2")
+
+        XCTAssertEqual(loans.pagination.numberOfPages, 1)
+        XCTAssertEqual(loans.pagination.currentPage, 0)
+        XCTAssertNil(loans.pagination.nextPage)
+
+        XCTAssertEqual(loans.items.count, 2)
+
+        let item = try XCTUnwrap(loans.items.first)
+        XCTAssertEqual(item.title, "Nima et l'ogresse")
+        XCTAssertEqual(item.author, "une histoire de Pierre Bertrand ; illustrée par Chen Jiang Hong")
+        XCTAssertEqual(item.library, "")
+        XCTAssertEqual(item.returnDateComponents.day, 4)
+        XCTAssertEqual(item.returnDateComponents.month, 2)
+        XCTAssertEqual(item.returnDateComponents.year, 2023)
+    }
+
     func testTitleFormatting() {
         let document = Document(identifier: "", title: "To love is to love / Jehnny Beth, chant, comp., p", localNumber: "", type: "")
         XCTAssertEqual(document.formattedTitle(), "To love is to love")
