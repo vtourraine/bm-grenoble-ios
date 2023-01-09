@@ -1369,7 +1369,7 @@ Grenoble</string>
         <!--Navigation Controller-->
         <scene sceneID="LxA-Xv-1Yx">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LbV-cD-hNz" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SearchNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="LbV-cD-hNz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="search" id="Kq6-uL-4cb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gQl-iX-cK7">
