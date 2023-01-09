@@ -14,13 +14,12 @@ import BMKit
 class LoansViewController: UITableViewController {
 
     enum State {
-        case loans([Item], [AccountPageItem])
+        case loans([Item])
         case notLoggedIn
     }
 
     enum Section: Int, CaseIterable {
         case loans = 0
-        case reservations = 1
     }
 
     var state: State = .notLoggedIn
@@ -31,7 +30,6 @@ class LoansViewController: UITableViewController {
     private struct K {
         struct CellIdentifier {
             static let loan = "Cell"
-            static let reservation = "ReservationCell"
         }
 
         struct SegueIdentifier {
@@ -42,7 +40,6 @@ class LoansViewController: UITableViewController {
             static let search = "Search"
         }
     }
-
 
     let LoansNotLoggedInViewXIB = "LoansNotLoggedInView"
 
@@ -63,7 +60,7 @@ class LoansViewController: UITableViewController {
             reloadData(state: .notLoggedIn)
         }
         else if let itemCache = ItemCache.load(from: .standard) {
-            reloadData(state: .loans(itemCache.items, []))
+            reloadData(state: .loans(itemCache.items))
         }
         else {
             configureBarButtonItems(userLoggedIn: true)
@@ -122,7 +119,7 @@ class LoansViewController: UITableViewController {
         tableView.reloadData()
 
         switch state {
-        case .loans(let items, _):
+        case .loans(let items):
             if items.isEmpty {
                 configureEmptyListPlaceholder()
             }
@@ -150,7 +147,7 @@ class LoansViewController: UITableViewController {
             Item(identifier: "", isRenewable: false, title: "Little Fires Everywhere", type: "Books", author: "Celeste Ng", library: "Bibliothèque municipale internationale", returnDateComponents: dateComponents, image: URL(string: "https://images-na.ssl-images-amazon.com/images/I/81wScwlTchL.jpg")!),
             Item(identifier: "", isRenewable: false, title: "Hilda et le chien noir", type: "Books", author: "Luke Pearson", library: "Jardin de Ville", returnDateComponents: dateComponents, image: URL(string: "https://www.casterman.com/media/cache/couverture_large/casterman_img/Couvertures/9782203097223.jpg")!)]
 
-        state = .loans(items, [])
+        state = .loans(items)
         tableView.reloadData()
     }
 
@@ -160,18 +157,8 @@ class LoansViewController: UITableViewController {
         }
 
         switch state {
-        case .loans(let items, _):
+        case .loans(let items):
             return items[indexPath.row]
-
-        default:
-            return nil
-        }
-    }
-
-    func reservation(at indexPath: IndexPath) -> AccountPageItem? {
-        switch state {
-        case .loans(_, let reservations):
-            return reservations[indexPath.row]
 
         default:
             return nil
@@ -234,7 +221,7 @@ class LoansViewController: UITableViewController {
         presentInfo(NSLocalizedString("Updating Account…", comment: ""))
 
         loader = GhostLoader(credentials: credentials, parentView: view, success: { (items) in
-            self.reloadData(state: .loans(items, []))
+            self.reloadData(state: .loans(items))
 
             let itemCache = ItemCache(items: items)
             ItemCache.save(items: itemCache, to: .standard)
@@ -284,32 +271,20 @@ class LoansViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         switch state {
-        case .loans(_, let reservations):
-            return reservations.isEmpty ? 1 : 2
+        case .loans:
+            return 1
 
         default:
             return 0
         }
     }
 
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch Section(rawValue: section) {
-        case .reservations:
-            return NSLocalizedString("Reservations", comment: "")
-
-        default:
-            return nil
-        }
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch state {
-        case .loans(let items, let reservations):
+        case .loans(let items):
             switch Section(rawValue: section) {
             case .loans:
                 return items.count
-            case .reservations:
-                return reservations.count
             default:
                 return 0
             }
@@ -320,21 +295,11 @@ class LoansViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch Section(rawValue: indexPath.section) {
-        case .reservations:
-            let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifier.reservation, for: indexPath)
-            if let item = self.reservation(at: indexPath) {
-                cell.configure(with: item)
-            }
-            return cell
-
-        default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifier.loan, for: indexPath) as! ItemTableViewCell
-            if let item = self.item(at: indexPath) {
-                cell.configure(item: item)
-            }
-            return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.CellIdentifier.loan, for: indexPath) as! ItemTableViewCell
+        if let item = self.item(at: indexPath) {
+            cell.configure(item: item)
         }
+        return cell
     }
 
     @available(iOS 13.0, *)

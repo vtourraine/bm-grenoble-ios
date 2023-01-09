@@ -145,7 +145,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             if let presentingTabBarController = self.presentingViewController as? UITabBarController,
                let navigationController = presentingTabBarController.viewControllers?.first as? UINavigationController,
                let viewController = navigationController.topViewController as? LoansViewController {
-                viewController.reloadData(state: .loans(items, []))
+                viewController.reloadData(state: .loans(items))
             }
             self.dismiss(animated: true, completion: nil)
         }) { (error) in
@@ -203,7 +203,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if let presentingTabBarController = self.presentingViewController as? UITabBarController,
             let navigationController = presentingTabBarController.viewControllers?.first as? UINavigationController,
             let viewController = navigationController.topViewController as? LoansViewController {
-            viewController.reloadData(state: .loans(items, []))
+            viewController.reloadData(state: .loans(items))
         }
 
         dismiss(animated: true, completion: nil)
