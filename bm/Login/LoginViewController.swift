@@ -40,7 +40,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         forgotPasswordButton?.titleLabel?.adjustsFontForContentSizeCategory = true
 
-        if let connectButton = connectButton {
+        if let connectButton {
             connectButton.titleLabel?.adjustsFontForContentSizeCategory = true
             connectButton.configureRoundCorners()
 
@@ -150,7 +150,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.dismiss(animated: true, completion: nil)
         }) { (error) in
             self.configure(loading: false)
-            self.presentLoadingError(error)
+            let defaultError = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("Invalid subscriber number or password", comment: "")])
+            self.presentLoadingError(error ?? defaultError)
             self.loader = nil
         }
     }
@@ -180,6 +181,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         guard let label = label(for: textField) else {
             return
         }
+
+        presentInfo(nil)
 
         UIView.animate(withDuration: 0.3) {
             self.currentTextFieldTopConstraint = label.topAnchor.constraint(greaterThanOrEqualTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 8)

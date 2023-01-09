@@ -38,7 +38,7 @@ class UITextFieldPadding : UITextField {
 
 extension UIViewController {
     func presentInfo(_ text: String?) {
-        guard let text = text else {
+        guard let text else {
             SwiftMessages.hide()
             return
         }
