@@ -46,14 +46,4 @@ class LoansTest: XCTestCase {
         XCTAssertEqual(item.returnDateComponents.month, 2)
         XCTAssertEqual(item.returnDateComponents.year, 2023)
     }
-
-    func testTitleFormatting() {
-        let document = Document(identifier: "", title: "To love is to love / Jehnny Beth, chant, comp., p", localNumber: "", type: "")
-        XCTAssertEqual(document.formattedTitle(), "To love is to love")
-    }
-
-    func testTitleFormattingTypeSuffix() {
-        let document = Document(identifier: "", title: "The social network [DVD] / David Fincher, réal. ; avec Jesse Eisenberg, Andrew Garfield, Justin Timberlake, Armie Hammer, Max Minghella. ; Aaron Sorkin, scénar.", localNumber: "", type: "DVD")
-        XCTAssertEqual(document.formattedTitle(), "The social network")
-    }
 }

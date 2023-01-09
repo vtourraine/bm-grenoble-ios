@@ -53,7 +53,7 @@ class ItemTableViewCell: UITableViewCell {
 
         let placeholderImage: UIImage?
         if #available(iOS 13.0, *) {
-            let imageName = Document.systemImageName(for: item.type)
+            let imageName = Item.systemImageName(for: item.type)
             placeholderImage = UIImage(systemName: imageName)
         }
         else {

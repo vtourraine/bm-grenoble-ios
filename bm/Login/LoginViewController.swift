@@ -153,23 +153,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.presentLoadingError(error)
             self.loader = nil
         }
-
-/*
-        let urlSession = URLSession.shared
-        urlSession.connect(username: subscriberNumber, password: password) { result in
-            switch result {
-            case .success(let session):
-                let credentials = Credentials(username: subscriberNumber, password: password)
-                try? credentials.save(to: Credentials.defaultKeychain())
-
-                self.fetchItems(with: session)
-
-            case .failure(let error):
-                self.configure(loading: false)
-                self.presentLoadingError(error)
-            }
-        }
- */
     }
 
     @IBAction func presentResetPassword(_ sender: Any?) {
@@ -179,24 +162,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func dismiss(_ sender: Any?) {
         dismiss(animated: true, completion: nil)
-    }
-
-    private func fetchItems(with session: Session) {
-        let urlSession = URLSession.shared
-        urlSession.fetchItems(with: session) { result in
-            self.configure(loading: false)
-
-            switch result {
-            case .success(let items):
-                let itemCache = ItemCache(items: items)
-                ItemCache.save(items: itemCache, to: .standard)
-
-                self.dismissAfterSuccessfulLogin(with: items)
-
-            case .failure(let error):
-                self.presentLoadingError(error)
-            }
-        }
     }
 
     private func dismissAfterSuccessfulLogin(with items: [Item]) {

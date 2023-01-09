@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import BMKit
 
 struct Item: Codable {
     let identifier: String
@@ -20,57 +19,57 @@ struct Item: Codable {
     let image: URL?
 }
 
-extension URLSession {
-    func fetchItems(with session: Session, completion: @escaping (Result<[Item], Error>) -> Void) {
-        _ = fetchLoans(with: session) { result in
-            switch result {
-            case .success(let loanItems):
-                let sequenceNumbers = loanItems.map { $0.sequenceNumber }
-                _ = self.fetchDocuments(sequenceNumbers, with: session) { resultFetchDocuments in
-                    switch resultFetchDocuments {
-                    case .success(let response):
-                        let items = Item.items(with: loanItems, and: response.documents)
-                        completion(.success(items))
-
-                    case .failure(let fetchDocumentsError):
-                        completion(.failure(fetchDocumentsError))
-                    }
-                }
-
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
-    }
-}
 
 extension Item {
-    static func items(with loanItems: [Loan], and documents: [Document]) -> [Item] {
-        guard loanItems.count == documents.count else {
-            return []
+    static func systemImageName(for type: String) -> String {
+        switch type {
+        case "DVD":
+            return "tv"
+        case "CD":
+            return "smallcircle.circle"
+        default:
+            return "book"
         }
+    }
 
-        var items = [Item]()
-
-        for loan in loanItems {
-            guard let document = documents.first(where: { $0.localNumber.hasSuffix(loan.sequenceNumber) }) else {
-                continue
-            }
-
-            let author: String
-            if let firstCreator = document.meta?.creators?.first,
-               let components = firstCreator.nameComponents() {
-                author = PersonNameComponentsFormatter.localizedString(from: components, style: .default)
-            }
-            else {
-                author = ""
-            }
-
-            let item = Item(identifier: loan.identifier, isRenewable: loan.isRenewable, title: document.formattedTitle(), type: document.type, author: author, library: loan.library, returnDateComponents: loan.returnDateComponents, image: document.imageURL)
-            items.append(item)
-        }
-
-        return items
+    func systemImageNameForType() -> String {
+        return Item.systemImageName(for: type)
     }
 }
 
+extension DateComponents {
+    // We want the formatted return date in “full” style, but without the “year” information, for instance:
+    // “17 août” instead of “17 août 2019”
+    // "August 17" instead of "August 17, 2019"
+    func formattedReturnDate() -> (localizedDate: String, numberOfDays:Int, localizedNumberOfDays: String)? {
+        let calendar = NSCalendar.current
+        guard let returnDate = calendar.date(from: self),
+            let returnDateShifted = calendar.date(byAdding: .day, value: 1, to: returnDate) else {
+                return nil
+        }
+
+        let localizedLongReturnDate = DateFormatter.localizedString(from: returnDate, dateStyle: .long, timeStyle: .none)
+        let localizedMediumReturnDate: String
+        let year = calendar.component(.year, from: returnDate)
+        let yearSuffixUS = ", \(year)"
+        let yearSuffixFR = " \(year)"
+        if localizedLongReturnDate.hasSuffix(yearSuffixUS) {
+            localizedMediumReturnDate = localizedLongReturnDate.replacingOccurrences(of: yearSuffixUS, with: "")
+        }
+        else if localizedLongReturnDate.hasSuffix(yearSuffixFR) {
+            localizedMediumReturnDate = localizedLongReturnDate.replacingOccurrences(of: yearSuffixFR, with: "")
+        }
+        else {
+            localizedMediumReturnDate = DateFormatter.localizedString(from: returnDate, dateStyle: .medium, timeStyle: .none)
+        }
+
+        let numberOfDays = calendar.dateComponents([.day], from: Date(), to: returnDateShifted)
+        guard let localizedNumberOfDays = DateComponentsFormatter.localizedString(from: numberOfDays, unitsStyle: .full),
+            let numberOfDaysValue = numberOfDays.day else {
+                return nil
+
+        }
+
+        return (localizedMediumReturnDate, numberOfDaysValue, localizedNumberOfDays)
+    }
+}
