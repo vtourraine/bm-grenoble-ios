@@ -11,22 +11,15 @@ import Foundation
 class PageParser {
     private static let CatalogueRoot = "http://catalogue.bm-grenoble.fr"
 
-    struct Pagination {
-        let numberOfPages: Int
-        let currentPage: Int
-        let nextPage: URL?
-    }
-
-    class func parseLoans(html: String) -> (items: [Item], pagination: Pagination)? {
+    class func parseLoans(html: String) -> [Item]? {
         if html.contains("<div class=\"accountEmptyList\">") && html.contains("<ul class=\"listItems\">") == false {
-            let pagination = Pagination(numberOfPages: 0, currentPage: 0, nextPage: nil)
-            return ([], pagination)
+            return []
         }
 
-        guard let ul = html.parse(between: "<div id=\"searchresult\" class=\"\">", and: "</div></div></div></div></div></div></div></div></div></div></div></div></div></div>"),
-            let pagination = parsePagination(html: html) else {
+        guard let ul = html.parse(between: "<div id=\"searchresult\" class=\"\">", and: "</div></div></div></div></div></div></div></div></div></div></div></div></div></div>") else {
                 return nil
         }
+
         let lis: [String]
         let lisA = ul.parseOccurences(between: "<div class=\"jss411\">", and: "</div></div></div>")
         if !lisA.isEmpty {
@@ -39,7 +32,7 @@ class PageParser {
             return parseLoan(li: li)
         })
 
-        return (items, pagination)
+        return items
     }
 
     class func parseLoan(li: String) -> Item? {
@@ -82,35 +75,5 @@ class PageParser {
         }
 
         return Item(identifier: "", isRenewable: false, title: title.cleanHTMLEntities(), type: "", author: author, library: library, returnDateComponents: returnDateComponents, image: image)
-    }
-
-    class func parsePagination(html: String) -> Pagination? {
-        return Pagination(numberOfPages: 1, currentPage: 0, nextPage: nil)
-
-        /*
-        guard let pageIndexString = html.parse(between: "var currentPage = ", and: ";"),
-            let pageIndex = Int(pageIndexString) else {
-                return nil
-        }
-
-        let numberOfPages: Int
-        let nextPage: URL?
-        if let pagesLinks = html.parse(between: "<span class=\"yt-uix-pager\"", and: "</span>") {
-            numberOfPages = (pagesLinks.components(separatedBy: "<a").count - 2)
-
-            if let nextPageString = pagesLinks.parse(between: "\(numberOfPages)</a><a href=\"", and: "\" class=\"paginationNext\"") {
-                nextPage = URL(string: nextPageString)
-            }
-            else {
-                nextPage = nil
-            }
-        }
-        else {
-            numberOfPages = 1
-            nextPage = nil
-        }
-
-        return Pagination(numberOfPages: numberOfPages, currentPage: (pageIndex - 1), nextPage: nextPage)
-         */
     }
 }

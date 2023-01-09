@@ -12,7 +12,7 @@ import XCTest
 
 class LoansTest: XCTestCase {
 
-    private func loadLoans(fromFileNamed fileName: String) throws -> (items: [Item], pagination: PageParser.Pagination) {
+    private func loadLoans(fromFileNamed fileName: String) throws -> [Item] {
         let path = try XCTUnwrap(Bundle(for: type(of: self)).path(forResource: fileName, ofType: "html"))
         let html = try XCTUnwrap(String(contentsOfFile: path))
         let loans = try XCTUnwrap(PageParser.parseLoans(html: html))
@@ -22,13 +22,9 @@ class LoansTest: XCTestCase {
     func testParseLoans1() throws {
         let loans = try loadLoans(fromFileNamed: "TestLoans-2022-1")
 
-        XCTAssertEqual(loans.pagination.numberOfPages, 1)
-        XCTAssertEqual(loans.pagination.currentPage, 0)
-        XCTAssertNil(loans.pagination.nextPage)
+        XCTAssertEqual(loans.count, 5)
 
-        XCTAssertEqual(loans.items.count, 5)
-
-        let item = try XCTUnwrap(loans.items.first)
+        let item = try XCTUnwrap(loans.first)
         XCTAssertEqual(item.title, "Bolchoi arena. 3, Révolutions")
         XCTAssertEqual(item.author, "scénario Boulet ; dessin Aseyn ; couleur Yoann Guillé, Aseyn")
         XCTAssertEqual(item.library, "")
@@ -40,13 +36,9 @@ class LoansTest: XCTestCase {
     func testParseLoans2() throws {
         let loans = try loadLoans(fromFileNamed: "TestLoans-2022-2")
 
-        XCTAssertEqual(loans.pagination.numberOfPages, 1)
-        XCTAssertEqual(loans.pagination.currentPage, 0)
-        XCTAssertNil(loans.pagination.nextPage)
+        XCTAssertEqual(loans.count, 2)
 
-        XCTAssertEqual(loans.items.count, 2)
-
-        let item = try XCTUnwrap(loans.items.first)
+        let item = try XCTUnwrap(loans.first)
         XCTAssertEqual(item.title, "Nima et l'ogresse")
         XCTAssertEqual(item.author, "une histoire de Pierre Bertrand ; illustrée par Chen Jiang Hong")
         XCTAssertEqual(item.library, "")

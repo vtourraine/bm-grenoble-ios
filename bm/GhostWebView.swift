@@ -75,17 +75,9 @@ class GhostLoader: NSObject, WKNavigationDelegate {
                     #endif
 
                     if let loans = PageParser.parseLoans(html: html) {
-                        self.items.append(contentsOf: loans.items)
-
-                        if let nextPage = loans.pagination.nextPage,
-                           let nextPageFullURL = URL(string: GhostWebView.RootURL.appending(nextPage.absoluteString)) {
-                            let request = URLRequest(url: nextPageFullURL)
-                            webView.load(request)
-                        }
-                        else {
-                            self.success(self.items)
-                            self.cleanup()
-                        }
+                        self.items.append(contentsOf: loans)
+                        self.success(self.items)
+                        self.cleanup()
                     }
                     else {
                         self.failure(nil)
