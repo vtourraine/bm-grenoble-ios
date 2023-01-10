@@ -52,13 +52,15 @@ class GhostLoader: NSObject, WKNavigationDelegate {
                 webView.load(request)
             }
             else {
-                self.webView.setUsername(self.credentials.username) {
-                    self.webView.setPassword(self.credentials.password) {
-                        self.hasLoggedIn = true
-                        self.webView.submitForm {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                let request = URLRequest(url: URL(string: GhostWebView.AccountLoansURL)!)
-                                webView.load(request)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.webView.setUsername(self.credentials.username) {
+                        self.webView.setPassword(self.credentials.password) {
+                            self.hasLoggedIn = true
+                            self.webView.submitForm {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                    let request = URLRequest(url: URL(string: GhostWebView.AccountLoansURL)!)
+                                    webView.load(request)
+                                }
                             }
                         }
                     }
@@ -66,7 +68,7 @@ class GhostLoader: NSObject, WKNavigationDelegate {
             }
         }
         else if absoluteURLString.hasPrefix(GhostWebView.AccountLoansURL) {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.webView.getHTML { (html) in
                     #if DEBUG
                     let path = FileManager.default.temporaryDirectory.appendingPathComponent("data.html")
@@ -121,6 +123,7 @@ class GhostWebView: WKWebView {
 
     convenience init() {
         let webConfiguration = WKWebViewConfiguration()
+        // self.init(frame: CGRect(x: 0, y: 0, width: 300, height: 300), configuration: webConfiguration)
         self.init(frame: CGRect(x: 0, y: 0, width: 1, height: 1), configuration: webConfiguration)
     }
 
@@ -139,10 +142,8 @@ class GhostWebView: WKWebView {
 
     func setInput(identifier: TagIdentifier, value: String, completionHandler: @escaping (() -> Void)) {
         let js = "document.getElementById('\(identifier.rawValue)').value=\"\(value)\""
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.evaluateJavaScript(js) { (object, error) in
-                completionHandler()
-            }
+        evaluateJavaScript(js) { (object, error) in
+            completionHandler()
         }
     }
 

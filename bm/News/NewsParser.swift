@@ -44,7 +44,7 @@ class NewsParser {
     class func fetchNewsItems(completionHandler: @escaping (Result<[NewsItem], Error>) -> Void) -> URLSessionDataTask {
         let task = URLSession.shared.dataTask(with: NewsWebpageURL) {(data, response, error) in
             DispatchQueue.main.async {
-                guard let data = data,
+                guard let data,
                     let string = String(data: data, encoding: .utf8),
                     let newsItem = parseNewsItems(html: string) else {
                         if let networkError = error {
