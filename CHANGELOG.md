@@ -2,6 +2,8 @@
 
 ## 1.8
 
+2023-01-11
+
 - Update libraries opening hours
 - Switch back from API to web view parser
 - Remove widget
