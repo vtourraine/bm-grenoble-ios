@@ -1,5 +1,10 @@
 # BM Grenoble
 
+## 1.8.1
+
+- [x] Restore web search
+
+
 ## 1.8
 
 2023-01-11

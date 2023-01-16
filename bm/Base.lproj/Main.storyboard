@@ -1047,7 +1047,7 @@ Grenoble</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QsP-Rc-Dt1">
-                                <rect key="frame" x="40" y="447" width="132" height="44"/>
+                                <rect key="frame" x="40" y="422" width="132" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="cIV-lW-tyi"/>
@@ -1062,7 +1062,7 @@ Grenoble</string>
                                 </connections>
                             </button>
                             <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Titre, auteur" translatesAutoresizingMaskIntoConstraints="NO" id="Reo-Q7-eVd">
-                                <rect key="frame" x="40" y="351" width="944" height="56"/>
+                                <rect key="frame" x="40" y="326" width="944" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="yn0-2r-Gad"/>
                                 </constraints>
@@ -1123,6 +1123,7 @@ Grenoble</string>
                         <segue destination="ktH-Df-Yro" kind="relationship" relationship="viewControllers" id="fAR-In-fcC"/>
                         <segue destination="vRB-X1-egP" kind="relationship" relationship="viewControllers" id="rPX-lx-xUH"/>
                         <segue destination="PWm-tb-Pfv" kind="relationship" relationship="viewControllers" id="UU6-ut-c3G"/>
+                        <segue destination="LbV-cD-hNz" kind="relationship" relationship="viewControllers" id="tdb-6y-HhT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a4a-j1-yFa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
