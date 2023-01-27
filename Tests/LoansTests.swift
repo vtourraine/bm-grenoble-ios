@@ -28,7 +28,7 @@ class LoansTest: XCTestCase {
         XCTAssertEqual(item.title, "Bolchoi arena. 3, Révolutions")
         XCTAssertEqual(item.author, "scénario Boulet ; dessin Aseyn ; couleur Yoann Guillé, Aseyn")
         XCTAssertEqual(item.library, "")
-        XCTAssertEqual(item.image?.absoluteString, "http://catalogue.bm-grenoble.fr/in/rest/Thumb/image?id=p%3A%3Ausmarcdef_0001488730&amp;isbn=9782413039952&amp;ean=9782413039952&amp;author=Boulet+%281975-....%29&amp;title=Bolchoi+arena.+3%2C+R%C3%A9volutions+%2F+sc%C3%A9nario+Boulet+%3B+dessin+Aseyn+%3B+couleur+Yoann+Guill%C3%A9%2C+Aseyn&amp;year=2022&amp;publisher=Delcourt&amp;TypeOfDocument=GrenoblePhysicalDocument&amp;mat=Livres&amp;ct=true&amp;size=256&amp;isPhysical=1&amp;siteId=mainSite")
+        XCTAssertEqual(item.image?.absoluteString, "http://catalogue.bm-grenoble.fr/in/rest/Thumb/image?id=p%3A%3Ausmarcdef_0001488730")
         XCTAssertEqual(item.returnDateComponents.day, 13)
         XCTAssertEqual(item.returnDateComponents.month, 1)
         XCTAssertEqual(item.returnDateComponents.year, 2023)

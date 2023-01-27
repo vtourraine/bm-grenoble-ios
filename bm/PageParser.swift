@@ -57,11 +57,10 @@ class PageParser {
         }
 
         let library = li.parse(between: "Emprunté à :</div><div dir=\"ltr\" class=\"meta-values jss458\"><span>", and: "</span>")
-        
+
         let image: URL?
-        let ImagePlaceholderSubString = "ISBN/?icon"
-        if let imageString = li.parse(between: "<img src=\"", and: "\""),
-            imageString.contains(ImagePlaceholderSubString) == false,
+
+        if let imageString = li.parse(between: "<img src=\"", and: "&") ?? li.parse(between: "background-image: url(&quot;", and: "&"),
             let imageURL = URL(string: "\(CatalogueRoot)\(imageString)") {
             image = imageURL
         }

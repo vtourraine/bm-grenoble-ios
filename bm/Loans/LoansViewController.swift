@@ -59,22 +59,18 @@ class LoansViewController: UITableViewController {
         if Credentials.sharedCredentials() == nil {
             reloadData(state: .notLoggedIn)
         }
-        else if let itemCache = ItemCache.load(from: .standard) {
-            reloadData(state: .loans(itemCache.items))
-        }
         else {
-            configureBarButtonItems(userLoggedIn: true)
+            if let itemCache = ItemCache.load(from: .standard) {
+                reloadData(state: .loans(itemCache.items))
+            }
+            else {
+                configureBarButtonItems(userLoggedIn: true)
+            }
+
+            refresh(sender: nil)
         }
 
         navigationController?.configureCustomAppearance()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        if Credentials.sharedCredentials() != nil {
-            refresh(sender: nil)
-        }
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
