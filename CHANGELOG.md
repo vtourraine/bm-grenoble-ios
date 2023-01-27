@@ -3,6 +3,7 @@
 ## 1.8.1
 
 - [x] Restore web search
+- [x] Restore loans library info
 
 
 ## 1.8

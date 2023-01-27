@@ -21,7 +21,7 @@ class PageParser {
         }
 
         let lis: [String]
-        let lisA = ul.parseOccurences(between: "<div class=\"jss411\">", and: "</div></div></div>")
+        let lisA = ul.parseOccurences(between: "<div class=\"jss411\">", and: "</div></li></div></ul></div></div></div><div>")
         if !lisA.isEmpty {
             lis = lisA
         }
@@ -36,9 +36,9 @@ class PageParser {
     }
 
     class func parseLoan(li: String) -> Item? {
-        guard let titleLink = li.parse(between: "title=", and: "<div"),
-              let title = titleLink.parse(between: "\"", and: " /"),
-              let author = titleLink.parse(between: " /", and: "\">")?.trimmingCharacters(in: .whitespacesAndNewlines) else {
+        guard let titleLink = li.parse(between: "title=\"", and: "\""),
+              let title = titleLink.parse(before: " / "),
+              let author = titleLink.parse(after: " / ") else {
             return nil
         }
 
@@ -49,11 +49,14 @@ class PageParser {
         else if let returnDate2 = li.parse(between: "keyboard_return</span></div><div class=\"jss716\"><div class=\"jss606\">", and: "</div><span class=\"jss607\">Date de retour</span>") {
             returnDate = returnDate2
         }
+        else if let returnDate3 = li.parse(between: "keyboard_return</span></div><div class=\"jss497\"><div class=\"jss390\">", and: "</div><span class=\"jss391\">Date de retour</span>") {
+            returnDate = returnDate3
+        }
         else {
             return nil
         }
 
-        let library = ""
+        let library = li.parse(between: "Emprunté à :</div><div dir=\"ltr\" class=\"meta-values jss458\"><span>", and: "</span>")
         
         let image: URL?
         let ImagePlaceholderSubString = "ISBN/?icon"
@@ -74,6 +77,6 @@ class PageParser {
             returnDateComponents.year = Int(returnDateRawComponents[2])
         }
 
-        return Item(identifier: "", isRenewable: false, title: title.cleanHTMLEntities(), type: "", author: author, library: library, returnDateComponents: returnDateComponents, image: image)
+        return Item(identifier: "", isRenewable: false, title: title.cleanHTMLEntities(), type: "", author: author, library: library ?? "", returnDateComponents: returnDateComponents, image: image)
     }
 }

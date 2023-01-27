@@ -3,7 +3,7 @@
 //  bm
 //
 //  Created by Vincent Tourraine on 09/01/2020.
-//  Copyright © 2020 Studio AMANgA. All rights reserved.
+//  Copyright © 2020-2023 Studio AMANgA. All rights reserved.
 //
 
 import Foundation
@@ -38,14 +38,13 @@ extension String {
     }
 
     func parse(between prefix: String, and suffix: String) -> String? {
-        let rangePrefix = self.range(of: prefix)
-        let startIndexOptional = rangePrefix?.upperBound
+        let rangePrefix = range(of: prefix)
 
-        guard let startIndex = startIndexOptional else {
+        guard let startIndex = rangePrefix?.upperBound else {
             return nil
         }
 
-        let rangeSuffix = self.range(of: suffix, options: [], range: startIndex ..< self.endIndex)
+        let rangeSuffix = range(of: suffix, options: [], range: index(after: startIndex) ..< self.endIndex)
         let endIndex = rangeSuffix?.lowerBound
 
         if let endIndex = endIndex {
@@ -71,6 +70,22 @@ extension String {
         else {
             return nil
         }
+    }
+
+    func parse(after prefix: String) -> String? {
+        guard let range = range(of: prefix) else {
+            return nil
+        }
+
+        return String(self[range.upperBound...])
+    }
+
+    func parse(before suffix: String) -> String? {
+        guard let range = range(of: suffix) else {
+            return nil
+        }
+
+        return String(self[..<range.lowerBound])
     }
 
     func cleanHTMLEntities() -> String {
