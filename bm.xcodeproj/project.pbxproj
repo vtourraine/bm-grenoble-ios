@@ -421,6 +421,7 @@
 			buildConfigurationList = D70212D522F0E43E00E3972E /* Build configuration list for PBXNativeTarget "BM Grenoble" */;
 			buildPhases = (
 				D70212BF22F0E43C00E3972E /* Sources */,
+				BBA2EDF129867986004665DB /* Generate Release Notes */,
 				D70212C022F0E43C00E3972E /* Frameworks */,
 				D70212C122F0E43C00E3972E /* Resources */,
 			);
@@ -571,6 +572,30 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BBA2EDF129867986004665DB /* Generate Release Notes */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/CHANGELOG.md",
+			);
+			name = "Generate Release Notes";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/releasenotes.html",
+				"$(DERIVED_FILE_DIR)/releasenotes.json",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n\n~/Developer/Trackup CHANGELOG.md -html > releasenotes.html\n~/Developer/Trackup CHANGELOG.md -json > releasenotes.json\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D70212BF22F0E43C00E3972E /* Sources */ = {
