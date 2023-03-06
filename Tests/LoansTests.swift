@@ -57,4 +57,14 @@ class LoansTest: XCTestCase {
         XCTAssertEqual(item.author, "[ill. par] Sempé ; [texte de] Goscinny")
         XCTAssertEqual(item.library, "Arlequin")
     }
+
+    func testParseLoansWithLibrary2() throws {
+        let loans = try loadLoans(fromFileNamed: "TestLoans-2023-2")
+
+        XCTAssertEqual(loans.count, 10)
+
+        let item = try XCTUnwrap(loans.first)
+        XCTAssertEqual(item.author, "Sempé, Goscinny")
+        XCTAssertEqual(item.library, "Arlequin")
+    }
 }

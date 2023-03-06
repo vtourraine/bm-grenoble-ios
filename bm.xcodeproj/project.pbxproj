@@ -45,6 +45,7 @@
 		D7697DF023CA0E4600010011 /* AgendaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7697DEF23CA0E4600010011 /* AgendaTests.swift */; };
 		D7697DF323CB5DE100010011 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = D7697DF223CB5DE100010011 /* AlamofireImage */; };
 		D7697DF523CB5E4E00010011 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7697DF423CB5E4E00010011 /* NewsTableViewCell.swift */; };
+		D76D7E5329B621E40085D333 /* TestLoans-2023-2.html in Resources */ = {isa = PBXBuildFile; fileRef = D76D7E5229B621E40085D333 /* TestLoans-2023-2.html */; };
 		D77F59F328981FAD00A7587C /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F59F228981FAD00A7587C /* Credentials.swift */; };
 		D77F59F42898219300A7587C /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F59F228981FAD00A7587C /* Credentials.swift */; };
 		D78200A223C7381A00C3A699 /* NewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78200A123C7381A00C3A699 /* NewsItem.swift */; };
@@ -131,6 +132,7 @@
 		D7697DED23CA0DAF00010011 /* AgendaParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaParser.swift; sourceTree = "<group>"; };
 		D7697DEF23CA0E4600010011 /* AgendaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaTests.swift; sourceTree = "<group>"; };
 		D7697DF423CB5E4E00010011 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		D76D7E5229B621E40085D333 /* TestLoans-2023-2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "TestLoans-2023-2.html"; sourceTree = "<group>"; };
 		D7757F5122F2390E006E6AAC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D7757F5322F241FE006E6AAC /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		D77F59F228981FAD00A7587C /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 				D74279582964434600CB2AAE /* TestLoans-2022-1.html */,
 				BBFD77DC2969B94C00718390 /* TestLoans-2022-2.html */,
 				D7FB1E182984172100C09C52 /* TestLoans-2023-1.html */,
+				D76D7E5229B621E40085D333 /* TestLoans-2023-2.html */,
 				D78200A523C7399100C3A699 /* TestNews1.html */,
 				D7697DEB23CA0DA100010011 /* TestAgenda1.html */,
 				D7A0A2E923E1828D0039D934 /* TestAgenda2.html */,
@@ -566,6 +569,7 @@
 				D7A0A2EA23E1828D0039D934 /* TestAgenda3.html in Resources */,
 				D74279592964434600CB2AAE /* TestLoans-2022-1.html in Resources */,
 				BBFD77DD2969B94C00718390 /* TestLoans-2022-2.html in Resources */,
+				D76D7E5329B621E40085D333 /* TestLoans-2023-2.html in Resources */,
 				D78200A923C73AF700C3A699 /* TestNews1.html in Resources */,
 				D7FB1E192984172100C09C52 /* TestLoans-2023-1.html in Resources */,
 			);

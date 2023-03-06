@@ -16,7 +16,7 @@ class PageParser {
             return []
         }
 
-        guard let ul = html.parse(between: "<div id=\"searchresult\" class=\"\">", and: "</div></div></div></div></div></div></div></div></div></div></div></div></div></div>") else {
+        guard let ul = html.parse(between: "<div id=\"searchresult\" class=\"\">", and: "</div></div></div></div></div></div></div></div></div></div></div></div>") else {
                 return nil
         }
 
