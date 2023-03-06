@@ -9,6 +9,19 @@
 import UIKit
 import WebKit
 
+public enum GhostLoaderError: Error {
+    case invalidData
+}
+
+extension GhostLoaderError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .invalidData:
+            return NSLocalizedString("Invalid data", comment: "")
+        }
+    }
+}
+
 class GhostLoader: NSObject, WKNavigationDelegate {
     let credentials: Credentials
     let webView: GhostWebView
@@ -82,7 +95,7 @@ class GhostLoader: NSObject, WKNavigationDelegate {
                         self.cleanup()
                     }
                     else {
-                        self.failure(nil)
+                        self.failure(GhostLoaderError.invalidData)
                         self.cleanup()
                     }
                 }

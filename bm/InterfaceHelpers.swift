@@ -37,7 +37,7 @@ class UITextFieldPadding : UITextField {
 }
 
 extension UIViewController {
-    func presentInfo(_ text: String?) {
+    func presentInfo(_ text: String?, details: String? = nil) {
         guard let text else {
             SwiftMessages.hide()
             return
@@ -45,7 +45,13 @@ extension UIViewController {
 
         let message = MessageView.viewFromNib(layout: .statusLine)
         message.configureTheme(.info)
-        message.configureContent(body: text)
+        if let details {
+            message.configureContent(title: text, body: details)
+        }
+        else {
+            message.configureContent(body: text)
+        }
+
         if #available(iOS 13.0, *) {
             message.backgroundColor = .systemBackground
         }
@@ -57,8 +63,8 @@ extension UIViewController {
 
         SwiftMessages.show(config: config, view: message)
     }
-    
-    func presentError(_ error: Error?, theme: Theme = .error, title: String = NSLocalizedString("Error", comment: "")) {
+
+    func presentError(title: String, body: String, theme: Theme = .error) {
         let message = MessageView.viewFromNib(layout: .messageView)
         message.configureTheme(theme)
         if theme == .error {
@@ -67,7 +73,7 @@ extension UIViewController {
         else if theme == .warning {
             message.backgroundColor = .systemOrange
         }
-        message.configureContent(title: title, body: error?.localizedDescription ?? "")
+        message.configureContent(title: title, body: body)
         message.button?.isHidden = true
 
         var config = SwiftMessages.Config()
@@ -77,7 +83,16 @@ extension UIViewController {
         SwiftMessages.show(config: config, view: message)
     }
     
+    func presentError(_ error: Error?, theme: Theme = .error, title: String = NSLocalizedString("Error", comment: "")) {
+        presentError(title: title, body: error?.localizedDescription ?? "")
+    }
+    
     func presentLoadingError(_ error: Error?) {
+        if case .invalidData = (error as? GhostLoaderError) {
+            presentError(title: NSLocalizedString("Connection Error", comment: ""), body: NSLocalizedString("Please try again later", comment: ""), theme: .info)
+            return
+        }
+
         presentError(error, theme: .warning, title: NSLocalizedString("Connection Error", comment: ""))
     }
 

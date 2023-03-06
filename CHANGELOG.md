@@ -4,6 +4,7 @@
 
 - [x] Restore web search
 - [x] Restore loans library info
+- [x] Improve loans parsing error message
 - [x] Improve loans parsing reliability 
 
 
