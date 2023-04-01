@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		BB12181326979A5100FE050B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB12181526979A5100FE050B /* Localizable.strings */; };
+		BB415B3F29D8CDC10056A8EF /* TestLoans-2023-3.html in Resources */ = {isa = PBXBuildFile; fileRef = BB415B3E29D8CDC10056A8EF /* TestLoans-2023-3.html */; };
 		BB4AA3FB28C68DE5006DE4AE /* DigitalLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4AA3FA28C68DE5006DE4AE /* DigitalLibraryViewController.swift */; };
 		BB6CA75526E6B3CE0004F819 /* TestAgenda4.html in Resources */ = {isa = PBXBuildFile; fileRef = BB6CA75426E6B3CE0004F819 /* TestAgenda4.html */; };
 		BBBC736C281E7BA800B32C31 /* SwiftMessages in Frameworks */ = {isa = PBXBuildFile; productRef = BBBC736B281E7BA800B32C31 /* SwiftMessages */; };
@@ -93,6 +94,7 @@
 /* Begin PBXFileReference section */
 		BB12181426979A5100FE050B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BB12181626979A5600FE050B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BB415B3E29D8CDC10056A8EF /* TestLoans-2023-3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "TestLoans-2023-3.html"; sourceTree = "<group>"; };
 		BB4AA3FA28C68DE5006DE4AE /* DigitalLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalLibraryViewController.swift; sourceTree = "<group>"; };
 		BB6CA75426E6B3CE0004F819 /* TestAgenda4.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TestAgenda4.html; sourceTree = "<group>"; };
 		BBFD77DC2969B94C00718390 /* TestLoans-2022-2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "TestLoans-2022-2.html"; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				BBFD77DC2969B94C00718390 /* TestLoans-2022-2.html */,
 				D7FB1E182984172100C09C52 /* TestLoans-2023-1.html */,
 				D76D7E5229B621E40085D333 /* TestLoans-2023-2.html */,
+				BB415B3E29D8CDC10056A8EF /* TestLoans-2023-3.html */,
 				D78200A523C7399100C3A699 /* TestNews1.html */,
 				D7697DEB23CA0DA100010011 /* TestAgenda1.html */,
 				D7A0A2E923E1828D0039D934 /* TestAgenda2.html */,
@@ -489,8 +492,9 @@
 		D70212BB22F0E43C00E3972E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1400;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = "Studio AMANgA";
 				TargetAttributes = {
 					D70212C222F0E43C00E3972E = {
@@ -570,6 +574,7 @@
 				D74279592964434600CB2AAE /* TestLoans-2022-1.html in Resources */,
 				BBFD77DD2969B94C00718390 /* TestLoans-2022-2.html in Resources */,
 				D76D7E5329B621E40085D333 /* TestLoans-2023-2.html in Resources */,
+				BB415B3F29D8CDC10056A8EF /* TestLoans-2023-3.html in Resources */,
 				D78200A923C73AF700C3A699 /* TestNews1.html in Resources */,
 				D7FB1E192984172100C09C52 /* TestLoans-2023-1.html in Resources */,
 			);
