@@ -27,6 +27,8 @@
 "Updating Account…" = "Mise à jour du compte…";
 "Renewing Document…" = "Renouvellement du document…";
 "No Current Loans" = "Aucun prêt en cours";
+"You might need to refresh your account to see your current loans." = "Vous pouvez actualiser votre compte pour voir vos prêts en cours.";
+"Refresh" = "Actualiser";
 "Connection Error" = "Erreur de connexion";
 "Invalid subscriber number or password" = "Numéro d’abonné(e) ou mot de passe incorrect";
 "Forbidden access. You might need to sign out and log in again." = "Accès refusé. Si le problème persiste, essayez de vous déconnecter et vous connecter à nouveau.";

@@ -25,6 +25,8 @@ class LoansViewController: UITableViewController {
     var state: State = .notLoggedIn
     var loader: GhostLoader?
     var lastRefreshDate: Date?
+    weak var refreshLabel: UILabel?
+    weak var refreshButton: UIButton?
     var retryCount = 0
 
     private struct K {
@@ -98,13 +100,54 @@ class LoansViewController: UITableViewController {
     }
 
     func configureEmptyListPlaceholder() {
-        let label = UILabel(frame: .zero)
-        label.font = .preferredFont(forTextStyle: .title1)
-        label.textColor = .gray
-        label.textAlignment = .center
-        label.text = NSLocalizedString("No Current Loans", comment: "")
-        label.adjustsFontSizeToFitWidth = true
-        tableView.backgroundView = label
+        let label1 = UILabel(frame: .zero)
+        label1.translatesAutoresizingMaskIntoConstraints = false
+        label1.font = .preferredFont(forTextStyle: .title1)
+        if #available(iOS 13.0, *) {
+            label1.textColor = .secondaryLabel
+        } else {
+            label1.textColor = .gray
+        }
+        label1.textAlignment = .center
+        label1.text = NSLocalizedString("No Current Loans", comment: "")
+        label1.numberOfLines = 0
+        label1.adjustsFontSizeToFitWidth = true
+
+        let label2 = UILabel(frame: .zero)
+        label2.translatesAutoresizingMaskIntoConstraints = false
+        label2.font = .preferredFont(forTextStyle: .body)
+        if #available(iOS 13.0, *) {
+            label2.textColor = .secondaryLabel
+        } else {
+            label2.textColor = .gray
+        }
+        label2.textAlignment = .center
+        label2.text = NSLocalizedString("You might need to refresh your account to see your current loans.", comment: "")
+        label2.numberOfLines = 0
+        label2.adjustsFontSizeToFitWidth = true
+
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle(NSLocalizedString("Refresh", comment: ""), for: .normal)
+        button.addTarget(self, action: #selector(refresh(sender: )), for: .touchUpInside)
+
+        let backgroundView = UIView(frame: .zero)
+        backgroundView.addSubview(label1)
+        backgroundView.addSubview(label2)
+        backgroundView.addSubview(button)
+        backgroundView.layoutMarginsGuide.leadingAnchor.constraint(equalTo: label1.leadingAnchor).isActive = true
+        backgroundView.layoutMarginsGuide.trailingAnchor.constraint(equalTo: label1.trailingAnchor).isActive = true
+        backgroundView.layoutMarginsGuide.leadingAnchor.constraint(equalTo: label2.leadingAnchor).isActive = true
+        backgroundView.layoutMarginsGuide.trailingAnchor.constraint(equalTo: label2.trailingAnchor).isActive = true
+        backgroundView.centerXAnchor.constraint(equalTo: button.centerXAnchor).isActive = true
+
+        label1.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor).isActive = true
+        label2.topAnchor.constraint(equalTo: label1.bottomAnchor, constant: 20).isActive = true
+        button.topAnchor.constraint(equalTo: label2.bottomAnchor, constant: 20).isActive = true
+
+        tableView.backgroundView = backgroundView
+        refreshButton = button
+        refreshLabel = label2
     }
 
     func reloadData(state: State) {
@@ -215,8 +258,12 @@ class LoansViewController: UITableViewController {
         }
 
         presentInfo(NSLocalizedString("Updating Account…", comment: ""))
+        refreshButton?.isHidden = true
+        refreshLabel?.isHidden = true
 
         loader = GhostLoader(credentials: credentials, parentView: view, success: { (items) in
+            self.refreshButton?.isHidden = false
+            self.loader = nil
             self.reloadData(state: .loans(items))
 
             let itemCache = ItemCache(items: items)
@@ -224,9 +271,9 @@ class LoansViewController: UITableViewController {
 
             self.refreshControl?.endRefreshing()
             self.presentInfo(nil)
-            self.loader = nil
             self.lastRefreshDate = Date()
         }) { (error) in
+            self.refreshButton?.isHidden = false
             self.presentLoadingError(error)
             self.refreshControl?.endRefreshing()
             self.presentInfo(nil)
