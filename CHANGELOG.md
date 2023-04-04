@@ -2,10 +2,12 @@
 
 ## 1.8.1
 
-- [x] Restore web search
-- [x] Restore loans library info
-- [x] Improve loans parsing error message
-- [x] Improve loans parsing reliability
+2023-04-04
+
+- Restore web search
+- Restore loans library info
+- Improve loans parsing error message
+- Improve loans parsing reliability
 
 
 ## 1.8
