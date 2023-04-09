@@ -1,5 +1,10 @@
 # BM Grenoble
 
+## 1.8.2
+
+- [ ] Improve loans parsing reliability
+
+
 ## 1.8.1
 
 2023-04-04

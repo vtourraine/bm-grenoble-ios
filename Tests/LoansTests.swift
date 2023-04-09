@@ -76,5 +76,6 @@ class LoansTest: XCTestCase {
         let item = try XCTUnwrap(loans.first)
         XCTAssertEqual(item.author, "Sempé, Goscinny")
         XCTAssertEqual(item.library, "Arlequin")
+        XCTAssertEqual(item.image?.absoluteString, "Arlequin")
     }
 }

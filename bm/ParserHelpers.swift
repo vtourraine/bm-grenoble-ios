@@ -10,6 +10,17 @@ import Foundation
 
 extension String {
 
+    func parseOccurences(between pairs: [(String, String)]) -> [String] {
+        for pair in pairs {
+            let result = parseOccurences(between: pair.0, and: pair.1)
+            if !result.isEmpty {
+                return result
+            }
+        }
+
+        return []
+    }
+
     func parseOccurences(between prefix: String, and suffix: String) -> [String] {
         var occurences: [String] = []
         var searchRange = self.startIndex ..< self.endIndex
@@ -35,6 +46,26 @@ extension String {
         }
 
         return occurences
+    }
+
+    func parse(between pairs: [(String, String)]) -> String? {
+        for pair in pairs {
+            if let result = parse(between: pair.0, and: pair.1) {
+                return result
+            }
+        }
+
+        return nil
+    }
+
+    func parse(between prefixes: [String], and suffix: String) -> String? {
+        for prefix in prefixes {
+            if let result = parse(between: prefix, and: suffix) {
+                return result
+            }
+        }
+
+        return nil
     }
 
     func parse(between prefix: String, and suffix: String) -> String? {

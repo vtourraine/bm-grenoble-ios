@@ -20,18 +20,14 @@ class PageParser {
                 return nil
         }
 
-        let lis: [String]
-        let lisA = ul.parseOccurences(between: "<div class=\"jss411\">", and: "</div></li></div></ul></div></div></div><div>")
-        let lisB = ul.parseOccurences(between: "<div class=\"jss414\">", and: "</div></li></div></ul></div></div></div><div>")
-        if !lisA.isEmpty {
-            lis = lisA
-        }
-        else if !lisB.isEmpty {
-            lis = lisB
-        }
-        else {
-            lis = ul.parseOccurences(between: "<div class=\"jss627\">", and: "</div></div></div>")
-        }
+        let lis = ul.parseOccurences(between: [
+            ("<div class=\"jss411\">",
+             "</div></li></div></ul></div></div></div><div>"),
+            ("<div class=\"jss414\">",
+             "</div></li></div></ul></div></div></div><div>"),
+            ("<div class=\"jss627\">",
+             "</div></div></div>")
+        ])
 
         let items: [Item] = lis.compactMap({ li in
             return parseLoan(li: li)
@@ -58,38 +54,27 @@ class PageParser {
             author = ""
         }
 
-        let returnDate: String
-        if let returnDate1 = li.parse(between: "keyboard_return</span></div><div class=\"jss500\"><div class=\"jss390\">", and: "</div><span class=\"jss391\">Date de retour</span>") {
-            returnDate = returnDate1
-        }
-        else if let returnDate2 = li.parse(between: "keyboard_return</span></div><div class=\"jss716\"><div class=\"jss606\">", and: "</div><span class=\"jss607\">Date de retour</span>") {
-            returnDate = returnDate2
-        }
-        else if let returnDate3 = li.parse(between: "keyboard_return</span></div><div class=\"jss497\"><div class=\"jss390\">", and: "</div><span class=\"jss391\">Date de retour</span>") {
-            returnDate = returnDate3
-        }
-        else if let returnDate4 = li.parse(between: "keyboard_return</span></div><div class=\"jss500\"><div class=\"jss393\">", and: "</div><span class=\"jss394\">Date de retour</span>") {
-            returnDate = returnDate4
-        }
-        else {
+        guard let returnDate = li.parse(between: [
+            ("keyboard_return</span></div><div class=\"jss500\"><div class=\"jss390\">",
+             "</div><span class=\"jss391\">Date de retour</span>"),
+            ("keyboard_return</span></div><div class=\"jss716\"><div class=\"jss606\">",
+             "</div><span class=\"jss607\">Date de retour</span>"),
+            ("keyboard_return</span></div><div class=\"jss497\"><div class=\"jss390\">",
+             "</div><span class=\"jss391\">Date de retour</span>"),
+            ("keyboard_return</span></div><div class=\"jss500\"><div class=\"jss393\">",
+             "</div><span class=\"jss394\">Date de retour</span>")]) else {
             return nil
         }
 
-        let library: String?
-        if let lib = li.parse(between: "Emprunté à :</div><div dir=\"ltr\" class=\"meta-values jss458\"><span>", and: "</span>") {
-            library = lib
-        }
-        else if let lib = li.parse(between: "Emprunté à :</div><div dir=\"ltr\" class=\"meta-values jss461\"><span>", and: "</span>") {
-            library = lib
-        }
-        else {
-            library = nil
-        }
+        let library = li.parse(between: [
+            "Emprunté à :</div><div dir=\"ltr\" class=\"meta-values jss458\"><span>",
+            "Emprunté à :</div><div dir=\"ltr\" class=\"meta-values jss461\"><span>"
+        ], and: "</span>")
 
         let image: URL?
 
-        if let imageString = li.parse(between: "<img src=\"", and: "&") ?? li.parse(between: "background-image: url(&quot;", and: "&"),
-            let imageURL = URL(string: "\(CatalogueRoot)\(imageString)") {
+        if let imageString = li.parse(between: ["<img src=\"", "background-image: url(&quot;"], and: "&"),
+           let imageURL = URL(string: "\(CatalogueRoot)\(imageString)") {
             image = imageURL
         }
         else {
