@@ -73,7 +73,7 @@ class PageParser {
 
         let image: URL?
 
-        if let imageString = li.parse(between: ["<img src=\"", "background-image: url(&quot;"], and: "&"),
+        if let imageString = li.parse(between: ["<img src=\"", "background-image: url(&quot;", "background: url(&quot;"], and: "&"),
            let imageURL = URL(string: "\(CatalogueRoot)\(imageString)") {
             image = imageURL
         }

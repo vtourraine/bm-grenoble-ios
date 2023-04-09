@@ -2,7 +2,7 @@
 
 ## 1.8.2
 
-- [ ] Improve loans parsing reliability
+- [x] Improve loans parsing reliability
 
 
 ## 1.8.1

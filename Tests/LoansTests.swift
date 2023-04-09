@@ -76,6 +76,6 @@ class LoansTest: XCTestCase {
         let item = try XCTUnwrap(loans.first)
         XCTAssertEqual(item.author, "Sempé, Goscinny")
         XCTAssertEqual(item.library, "Arlequin")
-        XCTAssertEqual(item.image?.absoluteString, "Arlequin")
+        XCTAssertEqual(item.image?.absoluteString, "http://catalogue.bm-grenoble.fr/in/rest/Thumb/image?id=p%3A%3Ausmarcdef_0000972238")
     }
 }
