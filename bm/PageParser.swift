@@ -26,12 +26,12 @@ class PageParser {
             ("<div class=\"jss414\">",
              "</div></li></div></ul></div></div></div><div>"),
             ("<div class=\"jss627\">",
-             "</div></div></div>")
+             "</div></div></div>"),
+            ("<div class=\"jss424\">",
+             "</div></li></div></ul></div></div></div><div>")
         ])
 
-        let items: [Item] = lis.compactMap({ li in
-            return parseLoan(li: li)
-        })
+        let items: [Item] = lis.compactMap { parseLoan(li: $0) }
 
         return items
     }
@@ -62,13 +62,16 @@ class PageParser {
             ("keyboard_return</span></div><div class=\"jss497\"><div class=\"jss390\">",
              "</div><span class=\"jss391\">Date de retour</span>"),
             ("keyboard_return</span></div><div class=\"jss500\"><div class=\"jss393\">",
-             "</div><span class=\"jss394\">Date de retour</span>")]) else {
+             "</div><span class=\"jss394\">Date de retour</span>"),
+            ("keyboard_return</span></div><div class=\"jss510\"><div class=\"jss403\">",
+             "</div><span class=\"jss404\">Date de retour</span>")]) else {
             return nil
         }
 
         let library = li.parse(between: [
             "Emprunté à :</div><div dir=\"ltr\" class=\"meta-values jss458\"><span>",
-            "Emprunté à :</div><div dir=\"ltr\" class=\"meta-values jss461\"><span>"
+            "Emprunté à :</div><div dir=\"ltr\" class=\"meta-values jss461\"><span>",
+            "Emprunté à :</div><div dir=\"ltr\" class=\"meta-values jss471\"><span>"
         ], and: "</span>")
 
         let image: URL?

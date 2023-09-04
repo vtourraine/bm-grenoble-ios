@@ -78,4 +78,15 @@ class LoansTest: XCTestCase {
         XCTAssertEqual(item.library, "Arlequin")
         XCTAssertEqual(item.image?.absoluteString, "http://catalogue.bm-grenoble.fr/in/rest/Thumb/image?id=p%3A%3Ausmarcdef_0000972238")
     }
+
+    func testParseLoansWithLibrary4() throws {
+        let loans = try loadLoans(fromFileNamed: "TestLoans-2023-4")
+
+        XCTAssertEqual(loans.count, 10)
+
+        let item = try XCTUnwrap(loans.first)
+        XCTAssertEqual(item.author, "Guillaume Singelin")
+        XCTAssertEqual(item.library, "Centre Ville")
+        XCTAssertEqual(item.image?.absoluteString, "http://catalogue.bm-grenoble.fr/in/rest/Thumb/image?id=p%3A%3Ausmarcdef_0001525687")
+    }
 }
