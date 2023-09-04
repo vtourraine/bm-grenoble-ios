@@ -12,6 +12,7 @@
 		BB4AA3FB28C68DE5006DE4AE /* DigitalLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4AA3FA28C68DE5006DE4AE /* DigitalLibraryViewController.swift */; };
 		BB6CA75526E6B3CE0004F819 /* TestAgenda4.html in Resources */ = {isa = PBXBuildFile; fileRef = BB6CA75426E6B3CE0004F819 /* TestAgenda4.html */; };
 		BBBC736C281E7BA800B32C31 /* SwiftMessages in Frameworks */ = {isa = PBXBuildFile; productRef = BBBC736B281E7BA800B32C31 /* SwiftMessages */; };
+		BBF9223A2AA67CEE008D1407 /* TestLoans-2023-4.html in Resources */ = {isa = PBXBuildFile; fileRef = BBF922392AA67CEE008D1407 /* TestLoans-2023-4.html */; };
 		BBFD77DD2969B94C00718390 /* TestLoans-2022-2.html in Resources */ = {isa = PBXBuildFile; fileRef = BBFD77DC2969B94C00718390 /* TestLoans-2022-2.html */; };
 		D70212C722F0E43C00E3972E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70212C622F0E43C00E3972E /* AppDelegate.swift */; };
 		D70212C922F0E43C00E3972E /* LoansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70212C822F0E43C00E3972E /* LoansViewController.swift */; };
@@ -97,6 +98,7 @@
 		BB415B3E29D8CDC10056A8EF /* TestLoans-2023-3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "TestLoans-2023-3.html"; sourceTree = "<group>"; };
 		BB4AA3FA28C68DE5006DE4AE /* DigitalLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalLibraryViewController.swift; sourceTree = "<group>"; };
 		BB6CA75426E6B3CE0004F819 /* TestAgenda4.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TestAgenda4.html; sourceTree = "<group>"; };
+		BBF922392AA67CEE008D1407 /* TestLoans-2023-4.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "TestLoans-2023-4.html"; sourceTree = "<group>"; };
 		BBFD77DC2969B94C00718390 /* TestLoans-2022-2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "TestLoans-2022-2.html"; sourceTree = "<group>"; };
 		D70212C322F0E43C00E3972E /* BM Grenoble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BM Grenoble.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D70212C622F0E43C00E3972E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Sources/AppDelegate.swift; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 				D7FB1E182984172100C09C52 /* TestLoans-2023-1.html */,
 				D76D7E5229B621E40085D333 /* TestLoans-2023-2.html */,
 				BB415B3E29D8CDC10056A8EF /* TestLoans-2023-3.html */,
+				BBF922392AA67CEE008D1407 /* TestLoans-2023-4.html */,
 				D78200A523C7399100C3A699 /* TestNews1.html */,
 				D7697DEB23CA0DA100010011 /* TestAgenda1.html */,
 				D7A0A2E923E1828D0039D934 /* TestAgenda2.html */,
@@ -567,6 +570,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBF9223A2AA67CEE008D1407 /* TestLoans-2023-4.html in Resources */,
 				D7697DEC23CA0DA100010011 /* TestAgenda1.html in Resources */,
 				D7A0A2EB23E1828D0039D934 /* TestAgenda2.html in Resources */,
 				BB6CA75526E6B3CE0004F819 /* TestAgenda4.html in Resources */,
@@ -905,7 +909,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = bm/bm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 105;
+				CURRENT_PROJECT_VERSION = 106;
 				DEVELOPMENT_TEAM = 77S3V3W24J;
 				INFOPLIST_FILE = bm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -931,7 +935,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = bm/bm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 105;
+				CURRENT_PROJECT_VERSION = 106;
 				DEVELOPMENT_TEAM = 77S3V3W24J;
 				INFOPLIST_FILE = bm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
