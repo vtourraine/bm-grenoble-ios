@@ -2,7 +2,9 @@
 
 ## 1.8.2
 
-- [x] Improve loans parsing reliability
+2023-09-06
+
+- Improve loans parsing reliability
 
 
 ## 1.8.1
