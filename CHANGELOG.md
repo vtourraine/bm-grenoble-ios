@@ -1,5 +1,12 @@
 # BM Grenoble
 
+## 1.8.3
+
+2023-10-05
+
+- Optimized for iOS 17, iPadOS 17, and macOS 10.14
+
+
 ## 1.8.2
 
 2023-09-06
