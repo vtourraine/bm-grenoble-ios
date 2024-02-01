@@ -12,24 +12,17 @@ class PageParser {
     private static let CatalogueRoot = "http://catalogue.bm-grenoble.fr"
 
     class func parseLoans(html: String) -> [Item]? {
-        if html.contains("<div class=\"accountEmptyList\">") && html.contains("<ul class=\"listItems\">") == false {
+        /*
+         if html.contains("<div class=\"accountEmptyList\">") && html.contains("<ul class=\"listItems\">") == false {
             return []
         }
+         */
 
-        guard let ul = html.parse(between: "<div id=\"searchresult\" class=\"\">", and: "</div></div></div></div></div></div></div></div></div></div></div></div>") else {
+        guard let ul = html.parse(between: "<div class=\"table-responsive desktop-transactions hidden-xs hidden-sm\">", and: "<h2>Liens utiles") else {
                 return nil
         }
 
-        let lis = ul.parseOccurences(between: [
-            ("<div class=\"jss411\">",
-             "</div></li></div></ul></div></div></div><div>"),
-            ("<div class=\"jss414\">",
-             "</div></li></div></ul></div></div></div><div>"),
-            ("<div class=\"jss627\">",
-             "</div></div></div>"),
-            ("<div class=\"jss424\">",
-             "</div></li></div></ul></div></div></div><div>")
-        ])
+        let lis = ul.parseOccurences(between: [("<tr", "</tr>")])
 
         let items: [Item] = lis.compactMap { parseLoan(li: $0) }
 
@@ -37,10 +30,12 @@ class PageParser {
     }
 
     class func parseLoan(li: String) -> Item? {
-        guard let titleLink = li.parse(between: "title=\"", and: "\"") else {
+        let infos = li.parseOccurences(between: "<td data-v-2296324c=\"\" title=\"", and: "\" class=\"")
+        guard !li.contains("thumbnail-header"), infos.count == 5 else {
             return nil
         }
 
+        let titleLink = infos[0]
         let title: String
         let author: String
 
@@ -54,30 +49,11 @@ class PageParser {
             author = ""
         }
 
-        guard let returnDate = li.parse(between: [
-            ("keyboard_return</span></div><div class=\"jss500\"><div class=\"jss390\">",
-             "</div><span class=\"jss391\">Date de retour</span>"),
-            ("keyboard_return</span></div><div class=\"jss716\"><div class=\"jss606\">",
-             "</div><span class=\"jss607\">Date de retour</span>"),
-            ("keyboard_return</span></div><div class=\"jss497\"><div class=\"jss390\">",
-             "</div><span class=\"jss391\">Date de retour</span>"),
-            ("keyboard_return</span></div><div class=\"jss500\"><div class=\"jss393\">",
-             "</div><span class=\"jss394\">Date de retour</span>"),
-            ("keyboard_return</span></div><div class=\"jss510\"><div class=\"jss403\">",
-             "</div><span class=\"jss404\">Date de retour</span>")]) else {
-            return nil
-        }
-
-        let library = li.parse(between: [
-            "Emprunté à :</div><div dir=\"ltr\" class=\"meta-values jss458\"><span>",
-            "Emprunté à :</div><div dir=\"ltr\" class=\"meta-values jss461\"><span>",
-            "Emprunté à :</div><div dir=\"ltr\" class=\"meta-values jss471\"><span>"
-        ], and: "</span>")
-
+        let returnDate = infos[3]
         let image: URL?
 
-        if let imageString = li.parse(between: ["<img src=\"", "background-image: url(&quot;", "background: url(&quot;"], and: "&"),
-           let imageURL = URL(string: "\(CatalogueRoot)\(imageString)") {
+        if let imageString = li.parse(between: "src=\"", and: "\" alt="),
+           let imageURL = URL(string: imageString) {
             image = imageURL
         }
         else {
@@ -92,6 +68,6 @@ class PageParser {
             returnDateComponents.year = Int(returnDateRawComponents[2])
         }
 
-        return Item(identifier: "", isRenewable: false, title: title.cleanHTMLEntities(), type: "", author: author, library: library ?? "", returnDateComponents: returnDateComponents, image: image)
+        return Item(identifier: "", isRenewable: false, title: title.cleanHTMLEntities(), type: "", author: author, library: "", returnDateComponents: returnDateComponents, image: image)
     }
 }

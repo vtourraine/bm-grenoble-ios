@@ -10,8 +10,7 @@ import UIKit
 
 class SearchEngine {
     static func encodedQuery(for query: String) -> String? {
-        let formattedQuery = query.replacingOccurrences(of: " ", with: "+")
-        return formattedQuery.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        return query
     }
 }
 
@@ -68,12 +67,13 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         searchBar.resignFirstResponder()
 
         guard let trimmedQuery = searchBar.text?.trimmingCharacters(in: .whitespaces),
-            trimmedQuery.isEmpty == false,
-            let encodedQuery = SearchEngine.encodedQuery(for: trimmedQuery) else {
-                return
+              trimmedQuery.isEmpty == false,
+              let encodedQuery = SearchEngine.encodedQuery(for: trimmedQuery)
+        else {
+            return
         }
 
-        let urlString = "https://catalogue.bm-grenoble.fr/query?q=\(encodedQuery)"
+        let urlString = "https://www.bm-grenoble.fr/search.aspx?SC=CATALOGUE&QUERY=gibson&QUERY_LABEL=#/Search/(query:(InitialSearch:!t,Page:0,PageRange:3,QueryString:\(encodedQuery),ResultSize:'50',ScenarioCode:CATALOGUE,SearchContext:0,SearchLabel:''))"
 
         if let url = URL(string: urlString) {
             presentSafariViewController(url)

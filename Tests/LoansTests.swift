@@ -20,73 +20,17 @@ class LoansTest: XCTestCase {
     }
 
     func testParseLoans1() throws {
-        let loans = try loadLoans(fromFileNamed: "TestLoans-2022-1")
+        let loans = try loadLoans(fromFileNamed: "TestLoans-2024-1")
 
-        XCTAssertEqual(loans.count, 5)
-
-        let item = try XCTUnwrap(loans.first)
-        XCTAssertEqual(item.title, "Bolchoi arena. 3, Révolutions")
-        XCTAssertEqual(item.author, "scénario Boulet ; dessin Aseyn ; couleur Yoann Guillé, Aseyn")
-        XCTAssertEqual(item.library, "")
-        XCTAssertEqual(item.image?.absoluteString, "http://catalogue.bm-grenoble.fr/in/rest/Thumb/image?id=p%3A%3Ausmarcdef_0001488730")
-        XCTAssertEqual(item.returnDateComponents.day, 13)
-        XCTAssertEqual(item.returnDateComponents.month, 1)
-        XCTAssertEqual(item.returnDateComponents.year, 2023)
-    }
-
-    func testParseLoans2() throws {
-        let loans = try loadLoans(fromFileNamed: "TestLoans-2022-2")
-
-        XCTAssertEqual(loans.count, 2)
+        XCTAssertEqual(loans.count, 13)
 
         let item = try XCTUnwrap(loans.first)
-        XCTAssertEqual(item.title, "Nima et l'ogresse")
-        XCTAssertEqual(item.author, "une histoire de Pierre Bertrand ; illustrée par Chen Jiang Hong")
+        XCTAssertEqual(item.title, "Les Mythics. 19,, Hypérion")
+        XCTAssertEqual(item.author, "scénario Philippe Ogaki")
         XCTAssertEqual(item.library, "")
-        XCTAssertEqual(item.returnDateComponents.day, 4)
+        XCTAssertEqual(item.image?.absoluteString, "https://covers.syracuse.cloud/Cover/VGNB/MONO/PPG5vyVG_C0qvB5oAhtqQw2/9782413075479/MEDIUM?fallback=https%3a%2f%2fbm-grenoble.fr%2fui%2fskins%2fdefault%2fportal%2ffront%2fimages%2fGeneral%2fDocType%2fMONO_MEDIUM.png")
+        XCTAssertEqual(item.returnDateComponents.day, 6)
         XCTAssertEqual(item.returnDateComponents.month, 2)
-        XCTAssertEqual(item.returnDateComponents.year, 2023)
-    }
-
-    func testParseLoansWithLibrary() throws {
-        let loans = try loadLoans(fromFileNamed: "TestLoans-2023-1")
-
-        XCTAssertEqual(loans.count, 8)
-
-        let item = try XCTUnwrap(loans.first)
-        XCTAssertEqual(item.author, "[ill. par] Sempé ; [texte de] Goscinny")
-        XCTAssertEqual(item.library, "Arlequin")
-    }
-
-    func testParseLoansWithLibrary2() throws {
-        let loans = try loadLoans(fromFileNamed: "TestLoans-2023-2")
-
-        XCTAssertEqual(loans.count, 10)
-
-        let item = try XCTUnwrap(loans.first)
-        XCTAssertEqual(item.author, "Sempé, Goscinny")
-        XCTAssertEqual(item.library, "Arlequin")
-    }
-
-    func testParseLoansWithLibrary3() throws {
-        let loans = try loadLoans(fromFileNamed: "TestLoans-2023-3")
-
-        XCTAssertEqual(loans.count, 9)
-
-        let item = try XCTUnwrap(loans.first)
-        XCTAssertEqual(item.author, "Sempé, Goscinny")
-        XCTAssertEqual(item.library, "Arlequin")
-        XCTAssertEqual(item.image?.absoluteString, "http://catalogue.bm-grenoble.fr/in/rest/Thumb/image?id=p%3A%3Ausmarcdef_0000972238")
-    }
-
-    func testParseLoansWithLibrary4() throws {
-        let loans = try loadLoans(fromFileNamed: "TestLoans-2023-4")
-
-        XCTAssertEqual(loans.count, 10)
-
-        let item = try XCTUnwrap(loans.first)
-        XCTAssertEqual(item.author, "Guillaume Singelin")
-        XCTAssertEqual(item.library, "Centre Ville")
-        XCTAssertEqual(item.image?.absoluteString, "http://catalogue.bm-grenoble.fr/in/rest/Thumb/image?id=p%3A%3Ausmarcdef_0001525687")
+        XCTAssertEqual(item.returnDateComponents.year, 2024)
     }
 }

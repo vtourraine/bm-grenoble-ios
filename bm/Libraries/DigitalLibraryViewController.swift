@@ -17,18 +17,16 @@ class DigitalLibraryViewController: UITableViewController {
     }
 
     let services = [
-        Service(title: "Bibliostream", systemImageName: "book.closed", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/bibliostream")!),
+        Service(title: "ToutApprendre", systemImageName: "graduationcap", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/toutapprendre")!),
+        Service(title: "CinéVOD", systemImageName: "film", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/cinevod")!),
+        Service(title: "Tënk", systemImageName: "film", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/tenk")!),
         Service(title: "Bibook", systemImageName: "book.closed", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/bibook")!),
         Service(title: "Storyplay’r", systemImageName: "book.closed", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/storyplayr")!),
-        Service(title: "Tënk", systemImageName: "film", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/tenk")!),
-        Service(title: "CinéVOD", systemImageName: "film", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/cinevod")!),
         Service(title: "diMusic", systemImageName: "music.note.list", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/dimusic")!),
-        Service(title: "EuroPresse", systemImageName: "newspaper", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/europresse")!),
-        Service(title: "Cafeyn", systemImageName: "newspaper", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/cafeyn")!),
-        Service(title: "MyCow français", systemImageName: "graduationcap", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/mycow")!),
         Service(title: "PaGella", systemImageName: "building.columns", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/pagella")!),
-        Service(title: "Place Gre’Net", systemImageName: "newspaper", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/place-grenet")!),
-        Service(title: "Toutapprendre", systemImageName: "graduationcap", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/toutapprendre")!)
+        Service(title: "ToutApprendre Presse", systemImageName: "newspaper", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/toutapprendrePresse")!),
+        Service(title: "EuroPresse", systemImageName: "newspaper", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/europresse")!),
+        Service(title: "Place Gre’Net", systemImageName: "newspaper", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/place-grenet")!)
     ]
 
     struct K {

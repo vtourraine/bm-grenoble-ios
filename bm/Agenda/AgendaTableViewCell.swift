@@ -44,6 +44,7 @@ extension AgendaTableViewCell {
                 let endDate = Calendar.current.date(from: endDateComponents) {
                 date?.text = dateFormatter.string(from: startDate, to: endDate).capitalizingFirstLetter()
             }
+        case .none: break
         }
 
         if #available(iOS 13.0, *) {

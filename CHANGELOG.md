@@ -1,5 +1,13 @@
 # BM Grenoble
 
+
+## 1.9
+
+- [x] Update for new library website
+- [x] Remove news tabs
+- [x] Update digital library services list
+
+
 ## 1.8.3
 
 2023-10-05

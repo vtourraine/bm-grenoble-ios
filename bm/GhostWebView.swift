@@ -70,9 +70,18 @@ class GhostLoader: NSObject, WKNavigationDelegate {
                         self.webView.setPassword(self.credentials.password) {
                             self.hasLoggedIn = true
                             self.webView.submitForm {
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                    let request = URLRequest(url: URL(string: GhostWebView.AccountLoansURL)!)
-                                    webView.load(request)
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                    self.webView.getHTML { (html) in
+                                        guard !html.contains("Les informations d'identification fournies ne sont pas valides, vérifiez la syntaxe et réessayez.") else {
+                                            let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("Invalid subscriber number or password", comment: "")])
+                                            self.failure(error)
+                                            self.cleanup()
+                                            return
+                                        }
+
+                                        let request = URLRequest(url: URL(string: GhostWebView.AccountLoansURL)!)
+                                        webView.load(request)
+                                    }
                                 }
                             }
                         }
@@ -80,7 +89,7 @@ class GhostLoader: NSObject, WKNavigationDelegate {
                 }
             }
         }
-        else if absoluteURLString.hasPrefix(GhostWebView.AccountLoansURL) {
+        else if absoluteURLString == GhostWebView.AccountProfileURL || absoluteURLString == GhostWebView.AccountLoansURL {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.webView.getHTML { (html) in
                     #if DEBUG
@@ -123,21 +132,22 @@ class GhostLoader: NSObject, WKNavigationDelegate {
 }
 
 class GhostWebView: WKWebView {
-    static let RootURL = "https://catalogue.bm-grenoble.fr"
-    static let AccountURL = "https://catalogue.bm-grenoble.fr/account?locale=fr"
-    static let AccountLoansURL = "https://catalogue.bm-grenoble.fr/account/loans?locale=fr"
+    static let AccountURL = "https://www.bm-grenoble.fr/account.aspx"
+    static let AccountLoansURL = "https://www.bm-grenoble.fr/account.aspx#/transactions/loans"
+    static let AccountProfileURL = "https://www.bm-grenoble.fr/account.aspx#/profile"
 
     struct TagIdentifier: RawRepresentable, Hashable, Codable {
       let rawValue: String
     }
 
-    private let UsernameTextField = TagIdentifier(rawValue: "loginField")
-    private let PasswordTextField = TagIdentifier(rawValue: "passwordField")
+    private let UsernameTextField = TagIdentifier(rawValue: "logon-username")
+    private let PasswordTextField = TagIdentifier(rawValue: "logon-password")
+    private let LoginButton = TagIdentifier(rawValue: "logon-submit")
 
     convenience init() {
         let webConfiguration = WKWebViewConfiguration()
-        // self.init(frame: CGRect(x: 0, y: 0, width: 600, height: 600), configuration: webConfiguration)
-        self.init(frame: CGRect(x: 0, y: -1, width: 600, height: 1), configuration: webConfiguration)
+        self.init(frame: CGRect(x: 0, y: 0, width: 600, height: 600), configuration: webConfiguration)
+        // self.init(frame: CGRect(x: 0, y: -1, width: 600, height: 1), configuration: webConfiguration)
     }
 
     func loadGhostPage() {
@@ -161,10 +171,7 @@ class GhostWebView: WKWebView {
     }
 
     func submitForm(completionHandler: @escaping (() -> Void)) {
-        let js = """
-            var ke = new KeyboardEvent('keydown', { bubbles: true, cancelable: true, keyCode: 13 });
-            document.getElementById('\(PasswordTextField.rawValue)').dispatchEvent(ke);
-            """
+        let js = "document.getElementById('\(LoginButton.rawValue)').click()"
         evaluateJavaScript(js) { (object, error) in
             completionHandler()
         }

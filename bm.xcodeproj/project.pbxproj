@@ -8,12 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		BB12181326979A5100FE050B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB12181526979A5100FE050B /* Localizable.strings */; };
-		BB415B3F29D8CDC10056A8EF /* TestLoans-2023-3.html in Resources */ = {isa = PBXBuildFile; fileRef = BB415B3E29D8CDC10056A8EF /* TestLoans-2023-3.html */; };
 		BB4AA3FB28C68DE5006DE4AE /* DigitalLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4AA3FA28C68DE5006DE4AE /* DigitalLibraryViewController.swift */; };
-		BB6CA75526E6B3CE0004F819 /* TestAgenda4.html in Resources */ = {isa = PBXBuildFile; fileRef = BB6CA75426E6B3CE0004F819 /* TestAgenda4.html */; };
+		BB6208E22B6BA14E004729D2 /* TestLoans-2024-1.html in Resources */ = {isa = PBXBuildFile; fileRef = BB6208E12B6BA14E004729D2 /* TestLoans-2024-1.html */; };
+		BB6208E42B6BCAD8004729D2 /* TestAgenda-2024-1.rss in Resources */ = {isa = PBXBuildFile; fileRef = BB6208E32B6BCAD8004729D2 /* TestAgenda-2024-1.rss */; };
 		BBBC736C281E7BA800B32C31 /* SwiftMessages in Frameworks */ = {isa = PBXBuildFile; productRef = BBBC736B281E7BA800B32C31 /* SwiftMessages */; };
-		BBF9223A2AA67CEE008D1407 /* TestLoans-2023-4.html in Resources */ = {isa = PBXBuildFile; fileRef = BBF922392AA67CEE008D1407 /* TestLoans-2023-4.html */; };
-		BBFD77DD2969B94C00718390 /* TestLoans-2022-2.html in Resources */ = {isa = PBXBuildFile; fileRef = BBFD77DC2969B94C00718390 /* TestLoans-2022-2.html */; };
 		D70212C722F0E43C00E3972E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70212C622F0E43C00E3972E /* AppDelegate.swift */; };
 		D70212C922F0E43C00E3972E /* LoansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70212C822F0E43C00E3972E /* LoansViewController.swift */; };
 		D70212CC22F0E43C00E3972E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D70212CA22F0E43C00E3972E /* Main.storyboard */; };
@@ -25,10 +23,8 @@
 		D70A2B6B2342489A00AC9405 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70A2B6A2342489A00AC9405 /* Library.swift */; };
 		D70A2B6D23424BC400AC9405 /* LibrariesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70A2B6C23424BC400AC9405 /* LibrariesViewController.swift */; };
 		D71F32AB24D8B303002526CD /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = D71F32AA24D8B303002526CD /* KeychainAccess */; };
-		D73968EB23D1ECCC00F01645 /* DemoAccountLoans.html in Resources */ = {isa = PBXBuildFile; fileRef = D73968EA23D1ECCC00F01645 /* DemoAccountLoans.html */; };
 		D7427955296432FA00CB2AAE /* GhostWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7427954296432FA00CB2AAE /* GhostWebView.swift */; };
 		D7427957296433C400CB2AAE /* PageParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7427956296433C400CB2AAE /* PageParser.swift */; };
-		D74279592964434600CB2AAE /* TestLoans-2022-1.html in Resources */ = {isa = PBXBuildFile; fileRef = D74279582964434600CB2AAE /* TestLoans-2022-1.html */; };
 		D749F93E264BF8AD005F500A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D749F93D264BF8AD005F500A /* WidgetKit.framework */; };
 		D749F940264BF8AD005F500A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D749F93F264BF8AD005F500A /* SwiftUI.framework */; };
 		D749F943264BF8AD005F500A /* LoansWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D749F942264BF8AD005F500A /* LoansWidget.swift */; };
@@ -42,12 +38,10 @@
 		D75DB3BC22FD6369008C7499 /* InterfaceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75DB3BB22FD6369008C7499 /* InterfaceHelpers.swift */; };
 		D7614BAD2363A6B3000D7C99 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7614BAC2363A6B3000D7C99 /* LibraryViewController.swift */; };
 		D7697DEA23CA0C8E00010011 /* AgendaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7697DE923CA0C8D00010011 /* AgendaItem.swift */; };
-		D7697DEC23CA0DA100010011 /* TestAgenda1.html in Resources */ = {isa = PBXBuildFile; fileRef = D7697DEB23CA0DA100010011 /* TestAgenda1.html */; };
 		D7697DEE23CA0DAF00010011 /* AgendaParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7697DED23CA0DAF00010011 /* AgendaParser.swift */; };
 		D7697DF023CA0E4600010011 /* AgendaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7697DEF23CA0E4600010011 /* AgendaTests.swift */; };
 		D7697DF323CB5DE100010011 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = D7697DF223CB5DE100010011 /* AlamofireImage */; };
 		D7697DF523CB5E4E00010011 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7697DF423CB5E4E00010011 /* NewsTableViewCell.swift */; };
-		D76D7E5329B621E40085D333 /* TestLoans-2023-2.html in Resources */ = {isa = PBXBuildFile; fileRef = D76D7E5229B621E40085D333 /* TestLoans-2023-2.html */; };
 		D77F59F328981FAD00A7587C /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F59F228981FAD00A7587C /* Credentials.swift */; };
 		D77F59F42898219300A7587C /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F59F228981FAD00A7587C /* Credentials.swift */; };
 		D78200A223C7381A00C3A699 /* NewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78200A123C7381A00C3A699 /* NewsItem.swift */; };
@@ -66,8 +60,6 @@
 		D798F4BF2571037D00143373 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = D798F4C12571037D00143373 /* Credits.html */; };
 		D79ABC0E233DF079007ADE6E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79ABC0D233DF079007ADE6E /* AboutViewController.swift */; };
 		D7A0A2E423E032F30039D934 /* AgendaItemCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A0A2E323E032F30039D934 /* AgendaItemCache.swift */; };
-		D7A0A2EA23E1828D0039D934 /* TestAgenda3.html in Resources */ = {isa = PBXBuildFile; fileRef = D7A0A2E823E1828D0039D934 /* TestAgenda3.html */; };
-		D7A0A2EB23E1828D0039D934 /* TestAgenda2.html in Resources */ = {isa = PBXBuildFile; fileRef = D7A0A2E923E1828D0039D934 /* TestAgenda2.html */; };
 		D7A8832422F5C4BA00C209DC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A8832322F5C4BA00C209DC /* LoginViewController.swift */; };
 		D7A8832622F8132B00C209DC /* Keyboard+LayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A8832522F8132B00C209DC /* Keyboard+LayoutGuide.swift */; };
 		D7A8832A22FB756700C209DC /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A8832922FB756700C209DC /* CardViewController.swift */; };
@@ -79,7 +71,6 @@
 		D7CE68D223DCEEDB00197F50 /* AgendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE68D123DCEEDB00197F50 /* AgendaViewController.swift */; };
 		D7CE68D423DCF15000197F50 /* AgendaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE68D323DCF15000197F50 /* AgendaTableViewCell.swift */; };
 		D7D094E129758B6A00E071B5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D094E029758B6A00E071B5 /* SearchViewController.swift */; };
-		D7FB1E192984172100C09C52 /* TestLoans-2023-1.html in Resources */ = {isa = PBXBuildFile; fileRef = D7FB1E182984172100C09C52 /* TestLoans-2023-1.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,11 +86,9 @@
 /* Begin PBXFileReference section */
 		BB12181426979A5100FE050B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BB12181626979A5600FE050B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		BB415B3E29D8CDC10056A8EF /* TestLoans-2023-3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "TestLoans-2023-3.html"; sourceTree = "<group>"; };
 		BB4AA3FA28C68DE5006DE4AE /* DigitalLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalLibraryViewController.swift; sourceTree = "<group>"; };
-		BB6CA75426E6B3CE0004F819 /* TestAgenda4.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TestAgenda4.html; sourceTree = "<group>"; };
-		BBF922392AA67CEE008D1407 /* TestLoans-2023-4.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "TestLoans-2023-4.html"; sourceTree = "<group>"; };
-		BBFD77DC2969B94C00718390 /* TestLoans-2022-2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "TestLoans-2022-2.html"; sourceTree = "<group>"; };
+		BB6208E12B6BA14E004729D2 /* TestLoans-2024-1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "TestLoans-2024-1.html"; sourceTree = "<group>"; };
+		BB6208E32B6BCAD8004729D2 /* TestAgenda-2024-1.rss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "TestAgenda-2024-1.rss"; sourceTree = "<group>"; };
 		D70212C322F0E43C00E3972E /* BM Grenoble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BM Grenoble.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D70212C622F0E43C00E3972E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Sources/AppDelegate.swift; sourceTree = "<group>"; };
 		D70212C822F0E43C00E3972E /* LoansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoansViewController.swift; sourceTree = "<group>"; };
@@ -113,10 +102,8 @@
 		D70A2B6A2342489A00AC9405 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		D70A2B6C23424BC400AC9405 /* LibrariesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariesViewController.swift; sourceTree = "<group>"; };
 		D71F32AC24D8B42E002526CD /* bm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = bm.entitlements; sourceTree = "<group>"; };
-		D73968EA23D1ECCC00F01645 /* DemoAccountLoans.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DemoAccountLoans.html; sourceTree = "<group>"; };
 		D7427954296432FA00CB2AAE /* GhostWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GhostWebView.swift; sourceTree = "<group>"; };
 		D7427956296433C400CB2AAE /* PageParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageParser.swift; sourceTree = "<group>"; };
-		D74279582964434600CB2AAE /* TestLoans-2022-1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "TestLoans-2022-1.html"; sourceTree = "<group>"; };
 		D749F93C264BF8AD005F500A /* LoansWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LoansWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D749F93D264BF8AD005F500A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		D749F93F264BF8AD005F500A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -132,11 +119,9 @@
 		D75DB3BB22FD6369008C7499 /* InterfaceHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceHelpers.swift; sourceTree = "<group>"; };
 		D7614BAC2363A6B3000D7C99 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		D7697DE923CA0C8D00010011 /* AgendaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaItem.swift; sourceTree = "<group>"; };
-		D7697DEB23CA0DA100010011 /* TestAgenda1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TestAgenda1.html; sourceTree = "<group>"; };
 		D7697DED23CA0DAF00010011 /* AgendaParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaParser.swift; sourceTree = "<group>"; };
 		D7697DEF23CA0E4600010011 /* AgendaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaTests.swift; sourceTree = "<group>"; };
 		D7697DF423CB5E4E00010011 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
-		D76D7E5229B621E40085D333 /* TestLoans-2023-2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "TestLoans-2023-2.html"; sourceTree = "<group>"; };
 		D7757F5122F2390E006E6AAC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D7757F5322F241FE006E6AAC /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		D77F59F228981FAD00A7587C /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
@@ -162,8 +147,6 @@
 		D798F4C4257103AA00143373 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = fr; path = fr.lproj/Credits.html; sourceTree = "<group>"; };
 		D79ABC0D233DF079007ADE6E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		D7A0A2E323E032F30039D934 /* AgendaItemCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaItemCache.swift; sourceTree = "<group>"; };
-		D7A0A2E823E1828D0039D934 /* TestAgenda3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TestAgenda3.html; sourceTree = "<group>"; };
-		D7A0A2E923E1828D0039D934 /* TestAgenda2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TestAgenda2.html; sourceTree = "<group>"; };
 		D7A8832322F5C4BA00C209DC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D7A8832522F8132B00C209DC /* Keyboard+LayoutGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Keyboard+LayoutGuide.swift"; path = "Dependencies/KeyboardLayoutGuide/Keyboard+LayoutGuide.swift"; sourceTree = "<group>"; };
 		D7A8832922FB756700C209DC /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
@@ -182,7 +165,6 @@
 		D7CE68D123DCEEDB00197F50 /* AgendaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaViewController.swift; sourceTree = "<group>"; };
 		D7CE68D323DCF15000197F50 /* AgendaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaTableViewCell.swift; sourceTree = "<group>"; };
 		D7D094E029758B6A00E071B5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		D7FB1E182984172100C09C52 /* TestLoans-2023-1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "TestLoans-2023-1.html"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,18 +307,9 @@
 				D7697DEF23CA0E4600010011 /* AgendaTests.swift */,
 				D7910BCA23717A3200A0DC31 /* LibrariesTests.swift */,
 				D786E6E522F194EC00AD1D36 /* Info.plist */,
-				D73968EA23D1ECCC00F01645 /* DemoAccountLoans.html */,
-				D74279582964434600CB2AAE /* TestLoans-2022-1.html */,
-				BBFD77DC2969B94C00718390 /* TestLoans-2022-2.html */,
-				D7FB1E182984172100C09C52 /* TestLoans-2023-1.html */,
-				D76D7E5229B621E40085D333 /* TestLoans-2023-2.html */,
-				BB415B3E29D8CDC10056A8EF /* TestLoans-2023-3.html */,
-				BBF922392AA67CEE008D1407 /* TestLoans-2023-4.html */,
+				BB6208E32B6BCAD8004729D2 /* TestAgenda-2024-1.rss */,
+				BB6208E12B6BA14E004729D2 /* TestLoans-2024-1.html */,
 				D78200A523C7399100C3A699 /* TestNews1.html */,
-				D7697DEB23CA0DA100010011 /* TestAgenda1.html */,
-				D7A0A2E923E1828D0039D934 /* TestAgenda2.html */,
-				D7A0A2E823E1828D0039D934 /* TestAgenda3.html */,
-				BB6CA75426E6B3CE0004F819 /* TestAgenda4.html */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -551,7 +524,6 @@
 				D798F4BF2571037D00143373 /* Credits.html in Resources */,
 				D70212CE22F0E43E00E3972E /* Assets.xcassets in Resources */,
 				D70212CC22F0E43C00E3972E /* Main.storyboard in Resources */,
-				D73968EB23D1ECCC00F01645 /* DemoAccountLoans.html in Resources */,
 				D78C460B2379AACA00313AD8 /* LoansNotLoggedInView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -570,17 +542,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBF9223A2AA67CEE008D1407 /* TestLoans-2023-4.html in Resources */,
-				D7697DEC23CA0DA100010011 /* TestAgenda1.html in Resources */,
-				D7A0A2EB23E1828D0039D934 /* TestAgenda2.html in Resources */,
-				BB6CA75526E6B3CE0004F819 /* TestAgenda4.html in Resources */,
-				D7A0A2EA23E1828D0039D934 /* TestAgenda3.html in Resources */,
-				D74279592964434600CB2AAE /* TestLoans-2022-1.html in Resources */,
-				BBFD77DD2969B94C00718390 /* TestLoans-2022-2.html in Resources */,
-				D76D7E5329B621E40085D333 /* TestLoans-2023-2.html in Resources */,
-				BB415B3F29D8CDC10056A8EF /* TestLoans-2023-3.html in Resources */,
+				BB6208E22B6BA14E004729D2 /* TestLoans-2024-1.html in Resources */,
 				D78200A923C73AF700C3A699 /* TestNews1.html in Resources */,
-				D7FB1E192984172100C09C52 /* TestLoans-2023-1.html in Resources */,
+				BB6208E42B6BCAD8004729D2 /* TestAgenda-2024-1.rss in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

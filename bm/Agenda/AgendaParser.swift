@@ -3,41 +3,25 @@
 //  bm
 //
 //  Created by Vincent Tourraine on 11/01/2020.
-//  Copyright © 2020 Studio AMANgA. All rights reserved.
+//  Copyright © 2020-2024 Studio AMANgA. All rights reserved.
 //
 
 import Foundation
 
 class AgendaParser {
-    private static let LinkRoot = "https://www.bm-grenoble.fr"
-    private static let AgendaWebpageURL = URL(string: "https://www.bm-grenoble.fr/688-agenda.htm?TPL_CODE=TPL_AGENDALISTE")!
+    private static let AgendaWebpageURL = URL(string: "https://www.bm-grenoble.fr/Portal/recherche/openfind.svc/GetOpenFindSelectionRss?selectionUid=SELECTION_f5493341-0fec-496a-bbbf-c700d6e95e84")!
 
     struct Pagination {
         let nextPage: URL?
     }
 
-    class func parseItems(html: String) -> (items: [AgendaItem], pagination: Pagination)? {
-        let parsedItems = html.parseOccurences(between: "<div class=\"item\">", and: "</div>")
+    class func parseItems(rss: String) -> (items: [AgendaItem], pagination: Pagination)? {
+        let parsedItems = rss.parseOccurences(between: "<item>", and: "</item>")
         let items: [AgendaItem] = parsedItems.compactMap({ parsedItem in
             return parseAgendaItem(html: parsedItem)
         })
 
-        let pagination: Pagination
-        let currentPageStartTags = "</strong></span><span>"
-        let navigationEndTags = "</div>"
-        let lastPageTags = "</strong></span></div>"
-
-        if let navigation = html.parse(between: currentPageStartTags, and: navigationEndTags),
-            let nextPageString = navigation.parse(between: "href=\"", and: "\""),
-            let nextPageURL = URL(string: "\(AgendaParser.LinkRoot)\(nextPageString)"),
-            html.contains(lastPageTags) == false {
-                pagination = Pagination(nextPage: nextPageURL)
-        }
-        else {
-            pagination = Pagination(nextPage: nil)
-        }
-
-        return (items: items, pagination: pagination)
+        return (items: items, pagination: Pagination(nextPage: nil))
     }
 
     private class func dateComponent(from string: String) -> DateComponents? {
@@ -54,55 +38,40 @@ class AgendaParser {
     }
 
     private class func parseAgendaItem(html: String) -> AgendaItem? {
-        guard let linkString = html.parse(between: "<a href=\"", and: "\">"),
-            let link = URL(string: "\(LinkRoot)\(linkString)"),
-            let title = html.parse(between: "</span> - ", and: "</a>")?.cleanHTMLEntities(),
-            let infoString = html.parse(between: "class=\"alignleft\" alt=\"\">", and: "<p")?.cleanHTMLEntities(),
-            let summary = html.parse(between: "<p class=\"resume\">", and: "</p>")?.cleanHTMLEntitiesAndTags() else {
+        guard let title = html.parse(between: "<title>", and: "</title>"),
+              let desc = html.parse(between: "<description>", and: "</description>"),
+              let link = html.parse(between: "<link>", and: "</link>"),
+              let linkURL = URL(string: link) else {
             return nil
         }
 
-        let infoStringComponents = infoString.components(separatedBy: "<br>\n")
-        guard infoStringComponents.count >= 2 else {
-            return nil
-        }
-
-        let itemDate: AgendaItem.AgendaDate
-        if let dateString = html.parse(between: "<span>Le ", and: "</span>"),
-            let dateComponents = dateComponent(from: dateString) {
-                itemDate = .day(dateComponents)
-        }
-        else if let dateRangeString = html.parse(between: "<span>Du ", and: "</span>") {
-            let datesString = dateRangeString.components(separatedBy: " au ")
-            guard datesString.count == 2,
-                let startDateComponents = dateComponent(from: datesString[0]),
-                let endDateComponents = dateComponent(from: datesString[1]) else {
-                return nil
-            }
-
-            itemDate = .range(startDateComponents, endDateComponents)
-        }
-        else {
-            return nil
-        }
-
-        let category = infoStringComponents[0].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        var library = infoStringComponents[1].components(separatedBy: "  -").first?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        
-        if library?.contains("<img") ?? false {
-            library = ""
-        }
+        let categorie = desc.parse(between: "Catégorie&lt;/span&gt;&lt;/i&gt;", and: "&lt;")
+        let library = desc.parse(between: "span class=\"location\"&gt;", and: "&lt;")
+        let dateString = desc.parse(between: "session-date\"&gt;Le ", and: " de ")
+        let resume = desc.parse(between: "short-abstract template-resume\"&gt;&#xD;", and: "&#xD;")?.trimmingCharacters(in: .whitespacesAndNewlines)
 
         let image: URL?
-        if let imageString = html.parse(between: "<img src=\"", and: "\""),
-            let imageURL = URL(string: "\(AgendaParser.LinkRoot)\(imageString)") {
-            image = imageURL
+        if let enclosure = html.parse(between: "<enclosure", and: "/>"),
+           let imageURLString = enclosure.parse(between: "url=\"", and: "\"") {
+            image = URL(string: imageURLString)
         }
         else {
             image = nil
         }
 
-        return AgendaItem(title: title, summary: summary, category: category, library: library, link: link, date: itemDate, image: image)
+        let date: AgendaItem.AgendaDate?
+        if let comps = dateString?.components(separatedBy: "/"),
+           comps.count == 3 {
+            let year = Int(comps[2])
+            let month = Int(comps[1])
+            let day = Int(comps[0])
+            date = .day(DateComponents(year: year, month: month, day: day))
+        }
+        else {
+            date = nil
+        }
+
+        return AgendaItem(title: title, summary: resume, category: categorie ?? "", library: library, link: linkURL, date: date, image: image)
     }
 
     class func fetchAgendaItems(completionHandler: @escaping (Result<[AgendaItem], Error>) -> Void) {
@@ -119,7 +88,7 @@ class AgendaParser {
     class func fetchAgendaItems(at url: URL, fetchedItems: [AgendaItem], completionHandler: @escaping (Result<[AgendaItem], Error>) -> Void) {
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
             DispatchQueue.main.async {
-                guard let data, let string = String(data: data, encoding: .utf8), let agendaItem = parseItems(html: string) else {
+                guard let data, let string = String(data: data, encoding: .utf8), let agendaItem = parseItems(rss: string) else {
                     if let networkError = error {
                         completionHandler(.failure(networkError))
                     }
