@@ -146,8 +146,8 @@ class GhostWebView: WKWebView {
 
     convenience init() {
         let webConfiguration = WKWebViewConfiguration()
-        self.init(frame: CGRect(x: 0, y: 0, width: 600, height: 600), configuration: webConfiguration)
-        // self.init(frame: CGRect(x: 0, y: -1, width: 600, height: 1), configuration: webConfiguration)
+        // self.init(frame: CGRect(x: 0, y: 0, width: 600, height: 600), configuration: webConfiguration)
+        self.init(frame: CGRect(x: 0, y: -1, width: 600, height: 1), configuration: webConfiguration)
     }
 
     func loadGhostPage() {

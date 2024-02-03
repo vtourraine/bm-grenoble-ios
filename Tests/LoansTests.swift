@@ -33,4 +33,24 @@ class LoansTest: XCTestCase {
         XCTAssertEqual(item.returnDateComponents.month, 2)
         XCTAssertEqual(item.returnDateComponents.year, 2024)
     }
+
+    func testParseLoans2() throws {
+        let loans = try loadLoans(fromFileNamed: "TestLoans-2024-2")
+
+        XCTAssertEqual(loans.count, 7)
+
+        let item = try XCTUnwrap(loans.first)
+        XCTAssertEqual(item.title, "Cuisiner chinois : les recettes culte")
+        XCTAssertEqual(item.author, "Ross Dobson")
+        XCTAssertEqual(item.library, "")
+        XCTAssertEqual(item.image?.absoluteString, "https://covers.syracuse.cloud/Cover/VGNB/MONO/nH_px7RfaUzJFXuvJ5lv0Q2/9782501175524/MEDIUM?fallback=https%3a%2f%2fbm-grenoble.fr%2fui%2fskins%2fdefault%2fportal%2ffront%2fimages%2fGeneral%2fDocType%2fMONO_MEDIUM.png")
+        XCTAssertEqual(item.returnDateComponents.day, 29)
+        XCTAssertEqual(item.returnDateComponents.month, 2)
+        XCTAssertEqual(item.returnDateComponents.year, 2024)
+
+        let item2 = loans[1]
+        XCTAssertEqual(item2.returnDateComponents.day, 1)
+        XCTAssertEqual(item2.returnDateComponents.month, 3)
+        XCTAssertEqual(item2.returnDateComponents.year, 2024)
+    }
 }

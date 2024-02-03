@@ -11,6 +11,7 @@
 		BB4AA3FB28C68DE5006DE4AE /* DigitalLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4AA3FA28C68DE5006DE4AE /* DigitalLibraryViewController.swift */; };
 		BB6208E22B6BA14E004729D2 /* TestLoans-2024-1.html in Resources */ = {isa = PBXBuildFile; fileRef = BB6208E12B6BA14E004729D2 /* TestLoans-2024-1.html */; };
 		BB6208E42B6BCAD8004729D2 /* TestAgenda-2024-1.rss in Resources */ = {isa = PBXBuildFile; fileRef = BB6208E32B6BCAD8004729D2 /* TestAgenda-2024-1.rss */; };
+		BB6208E62B6E4EA8004729D2 /* TestLoans-2024-2.html in Resources */ = {isa = PBXBuildFile; fileRef = BB6208E52B6E4EA8004729D2 /* TestLoans-2024-2.html */; };
 		BBBC736C281E7BA800B32C31 /* SwiftMessages in Frameworks */ = {isa = PBXBuildFile; productRef = BBBC736B281E7BA800B32C31 /* SwiftMessages */; };
 		D70212C722F0E43C00E3972E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70212C622F0E43C00E3972E /* AppDelegate.swift */; };
 		D70212C922F0E43C00E3972E /* LoansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70212C822F0E43C00E3972E /* LoansViewController.swift */; };
@@ -89,6 +90,7 @@
 		BB4AA3FA28C68DE5006DE4AE /* DigitalLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalLibraryViewController.swift; sourceTree = "<group>"; };
 		BB6208E12B6BA14E004729D2 /* TestLoans-2024-1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "TestLoans-2024-1.html"; sourceTree = "<group>"; };
 		BB6208E32B6BCAD8004729D2 /* TestAgenda-2024-1.rss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "TestAgenda-2024-1.rss"; sourceTree = "<group>"; };
+		BB6208E52B6E4EA8004729D2 /* TestLoans-2024-2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "TestLoans-2024-2.html"; sourceTree = "<group>"; };
 		D70212C322F0E43C00E3972E /* BM Grenoble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BM Grenoble.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D70212C622F0E43C00E3972E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Sources/AppDelegate.swift; sourceTree = "<group>"; };
 		D70212C822F0E43C00E3972E /* LoansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoansViewController.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				D786E6E522F194EC00AD1D36 /* Info.plist */,
 				BB6208E32B6BCAD8004729D2 /* TestAgenda-2024-1.rss */,
 				BB6208E12B6BA14E004729D2 /* TestLoans-2024-1.html */,
+				BB6208E52B6E4EA8004729D2 /* TestLoans-2024-2.html */,
 				D78200A523C7399100C3A699 /* TestNews1.html */,
 			);
 			path = Tests;
@@ -543,6 +546,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB6208E22B6BA14E004729D2 /* TestLoans-2024-1.html in Resources */,
+				BB6208E62B6E4EA8004729D2 /* TestLoans-2024-2.html in Resources */,
 				D78200A923C73AF700C3A699 /* TestNews1.html in Resources */,
 				BB6208E42B6BCAD8004729D2 /* TestAgenda-2024-1.rss in Resources */,
 			);

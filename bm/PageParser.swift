@@ -12,12 +12,6 @@ class PageParser {
     private static let CatalogueRoot = "http://catalogue.bm-grenoble.fr"
 
     class func parseLoans(html: String) -> [Item]? {
-        /*
-         if html.contains("<div class=\"accountEmptyList\">") && html.contains("<ul class=\"listItems\">") == false {
-            return []
-        }
-         */
-
         guard let ul = html.parse(between: "<div class=\"table-responsive desktop-transactions hidden-xs hidden-sm\">", and: "<h2>Liens utiles") else {
                 return nil
         }
@@ -30,8 +24,10 @@ class PageParser {
     }
 
     class func parseLoan(li: String) -> Item? {
-        let infos = li.parseOccurences(between: "<td data-v-2296324c=\"\" title=\"", and: "\" class=\"")
-        guard !li.contains("thumbnail-header"), infos.count == 5 else {
+        let infos = li.parseOccurences(between: "<td data-v-2296324c=\"\" title=\"", and: "\" class=\"").compactMap { info in
+            return info.count > 0 ? info : nil
+        }
+        guard !li.contains("thumbnail-header"), infos.count >= 5 else {
             return nil
         }
 
@@ -49,7 +45,7 @@ class PageParser {
             author = ""
         }
 
-        let returnDate = infos[3]
+        let returnDate = infos[infos.count - 2]
         let image: URL?
 
         if let imageString = li.parse(between: "src=\"", and: "\" alt="),
