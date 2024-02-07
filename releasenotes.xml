@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BM Grenoble</title>
+    <link></link>
+    <description>Version history for BM Grenoble</description>
+    <generator>Trackup</generator>
+    <atom:link href="/releasenotes.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1.9</title>
+      <description>• Update for new library website
+• Remove News tabs</description>
+      <pubDate>Wed, 07 Feb 2024 00:00:00 GMT</pubDate>
+      <guid>/1.9</guid>
+    </item>
+    <item>
+      <title>1.8.3</title>
+      <description>• Optimized for iOS 17, iPadOS 17, and macOS 10.14</description>
+      <pubDate>Thu, 05 Oct 2023 00:00:00 GMT</pubDate>
+      <guid>/1.8.3</guid>
+    </item>
+    <item>
+      <title>1.8.2</title>
+      <description>• Improve loans parsing reliability</description>
+      <pubDate>Wed, 06 Sep 2023 00:00:00 GMT</pubDate>
+      <guid>/1.8.2</guid>
+    </item>
+    <item>
+      <title>1.8.1</title>
+      <description>• Restore web search
+• Restore loans library info
+• Improve loans parsing error message
+• Improve loans parsing reliability</description>
+      <pubDate>Tue, 04 Apr 2023 00:00:00 GMT</pubDate>
+      <guid>/1.8.1</guid>
+    </item>
+    <item>
+      <title>1.8</title>
+      <description>• Update libraries opening hours
+• Switch back from API to web view parser
+• Remove widget
+• Remove search</description>
+      <pubDate>Wed, 11 Jan 2023 00:00:00 GMT</pubDate>
+      <guid>/1.8</guid>
+    </item>
+    <item>
+      <title>1.7.3</title>
+      <description>• Optimized for iPadOS 16 and macOS 13</description>
+      <pubDate>Fri, 18 Nov 2022 00:00:00 GMT</pubDate>
+      <guid>/1.7.3</guid>
+    </item>
+    <item>
+      <title>1.7.2</title>
+      <description>• Optimized for iOS 16
+• List of Digital library services
+• Updated libraries webpage links
+• Save credentials to Keychain to refresh session automatically
+• Non blocking error messages
+• Remove Location Button (iOS 15)</description>
+      <pubDate>Wed, 14 Sep 2022 00:00:00 GMT</pubDate>
+      <guid>/1.7.2</guid>
+    </item>
+    <item>
+      <title>1.7.1</title>
+      <description>• Improve widget error messages</description>
+      <pubDate>Sat, 05 Mar 2022 00:00:00 GMT</pubDate>
+      <guid>/1.7.1</guid>
+    </item>
+    <item>
+      <title>1.7</title>
+      <description>• Optimized for iOS 15, iPadOS 15, and macOS 12
+• Loans widget (iOS 14, macOS 11)
+• Loans notifications (1 week before due date)
+• List reservations
+• Location Button (iOS 15, macOS 12)
+• Filter agenda by library (iOS 14, macOS 11)
+• Drag and Drop support (News, Agenda)
+• Update libraries opening hours
+• Improve agenda parsing
+• Fix show current location on library maps</description>
+      <pubDate>Wed, 17 Nov 2021 00:00:00 GMT</pubDate>
+      <guid>/1.7</guid>
+    </item>
+    <item>
+      <title>1.6.1</title>
+      <description>• Renew loans
+• Search details and availability
+• Add loans and search results image placeholders
+• Update libraries opening hours
+• Add English localization in Library screen
+• Improve Dynamic Type support in Library screen</description>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 GMT</pubDate>
+      <guid>/1.6.1</guid>
+    </item>
+    <item>
+      <title>1.6</title>
+      <description>• Native search
+• Add Library Card screen (iOS only)
+• Add “Lost Password” on Login screen
+• Support formatted authors names
+• Improve loading cover images
+• Fix search text color in Dark Mode</description>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 GMT</pubDate>
+      <guid>/1.6</guid>
+    </item>
+    <item>
+      <title>1.5</title>
+      <description>• Sync with new API</description>
+      <pubDate>Sat, 06 Mar 2021 00:00:00 GMT</pubDate>
+      <guid>/1.5</guid>
+    </item>
+    <item>
+      <title>1.4.4</title>
+      <description>• Update app icon
+• Fix library sync</description>
+      <pubDate>Thu, 25 Feb 2021 00:00:00 GMT</pubDate>
+      <guid>/1.4.4</guid>
+    </item>
+    <item>
+      <title>1.4.3</title>
+      <description>• Optimized for macOS Big Sur
+• Move Info screen to About window (macOS)
+• Fix signing out</description>
+      <pubDate>Tue, 01 Dec 2020 00:00:00 GMT</pubDate>
+      <guid>/1.4.3</guid>
+    </item>
+    <item>
+      <title>1.4.2</title>
+      <description>• Optimized for iOS 14
+• Update tab bar icons (iOS 14)
+• Add News and Agenda contextual menu (Open in Browser, Share)
+• Update libraries opening hours
+• Fix library sync</description>
+      <pubDate>Tue, 03 Nov 2020 00:00:00 GMT</pubDate>
+      <guid>/1.4.2</guid>
+    </item>
+    <item>
+      <title>1.4.1</title>
+      <description>• Alternate Libraries and Library screens layout for large screens
+• Update layout to follow readable width (loans placeholder, search)</description>
+      <pubDate>Tue, 06 Oct 2020 00:00:00 GMT</pubDate>
+      <guid>/1.4.1</guid>
+    </item>
+    <item>
+      <title>1.4</title>
+      <description>• macOS version
+• Store credentials in keychain</description>
+      <pubDate>Sat, 12 Sep 2020 00:00:00 GMT</pubDate>
+      <guid>/1.4</guid>
+    </item>
+    <item>
+      <title>1.3.3</title>
+      <description>• Update libraries opening hours</description>
+      <pubDate>Thu, 18 Jun 2020 00:00:00 GMT</pubDate>
+      <guid>/1.3.3</guid>
+    </item>
+    <item>
+      <title>1.3.2</title>
+      <description>• Add message about temporary opening hours
+• Fix library sync</description>
+      <pubDate>Thu, 28 May 2020 00:00:00 GMT</pubDate>
+      <guid>/1.3.2</guid>
+    </item>
+    <item>
+      <title>1.3.1</title>
+      <description>• Fix agenda library name with dash</description>
+      <pubDate>Tue, 25 Feb 2020 00:00:00 GMT</pubDate>
+      <guid>/1.3.1</guid>
+    </item>
+    <item>
+      <title>1.3</title>
+      <description>• Agenda
+• Warning flag for unreturned loans
+• Add loans refresh control</description>
+      <pubDate>Fri, 07 Feb 2020 00:00:00 GMT</pubDate>
+      <guid>/1.3</guid>
+    </item>
+    <item>
+      <title>1.2</title>
+      <description>• News
+• Add loan item thumbnails
+• Refined loans expiration date style</description>
+      <pubDate>Fri, 17 Jan 2020 00:00:00 GMT</pubDate>
+      <guid>/1.2</guid>
+    </item>
+    <item>
+      <title>1.1.1</title>
+      <description>• Fix library sync</description>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 GMT</pubDate>
+      <guid>/1.1.1</guid>
+    </item>
+    <item>
+      <title>1.1</title>
+      <description>• Libraries
+• Search books
+• Improve title formatting
+• Search on Goodreads</description>
+      <pubDate>Wed, 20 Nov 2019 00:00:00 GMT</pubDate>
+      <guid>/1.1</guid>
+    </item>
+    <item>
+      <title>1.0</title>
+      <description>• Initial release</description>
+      <pubDate>Thu, 10 Oct 2019 00:00:00 GMT</pubDate>
+      <guid>/1.0</guid>
+    </item>
+  </channel>
+</rss>
+

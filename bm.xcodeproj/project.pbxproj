@@ -571,10 +571,11 @@
 			outputPaths = (
 				"$(SRCROOT)/releasenotes.html",
 				"$(SRCROOT)/releasenotes.json",
+				"$(SRCROOT)/releasenotes.xml",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n\n~/Developer/Trackup CHANGELOG.md -html > releasenotes.html\n~/Developer/Trackup CHANGELOG.md -json > releasenotes.json\n";
+			shellScript = "#!/bin/bash\n\n~/Developer/Trackup CHANGELOG.md -html > releasenotes.html\n~/Developer/Trackup CHANGELOG.md -json > releasenotes.json\n~/Developer/Trackup CHANGELOG.md -rss > releasenotes.xml\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

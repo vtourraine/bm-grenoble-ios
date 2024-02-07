@@ -3,9 +3,10 @@
 
 ## 1.9
 
-- [x] Update for new library website
-- [x] Remove news tabs
-- [x] Update digital library services list
+2024-02-07
+
+- **Update for new library website**
+- Remove News tabs
 
 
 ## 1.8.3
