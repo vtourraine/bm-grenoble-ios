@@ -3,14 +3,14 @@
 //  bm
 //
 //  Created by Vincent Tourraine on 01/10/2019.
-//  Copyright © 2019 Studio AMANgA. All rights reserved.
+//  Copyright © 2019-2024 Studio AMANgA. All rights reserved.
 //
 
 import UIKit
 
 class SearchEngine {
     static func encodedQuery(for query: String) -> String? {
-        return query
+        return query.replacingOccurrences(of: " ", with: "+")
     }
 }
 
@@ -68,12 +68,11 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
 
         guard let trimmedQuery = searchBar.text?.trimmingCharacters(in: .whitespaces),
               trimmedQuery.isEmpty == false,
-              let encodedQuery = SearchEngine.encodedQuery(for: trimmedQuery)
-        else {
+              let encodedQuery = SearchEngine.encodedQuery(for: trimmedQuery) else {
             return
         }
 
-        let urlString = "https://www.bm-grenoble.fr/search.aspx?SC=CATALOGUE&QUERY=gibson&QUERY_LABEL=#/Search/(query:(InitialSearch:!t,Page:0,PageRange:3,QueryString:\(encodedQuery),ResultSize:'50',ScenarioCode:CATALOGUE,SearchContext:0,SearchLabel:''))"
+        let urlString = "https://www.bm-grenoble.fr/search.aspx?SC=CATALOGUE&QUERY=\(encodedQuery)"
 
         if let url = URL(string: urlString) {
             presentSafariViewController(url)

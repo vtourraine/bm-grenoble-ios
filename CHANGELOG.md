@@ -1,5 +1,14 @@
 # BM Grenoble
 
+## 2.0
+
+- [x] Remove loans tab
+- [ ] Move card screen (with configuration)
+- [ ] Move about screen
+- [x] Fix search query formatting
+- [x] Fix displaying agenda loading errors
+- [ ] Fix agenda pull-to-refresh
+
 
 ## 1.9
 

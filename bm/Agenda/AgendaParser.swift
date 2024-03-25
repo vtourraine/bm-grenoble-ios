@@ -88,7 +88,9 @@ class AgendaParser {
     class func fetchAgendaItems(at url: URL, fetchedItems: [AgendaItem], completionHandler: @escaping (Result<[AgendaItem], Error>) -> Void) {
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
             DispatchQueue.main.async {
-                guard let data, let string = String(data: data, encoding: .utf8), let agendaItem = parseItems(rss: string) else {
+                guard let data,
+                      let string = String(data: data, encoding: .utf8),
+                      let agendaItem = parseItems(rss: string) else {
                     if let networkError = error {
                         completionHandler(.failure(networkError))
                     }

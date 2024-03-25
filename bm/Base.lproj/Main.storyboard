@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F3H-UV-44c">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F3H-UV-44c">
     <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -778,7 +778,7 @@ Grenoble</string>
         <!--Prêts en cours-->
         <scene sceneID="J3L-Is-9td">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V5W-LW-gGC" customClass="NavigationController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoansNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="V5W-LW-gGC" customClass="NavigationController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Prêts en cours" image="Books" id="kMU-d9-2Gk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="81E-91-uNE">
@@ -1119,7 +1119,6 @@ Grenoble</string>
                         <color key="selectedImageTintColor" name="BMRed"/>
                     </tabBar>
                     <connections>
-                        <segue destination="V5W-LW-gGC" kind="relationship" relationship="viewControllers" id="xhM-sY-6nw"/>
                         <segue destination="vRB-X1-egP" kind="relationship" relationship="viewControllers" id="rPX-lx-xUH"/>
                         <segue destination="PWm-tb-Pfv" kind="relationship" relationship="viewControllers" id="UU6-ut-c3G"/>
                         <segue destination="LbV-cD-hNz" kind="relationship" relationship="viewControllers" id="tdb-6y-HhT"/>
@@ -1215,7 +1214,7 @@ Grenoble</string>
         <!--Actualité-->
         <scene sceneID="KJz-kZ-Pmm">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ktH-Df-Yro" customClass="NavigationController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NewsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="ktH-Df-Yro" customClass="NavigationController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Actualité" image="News" id="e0Q-pb-YTt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="TZZ-PG-ELm">
@@ -1335,6 +1334,13 @@ Grenoble</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Agenda" id="HSr-NW-9Ac"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="HEP-hP-Yt7">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refreshWithSender:" destination="GaQ-e7-QGj" eventType="valueChanged" id="v2w-9A-Kku"/>
+                        </connections>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uqs-QI-ZYu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

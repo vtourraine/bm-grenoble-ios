@@ -67,18 +67,7 @@ class AgendaViewController: UITableViewController {
         super.viewDidAppear(animated)
 
         if isFirstLaunch {
-            AgendaParser.fetchAgendaItems { result in
-                switch (result) {
-                case .success(let items):
-                    AgendaItemCache.save(items: items, to: .standard)
-
-                    self.filter(with: self.filterTitle)
-
-                case .failure:
-                    break
-                }
-            }
-
+            refresh(sender: nil)
             isFirstLaunch = false
         }
     }
@@ -106,6 +95,21 @@ class AgendaViewController: UITableViewController {
     }
 
     // MARK: - Actions
+
+    @IBAction func refresh(sender: Any?) {
+        AgendaParser.fetchAgendaItems { result in
+            self.refreshControl?.endRefreshing()
+
+            switch (result) {
+            case .success(let items):
+                AgendaItemCache.save(items: items, to: .standard)
+                self.filter(with: self.filterTitle)
+
+            case .failure(let error):
+                self.presentLoadingError(error)
+            }
+        }
+    }
 
     func resetFilter() {
         guard let cachedItems = AgendaItemCache.load(from: .standard) else {

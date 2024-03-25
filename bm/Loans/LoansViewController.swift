@@ -231,7 +231,7 @@ class LoansViewController: UITableViewController {
     }
 
     func refreshIfNecessary() {
-        guard let lastRefreshDate = lastRefreshDate else {
+        guard let lastRefreshDate else {
             return
         }
 
