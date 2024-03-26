@@ -3,6 +3,7 @@
 ## 2.0
 
 - [x] Remove loans tab
+- [x] Update aganda sync (from RSS to API)
 - [ ] Move card screen (with configuration)
 - [ ] Move about screen
 - [x] Fix search query formatting
