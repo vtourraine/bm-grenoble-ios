@@ -11,37 +11,42 @@ import XCTest
 
 class AgendaTests: XCTestCase {
 
-    private func loadItems(fromFileNamed fileName: String) throws -> (items: [AgendaItem], pagination: AgendaParser.Pagination) {
-        let path = try XCTUnwrap(Bundle(for: type(of: self)).path(forResource: fileName, ofType: "rss"))
-        let rss = try XCTUnwrap(String(contentsOfFile: path))
-        let items = try XCTUnwrap(AgendaParser.parseItems(rss: rss))
-        return items
+    private func loadItems(fromFileNamed fileName: String) throws -> [AgendaItem] {
+        let path = try XCTUnwrap(Bundle(for: type(of: self)).url(forResource: fileName, withExtension: "json"))
+        let data = try Data(contentsOf: path)
+        if let items = AgendaParser.parseItems(jsonData: data) {
+            return items
+        }
+        else {
+            XCTFail()
+            return []
+        }
     }
 
-    func testParseRSSFeed() throws {
-        let parsedObjects = try loadItems(fromFileNamed: "TestAgenda-2024-1")
+    func testParseAgendaItems() throws {
+        let parsedObjects = try loadItems(fromFileNamed: "SearchNewsReponse-2024-03")
 
-        XCTAssertNil(parsedObjects.pagination.nextPage)
-        // let nextPageURL = try XCTUnwrap(parsedObjects.pagination.nextPage)
-        // XCTAssertEqual(nextPageURL.absoluteString, "https://www.bm-grenoble.fr/688-agenda.htm?TPL_CODE=TPL_AGENDALISTE&ip=2&op=AGP_DATEFIN+asc&cp=998b0016113da5c36d2a&mp=10#p")
+        let items = parsedObjects
+        XCTAssertEqual(items.count, 12)
 
-        let items = parsedObjects.items
-        XCTAssertEqual(items.count, 2)
-
-        XCTAssertEqual(items[0].title, "Parcoursup : les algorithmes et leurs impacts")
-        XCTAssertEqual(items[0].category, "Conférence - débat")
-        XCTAssertEqual(items[0].library, "Bibliothèque Kateb Yacine")
+        XCTAssertEqual(items[0].title, "Atelier de curiosité")
+        XCTAssertEqual(items[0].category, "Atelier")
+        XCTAssertEqual(items[0].library, "Bibliothèque Teisseire Malherbe")
         // XCTAssertEqual(items[0].summary, "Une conférence animée par Evelyn Rosset, docteur en psychologie, chercheure associée au LIP/PC2S, UGA.")
-        XCTAssertEqual(items[0].link.absoluteString, "https://bm-grenoble.fr/Default/doc/CALENDAR/40/parcoursup-les-algorithmes-et-leurs-impacts")
+        XCTAssertEqual(items[0].link.absoluteString, "https://bm-grenoble.fr/Default/doc/CALENDAR/321/atelier-de-curiosite")
         let items0Image = try XCTUnwrap(items[0].image)
-        XCTAssertEqual(items0Image.absoluteString, "https://bm-grenoble.fr/basicimagedownload.ashx?itemGuid=DB23C569-C01C-45B7-9E83-F78A2A04CCD6")
+        XCTAssertEqual(items0Image.absoluteString, "https://bm-grenoble.fr/basicimagedownload.ashx?itemGuid=788EBA00-0334-4B2A-B845-6020A9B95AD6")
         switch items[0].date {
-        case .range:
-            XCTFail()
+        case .range(let startDate, let endDate):
+            XCTAssertEqual(startDate.day, 26)
+            XCTAssertEqual(startDate.month, 3)
+            XCTAssertEqual(startDate.year, 2024)
+            XCTAssertEqual(startDate.hour, 16)
+            XCTAssertEqual(startDate.minute, 30)
+            XCTAssertEqual(endDate.hour, 17)
+            XCTAssertEqual(endDate.minute, 30)
         case .day(let dateComponents):
-            XCTAssertEqual(dateComponents.day, 9)
-            XCTAssertEqual(dateComponents.month, 2)
-            XCTAssertEqual(dateComponents.year, 2024)
+            XCTFail()
         case .none:
             XCTFail()
         }
