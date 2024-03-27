@@ -801,22 +801,22 @@ Grenoble</string>
             </objects>
             <point key="canvasLocation" x="1983" y="-653"/>
         </scene>
-        <!--Card View Controller-->
+        <!--Card-->
         <scene sceneID="hF1-1I-7rJ">
             <objects>
                 <viewController id="x0T-HL-1kO" customClass="CardViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xfZ-dD-61F">
-                        <rect key="frame" x="0.0" y="0.0" width="704" height="728"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="•" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y96-q8-d4L">
-                                <rect key="frame" x="231" y="140" width="40" height="102"/>
+                                <rect key="frame" x="391" y="160" width="40" height="102"/>
                                 <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="80"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9w-yg-gIP">
-                                <rect key="frame" x="305.5" y="80" width="183" height="123"/>
+                                <rect key="frame" x="465.5" y="100" width="183" height="123"/>
                                 <string key="text">Bibliothèque
 Municipale
 Grenoble</string>
@@ -825,7 +825,7 @@ Grenoble</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsN-tn-aSG" userLabel="Card Super Parent View">
-                                <rect key="frame" x="212" y="283" width="280" height="180"/>
+                                <rect key="frame" x="372" y="303" width="280" height="180"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7cH-2F-cnZ">
                                         <rect key="frame" x="40" y="40" width="200" height="100"/>
@@ -844,23 +844,8 @@ Grenoble</string>
                                     <constraint firstAttribute="bottom" secondItem="7cH-2F-cnZ" secondAttribute="bottom" constant="40" id="yj3-QD-V2e"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQi-uG-iqN">
-                                <rect key="frame" x="303" y="664" width="98" height="44"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="JNN-dC-g7S"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
-                                <state key="normal" title="Fermer">
-                                    <color key="titleColor" name="BMRed"/>
-                                </state>
-                                <connections>
-                                    <action selector="dismiss:" destination="x0T-HL-1kO" eventType="touchUpInside" id="zwB-fC-tLW"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="B" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qf9-jg-ImT">
-                                <rect key="frame" x="216.5" y="58" width="69" height="127"/>
+                                <rect key="frame" x="376.5" y="78" width="69" height="127"/>
                                 <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="100"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -869,27 +854,24 @@ Grenoble</string>
                         <viewLayoutGuide key="safeArea" id="EuJ-AN-7nA"/>
                         <color key="backgroundColor" name="BMRedBackground"/>
                         <constraints>
-                            <constraint firstItem="kQi-uG-iqN" firstAttribute="centerX" secondItem="EuJ-AN-7nA" secondAttribute="centerX" id="1kJ-0B-ymB"/>
                             <constraint firstItem="jsN-tn-aSG" firstAttribute="top" secondItem="m9w-yg-gIP" secondAttribute="bottom" constant="80" id="D0M-th-z71"/>
                             <constraint firstItem="m9w-yg-gIP" firstAttribute="centerX" secondItem="EuJ-AN-7nA" secondAttribute="centerX" constant="45" id="K4W-5X-hxS"/>
                             <constraint firstItem="Y96-q8-d4L" firstAttribute="centerX" secondItem="Qf9-jg-ImT" secondAttribute="centerX" id="UAi-D0-DXJ"/>
-                            <constraint firstItem="kQi-uG-iqN" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jsN-tn-aSG" secondAttribute="bottom" constant="40" id="VY3-L7-7Uc"/>
                             <constraint firstItem="Qf9-jg-ImT" firstAttribute="centerY" secondItem="m9w-yg-gIP" secondAttribute="centerY" constant="-20" id="YXZ-OV-WgP"/>
                             <constraint firstItem="jsN-tn-aSG" firstAttribute="centerX" secondItem="EuJ-AN-7nA" secondAttribute="centerX" id="i4k-7C-sja"/>
-                            <constraint firstItem="EuJ-AN-7nA" firstAttribute="bottom" secondItem="kQi-uG-iqN" secondAttribute="bottom" constant="20" id="ieF-7K-f7N"/>
                             <constraint firstItem="m9w-yg-gIP" firstAttribute="leading" secondItem="Qf9-jg-ImT" secondAttribute="trailing" constant="20" id="oHt-e3-GHc"/>
                             <constraint firstItem="m9w-yg-gIP" firstAttribute="top" secondItem="EuJ-AN-7nA" secondAttribute="top" priority="750" constant="80" id="ouq-wl-1hM"/>
                             <constraint firstItem="Y96-q8-d4L" firstAttribute="top" secondItem="Qf9-jg-ImT" secondAttribute="bottom" constant="-45" id="yAl-h0-oc7"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Card" image="News" id="WeV-H2-7dy"/>
                     <connections>
                         <outlet property="cardParentView" destination="7cH-2F-cnZ" id="XeN-cG-v8F"/>
-                        <outlet property="dismissButton" destination="kQi-uG-iqN" id="3SK-oQ-due"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hhD-Lk-xv5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4032" y="-849"/>
+            <point key="canvasLocation" x="2046" y="3438"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="0wX-jn-avV">
@@ -1122,6 +1104,7 @@ Grenoble</string>
                         <segue destination="vRB-X1-egP" kind="relationship" relationship="viewControllers" id="rPX-lx-xUH"/>
                         <segue destination="PWm-tb-Pfv" kind="relationship" relationship="viewControllers" id="UU6-ut-c3G"/>
                         <segue destination="LbV-cD-hNz" kind="relationship" relationship="viewControllers" id="tdb-6y-HhT"/>
+                        <segue destination="x0T-HL-1kO" kind="relationship" relationship="viewControllers" id="TIN-0M-yfa"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a4a-j1-yFa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1254,32 +1237,34 @@ Grenoble</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKr-R8-PJj">
-                                            <rect key="frame" x="252" y="11" width="573.5" height="20.5"/>
+                                            <rect key="frame" x="298" y="11" width="527.5" height="20.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RF8-Yc-bSI">
-                                            <rect key="frame" x="180" y="11" width="60" height="60"/>
+                                            <rect key="frame" x="180" y="11" width="106" height="106"/>
                                             <color key="backgroundColor" systemColor="systemFillColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="60" id="gME-8P-HKP"/>
-                                                <constraint firstAttribute="height" constant="60" id="unJ-ih-NXY"/>
+                                                <constraint firstAttribute="width" secondItem="RF8-Yc-bSI" secondAttribute="height" multiplier="1:1" id="SGf-xs-s7j"/>
+                                                <constraint firstAttribute="width" constant="60" id="gME-8P-HKP">
+                                                    <variation key="heightClass=regular-widthClass=regular" constant="106"/>
+                                                </constraint>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEV-gs-I4f">
-                                            <rect key="frame" x="252" y="97" width="573.5" height="20.5"/>
+                                            <rect key="frame" x="298" y="97" width="527.5" height="20.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWf-oM-gGe">
-                                            <rect key="frame" x="252" y="68.5" width="573.5" height="20.5"/>
+                                            <rect key="frame" x="298" y="68.5" width="527.5" height="20.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfy-Wl-n6g">
-                                            <rect key="frame" x="252" y="40" width="573.5" height="20.5"/>
+                                            <rect key="frame" x="298" y="40" width="527.5" height="20.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" name="BMRed"/>
                                             <nil key="highlightedColor"/>
@@ -1589,6 +1574,7 @@ Grenoble</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="TIN-0M-yfa"/>
         <segue reference="u8M-tx-SLd"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="BMRed"/>

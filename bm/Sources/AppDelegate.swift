@@ -40,15 +40,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // tabBarViewController.viewControllers?[0].tabBarItem.image = UIImage(systemName: "books.vertical.fill")
             //tabBarViewController.viewControllers?[0].tabBarItem.image = UIImage(systemName: "newspaper")
             tabBarViewController.viewControllers?[0].tabBarItem.image = UIImage(systemName: "calendar")
-            tabBarViewController.viewControllers?[1].tabBarItem.image = UIImage(systemName: "building.2")
+            tabBarViewController.viewControllers?[1].tabBarItem.image = UIImage(systemName: "building.2.fill")
         }
-        
+
         if #available(iOS 15.0, *) {
             let appearance = UITabBarAppearance()
             appearance.configureWithOpaqueBackground()
             appearance.backgroundColor = .systemBackground
             tabBarViewController.tabBar.standardAppearance = appearance
             tabBarViewController.tabBar.scrollEdgeAppearance = appearance
+
+            tabBarViewController.viewControllers?[3].tabBarItem.image = UIImage(systemName: "person.text.rectangle.fill")
+        }
+        else if #available(iOS 13.0, *) {
+            tabBarViewController.viewControllers?[3].tabBarItem.image = UIImage(systemName: "creditcard.fill")
         }
     }
 
