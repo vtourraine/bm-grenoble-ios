@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MessageUI
 import BMKit
 
 class AboutViewController: UIViewController {
@@ -44,25 +43,14 @@ class AboutViewController: UIViewController {
 
     // MARK: - Actions
 
-    @IBAction func contact(_ sender: Any?) {
-        AboutViewController.contact(from: self, delegate: self)
+    static func openComposeContactAddress() {
+        let emailAddress = "studioamanga@gmail.com"
+        let url = URL(string: "mailto:\(emailAddress)")!
+        UIApplication.shared.open(url)
     }
 
-    static func contact(from presentingViewController: UIViewController, delegate: MFMailComposeViewControllerDelegate) {
-        let emailAddress = "studioamanga@gmail.com"
-
-        guard MFMailComposeViewController.canSendMail() else {
-            let alertController = UIAlertController(title: NSLocalizedString("Contact", comment: ""), message: emailAddress, preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: nil))
-            presentingViewController.present(alertController, animated: true, completion: nil)
-            return
-        }
-
-        let viewController = MFMailComposeViewController()
-        viewController.setToRecipients([emailAddress])
-        viewController.setSubject(NSLocalizedString("BM Grenoble", comment: ""))
-        viewController.mailComposeDelegate = delegate
-        presentingViewController.present(viewController, animated: true, completion: nil)
+    @IBAction func contact(_ sender: Any?) {
+        AboutViewController.openComposeContactAddress()
     }
 
     @IBAction func openCodeRepository(_ sender: Any?) {
@@ -94,11 +82,5 @@ class AboutViewController: UIViewController {
 
     @IBAction func dismiss(_ sender: Any?) {
         dismiss(animated: true, completion: nil)
-    }
-}
-
-extension AboutViewController: MFMailComposeViewControllerDelegate {
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
     }
 }

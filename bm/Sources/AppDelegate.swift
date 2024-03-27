@@ -37,8 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         if #available(iOS 14.0, *) {
-            // tabBarViewController.viewControllers?[0].tabBarItem.image = UIImage(systemName: "books.vertical.fill")
-            //tabBarViewController.viewControllers?[0].tabBarItem.image = UIImage(systemName: "newspaper")
             tabBarViewController.viewControllers?[0].tabBarItem.image = UIImage(systemName: "calendar")
             tabBarViewController.viewControllers?[1].tabBarItem.image = UIImage(systemName: "building.2.fill")
         }
@@ -119,9 +117,7 @@ extension AppDelegate {
     }
 
     @objc func contactSupport() {
-        if let viewController = window?.rootViewController {
-            AboutViewController.contact(from: viewController, delegate: self)
-        }
+        AboutViewController.openComposeContactAddress()
     }
 
     func signOut() {

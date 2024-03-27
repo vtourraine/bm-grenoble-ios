@@ -122,8 +122,7 @@
                     </refreshControl>
                     <connections>
                         <segue destination="PL0-mD-zDP" kind="presentation" identifier="Login" modalPresentationStyle="automatic" id="drR-e7-D8W"/>
-                        <segue destination="x0T-HL-1kO" kind="presentation" identifier="Card" id="Y0l-S1-U8n"/>
-                        <segue destination="Jvg-U0-YiR" kind="presentation" identifier="About" id="d8H-sf-sM2"/>
+                        <segue destination="5kg-jJ-fu5" kind="presentation" identifier="Card" id="Y0l-S1-U8n"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ASQ-Ho-tut" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -801,7 +800,7 @@ Grenoble</string>
             </objects>
             <point key="canvasLocation" x="1983" y="-653"/>
         </scene>
-        <!--Card-->
+        <!--My Card-->
         <scene sceneID="hF1-1I-7rJ">
             <objects>
                 <viewController id="x0T-HL-1kO" customClass="CardViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
@@ -810,13 +809,13 @@ Grenoble</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="•" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y96-q8-d4L">
-                                <rect key="frame" x="391" y="160" width="40" height="102"/>
+                                <rect key="frame" x="391" y="262" width="40" height="102"/>
                                 <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="80"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9w-yg-gIP">
-                                <rect key="frame" x="465.5" y="100" width="183" height="123"/>
+                                <rect key="frame" x="465.5" y="202" width="183" height="123"/>
                                 <string key="text">Bibliothèque
 Municipale
 Grenoble</string>
@@ -825,7 +824,7 @@ Grenoble</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsN-tn-aSG" userLabel="Card Super Parent View">
-                                <rect key="frame" x="372" y="303" width="280" height="180"/>
+                                <rect key="frame" x="372" y="405" width="280" height="180"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7cH-2F-cnZ">
                                         <rect key="frame" x="40" y="40" width="200" height="100"/>
@@ -845,7 +844,7 @@ Grenoble</string>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="B" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qf9-jg-ImT">
-                                <rect key="frame" x="376.5" y="78" width="69" height="127"/>
+                                <rect key="frame" x="376.5" y="180" width="69" height="127"/>
                                 <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="100"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -864,14 +863,20 @@ Grenoble</string>
                             <constraint firstItem="Y96-q8-d4L" firstAttribute="top" secondItem="Qf9-jg-ImT" secondAttribute="bottom" constant="-45" id="yAl-h0-oc7"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Card" image="News" id="WeV-H2-7dy"/>
+                    <navigationItem key="navigationItem" title="My Card" id="n04-Dx-7Sj">
+                        <barButtonItem key="rightBarButtonItem" title="Info" id="Qd5-mh-TJ9">
+                            <connections>
+                                <segue destination="Jvg-U0-YiR" kind="presentation" id="w0Z-eK-zAx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="cardParentView" destination="7cH-2F-cnZ" id="XeN-cG-v8F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hhD-Lk-xv5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2046" y="3438"/>
+            <point key="canvasLocation" x="2769.7265625" y="3437.5"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="0wX-jn-avV">
@@ -986,7 +991,7 @@ Grenoble</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PVw-mN-UiQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4813" y="-777"/>
+            <point key="canvasLocation" x="3555" y="3245"/>
         </scene>
         <!--Bibliothèques-->
         <scene sceneID="Lge-OY-176">
@@ -1104,7 +1109,7 @@ Grenoble</string>
                         <segue destination="vRB-X1-egP" kind="relationship" relationship="viewControllers" id="rPX-lx-xUH"/>
                         <segue destination="PWm-tb-Pfv" kind="relationship" relationship="viewControllers" id="UU6-ut-c3G"/>
                         <segue destination="LbV-cD-hNz" kind="relationship" relationship="viewControllers" id="tdb-6y-HhT"/>
-                        <segue destination="x0T-HL-1kO" kind="relationship" relationship="viewControllers" id="TIN-0M-yfa"/>
+                        <segue destination="5kg-jJ-fu5" kind="relationship" relationship="viewControllers" id="TIN-0M-yfa"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a4a-j1-yFa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1571,6 +1576,25 @@ Grenoble</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HVS-Tz-uW1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4193.5546875" y="2404.6875"/>
+        </scene>
+        <!--My Card-->
+        <scene sceneID="z2f-aP-28I">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5kg-jJ-fu5" customClass="NavigationController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My Card" image="News" id="WeV-H2-7dy"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="nI4-tE-uiF">
+                        <rect key="frame" x="0.0" y="20" width="1024" height="102"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="x0T-HL-1kO" kind="relationship" relationship="rootViewController" id="BrE-HG-LlH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F3A-Jy-WPl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2045.5078124999998" y="3437.5"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

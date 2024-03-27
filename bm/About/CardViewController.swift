@@ -3,7 +3,7 @@
 //  bm
 //
 //  Created by Vincent Tourraine on 07/08/2019.
-//  Copyright © 2019-2020 Studio AMANgA. All rights reserved.
+//  Copyright © 2019-2024 Studio AMANgA. All rights reserved.
 //
 
 import UIKit
@@ -28,6 +28,16 @@ class CardViewController: UIViewController {
         cardParentView?.superview?.configureRoundCorners()
 
         configureCard()
+
+        navigationController?.configureCustomAppearance()
+
+#if targetEnvironment(macCatalyst)
+        navigationItem.rightBarButtonItem = nil
+#else
+        if #available(iOS 13.0, *) {
+            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "info.circle")
+        }
+#endif
     }
 
     override func viewDidAppear(_ animated: Bool) {
