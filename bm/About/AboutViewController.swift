@@ -69,15 +69,7 @@ class AboutViewController: UIViewController {
     }
 
     static func signOut(from tabBarController: UITabBarController) {
-        guard let navigationController = tabBarController.viewControllers?.first as? UINavigationController,
-            let viewController = navigationController.topViewController as? LoansViewController else {
-                return
-        }
-
         try? Credentials.remove(from: Credentials.defaultKeychain())
-        ItemCache.remove(from: .standard)
-
-        viewController.reloadData(state: .notLoggedIn)
     }
 
     @IBAction func dismiss(_ sender: Any?) {

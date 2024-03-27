@@ -26,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #endif
 
         updateTabBarIcons()
-        NotificationManager.askPermission()
 
         return true
     }
@@ -56,11 +55,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        if let tabBarViewController = window?.rootViewController as? UITabBarController,
-            let navigationController = tabBarViewController.viewControllers?.first as? UINavigationController,
-            let viewController = navigationController.topViewController as? LoansViewController {
+        if let tabBarViewController = window?.rootViewController as? UITabBarController {
             tabBarViewController.delegate = self
-            viewController.refreshIfNecessary()
         }
     }
 

@@ -88,11 +88,6 @@ extension UIViewController {
     }
     
     func presentLoadingError(_ error: Error?) {
-        if case .invalidData = (error as? GhostLoaderError) {
-            presentError(title: NSLocalizedString("Connection Error", comment: ""), body: NSLocalizedString("Please try again later", comment: ""), theme: .info)
-            return
-        }
-
         presentError(error, theme: .warning, title: NSLocalizedString("Connection Error", comment: ""))
     }
 
