@@ -222,7 +222,7 @@
 				D7697DE823CA0C7300010011 /* Agenda */,
 				D7D70F23237489C100779E6C /* Libraries */,
 				D7D094DF29758B4D00E071B5 /* Search */,
-				D794D59C241BAF2400208C05 /* About */,
+				D794D59C241BAF2400208C05 /* Card */,
 				D70212CA22F0E43C00E3972E /* Main.storyboard */,
 				D70212CD22F0E43E00E3972E /* Assets.xcassets */,
 				D70212CF22F0E43E00E3972E /* LaunchScreen.storyboard */,
@@ -299,13 +299,13 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
-		D794D59C241BAF2400208C05 /* About */ = {
+		D794D59C241BAF2400208C05 /* Card */ = {
 			isa = PBXGroup;
 			children = (
-				D79ABC0D233DF079007ADE6E /* AboutViewController.swift */,
 				D7A8832922FB756700C209DC /* CardViewController.swift */,
+				D79ABC0D233DF079007ADE6E /* AboutViewController.swift */,
 			);
-			path = About;
+			path = Card;
 			sourceTree = "<group>";
 		};
 		D794D59D241BAF4300208C05 /* Login */ = {

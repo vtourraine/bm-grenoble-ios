@@ -50,11 +50,14 @@
 /* Class = "UILabel"; text = "##/##/####"; ObjectID = "Q6P-h4-bcp"; */
 "Q6P-h4-bcp.text" = "##/##/####";
 
-/* Class = "UILabel"; text = "Ce numéro est le nombre à 13 chiffres commençant par 01 sur votre carte d’abonné"; ObjectID = "SZr-Vg-AWa"; */
-"SZr-Vg-AWa.text" = "13 digit number on your subscriber card, starting with 01";
+/* Class = "UILabel"; text = "Ce numéro est le nombre à 13 chiffres commençant par 01 sur votre carte d’abonné"; ObjectID = "dCS-hY-ukW"; */
+"dCS-hY-ukW.text" = "13 digit number on your subscriber card, starting with 01";
 
-/* Class = "UILabel"; text = "Numéro d’abonné(e)"; ObjectID = "Yzx-f5-5jG"; */
-"Yzx-f5-5jG.text" = "Subscriber Number";
+/* Class = "UILabel"; text = "Numéro d’abonné(e)"; ObjectID = "Il5-Sp-J4u"; */
+"Il5-Sp-J4u.text" = "Subscriber Number";
+
+/* Class = "UIButton"; normalTitle = "Enregistrer"; ObjectID = "eD5-QC-abS"; */
+"eD5-QC-abS.normalTitle" = "Save";
 
 /* Class = "UILabel"; text = "Bibliothèque municipale de Grenoble"; ObjectID = "XSi-YR-LDc"; */
 "XSi-YR-LDc.text" = "Grenoble\nMunicipal\nLibrary";

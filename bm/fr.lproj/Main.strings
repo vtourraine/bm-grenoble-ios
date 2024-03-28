@@ -49,17 +49,20 @@
 /* Class = "UILabel"; text = "##/##/####"; ObjectID = "Q6P-h4-bcp"; */
 "Q6P-h4-bcp.text" = "##/##/####";
 
-/* Class = "UILabel"; text = "Ce numéro est le nombre à 13 chiffres commençant par 01 sur votre carte d’abonné"; ObjectID = "SZr-Vg-AWa"; */
-"SZr-Vg-AWa.text" = "Ce numéro est le nombre à 13 chiffres commençant par 01 sur votre carte d’abonné(e)";
+/* Class = "UILabel"; text = "Ce numéro est le nombre à 13 chiffres commençant par 01 sur votre carte d’abonné"; ObjectID = "dCS-hY-ukW"; */
+"dCS-hY-ukW.text" = "Ce numéro est le nombre à 13 chiffres commençant par 01 sur votre carte d’abonné(e)";
 
-/* Class = "UILabel"; text = "Numéro d’abonné(e)"; ObjectID = "Yzx-f5-5jG"; */
-"Yzx-f5-5jG.text" = "Numéro d’abonné(e)";
+/* Class = "UILabel"; text = "Numéro d’abonné(e)"; ObjectID = "Il5-Sp-J4u"; */
+"Il5-Sp-J4u.text" = "Numéro d’abonné(e)";
 
 /* Class = "UILabel"; text = "Bibliothèque municipale de Grenoble"; ObjectID = "XSi-YR-LDc"; */
 "XSi-YR-LDc.text" = "Bibliothèque\nmunicipale\nGrenoble";
 
 /* Class = "UILabel"; text = "Bibliothèque municipale de Grenoble"; ObjectID = "m9w-yg-gIP"; */
 "m9w-yg-gIP.text" = "Bibliothèque\nmunicipale\nGrenoble";
+
+/* Class = "UIButton"; normalTitle = "Enregistrer"; ObjectID = "eD5-QC-abS"; */
+"eD5-QC-abS.normalTitle" = "Enregistrer";
 
 /* Class = "UIButton"; normalTitle = "Fermer"; ObjectID = "kQi-uG-iqN"; */
 "kQi-uG-iqN.normalTitle" = "Fermer";

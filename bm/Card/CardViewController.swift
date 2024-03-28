@@ -14,18 +14,21 @@ class CardViewController: UIViewController {
     // MARK: - Outlets
 
     @IBOutlet var cardParentView: UIView?
-    @IBOutlet var dismissButton: UIButton?
+    @IBOutlet var formView: UIView?
+    @IBOutlet var saveSubscriberNumberButton: UIButton?
+    @IBOutlet var subscriberNumberTextField: UITextField?
 
     var originalScreenBrightness: CGFloat?
+    let BaseBarCodeLenght = 13
 
     // MARK: - View life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        dismissButton?.titleLabel?.adjustsFontForContentSizeCategory = true
-        dismissButton?.configureRoundCorners()
         cardParentView?.superview?.configureRoundCorners()
+        subscriberNumberTextField?.configureRoundCorners()
+        saveSubscriberNumberButton?.configureRoundCorners()
 
         configureCard()
 
@@ -40,6 +43,11 @@ class CardViewController: UIViewController {
 #endif
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureMainView()
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
@@ -52,6 +60,12 @@ class CardViewController: UIViewController {
         if let brightness = originalScreenBrightness {
             UIScreen.main.brightness = brightness
         }
+    }
+
+    private func configureMainView() {
+        let isLoggedIn = Credentials.sharedCredentials() != nil
+        cardParentView?.superview?.isHidden = !isLoggedIn
+        formView?.isHidden = isLoggedIn
     }
 
     // MARK: - View configuration
@@ -76,13 +90,12 @@ class CardViewController: UIViewController {
         }
 
         let userIdentifier = credentials.username
-        let BarCodeLenght = 13
 
-        if userIdentifier.count == BarCodeLenght {
+        if userIdentifier.count == BaseBarCodeLenght {
             return userIdentifier
         }
-        else if userIdentifier.count > BarCodeLenght {
-            let indexStartOfText = userIdentifier.index(userIdentifier.endIndex, offsetBy: -BarCodeLenght)
+        else if userIdentifier.count > BaseBarCodeLenght {
+            let indexStartOfText = userIdentifier.index(userIdentifier.endIndex, offsetBy: -BaseBarCodeLenght)
             let trimmedIdentifier = userIdentifier[indexStartOfText...]
             return String(trimmedIdentifier)
         }
@@ -93,7 +106,24 @@ class CardViewController: UIViewController {
 
     // MARK: - Actions
 
-    @IBAction func dismiss(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func didTapSaveSubscriberNumberButton(_ sender: UIButton?) {
+        subscriberNumberTextField?.resignFirstResponder()
+        guard let number = subscriberNumberTextField?.text,
+              number.count >= BaseBarCodeLenght,
+              number.allSatisfy({ $0.isNumber }) else {
+            return
+        }
+
+        let credentials = Credentials(username: number, password: "")
+        try? credentials.save(to: Credentials.defaultKeychain())
+        configureCard()
+        configureMainView()
+    }
+}
+
+extension CardViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
