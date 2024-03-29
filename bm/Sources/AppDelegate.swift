@@ -3,7 +3,7 @@
 //  bm
 //
 //  Created by Vincent Tourraine on 30/07/2019.
-//  Copyright © 2019-2020 Studio AMANgA. All rights reserved.
+//  Copyright © 2019-2024 Studio AMANgA. All rights reserved.
 //
 
 import UIKit
@@ -69,7 +69,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         builder.remove(menu: .toolbar)
         builder.remove(menu: .help)
         builder.insertSibling(AppDelegate.helpMenu(), afterMenu: .window)
-        builder.insertChild(AppDelegate.fileMenu(), atEndOfMenu: .file)
     }
 
     @available(iOS 13.0, *)
@@ -85,11 +84,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 @available(iOS 13.0, *)
 extension AppDelegate {
-    class func fileMenu() -> UIMenu {
-        let signOut = UICommand(title: NSLocalizedString("Sign Out…", comment: ""), image: nil, action: #selector(AppDelegate.askToSignOut))
-        return UIMenu(title: "", image: nil, identifier: UIMenu.Identifier("com.studioamanga.bmg.menus.file"), options: .displayInline, children: [signOut])
-    }
-
     class func helpMenu() -> UIMenu {
         let contact = UIKeyCommand(title: NSLocalizedString("Contact Support", comment: ""), image: nil, action: #selector(AppDelegate.contactSupport), input: "", modifierFlags: [], propertyList: nil)
         return UIMenu(title: NSLocalizedString("Help", comment: ""), image: nil, identifier: UIMenu.Identifier("com.studioamanga.bmg.menus.help"), options: [], children: [contact])
