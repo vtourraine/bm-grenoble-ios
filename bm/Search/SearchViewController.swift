@@ -60,13 +60,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     // MARK: - Actions
 
     @IBAction func search(_ sender: Any?) {
-        guard let searchBar = searchBar else {
-            return
-        }
+        searchBar?.resignFirstResponder()
 
-        searchBar.resignFirstResponder()
-
-        guard let trimmedQuery = searchBar.text?.trimmingCharacters(in: .whitespaces),
+        guard let trimmedQuery = searchBar?.text?.trimmingCharacters(in: .whitespaces),
               trimmedQuery.isEmpty == false,
               let encodedQuery = SearchEngine.encodedQuery(for: trimmedQuery) else {
             return
@@ -75,7 +71,11 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         let urlString = "https://www.bm-grenoble.fr/search.aspx?SC=CATALOGUE&QUERY=\(encodedQuery)"
 
         if let url = URL(string: urlString) {
+#if targetEnvironment(macCatalyst)
+            UIApplication.shared.open(url)
+#else
             presentSafariViewController(url)
+#endif
         }
     }
 
