@@ -8,7 +8,6 @@
 
 import UIKit
 import MessageUI
-import BMKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

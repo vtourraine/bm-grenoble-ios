@@ -9,7 +9,6 @@
 import Foundation
 import WidgetKit
 import SwiftUI
-import BMKit
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {

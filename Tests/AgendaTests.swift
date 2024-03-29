@@ -3,7 +3,7 @@
 //  bmTests
 //
 //  Created by Vincent Tourraine on 11/01/2020.
-//  Copyright © 2020-2021 Studio AMANgA. All rights reserved.
+//  Copyright © 2020-2024 Studio AMANgA. All rights reserved.
 //
 
 import XCTest
@@ -45,7 +45,7 @@ class AgendaTests: XCTestCase {
             XCTAssertEqual(startDate.minute, 30)
             XCTAssertEqual(endDate.hour, 17)
             XCTAssertEqual(endDate.minute, 30)
-        case .day(let dateComponents):
+        case .day:
             XCTFail()
         case .none:
             XCTFail()

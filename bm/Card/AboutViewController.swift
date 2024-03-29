@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import BMKit
 
 class AboutViewController: UIViewController {
 
