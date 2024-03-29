@@ -760,10 +760,10 @@ Grenoble</string>
                             <constraint firstItem="Q4J-SR-PGq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xfZ-dD-61F" secondAttribute="leadingMargin" id="CHV-TS-XeM"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Q4J-SR-PGq" secondAttribute="trailing" id="QeL-DQ-qHf"/>
                             <constraint firstItem="EuJ-AN-7nA" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="jsN-tn-aSG" secondAttribute="bottom" constant="20" id="Xx7-qj-H6F"/>
-                            <constraint firstItem="Wrm-Ew-6EL" firstAttribute="centerY" secondItem="EuJ-AN-7nA" secondAttribute="centerY" priority="999" constant="-140" id="Yu0-Y9-fNX"/>
+                            <constraint firstItem="Wrm-Ew-6EL" firstAttribute="centerY" secondItem="EuJ-AN-7nA" secondAttribute="centerY" priority="998" constant="-140" id="Yu0-Y9-fNX"/>
                             <constraint firstItem="Wrm-Ew-6EL" firstAttribute="centerX" secondItem="EuJ-AN-7nA" secondAttribute="centerX" id="Zxz-9L-SkD"/>
                             <constraint firstItem="jsN-tn-aSG" firstAttribute="centerX" secondItem="EuJ-AN-7nA" secondAttribute="centerX" id="i4k-7C-sja"/>
-                            <constraint firstItem="jsN-tn-aSG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="EuJ-AN-7nA" secondAttribute="top" constant="20" id="lsQ-9Z-La6"/>
+                            <constraint firstItem="jsN-tn-aSG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="EuJ-AN-7nA" secondAttribute="top" priority="999" constant="20" id="lsQ-9Z-La6"/>
                             <constraint firstItem="Q4J-SR-PGq" firstAttribute="centerX" secondItem="EuJ-AN-7nA" secondAttribute="centerX" id="zOX-Vv-qEd"/>
                         </constraints>
                     </view>

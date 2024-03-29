@@ -18,6 +18,7 @@ class CardViewController: UIViewController {
     @IBOutlet var subscriberNumberTextField: UITextField?
 
     var originalScreenBrightness: CGFloat?
+    var currentTextFieldTopConstraint: NSLayoutConstraint?
     let BaseBarCodeLenght = 13
 
     // MARK: - View life cycle
@@ -121,6 +122,26 @@ class CardViewController: UIViewController {
 }
 
 extension CardViewController: UITextFieldDelegate {
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+#if targetEnvironment(macCatalyst)
+        // No need to adjust view to prevent keyboard to hide screen content
+#else
+        UIView.animate(withDuration: 0.3) {
+            self.currentTextFieldTopConstraint = self.formView?.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 20)
+            self.currentTextFieldTopConstraint?.isActive = true
+        }
+#endif
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.3) {
+            self.currentTextFieldTopConstraint?.isActive = false
+            self.currentTextFieldTopConstraint = nil
+        }
+    }
+
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
