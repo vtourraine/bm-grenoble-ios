@@ -3,7 +3,7 @@
 //  bm
 //
 //  Created by Vincent Tourraine on 25/01/2020.
-//  Copyright © 2020-2021 Studio AMANgA. All rights reserved.
+//  Copyright © 2020-2024 Studio AMANgA. All rights reserved.
 //
 
 import UIKit
@@ -162,7 +162,12 @@ class AgendaViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = agendaItems[indexPath.row]
+
+#if targetEnvironment(macCatalyst)
+        UIApplication.shared.open(item.link)
+#else
         presentSafariViewController(item.link, readerMode: true)
+#endif
 
         #if targetEnvironment(macCatalyst)
         tableView.deselectRow(at: indexPath, animated: true)
