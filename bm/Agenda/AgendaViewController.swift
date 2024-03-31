@@ -18,6 +18,7 @@ class AgendaViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        refreshControl?.tintColor = .white
         tableView.dragDelegate = self
 
         if let cachedItems = AgendaItemCache.load(from: .standard) {
