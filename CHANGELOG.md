@@ -9,6 +9,7 @@
 - [x] Fix search query formatting
 - [x] Fix displaying agenda loading errors
 - [ ] Fix agenda pull-to-refresh
+- [ ] Fix keyboard avoidance in search screen
 
 
 ## 1.9

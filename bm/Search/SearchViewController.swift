@@ -24,7 +24,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         super.viewDidLoad()
 
         searchBar?.configureRoundCorners()
-        if let searchBar = searchBar {
+        if let searchBar {
             searchBar.layer.cornerRadius = (searchBar.frame.size.height / 2)
         }
 
@@ -38,19 +38,15 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         searchButton?.titleLabel?.adjustsFontForContentSizeCategory = true
         searchButton?.configureRoundCorners()
 
+        navigationController?.configureCustomAppearance()
+
         closeButton?.configureCloseButton()
 
         let guide = view.readableContentGuide
-        if let searchButton = searchButton {
+        if let searchButton {
             guide.leadingAnchor.constraint(equalTo: searchButton.leadingAnchor).isActive = true
             guide.trailingAnchor.constraint(equalTo: searchButton.trailingAnchor).isActive = true
         }
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        // searchBar?.becomeFirstResponder()
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
