@@ -16,6 +16,7 @@ class CardViewController: UIViewController {
     @IBOutlet var formView: UIView?
     @IBOutlet var saveSubscriberNumberButton: UIButton?
     @IBOutlet var subscriberNumberTextField: UITextField?
+    @IBOutlet var clearButton: UIButton?
 
     var originalScreenBrightness: CGFloat?
     var currentTextFieldTopConstraint: NSLayoutConstraint?
@@ -28,9 +29,12 @@ class CardViewController: UIViewController {
 
         cardParentView?.superview?.configureRoundCorners()
         subscriberNumberTextField?.configureRoundCorners()
+        subscriberNumberTextField?.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         saveSubscriberNumberButton?.configureRoundCorners()
+        clearButton?.configureCloseButton()
 
         configureCard()
+        validateSaveButton(number: "")
 
         navigationController?.configureCustomAppearance()
 
@@ -66,6 +70,18 @@ class CardViewController: UIViewController {
         let isLoggedIn = Credentials.sharedCredentials() != nil
         cardParentView?.superview?.isHidden = !isLoggedIn
         formView?.isHidden = isLoggedIn
+    }
+
+    private func validateSaveButton(number: String) {
+        let isEnabled = isValidSubscriberNumber(number)
+        saveSubscriberNumberButton?.isEnabled = isEnabled
+        saveSubscriberNumberButton?.alpha = isEnabled ? 1 : 0.3
+    }
+
+    private func isValidSubscriberNumber(_ number: String) -> Bool {
+        return (number.count == BaseBarCodeLenght &&
+                number.allSatisfy({ $0.isNumber }) &&
+                number.hasPrefix("01"))
     }
 
     // MARK: - View configuration
@@ -109,8 +125,7 @@ class CardViewController: UIViewController {
     @IBAction func didTapSaveSubscriberNumberButton(_ sender: UIButton?) {
         subscriberNumberTextField?.resignFirstResponder()
         guard let number = subscriberNumberTextField?.text,
-              number.count >= BaseBarCodeLenght,
-              number.allSatisfy({ $0.isNumber }) else {
+              isValidSubscriberNumber(number) else {
             return
         }
 
@@ -118,6 +133,19 @@ class CardViewController: UIViewController {
         try? credentials.save(to: Credentials.defaultKeychain())
         configureCard()
         configureMainView()
+    }
+
+    @IBAction func didTapClearCardButton(_ sender: UIButton?) {
+        try? Credentials.remove(from: Credentials.defaultKeychain())
+        configureMainView()
+    }
+
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        guard let text = textField.text else {
+            return
+        }
+
+        validateSaveButton(number: text)
     }
 }
 

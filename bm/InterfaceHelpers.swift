@@ -116,12 +116,10 @@ extension UIView {
 
 extension UIButton {
     func configureCloseButton() {
-        backgroundColor = .white
+        backgroundColor = .bmRed.withAlphaComponent(0.1)
         tintColor = .BMRed
         setTitleColor(.BMRed, for: .normal)
         layer.cornerRadius = 22
-        layer.borderWidth = UIScreen.main.scale
-        layer.borderColor = UIColor.BMRed.cgColor
 
         if #available(iOS 13.0, *) {
             setTitle(nil, for: .normal)

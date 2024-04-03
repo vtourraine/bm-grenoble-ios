@@ -672,26 +672,44 @@ Grenoble</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsN-tn-aSG" userLabel="Card Super Parent View">
-                                <rect key="frame" x="372" y="393" width="280" height="180"/>
+                                <rect key="frame" x="352" y="393" width="320" height="208"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7cH-2F-cnZ">
-                                        <rect key="frame" x="40" y="40" width="200" height="100"/>
+                                        <rect key="frame" x="60" y="60" width="200" height="100"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="MCe-xM-pDJ"/>
                                             <constraint firstAttribute="width" constant="200" id="ULJ-E4-uMe"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GX5-Ek-qDW">
+                                        <rect key="frame" x="268" y="8" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="Tdr-lm-TG0"/>
+                                            <constraint firstAttribute="height" constant="44" id="vdx-wt-Ht4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="✕">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapClearCardButton:" destination="x0T-HL-1kO" eventType="touchUpInside" id="PeI-IN-OWn"/>
+                                            <action selector="dismiss:" destination="Jvg-U0-YiR" eventType="touchUpInside" id="SgO-ld-HIq"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="7cH-2F-cnZ" secondAttribute="trailing" constant="40" id="cBf-fA-4Oq"/>
-                                    <constraint firstItem="7cH-2F-cnZ" firstAttribute="top" secondItem="jsN-tn-aSG" secondAttribute="top" constant="40" id="fyT-C3-K1L"/>
-                                    <constraint firstItem="7cH-2F-cnZ" firstAttribute="leading" secondItem="jsN-tn-aSG" secondAttribute="leading" constant="40" id="rc5-GF-0jc"/>
-                                    <constraint firstAttribute="bottom" secondItem="7cH-2F-cnZ" secondAttribute="bottom" constant="40" id="yj3-QD-V2e"/>
+                                    <constraint firstItem="7cH-2F-cnZ" firstAttribute="centerX" secondItem="jsN-tn-aSG" secondAttribute="centerX" id="8JP-4t-5Ay"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="GX5-Ek-qDW" secondAttribute="trailing" id="C90-Wz-qYc"/>
+                                    <constraint firstItem="7cH-2F-cnZ" firstAttribute="top" secondItem="GX5-Ek-qDW" secondAttribute="bottom" constant="8" symbolic="YES" id="HnD-5s-su7"/>
+                                    <constraint firstItem="7cH-2F-cnZ" firstAttribute="centerY" secondItem="jsN-tn-aSG" secondAttribute="centerY" constant="6" id="dfa-MI-Cn1"/>
+                                    <constraint firstItem="GX5-Ek-qDW" firstAttribute="leading" secondItem="7cH-2F-cnZ" secondAttribute="trailing" constant="8" symbolic="YES" id="fBT-9T-Yx7"/>
+                                    <constraint firstItem="GX5-Ek-qDW" firstAttribute="top" secondItem="jsN-tn-aSG" secondAttribute="topMargin" id="rqX-63-uhL"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q4J-SR-PGq" userLabel="Form View">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q4J-SR-PGq" userLabel="Form View">
                                 <rect key="frame" x="322" y="392" width="380" height="182.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Numéro d’abonné(e)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Il5-Sp-J4u">
@@ -776,6 +794,7 @@ Grenoble</string>
                     </navigationItem>
                     <connections>
                         <outlet property="cardParentView" destination="7cH-2F-cnZ" id="XeN-cG-v8F"/>
+                        <outlet property="clearButton" destination="GX5-Ek-qDW" id="ezs-pZ-Xh1"/>
                         <outlet property="formView" destination="Q4J-SR-PGq" id="uKt-KC-ztb"/>
                         <outlet property="saveSubscriberNumberButton" destination="eD5-QC-abS" id="53z-dO-IUD"/>
                         <outlet property="subscriberNumberTextField" destination="aTf-Zc-gfL" id="SsN-FP-6G8"/>
@@ -1510,6 +1529,9 @@ Grenoble</string>
         <namedColor name="BMRedBackground">
             <color red="0.9100000262260437" green="0.12200000137090683" blue="0.27500000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
