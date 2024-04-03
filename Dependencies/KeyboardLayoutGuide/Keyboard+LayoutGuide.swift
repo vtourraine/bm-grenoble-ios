@@ -8,26 +8,38 @@
 
 import UIKit
 
-private class Keyboard {
+internal class Keyboard {
     static let shared = Keyboard()
     var currentHeight: CGFloat = 0
 }
 
 extension UIView {
-    private enum AssociatedKeys {
-        static var keyboardLayoutGuide = "keyboardLayoutGuide"
+    private enum Identifiers {
+        static var usingSafeArea = "KeyboardLayoutGuideUsingSafeArea"
+        static var notUsingSafeArea = "KeyboardLayoutGuide"
     }
-    
+
     /// A layout guide representing the inset for the keyboard.
-    /// Use this layout guide’s top anchor to create constraints pinning to the top of the keyboard.
-    public var keyboardLayoutGuide: KeyboardLayoutGuide {
-        if let obj = objc_getAssociatedObject(self, &AssociatedKeys.keyboardLayoutGuide) as? KeyboardLayoutGuide {
-            return obj
+    /// Use this layout guide’s top anchor to create constraints pinning to the top of the keyboard or the bottom of safe area.
+    public var keyboardLayoutGuide: UILayoutGuide {
+        getOrCreateKeyboardLayoutGuide(identifier: Identifiers.usingSafeArea, usesSafeArea: true)
+    }
+
+    /// A layout guide representing the inset for the keyboard.
+    /// Use this layout guide’s top anchor to create constraints pinning to the top of the keyboard or the bottom of the view.
+    public var keyboardLayoutGuideNoSafeArea: UILayoutGuide {
+        getOrCreateKeyboardLayoutGuide(identifier: Identifiers.notUsingSafeArea, usesSafeArea: false)
+    }
+
+    private func getOrCreateKeyboardLayoutGuide(identifier: String, usesSafeArea: Bool) -> UILayoutGuide {
+        if let existing = layoutGuides.first(where: { $0.identifier == identifier }) {
+            return existing
         }
         let new = KeyboardLayoutGuide()
+        new.usesSafeArea = usesSafeArea
+        new.identifier = identifier
         addLayoutGuide(new)
         new.setUp()
-        objc_setAssociatedObject(self, &AssociatedKeys.keyboardLayoutGuide, new as Any, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         return new
     }
 }
@@ -35,28 +47,35 @@ extension UIView {
 open class KeyboardLayoutGuide: UILayoutGuide {
     public var usesSafeArea = true {
         didSet {
-            updateButtomAnchor()
+            updateBottomAnchor()
         }
     }
-    
+
     private var bottomConstraint: NSLayoutConstraint?
-    
+
     @available(*, unavailable)
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     public init(notificationCenter: NotificationCenter = NotificationCenter.default) {
         super.init()
         // Observe keyboardWillChangeFrame notifications
         notificationCenter.addObserver(
             self,
-            selector: #selector(keyboardWillChangeFrame(_:)),
+            selector: #selector(adjustKeyboard(_:)),
             name: UIResponder.keyboardWillChangeFrameNotification,
             object: nil
         )
+        // Observe keyboardWillHide notifications
+        notificationCenter.addObserver(
+            self,
+            selector: #selector(adjustKeyboard(_:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
     }
-    
+
     internal func setUp() {
         guard let view = owningView else { return }
         NSLayoutConstraint.activate(
@@ -66,39 +85,41 @@ open class KeyboardLayoutGuide: UILayoutGuide {
                 rightAnchor.constraint(equalTo: view.rightAnchor),
             ]
         )
-        updateButtomAnchor()
+        updateBottomAnchor()
     }
-    
-    func updateButtomAnchor() {
+
+    func updateBottomAnchor() {
         if let bottomConstraint = bottomConstraint {
             bottomConstraint.isActive = false
         }
-        
+
         guard let view = owningView else { return }
-        
+
         let viewBottomAnchor: NSLayoutYAxisAnchor
         if #available(iOS 11.0, *), usesSafeArea {
             viewBottomAnchor = view.safeAreaLayoutGuide.bottomAnchor
         } else {
             viewBottomAnchor = view.bottomAnchor
         }
-        
+
         bottomConstraint = bottomAnchor.constraint(equalTo: viewBottomAnchor)
         bottomConstraint?.isActive = true
     }
-    
+
     @objc
-    private func keyboardWillChangeFrame(_ note: Notification) {
-        if var height = note.keyboardHeight {
+    private func adjustKeyboard(_ note: Notification) {
+        if var height = note.keyboardHeight, let duration = note.animationDuration {
             if #available(iOS 11.0, *), usesSafeArea, height > 0, let bottom = owningView?.safeAreaInsets.bottom {
                 height -= bottom
             }
             heightConstraint?.constant = height
-            animate(note)
+            if duration > 0.0 {
+                animate(note)
+            }
             Keyboard.shared.currentHeight = height
         }
     }
-    
+
     private func animate(_ note: Notification) {
         if
             let owningView = self.owningView,
@@ -129,13 +150,18 @@ extension Notification {
             return nil
         }
 
-        // https://stackoverflow.com/a/57899013/135712
-        let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+        if name == UIResponder.keyboardWillHideNotification {
+            return 0.0
+        } else {
+            // Weirdly enough UIKeyboardFrameEndUserInfoKey doesn't have the same behaviour
+            // in ios 10 or iOS 11 so we can't rely on v.cgRectValue.width
+            let screenHeight = UIApplication.shared.keyWindow?.bounds.height ?? UIScreen.main.bounds.height
+            return screenHeight - keyboardFrame.cgRectValue.minY
+        }
+    }
 
-        // Weirdly enough UIKeyboardFrameEndUserInfoKey doesn't have the same behaviour
-        // in ios 10 or iOS 11 so we can't rely on v.cgRectValue.width
-        let screenHeight = keyWindow?.bounds.height ?? UIScreen.main.bounds.height
-        return screenHeight - keyboardFrame.cgRectValue.minY
+    var animationDuration: CGFloat? {
+        return self.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? CGFloat
     }
 }
 
