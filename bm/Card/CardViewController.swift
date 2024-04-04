@@ -136,8 +136,15 @@ class CardViewController: UIViewController {
     }
 
     @IBAction func didTapClearCardButton(_ sender: UIButton?) {
-        try? Credentials.remove(from: Credentials.defaultKeychain())
-        configureMainView()
+        let alertController = UIAlertController(title: NSLocalizedString("Remove Subscriber Card?", comment: ""), message: NSLocalizedString("You can always add it again later.", comment: ""), preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Remove Card", comment: ""), style: .destructive) { _ in
+            try? Credentials.remove(from: Credentials.defaultKeychain())
+            self.configureMainView()
+        })
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel))
+        alertController.popoverPresentationController?.sourceView = view
+        alertController.popoverPresentationController?.sourceRect = cardParentView?.superview?.frame ?? .zero
+        present(alertController, animated: true)
     }
 
     @objc func textFieldDidChange(_ textField: UITextField) {
