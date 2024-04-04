@@ -115,16 +115,27 @@ extension UIView {
 }
 
 extension UIButton {
-    func configureCloseButton() {
-        backgroundColor = .bmRed.withAlphaComponent(0.1)
+    func configureXMarkImage() {
+        layer.cornerRadius = 22
         tintColor = .BMRed
         setTitleColor(.BMRed, for: .normal)
-        layer.cornerRadius = 22
 
         if #available(iOS 13.0, *) {
             setTitle(nil, for: .normal)
             setImage(UIImage(systemName: "xmark"), for: .normal)
+            setPreferredSymbolConfiguration(.init(weight: .medium), forImageIn: .normal)
         }
+    }
+    func configureCloseButton() {
+        backgroundColor = .white
+        layer.borderWidth = UIScreen.main.scale
+        layer.borderColor = UIColor.BMRed.cgColor
+        configureXMarkImage()
+    }
+
+    func configureClearButton() {
+        backgroundColor = .bmRed.withAlphaComponent(0.1)
+        configureXMarkImage()
     }
 }
 

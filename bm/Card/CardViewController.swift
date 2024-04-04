@@ -31,7 +31,7 @@ class CardViewController: UIViewController {
         subscriberNumberTextField?.configureRoundCorners()
         subscriberNumberTextField?.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         saveSubscriberNumberButton?.configureRoundCorners()
-        clearButton?.configureCloseButton()
+        clearButton?.configureClearButton()
 
         configureCard()
         validateSaveButton(number: "")
