@@ -67,6 +67,9 @@
 /* Class = "UIButton"; normalTitle = "Enregistrer"; ObjectID = "eD5-QC-abS"; */
 "eD5-QC-abS.normalTitle" = "Enregistrer";
 
+/* Class = "UIButton"; normalTitle = "Annuler"; ObjectID = "JOf-G2-rRs"; */
+"JOf-G2-rRs.normalTitle" = "Annuler";
+
 /* Class = "UIButton"; normalTitle = "Fermer"; ObjectID = "kQi-uG-iqN"; */
 "kQi-uG-iqN.normalTitle" = "Fermer";
 

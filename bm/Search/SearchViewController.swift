@@ -46,6 +46,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         if let searchButton {
             guide.leadingAnchor.constraint(equalTo: searchButton.leadingAnchor).isActive = true
             guide.trailingAnchor.constraint(equalTo: searchButton.trailingAnchor).isActive = true
+            view.keyboardLayoutGuide.topAnchor.constraint(greaterThanOrEqualTo: searchButton.bottomAnchor, constant: 20).isActive = true
         }
     }
 

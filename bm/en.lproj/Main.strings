@@ -62,6 +62,9 @@
 /* Class = "UIButton"; normalTitle = "Enregistrer"; ObjectID = "eD5-QC-abS"; */
 "eD5-QC-abS.normalTitle" = "Save";
 
+/* Class = "UIButton"; normalTitle = "Annuler"; ObjectID = "JOf-G2-rRs"; */
+"JOf-G2-rRs.normalTitle" = "Cancel";
+
 /* Class = "UILabel"; text = "Bibliothèque municipale de Grenoble"; ObjectID = "XSi-YR-LDc"; */
 "XSi-YR-LDc.text" = "Grenoble\nMunicipal\nLibrary";
 

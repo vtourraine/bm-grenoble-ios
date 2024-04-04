@@ -15,11 +15,11 @@ class CardViewController: UIViewController {
     @IBOutlet var cardParentView: UIView?
     @IBOutlet var formView: UIView?
     @IBOutlet var saveSubscriberNumberButton: UIButton?
+    @IBOutlet var cancelSubscriberNumberButton: UIButton?
     @IBOutlet var subscriberNumberTextField: UITextField?
     @IBOutlet var clearButton: UIButton?
 
     var originalScreenBrightness: CGFloat?
-    var currentTextFieldTopConstraint: NSLayoutConstraint?
     let BaseBarCodeLenght = 13
 
     // MARK: - View life cycle
@@ -31,7 +31,13 @@ class CardViewController: UIViewController {
         subscriberNumberTextField?.configureRoundCorners()
         subscriberNumberTextField?.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         saveSubscriberNumberButton?.configureRoundCorners()
+        cancelSubscriberNumberButton?.configureRoundCorners()
+        cancelSubscriberNumberButton?.isHidden = true
         clearButton?.configureClearButton()
+
+        if let saveSubscriberNumberButton {
+            view.keyboardLayoutGuide.topAnchor.constraint(greaterThanOrEqualTo: saveSubscriberNumberButton.bottomAnchor, constant: 20).isActive = true
+        }
 
         configureCard()
         validateSaveButton(number: "")
@@ -147,6 +153,10 @@ class CardViewController: UIViewController {
         present(alertController, animated: true)
     }
 
+    @IBAction func didTapCancelSubscriberNumberButton(_ sender: UIButton?) {
+        subscriberNumberTextField?.resignFirstResponder()
+    }
+
     @objc func textFieldDidChange(_ textField: UITextField) {
         guard let text = textField.text else {
             return
@@ -162,18 +172,12 @@ extension CardViewController: UITextFieldDelegate {
 #if targetEnvironment(macCatalyst)
         // No need to adjust view to prevent keyboard to hide screen content
 #else
-        UIView.animate(withDuration: 0.3) {
-            self.currentTextFieldTopConstraint = self.formView?.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 20)
-            self.currentTextFieldTopConstraint?.isActive = true
-        }
+        cancelSubscriberNumberButton?.isHidden = false
 #endif
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        UIView.animate(withDuration: 0.3) {
-            self.currentTextFieldTopConstraint?.isActive = false
-            self.currentTextFieldTopConstraint = nil
-        }
+        cancelSubscriberNumberButton?.isHidden = true
     }
 
 

@@ -671,7 +671,7 @@ Grenoble</string>
                                     <constraint firstItem="Y96-q8-d4L" firstAttribute="top" secondItem="Qf9-jg-ImT" secondAttribute="bottom" constant="-45" id="zId-xK-aYR"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsN-tn-aSG" userLabel="Card Super Parent View">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsN-tn-aSG" userLabel="Card Super Parent View">
                                 <rect key="frame" x="352" y="393" width="320" height="208"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7cH-2F-cnZ">
@@ -709,7 +709,7 @@ Grenoble</string>
                                     <constraint firstItem="GX5-Ek-qDW" firstAttribute="top" secondItem="jsN-tn-aSG" secondAttribute="topMargin" id="rqX-63-uhL"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q4J-SR-PGq" userLabel="Form View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q4J-SR-PGq" userLabel="Form View">
                                 <rect key="frame" x="322" y="392" width="380" height="182.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Numéro d’abonné(e)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Il5-Sp-J4u">
@@ -751,13 +751,31 @@ Grenoble</string>
                                             <action selector="didTapSaveSubscriberNumberButton:" destination="x0T-HL-1kO" eventType="touchUpInside" id="PC6-en-RIU"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JOf-G2-rRs">
+                                        <rect key="frame" x="277" y="138.5" width="103" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="YZL-2n-4mk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                        <state key="normal" title="Annuler">
+                                            <color key="titleColor" name="BMRed"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapCancelSubscriberNumberButton:" destination="x0T-HL-1kO" eventType="touchUpInside" id="PJ3-Oy-Ndn"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Il5-Sp-J4u" firstAttribute="leading" secondItem="Q4J-SR-PGq" secondAttribute="leading" id="2uy-yp-6dY"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="8h3-P4-syj"/>
+                                    <constraint firstAttribute="trailing" secondItem="JOf-G2-rRs" secondAttribute="trailing" id="E8X-OW-AWv"/>
                                     <constraint firstItem="eD5-QC-abS" firstAttribute="leading" secondItem="dCS-hY-ukW" secondAttribute="leading" id="FW6-ei-1cc"/>
                                     <constraint firstAttribute="trailing" secondItem="aTf-Zc-gfL" secondAttribute="trailing" id="IRP-Pb-OMf"/>
                                     <constraint firstItem="aTf-Zc-gfL" firstAttribute="top" secondItem="Il5-Sp-J4u" secondAttribute="bottom" constant="12" id="MWD-pJ-eWf"/>
+                                    <constraint firstItem="JOf-G2-rRs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eD5-QC-abS" secondAttribute="trailing" constant="8" symbolic="YES" id="R2S-Nr-hQq"/>
+                                    <constraint firstAttribute="bottom" secondItem="JOf-G2-rRs" secondAttribute="bottom" id="RNs-QT-Ph0"/>
                                     <constraint firstItem="dCS-hY-ukW" firstAttribute="leading" secondItem="Q4J-SR-PGq" secondAttribute="leading" id="Si2-Rt-49d"/>
                                     <constraint firstItem="aTf-Zc-gfL" firstAttribute="leading" secondItem="Q4J-SR-PGq" secondAttribute="leading" id="V9G-yU-99C"/>
                                     <constraint firstItem="eD5-QC-abS" firstAttribute="top" secondItem="dCS-hY-ukW" secondAttribute="bottom" constant="20" id="YOZ-uk-6yp"/>
@@ -793,6 +811,7 @@ Grenoble</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelSubscriberNumberButton" destination="JOf-G2-rRs" id="45L-rV-SS6"/>
                         <outlet property="cardParentView" destination="7cH-2F-cnZ" id="XeN-cG-v8F"/>
                         <outlet property="clearButton" destination="GX5-Ek-qDW" id="ezs-pZ-Xh1"/>
                         <outlet property="formView" destination="Q4J-SR-PGq" id="uKt-KC-ztb"/>
@@ -987,9 +1006,10 @@ Grenoble</string>
                             <constraint firstItem="ZMV-jO-85Z" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QsP-Rc-Dt1" secondAttribute="trailing" id="1ze-HM-JP6"/>
                             <constraint firstItem="Reo-Q7-eVd" firstAttribute="centerX" secondItem="ZMV-jO-85Z" secondAttribute="centerX" id="2p0-tR-co0"/>
                             <constraint firstItem="Reo-Q7-eVd" firstAttribute="leading" secondItem="ZMV-jO-85Z" secondAttribute="leading" priority="750" constant="40" id="Rm2-mK-sq7"/>
+                            <constraint firstItem="Reo-Q7-eVd" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ZMV-jO-85Z" secondAttribute="top" constant="8" id="ZuY-pD-EPu"/>
                             <constraint firstItem="QsP-Rc-Dt1" firstAttribute="leading" secondItem="Reo-Q7-eVd" secondAttribute="leading" id="cO5-2w-r6x"/>
-                            <constraint firstItem="QsP-Rc-Dt1" firstAttribute="top" secondItem="Reo-Q7-eVd" secondAttribute="bottom" constant="40" id="kPL-V6-W3X"/>
-                            <constraint firstItem="Reo-Q7-eVd" firstAttribute="centerY" secondItem="ZMV-jO-85Z" secondAttribute="centerY" constant="-60" id="wus-Lc-nd3"/>
+                            <constraint firstItem="QsP-Rc-Dt1" firstAttribute="top" secondItem="Reo-Q7-eVd" secondAttribute="bottom" priority="999" constant="40" id="kPL-V6-W3X"/>
+                            <constraint firstItem="Reo-Q7-eVd" firstAttribute="centerY" secondItem="ZMV-jO-85Z" secondAttribute="centerY" priority="750" constant="-60" id="wus-Lc-nd3"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="ZFQ-8t-Drr" appends="YES" id="DwA-Qd-L6u"/>
