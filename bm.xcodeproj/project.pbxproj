@@ -10,7 +10,6 @@
 		BB12181326979A5100FE050B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB12181526979A5100FE050B /* Localizable.strings */; };
 		BB4AA3FB28C68DE5006DE4AE /* DigitalLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4AA3FA28C68DE5006DE4AE /* DigitalLibraryViewController.swift */; };
 		BB8CEA252BB4C00A0092ED87 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8CEA242BB4C00A0092ED87 /* NavigationController.swift */; };
-		BBBC736C281E7BA800B32C31 /* SwiftMessages in Frameworks */ = {isa = PBXBuildFile; productRef = BBBC736B281E7BA800B32C31 /* SwiftMessages */; };
 		D70212C722F0E43C00E3972E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70212C622F0E43C00E3972E /* AppDelegate.swift */; };
 		D70212CC22F0E43C00E3972E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D70212CA22F0E43C00E3972E /* Main.storyboard */; };
 		D70212CE22F0E43E00E3972E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D70212CD22F0E43E00E3972E /* Assets.xcassets */; };
@@ -141,7 +140,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D71F32AB24D8B303002526CD /* KeychainAccess in Frameworks */,
-				BBBC736C281E7BA800B32C31 /* SwiftMessages in Frameworks */,
 				D7697DF323CB5DE100010011 /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,13 +353,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				D794D599241BAE0700208C05 /* PBXTargetDependency */,
 			);
 			name = "BM Grenoble";
 			packageProductDependencies = (
 				D7697DF223CB5DE100010011 /* AlamofireImage */,
 				D71F32AA24D8B303002526CD /* KeychainAccess */,
-				BBBC736B281E7BA800B32C31 /* SwiftMessages */,
 			);
 			productName = bm;
 			productReference = D70212C322F0E43C00E3972E /* BM Grenoble.app */;
@@ -442,7 +438,6 @@
 			packageReferences = (
 				D7697DF123CB5DE100010011 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
 				D71F32A924D8B303002526CD /* XCRemoteSwiftPackageReference "KeychainAccess" */,
-				BBBC736A281E7BA800B32C31 /* XCRemoteSwiftPackageReference "SwiftMessages" */,
 			);
 			productRefGroup = D70212C422F0E43C00E3972E /* Products */;
 			projectDirPath = "";
@@ -574,10 +569,6 @@
 			isa = PBXTargetDependency;
 			target = D70212C222F0E43C00E3972E /* BM Grenoble */;
 			targetProxy = D786E6E622F194EC00AD1D36 /* PBXContainerItemProxy */;
-		};
-		D794D599241BAE0700208C05 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = D794D598241BAE0700208C05 /* BMKit */;
 		};
 /* End PBXTargetDependency section */
 
@@ -979,14 +970,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BBBC736A281E7BA800B32C31 /* XCRemoteSwiftPackageReference "SwiftMessages" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftKickMobile/SwiftMessages.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
-			};
-		};
 		D71F32A924D8B303002526CD /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
@@ -1006,11 +989,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BBBC736B281E7BA800B32C31 /* SwiftMessages */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BBBC736A281E7BA800B32C31 /* XCRemoteSwiftPackageReference "SwiftMessages" */;
-			productName = SwiftMessages;
-		};
 		D71F32AA24D8B303002526CD /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D71F32A924D8B303002526CD /* XCRemoteSwiftPackageReference "KeychainAccess" */;
@@ -1030,10 +1008,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D7697DF123CB5DE100010011 /* XCRemoteSwiftPackageReference "AlamofireImage" */;
 			productName = AlamofireImage;
-		};
-		D794D598241BAE0700208C05 /* BMKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = BMKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

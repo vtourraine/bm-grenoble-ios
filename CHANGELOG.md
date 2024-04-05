@@ -6,6 +6,7 @@
 - [x] Move My Card screen to tab bar
 - [x] Move about screen
 - [x] Update aganda sync (from RSS to API)
+- [x] Simplify alert messages
 - [x] Fix search query formatting
 - [x] Fix displaying agenda loading errors
 - [ ] Fix agenda pull-to-refresh

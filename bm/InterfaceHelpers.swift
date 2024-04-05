@@ -8,7 +8,6 @@
 
 import UIKit
 import SafariServices
-import SwiftMessages
 
 class NavigationController: UINavigationController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -37,58 +36,18 @@ class UITextFieldPadding : UITextField {
 }
 
 extension UIViewController {
-    func presentInfo(_ text: String?, details: String? = nil) {
-        guard let text else {
-            SwiftMessages.hide()
-            return
-        }
-
-        let message = MessageView.viewFromNib(layout: .statusLine)
-        message.configureTheme(.info)
-        if let details {
-            message.configureContent(title: text, body: details)
-        }
-        else {
-            message.configureContent(body: text)
-        }
-
-        if #available(iOS 13.0, *) {
-            message.backgroundColor = .systemBackground
-        }
-        message.button?.isHidden = true
-
-        var config = SwiftMessages.Config()
-        config.duration = .forever
-        config.presentationStyle = .bottom
-
-        SwiftMessages.show(config: config, view: message)
-    }
-
-    func presentError(title: String, body: String, theme: Theme = .error) {
-        let message = MessageView.viewFromNib(layout: .messageView)
-        message.configureTheme(theme)
-        if theme == .error {
-            message.backgroundColor = .BMRed
-        }
-        else if theme == .warning {
-            message.backgroundColor = .systemOrange
-        }
-        message.configureContent(title: title, body: body)
-        message.button?.isHidden = true
-
-        var config = SwiftMessages.Config()
-        config.duration = .seconds(seconds: 10)
-        config.presentationStyle = .bottom
-
-        SwiftMessages.show(config: config, view: message)
+    func presentError(title: String, body: String) {
+        let alert = UIAlertController(title: title, message: body, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel))
+        present(alert, animated: true)
     }
     
-    func presentError(_ error: Error?, theme: Theme = .error, title: String = NSLocalizedString("Error", comment: "")) {
+    func presentError(_ error: Error?, title: String = NSLocalizedString("Error", comment: "")) {
         presentError(title: title, body: error?.localizedDescription ?? "")
     }
     
     func presentLoadingError(_ error: Error?) {
-        presentError(error, theme: .warning, title: NSLocalizedString("Connection Error", comment: ""))
+        presentError(error, title: NSLocalizedString("Connection Error", comment: ""))
     }
 
     func presentSafariViewController(_ webpageURL: URL, readerMode: Bool = false) {
