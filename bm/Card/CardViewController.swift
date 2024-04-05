@@ -61,14 +61,18 @@ class CardViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        originalScreenBrightness = UIScreen.main.brightness
-        UIScreen.main.brightness = 1
+        let isLoggedIn = Credentials.sharedCredentials() != nil
+        if isLoggedIn {
+            originalScreenBrightness = UIScreen.main.brightness
+            UIScreen.main.brightness = 1
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if let brightness = originalScreenBrightness {
-            UIScreen.main.brightness = brightness
+
+        if let originalScreenBrightness {
+            UIScreen.main.brightness = originalScreenBrightness
         }
     }
 
