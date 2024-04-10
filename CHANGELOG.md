@@ -2,14 +2,15 @@
 
 ## 2.0
 
-- [x] Remove loans tab
-- [x] Move My Card screen to tab bar
-- [x] Move about screen
-- [x] Update aganda sync (from RSS to API)
-- [x] Simplify alert messages
-- [x] Fix search query formatting
-- [x] Fix displaying agenda loading errors
-- [ ] Fix agenda pull-to-refresh
+2024-04-10
+
+- **Remove loans tab**
+- Move My Card screen to tab bar
+- Move about screen
+- Update aganda sync (from RSS to API)
+- Simplify alert messages
+- Fix search query formatting
+- Fix displaying agenda loading errors
 
 
 ## 1.9
