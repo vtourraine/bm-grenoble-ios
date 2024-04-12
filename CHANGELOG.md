@@ -1,5 +1,10 @@
 # BM Grenoble
 
+## 2.0.1
+
+- [x] Add events to calendar
+
+
 ## 2.0
 
 2024-04-10

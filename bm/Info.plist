@@ -41,6 +41,10 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Add events to your calendar.</string>
+	<key>NSCalendarsWriteOnlyAccessUsageDescription</key>
+	<string>Add events to your calendar.</string>
 	<key>NSLocationUsageDescription</key>
 	<string>Display user location on libraries map</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
