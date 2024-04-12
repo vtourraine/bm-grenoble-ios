@@ -2,7 +2,7 @@
 
 ## 2.0.1
 
-- [x] Add events to calendar (iOS, iPadOS)
+- [x] Add events to calendar
 
 
 ## 2.0

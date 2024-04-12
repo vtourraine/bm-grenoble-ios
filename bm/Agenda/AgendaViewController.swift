@@ -233,11 +233,13 @@ class AgendaViewController: UITableViewController {
         children.append(UIAction(title: NSLocalizedString("Open in Browser", comment: ""), image: UIImage(systemName: "safari")) { (action) in
             UIApplication.shared.open(item.link, options: [:], completionHandler: nil)
         })
-
-        children.append(UIAction(title: NSLocalizedString("Add to Calendar", comment: ""), image: UIImage(systemName: "calendar.badge.plus")) { (action) in
-            self.addToCalendar(item)
-        })
 #endif
+
+        if #available(iOS 4.0, macCatalyst 13.1, *) {
+            children.append(UIAction(title: NSLocalizedString("Add to Calendar", comment: ""), image: UIImage(systemName: "calendar.badge.plus")) { (action) in
+                self.addToCalendar(item)
+            })
+        }
 
         children.append(UIAction(title: NSLocalizedString("Share", comment: ""), image: UIImage(systemName: "square.and.arrow.up")) { (action) in
             let viewController = UIActivityViewController(activityItems: [item.link], applicationActivities: nil)
