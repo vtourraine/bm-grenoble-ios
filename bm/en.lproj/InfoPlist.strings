@@ -3,10 +3,14 @@
   bm
 
   Created by Vincent Tourraine on 10/10/2019.
-  Copyright © 2019 Studio AMANgA. All rights reserved.
+  Copyright © 2019-2024 Studio AMANgA. All rights reserved.
 */
 
-"CFBundleDisplayName" = "Library";
-"CFBundleName" = "Library";
-"NSLocationWhenInUseUsageDescription" = "Display your location on the libraries map.";
-"NSLocationUsageDescription" = "Display your location on the libraries map.";
+CFBundleDisplayName = "Library";
+CFBundleName = "Library";
+
+NSLocationWhenInUseUsageDescription = "Display your location on the libraries map.";
+NSLocationUsageDescription = "Display your location on the libraries map.";
+
+NSCalendarsUsageDescription = "The app can then add this event to your calendar.";
+NSCalendarsWriteOnlyAccessUsageDescription = "The app can then add this event to your calendar.";

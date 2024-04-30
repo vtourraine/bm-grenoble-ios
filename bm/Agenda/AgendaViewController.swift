@@ -8,12 +8,14 @@
 
 import UIKit
 import MobileCoreServices
+import EventKitUI
 
 class AgendaViewController: UITableViewController {
 
     var agendaItems = [AgendaItem]()
     var isFirstLaunch = true
     var filterTitle: String?
+    lazy var eventStore = EKEventStore()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -142,6 +144,52 @@ class AgendaViewController: UITableViewController {
         updateFilterButton()
     }
 
+    func addToCalendar(_ item: AgendaItem) {
+        let grantAccessCompletion: EKEventStoreRequestAccessCompletionHandler = { granted, error in
+            DispatchQueue.main.async {
+                if granted {
+                    self.presentAddToCalendarViewController(item)
+                }
+                else {
+                    self.presentError(error, title: NSLocalizedString("Cannot Add Event", comment: ""))
+                }
+            }
+        }
+
+        switch EKEventStore.authorizationStatus(for: .event) {
+        case .notDetermined:
+            if #available(iOS 17.0, *) {
+                eventStore.requestWriteOnlyAccessToEvents(completion: grantAccessCompletion)
+            }
+            else {
+                eventStore.requestAccess(to: .event, completion: grantAccessCompletion)
+            }
+        case .restricted, .denied:
+            presentError(title: NSLocalizedString("Cannot Add Event", comment: ""), body: NSLocalizedString("Please authorize calendar access in Settings.", comment: ""))
+        case .authorized, .fullAccess, .writeOnly:
+            presentAddToCalendarViewController(item)
+        @unknown default:
+            break
+        }
+    }
+
+    func presentAddToCalendarViewController(_ item: AgendaItem) {
+        let viewController = EKEventEditViewController()
+        viewController.editViewDelegate = self
+        let event = EKEvent(eventStore: eventStore)
+        event.title = item.title
+        event.notes = item.summary
+        event.location = item.library
+        event.url = item.link
+        if case let .range(startDate, endDate) = item.date {
+            let calendar = Calendar.current
+            event.startDate = calendar.date(from: startDate)
+            event.endDate = calendar.date(from: endDate)
+        }
+        viewController.event = event
+        present(viewController, animated: true)
+    }
+
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -175,26 +223,27 @@ class AgendaViewController: UITableViewController {
     @available(iOS 13.0, *)
     override func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         let item = agendaItems[indexPath.row]
+        var children = [UIMenuElement]()
 
-        #if targetEnvironment(macCatalyst)
-        #else
-        let openInBrowserAction = UIAction(title: NSLocalizedString("Open in Browser", comment: ""), image: UIImage(systemName: "safari")) { (action) in
+#if targetEnvironment(macCatalyst)
+#else
+        children.append(UIAction(title: NSLocalizedString("Open in Browser", comment: ""), image: UIImage(systemName: "safari")) { (action) in
             UIApplication.shared.open(item.link, options: [:], completionHandler: nil)
-        }
-        #endif
+        })
+#endif
 
-        let shareAction = UIAction(title: NSLocalizedString("Share", comment: ""), image: UIImage(systemName: "square.and.arrow.up")) { (action) in
+        if #available(iOS 4.0, macCatalyst 13.1, *) {
+            children.append(UIAction(title: NSLocalizedString("Add to Calendar", comment: ""), image: UIImage(systemName: "calendar.badge.plus")) { (action) in
+                self.addToCalendar(item)
+            })
+        }
+
+        children.append(UIAction(title: NSLocalizedString("Share", comment: ""), image: UIImage(systemName: "square.and.arrow.up")) { (action) in
             let viewController = UIActivityViewController(activityItems: [item.link], applicationActivities: nil)
             viewController.popoverPresentationController?.sourceView = tableView
             viewController.popoverPresentationController?.sourceRect = tableView.rectForRow(at: indexPath)
             self.present(viewController, animated: true, completion: nil)
-        }
-
-        #if targetEnvironment(macCatalyst)
-        let children = [shareAction]
-        #else
-        let children = [openInBrowserAction, shareAction]
-        #endif
+        })
 
         let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: { _ -> UIMenu? in
             return UIMenu(title: "", children: children)
@@ -212,5 +261,11 @@ extension AgendaViewController: UITableViewDragDelegate {
         let item = agendaItems[indexPath.row]
         let itemProvider = NSItemProvider(item: item.link as NSURL, typeIdentifier: kUTTypeURL as String)
         return [UIDragItem(itemProvider: itemProvider)]
+    }
+}
+
+extension AgendaViewController: EKEventEditViewDelegate {
+    func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
+            dismiss(animated: true, completion: nil)
     }
 }

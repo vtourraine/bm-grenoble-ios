@@ -3,6 +3,7 @@
 ## 2.0.1
 
 - [x] Improve links opening on macOS
+- [x] Add events to calendar
 
 
 ## 2.0
