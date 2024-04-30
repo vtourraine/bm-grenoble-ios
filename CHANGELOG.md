@@ -2,8 +2,9 @@
 
 ## 2.0.1
 
-- [x] Improve links opening on macOS
 - [x] Add events to calendar
+- [x] Update libraries opening hours
+- [x] Improve links opening on macOS
 
 
 ## 2.0
