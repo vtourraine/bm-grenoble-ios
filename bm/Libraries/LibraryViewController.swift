@@ -55,7 +55,7 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
             websiteImageView?.image = UIImage(systemName: "safari")
         }
 
-        if let library = library {
+        if let library {
             configure(with: library)
         }
         
@@ -138,13 +138,11 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
     }
 }
 
-import MessageUI
-
 // MARK: - Actions
-extension LibraryViewController: MFMailComposeViewControllerDelegate {
+extension LibraryViewController {
 
     @IBAction func reframeMap(_ sender: Any?) {
-        guard let library = library else {
+        guard let library else {
             return
         }
 
@@ -170,7 +168,7 @@ extension LibraryViewController: MFMailComposeViewControllerDelegate {
     }
 
     @IBAction func openInMaps(_ sender: Any?) {
-        guard let library = library else {
+        guard let library else {
             return
         }
 
@@ -181,7 +179,7 @@ extension LibraryViewController: MFMailComposeViewControllerDelegate {
     }
 
     @IBAction func call(_ sender: Any?) {
-        guard let library = library,
+        guard let library,
             let phoneURL = URL(string: "tel://\(library.phoneNumber.replacingOccurrences(of: " ", with: ""))") else {
             return
         }
@@ -190,37 +188,23 @@ extension LibraryViewController: MFMailComposeViewControllerDelegate {
     }
 
     @IBAction func composeMail(_ sender: Any?) {
-        guard let library = library else {
+        guard let library, let url = URL(string: "mailto:\(library.mailAddress)") else {
             return
         }
 
-        guard MFMailComposeViewController.canSendMail() else {
-            let alertController = UIAlertController(title: library.mailAddress, message: nil, preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: nil))
-            present(alertController, animated: true, completion: nil)
-            return
-        }
-
-        let viewController = MFMailComposeViewController()
-        viewController.setToRecipients([library.mailAddress])
-        viewController.mailComposeDelegate = self
-
-        present(viewController, animated: true, completion: nil)
+        UIApplication.shared.open(url)
     }
 
     @IBAction func openWebsite(_ sender: Any?) {
-        guard let library = library,
-            let webpageURL = URL(string: library.webpage) else {
+        guard let library, let webpageURL = URL(string: library.webpage) else {
             return
         }
 
+#if targetEnvironment(macCatalyst)
+        UIApplication.shared.open(webpageURL)
+#else
         presentSafariViewController(webpageURL)
-    }
-
-    // Mail compose view controller delegate
-
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
+#endif
     }
 }
 

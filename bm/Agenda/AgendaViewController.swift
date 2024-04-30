@@ -166,13 +166,10 @@ class AgendaViewController: UITableViewController {
 
 #if targetEnvironment(macCatalyst)
         UIApplication.shared.open(item.link)
+        tableView.deselectRow(at: indexPath, animated: true)
 #else
         presentSafariViewController(item.link, readerMode: true)
 #endif
-
-        #if targetEnvironment(macCatalyst)
-        tableView.deselectRow(at: indexPath, animated: true)
-        #endif
     }
 
     @available(iOS 13.0, *)

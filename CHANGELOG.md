@@ -1,5 +1,10 @@
 # BM Grenoble
 
+## 2.0.1
+
+- [x] Improve links opening on macOS
+
+
 ## 2.0
 
 2024-04-10
