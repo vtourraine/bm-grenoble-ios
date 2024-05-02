@@ -2,9 +2,11 @@
 
 ## 2.0.1
 
-- [x] Add events to calendar
-- [x] Update libraries opening hours
-- [x] Improve links opening on macOS
+2024-05-02
+
+- Add events to calendar
+- Update libraries opening hours
+- Improve links opening on macOS
 
 
 ## 2.0
