@@ -1,5 +1,11 @@
 # BM Grenoble
 
+## 2.1
+
+- [ ] New library names
+  - https://www.grenobleencommun.fr/des-noms-de-bibliotheques-a-limage-des-valeurs-grenobloises-feminisme-et-democratie-participative/
+
+
 ## 2.0.1
 
 2024-05-02
