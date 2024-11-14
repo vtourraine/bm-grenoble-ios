@@ -184,7 +184,7 @@ Ouverture de l’espace presse aux horaires du Patio.</string>
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Bibliothèque Eaux-Claires Mistral</string>
+			<string>Bibliothèque Chantal Mauduit (Eaux-Claires Mistral)</string>
 			<key>webpage</key>
 			<string>https://bm-grenoble.fr/bib-eaux-claires-mistral.aspx</string>
 			<key>openingTime</key>
@@ -194,12 +194,12 @@ Jeudi : 9h - 12h
 Vendredi : 13h - 18h30
 Samedi : 10h - 13h / 14h - 18h</string>
 			<key>latitude</key>
-			<real>45.1755315</real>
+			<real>45.173</real>
 			<key>longitude</key>
-			<real>5.7091272</real>
+			<real>5.706</real>
 			<key>address</key>
-			<string>49 Rue des Eaux Claires
-38100 Grenoble</string>
+			<string>74 Rue Anatole France
+38000 Grenoble</string>
 			<key>phoneNumber</key>
 			<string>04 76 21 25 28</string>
 			<key>mailAddress</key>

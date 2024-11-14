@@ -6,6 +6,11 @@
   - https://www.grenobleencommun.fr/des-noms-de-bibliotheques-a-limage-des-valeurs-grenobloises-feminisme-et-democratie-participative/
 
 
+## 2.0.2
+
+- [x] New name and location for Bibliothèque Chantal Mauduit - Eaux-Claires Mistral
+
+
 ## 2.0.1
 
 2024-05-02
