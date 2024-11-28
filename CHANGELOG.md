@@ -6,9 +6,17 @@
   - https://www.grenobleencommun.fr/des-noms-de-bibliotheques-a-limage-des-valeurs-grenobloises-feminisme-et-democratie-participative/
 
 
+## 2.0.3
+
+- [x] Update libraries opening hours
+
+
 ## 2.0.2
 
-- [x] New name and location for Bibliothèque Chantal Mauduit - Eaux-Claires Mistral
+2024-11-16
+
+- Optimized for iOS 18, iPadOS 18, and macOS 15
+- New name and location for Bibliothèque Chantal Mauduit - Eaux-Claires Mistral
 
 
 ## 2.0.1

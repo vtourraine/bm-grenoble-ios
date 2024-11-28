@@ -39,10 +39,10 @@ Vacances scolaires : du mardi au samedi de 13h à 18h</string>
 			<key>webpage</key>
 			<string>https://bm-grenoble.fr/bibliotheque.aspx</string>
 			<key>openingTime</key>
-			<string>Mardi : 17h - 19h
+			<string>Mardi : 16h - 19h
 Mercredi : 13h - 18h
-Jeudi : 17h - 19h
-Vendredi : 17h - 19h
+Jeudi : 16h - 19h
+Vendredi : 16h - 19h
 Samedi : 10h - 13h / 14h - 17h
 
 Vacances scolaires : 
@@ -259,7 +259,7 @@ Samedi : 10h - 13h / 14h - 18h</string>
 			<key>webpage</key>
 			<string>https://bm-grenoble.fr/bibliotheque-saint-bruno.aspx</string>
 			<key>openingTime</key>
-			<string>La bibliothèque Saint-Bruno ferme temporairement ses portes du 20 avril à fin octobre 2024 dans le cadre de sa rénovation complète.</string>
+			<string>La bibliothèque Saint-Bruno ferme temporairement ses portes du 20 avril à mai 2025 dans le cadre de sa rénovation complète.</string>
 			<key>latitude</key>
 			<real>45.1877699</real>
 			<key>longitude</key>
