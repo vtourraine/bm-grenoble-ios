@@ -7,6 +7,19 @@
     <generator>Trackup</generator>
     <atom:link href="/releasenotes.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>2.0.3</title>
+      <description>• Update libraries opening hours</description>
+      <pubDate>Wed, 04 Dec 2024 00:00:00 GMT</pubDate>
+      <guid>/2.0.3</guid>
+    </item>
+    <item>
+      <title>2.0.2</title>
+      <description>• Optimized for iOS 18, iPadOS 18, and macOS 15
+• New name and location for Bibliothèque Chantal Mauduit - Eaux-Claires Mistral</description>
+      <pubDate>Sat, 16 Nov 2024 00:00:00 GMT</pubDate>
+      <guid>/2.0.2</guid>
+    </item>
+    <item>
       <title>2.0.1</title>
       <description>• Add events to calendar
 • Update libraries opening hours

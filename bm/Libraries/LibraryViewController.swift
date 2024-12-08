@@ -114,7 +114,18 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
     }
 
     func configure(with library: Library) {
+#if targetEnvironment(macCatalyst)
+        if let previousName = library.previousName {
+            title = library.name + " • " + previousName
+        }
+        else {
+            title = library.name
+        }
+#else
         title = library.name
+        navigationItem.setTitle(library.name, subtitle: library.previousName)
+#endif
+
         openingTimeLabel?.text = library.openingTime
         addressLabel?.text = library.address
         addressAccessibilityLabel?.text = library.accessibility ? NSLocalizedString("♿︎ Accessible PMR", comment: "") : nil

@@ -2,13 +2,14 @@
 
 ## 2.1
 
-- [ ] New library names
-  - https://www.grenobleencommun.fr/des-noms-de-bibliotheques-a-limage-des-valeurs-grenobloises-feminisme-et-democratie-participative/
+- [x] New library names
 
 
 ## 2.0.3
 
-- [x] Update libraries opening hours
+2024-12-04
+
+- Update libraries opening hours
 
 
 ## 2.0.2

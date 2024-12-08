@@ -25,3 +25,34 @@ extension UINavigationController {
         }
     }
 }
+
+extension UINavigationItem {
+    func setTitle(_ title: String, subtitle: String?) {
+        guard let subtitle else {
+            self.titleView = nil
+            return
+        }
+
+        let textColor = UIColor.white
+
+        let titleLabel = UILabel()
+        titleLabel.text = title
+        titleLabel.font = .preferredFont(forTextStyle: .headline)
+        titleLabel.textColor = textColor
+        titleLabel.adjustsFontForContentSizeCategory = true
+
+        let subtitleLabel = UILabel()
+        subtitleLabel.text = subtitle
+        subtitleLabel.font = .preferredFont(forTextStyle: .subheadline)
+        subtitleLabel.textColor = textColor
+        subtitleLabel.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+        subtitleLabel.adjustsFontForContentSizeCategory = true
+
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, subtitleLabel])
+        stackView.distribution = .equalCentering
+        stackView.alignment = .center
+        stackView.axis = .vertical
+
+        self.titleView = stackView
+    }
+}

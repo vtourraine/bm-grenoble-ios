@@ -87,7 +87,9 @@ Du mardi au vendredi : 9h - 18h</string>
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Bibliothèque Abbaye-les-Bains</string>
+			<string>Bibliothèque Mimi Mingat-Lerme</string>
+            <key>previousName</key>
+            <string>Abbaye-les-Bains</string>
 			<key>webpage</key>
 			<string>https://bm-grenoble.fr/bib-abbaye-les-bains.aspx</string>
 			<key>openingTime</key>
@@ -112,7 +114,9 @@ Samedi : 10h - 13h / 14h - 18h</string>
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Bibliothèque Alliance</string>
+			<string>Bibliothèque Les Munitionnettes</string>
+            <key>previousName</key>
+            <string>Alliance</string>
 			<key>webpage</key>
 			<string>https://bm-grenoble.fr/bib-alliance.aspx</string>
 			<key>openingTime</key>
@@ -136,7 +140,9 @@ Samedi : 10h - 13h / 14h - 18h</string>
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Bibliothèque Arlequin</string>
+			<string>Bibliothèque Colombine</string>
+            <key>previousName</key>
+            <string>Arlequin</string>
 			<key>webpage</key>
 			<string>https://bm-grenoble.fr/bib-arlequin.aspx</string>
 			<key>openingTime</key>
@@ -184,7 +190,9 @@ Ouverture de l’espace presse aux horaires du Patio.</string>
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Bibliothèque Chantal Mauduit (Eaux-Claires Mistral)</string>
+			<string>Bibliothèque Chantal Mauduit</string>
+            <key>previousName</key>
+            <string>Eaux-Claires Mistral</string>
 			<key>webpage</key>
 			<string>https://bm-grenoble.fr/bib-eaux-claires-mistral.aspx</string>
 			<key>openingTime</key>
@@ -209,7 +217,9 @@ Samedi : 10h - 13h / 14h - 18h</string>
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Bibliothèque Jardin de ville</string>
+			<string>Bibliothèque Mafalda</string>
+            <key>previousName</key>
+            <string>Jardin de ville</string>
 			<key>webpage</key>
 			<string>https://bm-grenoble.fr/bibliotheque-jardin-de-ville.aspx</string>
 			<key>openingTime</key>
@@ -255,7 +265,9 @@ Samedi : 10h - 13h / 14h - 18h</string>
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Bibliothèque Saint-Bruno</string>
+			<string>Bibliothèque Gisèle Halimi</string>
+            <key>previousName</key>
+            <string>Saint-Bruno</string>
 			<key>webpage</key>
 			<string>https://bm-grenoble.fr/bibliotheque-saint-bruno.aspx</string>
 			<key>openingTime</key>
@@ -276,7 +288,9 @@ Samedi : 10h - 13h / 14h - 18h</string>
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Bibliothèque Teisseire Malherbe</string>
+			<string>Bibliothèque Vivian Maier</string>
+            <key>previousName</key>
+            <string>Teisseire Malherbe</string>
 			<key>webpage</key>
 			<string>https://bm-grenoble.fr/bibliotheque-teisseire-malherbe.aspx</string>
 			<key>openingTime</key>

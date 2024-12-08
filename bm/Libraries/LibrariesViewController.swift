@@ -170,7 +170,7 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
         case .libraries:
             if let library = libraries?.libraries[indexPath.row] {
                 cell.textLabel?.text = library.name
-                cell.detailTextLabel?.text = library.openingTime
+                cell.detailTextLabel?.text = library.previousName
                 cell.imageView?.image = nil
             }
 

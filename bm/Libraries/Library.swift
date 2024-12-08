@@ -30,6 +30,7 @@ import CoreLocation
 
 struct Library: Codable {
     let name: String
+    let previousName: String?
     let openingTime: String
     let webpage: String
     let address: String
