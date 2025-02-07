@@ -3,7 +3,7 @@
 //  BM Grenoble
 //
 //  Created by Vincent Tourraine on 05/09/2022.
-//  Copyright © 2022 Studio AMANgA. All rights reserved.
+//  Copyright © 2022-2025 Studio AMANgA. All rights reserved.
 //
 
 import UIKit
@@ -17,16 +17,16 @@ class DigitalLibraryViewController: UITableViewController {
     }
 
     let services = [
-        Service(title: "ToutApprendre", systemImageName: "graduationcap", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/toutapprendre")!),
-        Service(title: "CinéVOD", systemImageName: "film", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/cinevod")!),
-        Service(title: "Tënk", systemImageName: "film", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/tenk")!),
-        Service(title: "Bibook", systemImageName: "book.closed", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/bibook")!),
-        Service(title: "Storyplay’r", systemImageName: "book.closed", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/storyplayr")!),
-        Service(title: "diMusic", systemImageName: "music.note.list", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/dimusic")!),
-        Service(title: "PaGella", systemImageName: "building.columns", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/pagella")!),
-        Service(title: "ToutApprendre Presse", systemImageName: "newspaper", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/toutapprendrePresse")!),
-        Service(title: "EuroPresse", systemImageName: "newspaper", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/europresse")!),
-        Service(title: "Place Gre’Net", systemImageName: "newspaper", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/place-grenet")!)
+        Service(title: "ToutApprendre", systemImageName: "graduationcap", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/ASSARedirect.ashx?url=https%3a%2f%2fbiblio.toutapprendre.com%2fcours%2fArchimed.aspx%3fpke%3d91")!),
+        Service(title: "CinéVOD", systemImageName: "film", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/logon.aspx?service=https%3a%2f%2fcinevod.grenoblealpesmetropole.fr%3freferrer%3doai")!),
+        Service(title: "Les yeux doc", systemImageName: "film", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/ASSARedirect.ashx?url=https%3a%2f%2fportal.mediatheque-numerique.com%2fsso_login%3freturn_url%3dhttps%3a%2f%2fwww.lesyeuxdoc.fr")!),
+        Service(title: "Bibook", systemImageName: "book.closed", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/SearchMinify/1f73772319e01ec96760547ab9cb091b")!),
+        Service(title: "Storyplay’r", systemImageName: "book.closed", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/ASSARedirect.ashx?url=https://www.storyplayr.com/api/assa/login?target=/bibliotheque")!),
+        Service(title: "musicMe", systemImageName: "music.note.list", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/ASSARedirect.ashx?url=https://numothequegrenoblealpes.mt.musicme.com")!),
+        Service(title: "PaGella", systemImageName: "building.columns", url: URL(string: "https://pagella.bm-grenoble.fr/pagella/fr/content/accueil-fr")!),
+        Service(title: "ToutApprendre Presse", systemImageName: "newspaper", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/ASSARedirect.ashx?url=https%3a%2f%2fbiblio.toutapprendre.com%2fcours%2fArchimed.aspx%3fpke%3d91%26pkGroup%3dpresse")!),
+        Service(title: "EuroPresse", systemImageName: "newspaper", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/redirection-contenu-europresse.aspx")!),
+        Service(title: "Place Gre’Net", systemImageName: "newspaper", url: URL(string: "https://numotheque.grenoblealpesmetropole.fr/redirection-contenu-placegrenet.aspx")!)
     ]
 
     struct K {
@@ -44,6 +44,19 @@ class DigitalLibraryViewController: UITableViewController {
         tableView.cellLayoutMarginsFollowReadableWidth = true
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        navigationController?.configureCustomAppearance(tintColor: .bmYellow, backgroundColor: .bmPurple)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        // Restore defaults
+        navigationController?.configureCustomAppearance()
+    }
+
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,7 +69,7 @@ class DigitalLibraryViewController: UITableViewController {
         cell.textLabel?.text = service.title
         if #available(iOS 13.0, *) {
             cell.imageView?.image = UIImage(systemName: service.systemImageName)
-            cell.imageView?.tintColor = .BMRed
+            cell.imageView?.tintColor = .bmPurple
         }
         return cell
     }

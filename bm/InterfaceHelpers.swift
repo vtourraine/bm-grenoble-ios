@@ -55,7 +55,7 @@ extension UIViewController {
         configuration.entersReaderIfAvailable = readerMode
 
         let viewController = SFSafariViewController(url: webpageURL, configuration: configuration)
-        viewController.preferredControlTintColor = .BMRed
+        viewController.preferredControlTintColor = .bmRed
         present(viewController, animated: true, completion: nil)
     }
 
@@ -76,8 +76,8 @@ extension UIView {
 extension UIButton {
     func configureXMarkImage() {
         layer.cornerRadius = 22
-        tintColor = .BMRed
-        setTitleColor(.BMRed, for: .normal)
+        tintColor = .bmRed
+        setTitleColor(.bmRed, for: .normal)
 
         if #available(iOS 13.0, *) {
             setTitle(nil, for: .normal)
@@ -88,19 +88,13 @@ extension UIButton {
     func configureCloseButton() {
         backgroundColor = .white
         layer.borderWidth = UIScreen.main.scale
-        layer.borderColor = UIColor.BMRed.cgColor
+        layer.borderColor = UIColor.bmRed.cgColor
         configureXMarkImage()
     }
 
     func configureClearButton() {
         backgroundColor = .bmRed.withAlphaComponent(0.1)
         configureXMarkImage()
-    }
-}
-
-extension UIColor {
-    static var BMRed: UIColor {
-        return UIColor(named: "BMRed")!
     }
 }
 
@@ -111,5 +105,26 @@ extension String {
 
     mutating func capitalizeFirstLetter() {
         self = self.capitalizingFirstLetter()
+    }
+}
+
+extension UIImage {
+    func roundedCornerImage(with radius: CGFloat, destinationSize: CGSize) -> UIImage {
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = scale
+        let renderer = UIGraphicsImageRenderer(size: destinationSize, format: format)
+        return renderer.image { rendererContext in
+            let rect = CGRect(origin: .zero, size: destinationSize)
+            let path = UIBezierPath(roundedRect: rect,
+                                    byRoundingCorners: .allCorners,
+                                    cornerRadii: CGSize(width: radius, height: radius))
+            path.close()
+
+            let cgContext = rendererContext.cgContext
+            cgContext.saveGState()
+            path.addClip()
+            draw(in: rect)
+            cgContext.restoreGState()
+        }
     }
 }

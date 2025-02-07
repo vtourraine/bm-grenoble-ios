@@ -5,6 +5,12 @@
 - [x] New library names
 
 
+## 2.0.4
+
+- [x] New digital library services
+- [x] New digital library visual identity
+
+
 ## 2.0.3
 
 2024-12-04

@@ -9,7 +9,7 @@
 import UIKit
 
 extension UINavigationController {
-    func configureCustomAppearance() {
+    func configureCustomAppearance(tintColor: UIColor = .white, backgroundColor: UIColor = .bmRed) {
         if #available(iOS 13.0, *) {
             let appearance = UINavigationBarAppearance()
             appearance.configureWithOpaqueBackground()
@@ -18,8 +18,8 @@ extension UINavigationController {
             largeTitleTextAttributes[NSAttributedString.Key.font] = UIFont.boldSystemFont(ofSize: 34)
             largeTitleTextAttributes[NSAttributedString.Key.foregroundColor] = UIColor.white
             appearance.largeTitleTextAttributes = largeTitleTextAttributes
-            appearance.backgroundColor = .BMRed
-            navigationBar.tintColor = .white
+            appearance.backgroundColor = backgroundColor
+            navigationBar.tintColor = tintColor
             navigationBar.scrollEdgeAppearance = appearance
             navigationBar.standardAppearance = appearance
         }

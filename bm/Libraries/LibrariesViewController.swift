@@ -178,7 +178,8 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.textLabel?.text = NSLocalizedString("Digital Library", comment: "")
             cell.detailTextLabel?.text = nil
             if #available(iOS 13.0, *) {
-                cell.imageView?.image = UIImage(systemName: "ipad.and.iphone")
+                cell.imageView?.image = .numoteque.roundedCornerImage(with: 8, destinationSize: CGSize(width: 34, height: 34))
+                cell.imageView?.tintColor = .bmPurple
             }
         }
 
@@ -266,7 +267,7 @@ extension UIViewController {
             }
         }
         else {
-            view.markerTintColor = .BMRed
+            view.markerTintColor = .bmRed
             if #available(iOS 13.0, *) {
                 view.glyphImage = UIImage(systemName: "book.fill")
             }
