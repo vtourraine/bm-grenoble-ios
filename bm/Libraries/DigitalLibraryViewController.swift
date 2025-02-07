@@ -47,7 +47,8 @@ class DigitalLibraryViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        navigationController?.configureCustomAppearance(tintColor: .bmYellow, backgroundColor: .bmPurple)
+        navigationController?.configureCustomAppearance(tintColor: .white, backgroundColor: .bmPurple)
+        tabBarController?.tabBar.tintColor = .bmPurple
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -55,6 +56,7 @@ class DigitalLibraryViewController: UITableViewController {
 
         // Restore defaults
         navigationController?.configureCustomAppearance()
+        tabBarController?.tabBar.tintColor = .bmRed
     }
 
     // MARK: - Table view data source
