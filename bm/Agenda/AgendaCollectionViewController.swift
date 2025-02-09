@@ -6,6 +6,9 @@
 //  Copyright © 2025 Studio AMANgA. All rights reserved.
 //
 
+import UIKit
+import AlignedCollectionViewFlowLayout
+
 class AgendaCollectionViewController: UICollectionViewController {
 
     var agendaItems = [AgendaItem]()
@@ -25,6 +28,10 @@ class AgendaCollectionViewController: UICollectionViewController {
         navigationController?.configureCustomAppearance()
 
         // updateFilterButton()
+
+        let alignedFlowLayout = collectionView?.collectionViewLayout as? AlignedCollectionViewFlowLayout
+        //alignedFlowLayout?.horizontalAlignment = .left
+        alignedFlowLayout?.verticalAlignment = .top
     }
 
     override func viewDidAppear(_ animated: Bool) {

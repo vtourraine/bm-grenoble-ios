@@ -1020,7 +1020,7 @@ Grenoble</string>
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tr9-Ef-eZn">
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tr9-Ef-eZn" customClass="AlignedCollectionViewFlowLayout" customModule="AlignedCollectionViewFlowLayout">
                             <size key="itemSize" width="276" height="397"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -1028,42 +1028,42 @@ Grenoble</string>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="atO-gh-cBh" customClass="AgendaViewCell" customModule="bm" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="276" height="397"/>
+                                <rect key="frame" x="0.0" y="0.0" width="252" height="397"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3KQ-hN-kQa">
-                                    <rect key="frame" x="0.0" y="0.0" width="276" height="397"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="252" height="397"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U6K-in-cLr">
-                                            <rect key="frame" x="8" y="8" width="260" height="260"/>
+                                            <rect key="frame" x="8" y="8" width="236" height="236"/>
                                             <color key="backgroundColor" systemColor="systemFillColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="60" id="MKL-SS-kXy">
-                                                    <variation key="heightClass=regular-widthClass=regular" constant="260"/>
+                                                    <variation key="heightClass=regular-widthClass=regular" constant="240"/>
                                                 </constraint>
                                                 <constraint firstAttribute="width" secondItem="U6K-in-cLr" secondAttribute="height" multiplier="1:1" id="Xei-fa-UaB"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANh-w8-67J">
-                                            <rect key="frame" x="8" y="276" width="41.5" height="20.5"/>
+                                            <rect key="frame" x="8" y="252" width="41.5" height="20.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4P-tM-Vqx">
-                                            <rect key="frame" x="8" y="361.5" width="41.5" height="20.5"/>
+                                            <rect key="frame" x="8" y="337.5" width="41.5" height="20.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TG9-eV-qvS">
-                                            <rect key="frame" x="8" y="304.5" width="41.5" height="20.5"/>
+                                            <rect key="frame" x="8" y="280.5" width="41.5" height="20.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" name="BMRed"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3J3-ne-Unu">
-                                            <rect key="frame" x="8" y="333" width="41.5" height="20.5"/>
+                                            <rect key="frame" x="8" y="309" width="41.5" height="20.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -1077,17 +1077,18 @@ Grenoble</string>
                                         <constraint firstItem="TG9-eV-qvS" firstAttribute="leading" secondItem="ANh-w8-67J" secondAttribute="leading" id="FAi-ND-0Xk"/>
                                         <constraint firstItem="b4P-tM-Vqx" firstAttribute="top" secondItem="3J3-ne-Unu" secondAttribute="bottom" constant="8" symbolic="YES" id="LqN-YZ-Ce0"/>
                                         <constraint firstItem="3J3-ne-Unu" firstAttribute="top" secondItem="TG9-eV-qvS" secondAttribute="bottom" constant="8" symbolic="YES" id="ODe-V5-gls"/>
+                                        <constraint firstItem="U6K-in-cLr" firstAttribute="leading" secondItem="3KQ-hN-kQa" secondAttribute="leadingMargin" id="OmB-z5-1m4"/>
                                         <constraint firstItem="ANh-w8-67J" firstAttribute="top" secondItem="U6K-in-cLr" secondAttribute="bottom" constant="8" symbolic="YES" id="TWA-h3-RW2"/>
                                         <constraint firstItem="ANh-w8-67J" firstAttribute="leading" secondItem="3KQ-hN-kQa" secondAttribute="leadingMargin" id="UlB-Gt-O3U"/>
                                         <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="TG9-eV-qvS" secondAttribute="trailing" id="Yvb-Wg-cQF"/>
                                         <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="3J3-ne-Unu" secondAttribute="trailing" id="d3g-Li-c6b"/>
-                                        <constraint firstItem="U6K-in-cLr" firstAttribute="centerX" secondItem="3KQ-hN-kQa" secondAttribute="centerXWithinMargins" id="edA-cG-gPL"/>
                                         <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="b4P-tM-Vqx" secondAttribute="bottom" id="he4-Lp-lg7"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="U6K-in-cLr" secondAttribute="trailing" id="kDZ-nU-IqN"/>
                                         <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="ANh-w8-67J" secondAttribute="trailing" id="nYB-38-Ie6"/>
                                         <constraint firstItem="3J3-ne-Unu" firstAttribute="trailing" secondItem="ANh-w8-67J" secondAttribute="trailing" id="pMU-cD-w1d"/>
                                     </constraints>
                                 </collectionViewCellContentView>
-                                <size key="customSize" width="276" height="397"/>
+                                <size key="customSize" width="252" height="397"/>
                                 <connections>
                                     <outlet property="date" destination="TG9-eV-qvS" id="BXe-6P-rcd"/>
                                     <outlet property="library" destination="3J3-ne-Unu" id="P8q-kw-B22"/>
