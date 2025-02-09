@@ -2,9 +2,11 @@
 
 ## 2.1
 
-- [x] New library names
-- [x] New digital library services
-- [x] New digital library visual identity
+2025-02-08
+
+- New library names
+- New digital library services
+- New digital library visual identity
 
 
 ## 2.0.3
