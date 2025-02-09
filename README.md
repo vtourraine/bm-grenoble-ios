@@ -2,23 +2,18 @@
 
 iOS/macOS application for the Grenoble Municipal Library ([bibliothèque municipale de Grenoble](https://www.bm-grenoble.fr)), [available on the App Store and Mac App Store](https://apps.apple.com/app/grenoble-municipal-library/id1483022528?l=en).
 
-[![Build Status](https://travis-ci.org/vtourraine/bm-grenoble-ios.svg?branch=master)](https://travis-ci.org/vtourraine/bm-grenoble-ios)
-
 ![Screenshot](https://www.vtourraine.net/blog/img/2019/bibliotheque-grenoble/bm-grenoble.png)
 
 ## Features
 
-- List current loans, notification for reminders
-- News
 - Agenda
 - Libraries list with info and map
-- Search documents (disabled)
+- Search documents
 - Subscriber card
 
 ## Roadmap
 
 - Multiple accounts support
-- News widget
 - Agenda widget
 
 ## Bug report
