@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BB12181326979A5100FE050B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB12181526979A5100FE050B /* Localizable.strings */; };
+		BB3ADA7E2D590CF4002F7F4B /* AgendaCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3ADA7D2D590CEE002F7F4B /* AgendaCollectionViewController.swift */; };
 		BB4AA3FB28C68DE5006DE4AE /* DigitalLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4AA3FA28C68DE5006DE4AE /* DigitalLibraryViewController.swift */; };
 		BB8CEA252BB4C00A0092ED87 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8CEA242BB4C00A0092ED87 /* NavigationController.swift */; };
 		D70212C722F0E43C00E3972E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70212C622F0E43C00E3972E /* AppDelegate.swift */; };
@@ -64,6 +65,7 @@
 /* Begin PBXFileReference section */
 		BB12181426979A5100FE050B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BB12181626979A5600FE050B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BB3ADA7D2D590CEE002F7F4B /* AgendaCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaCollectionViewController.swift; sourceTree = "<group>"; };
 		BB4AA3FA28C68DE5006DE4AE /* DigitalLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalLibraryViewController.swift; sourceTree = "<group>"; };
 		BB8CEA242BB4C00A0092ED87 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		D70212C322F0E43C00E3972E /* BM Grenoble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BM Grenoble.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -229,6 +231,7 @@
 		D7697DE823CA0C7300010011 /* Agenda */ = {
 			isa = PBXGroup;
 			children = (
+				BB3ADA7D2D590CEE002F7F4B /* AgendaCollectionViewController.swift */,
 				D7CE68D123DCEEDB00197F50 /* AgendaViewController.swift */,
 				D7CE68D323DCF15000197F50 /* AgendaTableViewCell.swift */,
 				D7697DE923CA0C8D00010011 /* AgendaItem.swift */,
@@ -496,6 +499,7 @@
 				D7A8833122FB78E200C209DC /* BarCodeView.m in Sources */,
 				D7CE68D423DCF15000197F50 /* AgendaTableViewCell.swift in Sources */,
 				D7614BAD2363A6B3000D7C99 /* LibraryViewController.swift in Sources */,
+				BB3ADA7E2D590CF4002F7F4B /* AgendaCollectionViewController.swift in Sources */,
 				D78200B023C7D94A00C3A699 /* ParserHelpers.swift in Sources */,
 				D79ABC0E233DF079007ADE6E /* AboutViewController.swift in Sources */,
 				D77F59F328981FAD00A7587C /* Credentials.swift in Sources */,
