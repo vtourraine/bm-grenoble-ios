@@ -921,54 +921,63 @@ Grenoble</string>
         <scene sceneID="4O7-Su-VYX">
             <objects>
                 <tableViewController id="GaQ-e7-QGj" customClass="AgendaViewController" customModule="bm" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jqn-fK-gyq">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jqn-fK-gyq">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="684"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="brW-cu-Vhs" customClass="AgendaTableViewCell" customModule="bm" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="1024" height="129.5"/>
+                                <rect key="frame" x="0.0" y="50" width="1024" height="222.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="brW-cu-Vhs" id="rcY-m3-q9y">
-                                    <rect key="frame" x="0.0" y="0.0" width="833.5" height="129.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="993.5" height="222.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKr-R8-PJj">
-                                            <rect key="frame" x="298" y="11" width="527.5" height="20.5"/>
+                                            <rect key="frame" x="240" y="11" width="745.5" height="33.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular-widthClass=regular">
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                            </variation>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RF8-Yc-bSI">
-                                            <rect key="frame" x="180" y="11" width="106" height="106"/>
+                                            <rect key="frame" x="20" y="11" width="200" height="200"/>
                                             <color key="backgroundColor" systemColor="systemFillColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="RF8-Yc-bSI" secondAttribute="height" multiplier="1:1" id="SGf-xs-s7j"/>
-                                                <constraint firstAttribute="width" constant="60" id="gME-8P-HKP">
-                                                    <variation key="heightClass=regular-widthClass=regular" constant="106"/>
+                                                <constraint firstAttribute="width" constant="106" id="gME-8P-HKP">
+                                                    <variation key="heightClass=regular-widthClass=regular" constant="200"/>
                                                 </constraint>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEV-gs-I4f">
-                                            <rect key="frame" x="298" y="97" width="527.5" height="20.5"/>
+                                            <rect key="frame" x="240" y="121.5" width="745.5" height="20.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWf-oM-gGe">
-                                            <rect key="frame" x="298" y="68.5" width="527.5" height="20.5"/>
+                                            <rect key="frame" x="240" y="87" width="745.5" height="26.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular-widthClass=regular">
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                            </variation>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfy-Wl-n6g">
-                                            <rect key="frame" x="298" y="40" width="527.5" height="20.5"/>
+                                            <rect key="frame" x="240" y="52.5" width="745.5" height="26.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" name="BMRed"/>
                                             <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular-widthClass=regular">
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                            </variation>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="IEV-gs-I4f" secondAttribute="bottom" constant="12" id="2xd-cP-w1D"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="IEV-gs-I4f" secondAttribute="bottom" constant="12" id="2xd-cP-w1D"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="RF8-Yc-bSI" secondAttribute="leading" id="3z6-xw-vMg"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="IEV-gs-I4f" secondAttribute="trailing" id="Afw-RN-9kS"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="gfy-Wl-n6g" secondAttribute="trailing" id="Ary-k5-mkS"/>
@@ -977,12 +986,15 @@ Grenoble</string>
                                         <constraint firstItem="IEV-gs-I4f" firstAttribute="leading" secondItem="UWf-oM-gGe" secondAttribute="leading" id="afd-Zi-vsr"/>
                                         <constraint firstItem="UWf-oM-gGe" firstAttribute="top" secondItem="gfy-Wl-n6g" secondAttribute="bottom" constant="8" symbolic="YES" id="c2r-63-SnA"/>
                                         <constraint firstItem="gfy-Wl-n6g" firstAttribute="leading" secondItem="PKr-R8-PJj" secondAttribute="leading" id="gev-s7-vJ1"/>
-                                        <constraint firstItem="PKr-R8-PJj" firstAttribute="leading" secondItem="RF8-Yc-bSI" secondAttribute="trailing" constant="12" id="grC-5t-YnQ"/>
+                                        <constraint firstItem="PKr-R8-PJj" firstAttribute="leading" secondItem="RF8-Yc-bSI" secondAttribute="trailing" constant="12" id="grC-5t-YnQ">
+                                            <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                                        </constraint>
                                         <constraint firstItem="IEV-gs-I4f" firstAttribute="top" secondItem="UWf-oM-gGe" secondAttribute="bottom" constant="8" symbolic="YES" id="hx8-8v-16W"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="UWf-oM-gGe" secondAttribute="trailing" id="qKz-Z7-KON"/>
+                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="RF8-Yc-bSI" secondAttribute="bottom" id="t7u-Mg-Jp6"/>
                                         <constraint firstItem="RF8-Yc-bSI" firstAttribute="top" secondItem="rcY-m3-q9y" secondAttribute="topMargin" id="ubv-M7-iqB"/>
                                         <constraint firstItem="PKr-R8-PJj" firstAttribute="top" secondItem="rcY-m3-q9y" secondAttribute="topMargin" id="vFi-xV-Whk"/>
-                                        <constraint firstItem="gfy-Wl-n6g" firstAttribute="top" relation="greaterThanOrEqual" secondItem="PKr-R8-PJj" secondAttribute="bottom" constant="8" symbolic="YES" id="vGS-gm-Kph"/>
+                                        <constraint firstItem="gfy-Wl-n6g" firstAttribute="top" secondItem="PKr-R8-PJj" secondAttribute="bottom" constant="8" symbolic="YES" id="vGS-gm-Kph"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

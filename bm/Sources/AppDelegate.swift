@@ -34,6 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return
         }
 
+        tabBarViewController.view.tintColor = .bmRed
+
         if #available(iOS 14.0, *) {
             tabBarViewController.viewControllers?[0].tabBarItem.image = UIImage(systemName: "calendar")
             tabBarViewController.viewControllers?[1].tabBarItem.image = UIImage(systemName: "building.2.fill")

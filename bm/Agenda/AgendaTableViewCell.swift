@@ -20,8 +20,14 @@ class AgendaTableViewCell : UITableViewCell {
 extension AgendaTableViewCell {
     func configure(item: AgendaItem) {
         title?.text = item.title
-        summary?.text = item.category
-        library?.text = item.library
+        library?.text = [item.library, item.category].compactMap { $0 }.joined(separator: "\n")
+
+        if traitCollection.verticalSizeClass == .regular, traitCollection.horizontalSizeClass == .regular {
+            summary?.text = item.summary
+        }
+        else {
+            summary?.text = nil
+        }
 
         thumbnail?.layer.cornerRadius = 8
         if let image = item.image {
