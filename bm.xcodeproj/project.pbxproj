@@ -233,8 +233,8 @@
 		D7697DE823CA0C7300010011 /* Agenda */ = {
 			isa = PBXGroup;
 			children = (
-				BB3ADA7D2D590CEE002F7F4B /* AgendaCollectionViewController.swift */,
 				D7CE68D123DCEEDB00197F50 /* AgendaViewController.swift */,
+				BB3ADA7D2D590CEE002F7F4B /* AgendaCollectionViewController.swift */,
 				D7CE68D323DCF15000197F50 /* AgendaTableViewCell.swift */,
 				D7697DE923CA0C8D00010011 /* AgendaItem.swift */,
 				D7697DED23CA0DAF00010011 /* AgendaParser.swift */,

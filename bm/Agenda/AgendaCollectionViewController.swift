@@ -29,9 +29,9 @@ class AgendaCollectionViewController: UICollectionViewController {
 
         // updateFilterButton()
 
-        let alignedFlowLayout = collectionView?.collectionViewLayout as? AlignedCollectionViewFlowLayout
+        //let alignedFlowLayout = collectionView?.collectionViewLayout as? AlignedCollectionViewFlowLayout
         //alignedFlowLayout?.horizontalAlignment = .left
-        alignedFlowLayout?.verticalAlignment = .top
+        //alignedFlowLayout?.verticalAlignment = .top
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -89,10 +89,11 @@ class AgendaViewCell: UICollectionViewCell {
 
     func configure(item: AgendaItem) {
         title?.text = item.title
-        summary?.text = item.category
+        summary?.text = item.summary
         library?.text = item.library
 
         thumbnail?.layer.cornerRadius = 8
+
         if let image = item.image {
             thumbnail?.af.setImage(withURL: image)
         }
