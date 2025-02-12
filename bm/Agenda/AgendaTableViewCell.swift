@@ -21,13 +21,7 @@ extension AgendaTableViewCell {
     func configure(item: AgendaItem) {
         title?.text = item.title
         library?.text = [item.library, item.category].compactMap { $0 }.joined(separator: "\n")
-
-        if traitCollection.verticalSizeClass == .regular, traitCollection.horizontalSizeClass == .regular {
-            summary?.text = item.summary
-        }
-        else {
-            summary?.text = nil
-        }
+        summary?.text = item.summary
 
         thumbnail?.layer.cornerRadius = 8
         if let image = item.image {

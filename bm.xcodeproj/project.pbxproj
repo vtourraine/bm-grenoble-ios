@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BB12181326979A5100FE050B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB12181526979A5100FE050B /* Localizable.strings */; };
-		BB3ADA7E2D590CF4002F7F4B /* AgendaCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3ADA7D2D590CEE002F7F4B /* AgendaCollectionViewController.swift */; };
-		BB3ADA812D594604002F7F4B /* AlignedCollectionViewFlowLayout in Frameworks */ = {isa = PBXBuildFile; productRef = BB3ADA802D594604002F7F4B /* AlignedCollectionViewFlowLayout */; };
 		BB4AA3FB28C68DE5006DE4AE /* DigitalLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4AA3FA28C68DE5006DE4AE /* DigitalLibraryViewController.swift */; };
 		BB8CEA252BB4C00A0092ED87 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8CEA242BB4C00A0092ED87 /* NavigationController.swift */; };
 		D70212C722F0E43C00E3972E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70212C622F0E43C00E3972E /* AppDelegate.swift */; };
@@ -66,7 +64,6 @@
 /* Begin PBXFileReference section */
 		BB12181426979A5100FE050B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BB12181626979A5600FE050B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		BB3ADA7D2D590CEE002F7F4B /* AgendaCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaCollectionViewController.swift; sourceTree = "<group>"; };
 		BB4AA3FA28C68DE5006DE4AE /* DigitalLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalLibraryViewController.swift; sourceTree = "<group>"; };
 		BB8CEA242BB4C00A0092ED87 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		D70212C322F0E43C00E3972E /* BM Grenoble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BM Grenoble.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,7 +130,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D71F32AB24D8B303002526CD /* KeychainAccess in Frameworks */,
-				BB3ADA812D594604002F7F4B /* AlignedCollectionViewFlowLayout in Frameworks */,
 				D7697DF323CB5DE100010011 /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,7 +230,6 @@
 			isa = PBXGroup;
 			children = (
 				D7CE68D123DCEEDB00197F50 /* AgendaViewController.swift */,
-				BB3ADA7D2D590CEE002F7F4B /* AgendaCollectionViewController.swift */,
 				D7CE68D323DCF15000197F50 /* AgendaTableViewCell.swift */,
 				D7697DE923CA0C8D00010011 /* AgendaItem.swift */,
 				D7697DED23CA0DAF00010011 /* AgendaParser.swift */,
@@ -340,7 +335,6 @@
 			packageProductDependencies = (
 				D7697DF223CB5DE100010011 /* AlamofireImage */,
 				D71F32AA24D8B303002526CD /* KeychainAccess */,
-				BB3ADA802D594604002F7F4B /* AlignedCollectionViewFlowLayout */,
 			);
 			productName = bm;
 			productReference = D70212C322F0E43C00E3972E /* BM Grenoble.app */;
@@ -421,7 +415,6 @@
 			packageReferences = (
 				D7697DF123CB5DE100010011 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
 				D71F32A924D8B303002526CD /* XCRemoteSwiftPackageReference "KeychainAccess" */,
-				BB3ADA7F2D594604002F7F4B /* XCRemoteSwiftPackageReference "AlignedCollectionViewFlowLayout" */,
 			);
 			productRefGroup = D70212C422F0E43C00E3972E /* Products */;
 			projectDirPath = "";
@@ -503,7 +496,6 @@
 				D7A8833122FB78E200C209DC /* BarCodeView.m in Sources */,
 				D7CE68D423DCF15000197F50 /* AgendaTableViewCell.swift in Sources */,
 				D7614BAD2363A6B3000D7C99 /* LibraryViewController.swift in Sources */,
-				BB3ADA7E2D590CF4002F7F4B /* AgendaCollectionViewController.swift in Sources */,
 				D78200B023C7D94A00C3A699 /* ParserHelpers.swift in Sources */,
 				D79ABC0E233DF079007ADE6E /* AboutViewController.swift in Sources */,
 				D77F59F328981FAD00A7587C /* Credentials.swift in Sources */,
@@ -950,14 +942,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BB3ADA7F2D594604002F7F4B /* XCRemoteSwiftPackageReference "AlignedCollectionViewFlowLayout" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mischa-hildebrand/AlignedCollectionViewFlowLayout.git";
-			requirement = {
-				kind = revision;
-				revision = 49330ef67177dba5c9e1a3efdd0df93d83f12ee7;
-			};
-		};
 		D71F32A924D8B303002526CD /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
@@ -977,11 +961,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BB3ADA802D594604002F7F4B /* AlignedCollectionViewFlowLayout */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BB3ADA7F2D594604002F7F4B /* XCRemoteSwiftPackageReference "AlignedCollectionViewFlowLayout" */;
-			productName = AlignedCollectionViewFlowLayout;
-		};
 		D71F32AA24D8B303002526CD /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D71F32A924D8B303002526CD /* XCRemoteSwiftPackageReference "KeychainAccess" */;
