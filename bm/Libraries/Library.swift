@@ -37,6 +37,7 @@ struct Library: Codable {
     let phoneNumber: String
     let mailAddress: String
     let accessibility: Bool
+    let closedForMaintenance: Bool
 
     let latitude: Double
     let longitude: Double

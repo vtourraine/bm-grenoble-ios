@@ -46,17 +46,20 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
         separatorHeight?.constant = 1.0 / UIScreen.main.scale
 
         mapView?.setRegion(K.defaultCoordinateRegion, animated: false)
-        
+
         let status = CLLocationManager.authorizationStatus()
         if status == .authorizedWhenInUse || status == .authorizedAlways {
             mapView?.showsUserLocation = true
         }
 
         if let libraries = libraries?.libraries {
-            let annotations = libraries.map { (library) -> MKPointAnnotation in
+            let annotations = libraries.map { library -> MKPointAnnotation in
                 let annotation = MKPointAnnotation()
                 annotation.coordinate = library.location()
                 annotation.title = library.name
+                if library.closedForMaintenance {
+                    annotation.subtitle = NSLocalizedString("Closed for maintenance", comment: "")
+                }
                 return annotation
             }
 
@@ -105,8 +108,9 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
             showUserLocationButton?.configureRoundCorners()
         // }
 #else
-    showUserLocationButton?.setImage(UIImage(systemName: "location.fill"), for: .normal)
-    showUserLocationButton?.configureRoundCorners()
+        showUserLocationButton?.setImage(UIImage(systemName: "location.fill"), for: .normal)
+        showUserLocationButton?.configureRoundCorners()
+        mapView?.showsZoomControls = true
 #endif
     }
 
@@ -172,11 +176,24 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
                 cell.textLabel?.text = library.name
                 cell.detailTextLabel?.text = library.previousName
                 cell.imageView?.image = nil
+
+                if library.closedForMaintenance {
+                    cell.textLabel?.textColor = .secondaryLabel
+                    cell.detailTextLabel?.textColor = .secondaryLabel
+                }
+                else {
+                    cell.textLabel?.textColor = .label
+                    cell.detailTextLabel?.textColor = .label
+                }
             }
 
         case .digital:
             cell.textLabel?.text = NSLocalizedString("Digital Library", comment: "")
+            cell.textLabel?.textColor = .label
+
             cell.detailTextLabel?.text = nil
+            cell.detailTextLabel?.textColor = .label
+
             if #available(iOS 13.0, *) {
                 cell.imageView?.image = .numoteque.roundedCornerImage(with: 8, destinationSize: CGSize(width: 34, height: 34))
                 cell.imageView?.tintColor = .bmPurple
@@ -259,11 +276,18 @@ extension UIViewController {
     func libraryAnnotationView(for annotation: MKAnnotation) -> MKAnnotationView? {
         let view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: nil)
         view.displayPriority = .required
+        view.subtitleVisibility = .visible
 
         if annotation.isKind(of: MKUserLocation.self) {
             view.markerTintColor = .systemBlue
             if #available(iOS 13.0, *) {
                 view.glyphImage = UIImage(systemName: "person.fill")
+            }
+        }
+        else if let subtitle = annotation.subtitle, subtitle?.isEmpty == false {
+            view.markerTintColor = .bmYellow
+            if #available(iOS 13.0, *) {
+                view.glyphImage = UIImage(systemName: "exclamationmark.triangle.fill")
             }
         }
         else {

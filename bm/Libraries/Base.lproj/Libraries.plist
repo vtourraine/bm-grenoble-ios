@@ -32,10 +32,14 @@ Vacances scolaires : du mardi au samedi de 13h à 18h</string>
 			<string>bm.etude@bm-grenoble.fr</string>
 			<key>accessibility</key>
 			<true/>
+			<key>closedForMaintenance</key>
+			<false/>
 		</dict>
 		<dict>
 			<key>name</key>
 			<string>Bibliothèque municipale internationale</string>
+			<key>closedForMaintenance</key>
+			<false/>
 			<key>webpage</key>
 			<string>https://bm-grenoble.fr/bibliotheque.aspx</string>
 			<key>openingTime</key>
@@ -65,6 +69,8 @@ Samedi : 10h - 13h</string>
 		<dict>
 			<key>name</key>
 			<string>Bibliothèque des Relais Lecture</string>
+			<key>closedForMaintenance</key>
+			<false/>
 			<key>webpage</key>
 			<string>https://bm-grenoble.fr/la-bibliotheque-des-relais-lecture.aspx</string>
 			<key>openingTime</key>
@@ -88,8 +94,10 @@ Du mardi au vendredi : 9h - 18h</string>
 		<dict>
 			<key>name</key>
 			<string>Bibliothèque Mimi Mingat-Lerme</string>
-            <key>previousName</key>
-            <string>Abbaye-les-Bains</string>
+			<key>closedForMaintenance</key>
+			<false/>
+			<key>previousName</key>
+			<string>Abbaye-les-Bains</string>
 			<key>webpage</key>
 			<string>https://bm-grenoble.fr/bib-abbaye-les-bains.aspx</string>
 			<key>openingTime</key>
@@ -115,8 +123,10 @@ Samedi : 10h - 13h / 14h - 18h</string>
 		<dict>
 			<key>name</key>
 			<string>Bibliothèque Les Munitionnettes</string>
-            <key>previousName</key>
-            <string>Alliance</string>
+			<key>previousName</key>
+			<string>Alliance</string>
+			<key>closedForMaintenance</key>
+			<false/>
 			<key>webpage</key>
 			<string>https://bm-grenoble.fr/bib-alliance.aspx</string>
 			<key>openingTime</key>
@@ -141,8 +151,10 @@ Samedi : 10h - 13h / 14h - 18h</string>
 		<dict>
 			<key>name</key>
 			<string>Bibliothèque Colombine</string>
-            <key>previousName</key>
-            <string>Arlequin</string>
+			<key>previousName</key>
+			<string>Arlequin</string>
+			<key>closedForMaintenance</key>
+			<false/>
 			<key>webpage</key>
 			<string>https://bm-grenoble.fr/bib-arlequin.aspx</string>
 			<key>openingTime</key>
@@ -172,6 +184,8 @@ Ouverture de l’espace presse aux horaires du Patio.</string>
 			<string>Bibliothèque Centre-Ville</string>
 			<key>webpage</key>
 			<string>https://bm-grenoble.fr/bib.aspx</string>
+			<key>closedForMaintenance</key>
+			<false/>
 			<key>openingTime</key>
 			<string>Du mardi au samedi : 11h - 18h30</string>
 			<key>latitude</key>
@@ -191,8 +205,10 @@ Ouverture de l’espace presse aux horaires du Patio.</string>
 		<dict>
 			<key>name</key>
 			<string>Bibliothèque Chantal Mauduit</string>
-            <key>previousName</key>
-            <string>Eaux-Claires Mistral</string>
+			<key>previousName</key>
+			<string>Eaux-Claires Mistral</string>
+			<key>closedForMaintenance</key>
+			<true/>
 			<key>webpage</key>
 			<string>https://bm-grenoble.fr/bib-eaux-claires-mistral.aspx</string>
 			<key>openingTime</key>
@@ -218,8 +234,10 @@ Samedi : 10h - 13h / 14h - 18h</string>
 		<dict>
 			<key>name</key>
 			<string>Bibliothèque Mafalda</string>
-            <key>previousName</key>
-            <string>Jardin de ville</string>
+			<key>previousName</key>
+			<string>Jardin de ville</string>
+			<key>closedForMaintenance</key>
+			<false/>
 			<key>webpage</key>
 			<string>https://bm-grenoble.fr/bibliotheque-jardin-de-ville.aspx</string>
 			<key>openingTime</key>
@@ -247,6 +265,8 @@ Samedi : 10h - 13h / 14h - 18h</string>
 			<string>Bibliothèque Kateb Yacine</string>
 			<key>webpage</key>
 			<string>https://bm-grenoble.fr/bibliotheque-kateb-yacine.aspx</string>
+			<key>closedForMaintenance</key>
+			<false/>
 			<key>openingTime</key>
 			<string>Du mardi au samedi : 11h - 18h30</string>
 			<key>latitude</key>
@@ -266,8 +286,10 @@ Samedi : 10h - 13h / 14h - 18h</string>
 		<dict>
 			<key>name</key>
 			<string>Bibliothèque Gisèle Halimi</string>
-            <key>previousName</key>
-            <string>Saint-Bruno</string>
+			<key>previousName</key>
+			<string>Saint-Bruno</string>
+			<key>closedForMaintenance</key>
+			<true/>
 			<key>webpage</key>
 			<string>https://bm-grenoble.fr/bibliotheque-saint-bruno.aspx</string>
 			<key>openingTime</key>
@@ -289,8 +311,10 @@ Samedi : 10h - 13h / 14h - 18h</string>
 		<dict>
 			<key>name</key>
 			<string>Bibliothèque Vivian Maier</string>
-            <key>previousName</key>
-            <string>Teisseire Malherbe</string>
+			<key>previousName</key>
+			<string>Teisseire Malherbe</string>
+			<key>closedForMaintenance</key>
+			<false/>
 			<key>webpage</key>
 			<string>https://bm-grenoble.fr/bibliotheque-teisseire-malherbe.aspx</string>
 			<key>openingTime</key>
@@ -318,6 +342,8 @@ Samedi : 10h - 13h / 14h - 18h</string>
 			<string>L’artothèque municipale</string>
 			<key>webpage</key>
 			<string>https://bm-grenoble.fr/artotheque.aspx</string>
+			<key>closedForMaintenance</key>
+			<false/>
 			<key>openingTime</key>
 			<string>Du mardi au samedi : 13h - 18h</string>
 			<key>latitude</key>

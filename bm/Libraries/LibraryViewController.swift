@@ -126,7 +126,12 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
         navigationItem.setTitle(library.name, subtitle: library.previousName)
 #endif
 
-        openingTimeLabel?.text = library.openingTime
+        if library.closedForMaintenance {
+            openingTimeLabel?.text = NSLocalizedString("Closed for maintenance", comment: "")
+        }
+        else {
+            openingTimeLabel?.text = library.openingTime
+        }
         addressLabel?.text = library.address
         addressAccessibilityLabel?.text = library.accessibility ? NSLocalizedString("♿︎ Accessible PMR", comment: "") : nil
         phoneLabel?.text = library.phoneNumber
@@ -139,6 +144,7 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
         let annotation = MKPointAnnotation()
         annotation.coordinate = library.location()
         annotation.title = library.name
+        annotation.subtitle = library.closedForMaintenance ? NSLocalizedString("Closed for maintenance", comment: "") : nil
         mapView?.addAnnotation(annotation)
     }
 

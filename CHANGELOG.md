@@ -1,5 +1,10 @@
 # BM Grenoble
 
+## 2.1.1
+
+- [x] Mark libraries closed for maintenance
+
+
 ## 2.1
 
 2025-02-08
