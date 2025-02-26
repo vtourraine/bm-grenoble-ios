@@ -3,7 +3,7 @@
 //  bmTests
 //
 //  Created by Vincent Tourraine on 11/01/2020.
-//  Copyright © 2020-2024 Studio AMANgA. All rights reserved.
+//  Copyright © 2020-2025 Studio AMANgA. All rights reserved.
 //
 
 import XCTest
@@ -32,7 +32,7 @@ class AgendaTests: XCTestCase {
         XCTAssertEqual(items[0].title, "Atelier de curiosité")
         XCTAssertEqual(items[0].category, "Atelier")
         XCTAssertEqual(items[0].library, "Bibliothèque Teisseire Malherbe")
-        // XCTAssertEqual(items[0].summary, "Une conférence animée par Evelyn Rosset, docteur en psychologie, chercheure associée au LIP/PC2S, UGA.")
+        XCTAssertEqual(items[0].summary, "Envie de découverte, de partage et de créativité ? Rendez-vous aux ateliers de curiosité ! En cette période de carnaval, venez créer des masques pour vous déguiser.")
         XCTAssertEqual(items[0].link.absoluteString, "https://bm-grenoble.fr/Default/doc/CALENDAR/321/atelier-de-curiosite")
         let items0Image = try XCTUnwrap(items[0].image)
         XCTAssertEqual(items0Image.absoluteString, "https://bm-grenoble.fr/basicimagedownload.ashx?itemGuid=788EBA00-0334-4B2A-B845-6020A9B95AD6")

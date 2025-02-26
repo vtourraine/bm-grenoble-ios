@@ -32,6 +32,19 @@ class AgendaViewController: UITableViewController {
         updateFilterButton()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        if isFirstLaunch {
+            refresh(sender: nil)
+            isFirstLaunch = false
+        }
+    }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
     func updateFilterButton() {
         if #available(iOS 14.0, *) {
             let image = UIImage(systemName: filterTitle == nil ? "line.horizontal.3.decrease.circle" : "line.horizontal.3.decrease.circle.fill")
@@ -64,19 +77,6 @@ class AgendaViewController: UITableViewController {
 
             navigationItem.rightBarButtonItem = item
         }
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        if isFirstLaunch {
-            refresh(sender: nil)
-            isFirstLaunch = false
-        }
-    }
-
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
     }
 
     // MARK: - Data
