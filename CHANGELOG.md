@@ -2,6 +2,8 @@
 
 ## 2.1.1
 
+- [x] Include more details in Aganda
+- [x] Improved Aganda interface on iPad and Mac
 - [x] Mark libraries closed for maintenance
 
 
