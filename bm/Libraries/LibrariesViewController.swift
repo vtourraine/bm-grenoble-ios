@@ -178,21 +178,21 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
                 cell.imageView?.image = nil
 
                 if library.closedForMaintenance {
-                    cell.textLabel?.textColor = .secondaryLabel
-                    cell.detailTextLabel?.textColor = .secondaryLabel
+                    if #available(iOS 15.0, *) {
+                        let imageView = UIImageView(image: UIImage(systemName: "exclamationmark.triangle.fill"))
+                        imageView.preferredSymbolConfiguration = UIImage.SymbolConfiguration(paletteColors: [.black, .bmYellow])
+                        cell.accessoryView = imageView
+                    }
                 }
                 else {
-                    cell.textLabel?.textColor = .label
-                    cell.detailTextLabel?.textColor = .label
+                    cell.accessoryView = nil
                 }
             }
 
         case .digital:
             cell.textLabel?.text = NSLocalizedString("Digital Library", comment: "")
-            cell.textLabel?.textColor = .label
-
             cell.detailTextLabel?.text = nil
-            cell.detailTextLabel?.textColor = .label
+            cell.accessoryView = nil
 
             if #available(iOS 13.0, *) {
                 cell.imageView?.image = .numoteque.roundedCornerImage(with: 8, destinationSize: CGSize(width: 34, height: 34))
