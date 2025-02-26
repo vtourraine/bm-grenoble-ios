@@ -127,7 +127,7 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
 #endif
 
         if library.closedForMaintenance {
-            openingTimeLabel?.text = NSLocalizedString("Closed for maintenance", comment: "")
+            openingTimeLabel?.text = "⚠️ " + NSLocalizedString("Closed for maintenance", comment: "")
         }
         else {
             openingTimeLabel?.text = library.openingTime
@@ -192,7 +192,7 @@ extension LibraryViewController {
         let placemark = MKPlacemark(coordinate: library.location())
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = library.name
-        mapItem.openInMaps(launchOptions: nil)
+        mapItem.openInMaps(launchOptions: [:])
     }
 
     @IBAction func call(_ sender: Any?) {
@@ -209,7 +209,7 @@ extension LibraryViewController {
             return
         }
 
-        UIApplication.shared.open(url)
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 
     @IBAction func openWebsite(_ sender: Any?) {
@@ -218,7 +218,7 @@ extension LibraryViewController {
         }
 
 #if targetEnvironment(macCatalyst)
-        UIApplication.shared.open(webpageURL)
+        UIApplication.shared.open(webpageURL, options: [:], completionHandler: nil)
 #else
         presentSafariViewController(webpageURL)
 #endif
