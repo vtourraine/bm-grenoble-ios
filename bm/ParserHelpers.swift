@@ -123,7 +123,8 @@ extension String {
         var string = self
         let entities = ["&amp;": "&",
                         "&#039;": "'",
-                        "&quot;": "\""]
+                        "&quot;": "\"",
+                        "&nbsp;": " "]
 
         for (key, value) in entities {
             string = string.replacingOccurrences(of: key, with: value)

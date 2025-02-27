@@ -51,7 +51,7 @@ class AgendaParser {
                 date = nil
             }
 
-            let summary = result.CustomResult.parse(between: "<p class=\"abstract short-abstract template-resume\">\r\n        ", and: "\r\n    </p>")
+            let summary = result.CustomResult.parse(between: "<p class=\"abstract short-abstract template-resume\">\r\n        ", and: "\r\n    </p>")?.cleanHTMLEntitiesAndTags()
             let library = result.CustomResult.parse(between: "<span class=\"location\">", and: "</span>")
 
             return AgendaItem(title: result.Resource.Ttl, summary: summary, category: result.Resource.Subj, library: library, link: link, date: date, image: imageURL)
