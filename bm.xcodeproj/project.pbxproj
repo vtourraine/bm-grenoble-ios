@@ -484,7 +484,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n\n~/Developer/Trackup CHANGELOG.md -html > releasenotes.html\n~/Developer/Trackup CHANGELOG.md -json > releasenotes.json\n~/Developer/Trackup CHANGELOG.md -rss > releasenotes.xml\n";
+			shellScript = "#!/bin/bash\n\nif command -v ~/Developer/Trackup\nthen\n~/Developer/Trackup CHANGELOG.md -html > releasenotes.html\n~/Developer/Trackup CHANGELOG.md -json > releasenotes.json\n~/Developer/Trackup CHANGELOG.md -rss > releasenotes.xml\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
