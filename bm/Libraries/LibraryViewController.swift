@@ -111,10 +111,18 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
     showUserLocationButton?.setImage(UIImage(systemName: "location.fill"), for: .normal)
     showUserLocationButton?.configureRoundCorners()
 #endif
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
 
         if let newItemsFeed = library?.newItemsFeed,
-           let url = URL(string: newItemsFeed) {
+           let url = URL(string: newItemsFeed),
+           newBooks.isEmpty {
             fetchRSS(url)
+        }
+        else {
+            reloadNewBooks()
         }
     }
 
@@ -173,7 +181,7 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
             subview.removeFromSuperview()
         }
 
-        let bookViews: [UIView] = newBooks.map { book in
+        var bookViews: [UIView] = newBooks.map { book in
             let view = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 200))
 
             let label = UILabel(frame: CGRect(x: 5, y: 150, width: 110, height: 50))
@@ -201,6 +209,18 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
             view.addGestureRecognizer(tgr)
 
             return view
+        }
+
+        if bookViews.isEmpty {
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 320, height: 200))
+            label.text = NSLocalizedString("New Documents Unavailable", comment: "")
+            label.font = .preferredFont(forTextStyle: .body)
+            label.textColor = .secondaryLabel
+            label.textAlignment = .center
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
+            label.heightAnchor.constraint(equalToConstant: 200).isActive = true
+            bookViews.append(label)
         }
 
         let stackView = UIStackView(arrangedSubviews: bookViews)
@@ -236,10 +256,12 @@ extension LibraryViewController {
                 case .success(let feed):
                     if let newItems = feed.rssFeed?.items {
                         self.newBooks = newItems
-                        self.reloadNewBooks()
                     }
+
+                    self.reloadNewBooks()
                 case.failure(let error):
                     print("\(error)")
+                    self.reloadNewBooks()
                 }
             }
         }
