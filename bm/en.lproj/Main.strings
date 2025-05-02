@@ -41,6 +41,9 @@
 /* Class = "UILabel"; text = "À rendre pour le"; ObjectID = "PPV-XU-Xqf"; */
 "PPV-XU-Xqf.text" = "To return before";
 
+/* Class = "UILabel"; text = "Nouveautés"; ObjectID = "mOV-Eo-XpY"; */
+"mOV-Eo-XpY.text" = "What’s New";
+
 /* Class = "UITextField"; placeholder = "0100000000000"; ObjectID = "PVm-hQ-O1V"; */
 "PVm-hQ-O1V.placeholder" = "0100000000000";
 "PVm-hQ-O1V.accessibilityLabel" = "Subscriber Number";

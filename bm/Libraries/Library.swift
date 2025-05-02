@@ -38,6 +38,7 @@ struct Library: Codable {
     let mailAddress: String
     let accessibility: Bool
     let closedForMaintenance: Bool
+    let newItemsFeed: String?
 
     let latitude: Double
     let longitude: Double

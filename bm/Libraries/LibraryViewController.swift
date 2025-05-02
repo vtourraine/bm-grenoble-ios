@@ -11,10 +11,13 @@ import MapKit
 #if !targetEnvironment(macCatalyst)
 import CoreLocationUI
 #endif
+import FeedKit
+import AlamofireImage
 
 class LibraryViewController: UIViewController, MKMapViewDelegate {
 
     var library: Library?
+    var newBooks: [RSSFeedItem] = []
     let locationManager = CLLocationManager()
 
     @IBOutlet var openingTimeLabel: UILabel?
@@ -28,6 +31,9 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet var mailImageView: UIImageView?
     @IBOutlet var websiteLabel: UILabel?
     @IBOutlet var websiteImageView: UIImageView?
+    @IBOutlet var newBooksLabel: UILabel?
+    @IBOutlet var newBooksImageView: UIImageView?
+    @IBOutlet var newBooksScrollView: UIScrollView?
 
     @IBOutlet var mapView: MKMapView?
     @IBOutlet var metadataView: UIView?
@@ -53,6 +59,7 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
             phoneImageView?.image = UIImage(systemName: "phone.circle")
             mailImageView?.image = UIImage(systemName: "envelope.circle")
             websiteImageView?.image = UIImage(systemName: "safari")
+            newBooksImageView?.image = UIImage(systemName: "book.circle")
         }
 
         if let library {
@@ -104,6 +111,11 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
     showUserLocationButton?.setImage(UIImage(systemName: "location.fill"), for: .normal)
     showUserLocationButton?.configureRoundCorners()
 #endif
+
+        if let newItemsFeed = library?.newItemsFeed,
+           let url = URL(string: newItemsFeed) {
+            fetchRSS(url)
+        }
     }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -148,6 +160,63 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
         mapView?.addAnnotation(annotation)
     }
 
+    class TapItemGesture: UITapGestureRecognizer {
+        var url: URL?
+    }
+
+    func reloadNewBooks() {
+        guard let newBooksScrollView else {
+            return
+        }
+
+        for subview in newBooksScrollView.subviews {
+            subview.removeFromSuperview()
+        }
+
+        let bookViews: [UIView] = newBooks.map { book in
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 200))
+
+            let label = UILabel(frame: CGRect(x: 5, y: 150, width: 110, height: 50))
+            label.text = book.title
+            label.font = .preferredFont(forTextStyle: .caption1)
+            label.textAlignment = .center
+            label.numberOfLines = 2
+            view.addSubview(label)
+
+            let imageView = UIImageView(frame: CGRect(x: 10, y: 0, width: 100, height: 150))
+            imageView.contentMode = .scaleAspectFit
+            if let imageURLString = book.enclosure?.attributes?.url,
+               let imageURL = URL(string: imageURLString) {
+                imageView.af.setImage(withURL: imageURL, placeholderImage: UIImage(systemName: "book"))
+            }
+            view.addSubview(imageView)
+            view.translatesAutoresizingMaskIntoConstraints = false
+            view.widthAnchor.constraint(equalToConstant: 120).isActive = true
+            view.heightAnchor.constraint(equalToConstant: 200).isActive = true
+
+            let tgr = TapItemGesture(target: self, action: #selector(self.didTapItem))
+            if let link = book.link {
+                tgr.url = URL(string: link)
+            }
+            view.addGestureRecognizer(tgr)
+
+            return view
+        }
+
+        let stackView = UIStackView(arrangedSubviews: bookViews)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.frame = newBooksScrollView.bounds
+        stackView.axis = .horizontal
+        stackView.distribution = .equalSpacing
+        newBooksScrollView.addSubview(stackView)
+
+        stackView.topAnchor.constraint(equalTo: newBooksScrollView.topAnchor).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: newBooksScrollView.leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: newBooksScrollView.trailingAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: newBooksScrollView.bottomAnchor).isActive = true
+        stackView.heightAnchor.constraint(equalTo: newBooksScrollView.heightAnchor).isActive = true
+    }
+
     // MARK: - Map view delegate
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -157,6 +226,30 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
 
 // MARK: - Actions
 extension LibraryViewController {
+
+    func fetchRSS(_ url: URL) {
+        let parser = FeedParser(URL: url)
+        parser.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { (result) in
+            // Do your thing, then back to the Main thread
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let feed):
+                    if let newItems = feed.rssFeed?.items {
+                        self.newBooks = newItems
+                        self.reloadNewBooks()
+                    }
+                case.failure(let error):
+                    print("\(error)")
+                }
+            }
+        }
+    }
+
+    @objc func didTapItem(sender: TapItemGesture) {
+        if let url = sender.url {
+            presentSafariViewController(url)
+        }
+    }
 
     @IBAction func reframeMap(_ sender: Any?) {
         guard let library else {

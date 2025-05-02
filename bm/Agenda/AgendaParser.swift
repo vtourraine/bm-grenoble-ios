@@ -10,6 +10,7 @@ import Foundation
 
 class AgendaParser {
     private static let AgendaWebpageURL = URL(string: "https://bm-grenoble.fr/Portal/Recherche/Search.svc/Search")!
+    private static let RSSEndpoint = URL(string: "https://bm-grenoble.fr/Portal/Recherche/Search.svc/SearchRss")!
 
     class func parseItems(jsonData: Data) -> [AgendaItem]? {
         let decoder = JSONDecoder()
@@ -59,7 +60,7 @@ class AgendaParser {
     }
 
     class func fetchAgendaItems(completionHandler: @escaping (Result<[AgendaItem], Error>) -> Void) {
-        fetchAgendaItems(at: AgendaWebpageURL, fetchedItems: []) { result in
+        fetchAgendaItems(at: AgendaWebpageURL) { result in
             switch result {
             case .success(let items):
                 completionHandler(.success(items))
@@ -69,7 +70,7 @@ class AgendaParser {
         }
     }
 
-    class func fetchAgendaItems(at url: URL, fetchedItems: [AgendaItem], completionHandler: @escaping (Result<[AgendaItem], Error>) -> Void) {
+    class func fetchAgendaItems(at url: URL, completionHandler: @escaping (Result<[AgendaItem], Error>) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.allHTTPHeaderFields = [

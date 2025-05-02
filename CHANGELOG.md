@@ -1,7 +1,8 @@
 # BM Grenoble
 
-## 2.1.1
+## 2.2
 
+- [x] Display new items on Library screen
 - [x] Include more details in Aganda
 - [x] Improved Aganda interface on iPad and Mac
 - [x] Mark libraries closed for maintenance

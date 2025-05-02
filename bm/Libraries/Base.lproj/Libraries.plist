@@ -11,6 +11,8 @@
 			<string>Bibliothèque d’étude et du patrimoine</string>
 			<key>webpage</key>
 			<string>https://bm-grenoble.fr/bibliotheque-detude-et-du-patrimoine.aspx</string>
+			<key>newItemsFeed</key>
+			<string>https://bm-grenoble.fr/Portal/Recherche/Search.svc/SearchRss?key=d1a83f442c2a9ce2368a07dbbfcdee1f&amp;useSearchSort=true&amp;useSearchResultSize=true</string>
 			<key>openingTime</key>
 			<string>Mardi : 10h - 19h
 Mercredi : 10h - 19h
@@ -59,6 +61,8 @@ Samedi : 10h - 13h</string>
 			<key>address</key>
 			<string>6 Place de Sfax
 38000 Grenoble</string>
+			<key>newItemsFeed</key>
+			<string>https://bm-grenoble.fr/Portal/Recherche/Search.svc/SearchRss?key=6b45472e5917af5d6688444a8d8e9631&amp;useSearchSort=true&amp;useSearchResultSize=true</string>
 			<key>phoneNumber</key>
 			<string>04 38 12 25 41</string>
 			<key>mailAddress</key>
@@ -79,6 +83,8 @@ Lundi : 14h - 17h
 Du mardi au vendredi : 9h - 18h</string>
 			<key>latitude</key>
 			<real>45.1568105</real>
+			<key>newItemsFeed</key>
+			<string>https://bm-grenoble.fr/Portal/Recherche/Search.svc/SearchRss?key=6e55def69837d02601c4101ee6078cfd&amp;useSearchSort=true&amp;useSearchResultSize=true</string>
 			<key>longitude</key>
 			<real>5.7337226</real>
 			<key>address</key>
@@ -98,6 +104,8 @@ Du mardi au vendredi : 9h - 18h</string>
 			<false/>
 			<key>previousName</key>
 			<string>Abbaye-les-Bains</string>
+			<key>newItemsFeed</key>
+			<string>https://bm-grenoble.fr/Portal/Recherche/Search.svc/SearchRss?key=45d989c93ae764a293bcad29208550a3&amp;useSearchSort=true&amp;useSearchResultSize=true</string>
 			<key>webpage</key>
 			<string>https://bm-grenoble.fr/bib-abbaye-les-bains.aspx</string>
 			<key>openingTime</key>
@@ -138,6 +146,8 @@ Samedi : 10h - 13h / 14h - 18h</string>
 			<real>45.1734066</real>
 			<key>longitude</key>
 			<real>5.724542</real>
+			<key>newItemsFeed</key>
+			<string>https://bm-grenoble.fr/Portal/Recherche/Search.svc/SearchRss?key=51aea7de8ff668ff976d7d0cff8def24&amp;useSearchSort=true&amp;useSearchResultSize=true</string>
 			<key>address</key>
 			<string>90 Rue de Stalingrad
 38100 Grenoble</string>
@@ -165,6 +175,8 @@ Vendredi : 13h - 18h
 Samedi : 10h - 13h / 14h - 18h
 
 Ouverture de l’espace presse aux horaires du Patio.</string>
+			<key>newItemsFeed</key>
+			<string>https://bm-grenoble.fr/Portal/Recherche/Search.svc/SearchRss?key=f757c24eadebf6aae162dea370a45c7f&amp;useSearchSort=true&amp;useSearchResultSize=true</string>
 			<key>latitude</key>
 			<real>45.163893</real>
 			<key>longitude</key>
@@ -182,6 +194,8 @@ Ouverture de l’espace presse aux horaires du Patio.</string>
 		<dict>
 			<key>name</key>
 			<string>Bibliothèque Centre-Ville</string>
+			<key>newItemsFeed</key>
+			<string>https://bm-grenoble.fr/Portal/Recherche/Search.svc/SearchRss?key=40d8f619fba971ad601e5237cacbe23d&amp;useSearchSort=true&amp;useSearchResultSize=true</string>
 			<key>webpage</key>
 			<string>https://bm-grenoble.fr/bib.aspx</string>
 			<key>closedForMaintenance</key>
@@ -205,6 +219,8 @@ Ouverture de l’espace presse aux horaires du Patio.</string>
 		<dict>
 			<key>name</key>
 			<string>Bibliothèque Chantal Mauduit</string>
+			<key>newItemsFeed</key>
+			<string>https://bm-grenoble.fr/Portal/Recherche/Search.svc/SearchRss?key=f33b541e03bb8011aea170dcaf0e64cd&amp;useSearchSort=true&amp;useSearchResultSize=true</string>
 			<key>previousName</key>
 			<string>Eaux-Claires Mistral</string>
 			<key>closedForMaintenance</key>
@@ -246,6 +262,8 @@ Mercredi : 10h - 13h / 14h - 18h
 Jeudi : accueil de groupes
 Vendredi : 16h - 18h
 Samedi : 10h - 13h / 14h - 18h</string>
+			<key>newItemsFeed</key>
+			<string>https://bm-grenoble.fr/Portal/Recherche/Search.svc/SearchRss?key=12af38c6065faf34d07569397570afe4&amp;useSearchSort=true&amp;useSearchResultSize=true</string>
 			<key>latitude</key>
 			<real>45.1923764</real>
 			<key>longitude</key>
@@ -267,6 +285,8 @@ Samedi : 10h - 13h / 14h - 18h</string>
 			<string>https://bm-grenoble.fr/bibliotheque-kateb-yacine.aspx</string>
 			<key>closedForMaintenance</key>
 			<false/>
+			<key>newItemsFeed</key>
+			<string>https://bm-grenoble.fr/Portal/Recherche/Search.svc/SearchRss?key=d8ddd5c86f50db9ec057f4e19e0894fc&amp;useSearchSort=true&amp;useSearchResultSize=true</string>
 			<key>openingTime</key>
 			<string>Du mardi au samedi : 11h - 18h30</string>
 			<key>latitude</key>
@@ -288,6 +308,8 @@ Samedi : 10h - 13h / 14h - 18h</string>
 			<string>Bibliothèque Gisèle Halimi</string>
 			<key>previousName</key>
 			<string>Saint-Bruno</string>
+			<key>newItemsFeed</key>
+			<string>https://bm-grenoble.fr/Portal/Recherche/Search.svc/SearchRss?key=76cda14040a7049bae8fb03d5746d00b&amp;useSearchSort=true&amp;useSearchResultSize=true</string>
 			<key>closedForMaintenance</key>
 			<true/>
 			<key>webpage</key>
@@ -327,6 +349,8 @@ Samedi : 10h - 13h / 14h - 18h</string>
 			<real>45.1707803</real>
 			<key>longitude</key>
 			<real>5.7406858</real>
+			<key>newItemsFeed</key>
+			<string>https://bm-grenoble.fr/Portal/Recherche/Search.svc/SearchRss?key=e4dc5c2ea644a5ea1cba268aa801594d&amp;useSearchSort=true&amp;useSearchResultSize=true</string>
 			<key>address</key>
 			<string>12 Allée Charles Pranard
 38100 Grenoble</string>
