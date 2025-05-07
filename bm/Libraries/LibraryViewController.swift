@@ -218,7 +218,7 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
             label.textColor = .secondaryLabel
             label.textAlignment = .center
             label.translatesAutoresizingMaskIntoConstraints = false
-            label.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
+            label.widthAnchor.constraint(equalToConstant: newBooksScrollView.frame.width).isActive = true
             label.heightAnchor.constraint(equalToConstant: 200).isActive = true
             bookViews.append(label)
         }
