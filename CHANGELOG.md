@@ -1,11 +1,20 @@
 # BM Grenoble
 
+## 2.2.1
+
+2025-06-04
+
+- Update libraries opening hours
+
+
 ## 2.2
 
-- [x] Display new items on Library screen
-- [x] Include more details in Aganda
-- [x] Improved Aganda interface on iPad and Mac
-- [x] Mark libraries closed for maintenance
+2025-05-04
+
+- Display new items on Library screen
+- Include more details in Aganda
+- Improved Aganda interface on iPad and Mac
+- Mark libraries closed for maintenance
 
 
 ## 2.1

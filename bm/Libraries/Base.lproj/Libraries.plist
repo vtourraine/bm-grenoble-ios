@@ -228,11 +228,9 @@ Ouverture de l’espace presse aux horaires du Patio.</string>
 			<key>webpage</key>
 			<string>https://bm-grenoble.fr/bib-eaux-claires-mistral.aspx</string>
 			<key>openingTime</key>
-			<string>Mardi : 13h - 18h30
-Mercredi : 10h - 13h / 14h - 18h
-Jeudi : 9h - 12h
-Vendredi : 13h - 18h30
-Samedi : 10h - 13h / 14h - 18h</string>
+			<string>La bibliothèque Chantal Mauduit est temporairement fermée depuis le 19 février 2025.
+Dans l’immédiat, les usager-es sont invité-es à se reporter sur les autres bibliothèques du réseau.
+Merci de votre compréhension.</string>
 			<key>latitude</key>
 			<real>45.173</real>
 			<key>longitude</key>
@@ -243,7 +241,7 @@ Samedi : 10h - 13h / 14h - 18h</string>
 			<key>phoneNumber</key>
 			<string>04 76 21 25 28</string>
 			<key>mailAddress</key>
-			<string>bm.eclaires@bm-grenoble.fr</string>
+			<string>bm.cmauduit@bm-grenoble.fr</string>
 			<key>accessibility</key>
 			<true/>
 		</dict>
@@ -274,7 +272,7 @@ Samedi : 10h - 13h / 14h - 18h</string>
 			<key>phoneNumber</key>
 			<string>04 76 00 77 00</string>
 			<key>mailAddress</key>
-			<string>bm.jardindeville@bm-grenoble.fr</string>
+			<string>bm.mafalda@bm-grenoble.fr</string>
 			<key>accessibility</key>
 			<true/>
 		</dict>
@@ -311,11 +309,15 @@ Samedi : 10h - 13h / 14h - 18h</string>
 			<key>newItemsFeed</key>
 			<string>https://bm-grenoble.fr/Portal/Recherche/Search.svc/SearchRss?key=76cda14040a7049bae8fb03d5746d00b&amp;useSearchSort=true&amp;useSearchResultSize=true</string>
 			<key>closedForMaintenance</key>
-			<true/>
+			<false/>
 			<key>webpage</key>
 			<string>https://bm-grenoble.fr/bibliotheque-saint-bruno.aspx</string>
 			<key>openingTime</key>
-			<string>La bibliothèque Saint-Bruno ferme temporairement ses portes du 20 avril à mai 2025 dans le cadre de sa rénovation complète.</string>
+            <string>Mardi : 13h - 18h30
+Mercredi : 10h - 13h / 14h - 18h
+Jeudi : 9h - 12h
+Vendredi : 13h - 18h30
+Samedi : 10h - 13h / 14h - 18h</string>
 			<key>latitude</key>
 			<real>45.1877699</real>
 			<key>longitude</key>
@@ -326,7 +328,7 @@ Samedi : 10h - 13h / 14h - 18h</string>
 			<key>phoneNumber</key>
 			<string>04 76 96 82 95</string>
 			<key>mailAddress</key>
-			<string>bm.sbruno@bm-grenoble.fr</string>
+			<string>bm.giselehalimi@bm-grenoble.fr</string>
 			<key>accessibility</key>
 			<true/>
 		</dict>

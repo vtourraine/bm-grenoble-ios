@@ -3,6 +3,51 @@
   "versions" : [
     {
       "createdDate" : {
+        "day" : 4,
+        "month" : 6,
+        "year" : 2025
+      },
+      "items" : [
+        {
+          "state" : "unknown",
+          "status" : "unknown",
+          "title" : "Update libraries opening hours"
+        }
+      ],
+      "title" : "2.2.1"
+    },
+    {
+      "createdDate" : {
+        "day" : 4,
+        "month" : 5,
+        "year" : 2025
+      },
+      "items" : [
+        {
+          "state" : "unknown",
+          "status" : "unknown",
+          "title" : "Display new items on Library screen"
+        },
+        {
+          "state" : "unknown",
+          "status" : "unknown",
+          "title" : "Include more details in Aganda"
+        },
+        {
+          "state" : "unknown",
+          "status" : "unknown",
+          "title" : "Improved Aganda interface on iPad and Mac"
+        },
+        {
+          "state" : "unknown",
+          "status" : "unknown",
+          "title" : "Mark libraries closed for maintenance"
+        }
+      ],
+      "title" : "2.2"
+    },
+    {
+      "createdDate" : {
         "day" : 8,
         "month" : 2,
         "year" : 2025
