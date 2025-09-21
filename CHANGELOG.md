@@ -1,5 +1,11 @@
 # BM Grenoble
 
+## 2.2.2
+ 
+- [x] Optimized for iOS 26, iPadOS 26, and macOS 26
+- [x] Requires iOS 14
+
+
 ## 2.2.1
 
 2025-06-04
