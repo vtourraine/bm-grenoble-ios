@@ -78,13 +78,11 @@ extension UIButton {
         layer.cornerRadius = 22
         tintColor = .bmRed
         setTitleColor(.bmRed, for: .normal)
-
-        if #available(iOS 13.0, *) {
-            setTitle(nil, for: .normal)
-            setImage(UIImage(systemName: "xmark"), for: .normal)
-            setPreferredSymbolConfiguration(.init(weight: .medium), forImageIn: .normal)
-        }
+        setTitle(nil, for: .normal)
+        setImage(UIImage(systemName: "xmark"), for: .normal)
+        setPreferredSymbolConfiguration(.init(weight: .medium), forImageIn: .normal)
     }
+
     func configureCloseButton() {
         backgroundColor = .white
         layer.borderWidth = UIScreen.main.scale

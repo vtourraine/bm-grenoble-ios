@@ -46,37 +46,35 @@ class AgendaViewController: UITableViewController {
     }
 
     func updateFilterButton() {
-        if #available(iOS 14.0, *) {
-            let image = UIImage(systemName: filterTitle == nil ? "line.horizontal.3.decrease.circle" : "line.horizontal.3.decrease.circle.fill")
-            let item = UIBarButtonItem(image: image, style: .plain, target: self, action: nil)
+        let image = UIImage(systemName: filterTitle == nil ? "line.horizontal.3.decrease.circle" : "line.horizontal.3.decrease.circle.fill")
+        let item = UIBarButtonItem(image: image, style: .plain, target: self, action: nil)
 
-            let libraries = librariesWithItems()
-            var items = [UIAction]()
+        let libraries = librariesWithItems()
+        var items = [UIAction]()
 
-            for library in libraries {
-                let action = UIAction(title: library) { _ in
-                    if library == self.filterTitle {
-                        self.resetFilter()
-                    }
-                    else {
-                        self.filter(with: library)
-                    }
-                }
-
-                if library == filterTitle {
-                    action.state = .on
+        for library in libraries {
+            let action = UIAction(title: library) { _ in
+                if library == self.filterTitle {
+                    self.resetFilter()
                 }
                 else {
-                    action.state = .off
+                    self.filter(with: library)
                 }
-
-                items.append(action)
             }
 
-            item.menu = UIMenu(title: "", image: nil, children: items)
+            if library == filterTitle {
+                action.state = .on
+            }
+            else {
+                action.state = .off
+            }
 
-            navigationItem.rightBarButtonItem = item
+            items.append(action)
         }
+
+        item.menu = UIMenu(title: "", image: nil, children: items)
+
+        navigationItem.rightBarButtonItem = item
     }
 
     // MARK: - Data
@@ -220,7 +218,6 @@ class AgendaViewController: UITableViewController {
 #endif
     }
 
-    @available(iOS 13.0, *)
     override func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         let item = agendaItems[indexPath.row]
         var children = [UIMenuElement]()

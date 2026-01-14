@@ -102,9 +102,7 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
             showUserLocationButton = nil
         }
         else {*/
-            if #available(iOS 13.0, *) {
-                showUserLocationButton?.setImage(UIImage(systemName: "location.fill"), for: .normal)
-            }
+            showUserLocationButton?.setImage(UIImage(systemName: "location.fill"), for: .normal)
             showUserLocationButton?.configureRoundCorners()
         // }
 #else
@@ -194,10 +192,8 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.detailTextLabel?.text = nil
             cell.accessoryView = nil
 
-            if #available(iOS 13.0, *) {
-                cell.imageView?.image = .numoteque.roundedCornerImage(with: 8, destinationSize: CGSize(width: 34, height: 34))
-                cell.imageView?.tintColor = .bmPurple
-            }
+            cell.imageView?.image = .numoteque.roundedCornerImage(with: 8, destinationSize: CGSize(width: 34, height: 34))
+            cell.imageView?.tintColor = .bmPurple
         }
 
         return cell
@@ -280,21 +276,15 @@ extension UIViewController {
 
         if annotation.isKind(of: MKUserLocation.self) {
             view.markerTintColor = .systemBlue
-            if #available(iOS 13.0, *) {
-                view.glyphImage = UIImage(systemName: "person.fill")
-            }
+            view.glyphImage = UIImage(systemName: "person.fill")
         }
         else if let subtitle = annotation.subtitle, subtitle?.isEmpty == false {
             view.markerTintColor = .bmYellow
-            if #available(iOS 13.0, *) {
-                view.glyphImage = UIImage(systemName: "exclamationmark.triangle.fill")
-            }
+            view.glyphImage = UIImage(systemName: "exclamationmark.triangle.fill")
         }
         else {
             view.markerTintColor = .bmRed
-            if #available(iOS 13.0, *) {
-                view.glyphImage = UIImage(systemName: "book.fill")
-            }
+            view.glyphImage = UIImage(systemName: "book.fill")
         }
         return view
     }

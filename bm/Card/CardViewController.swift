@@ -47,9 +47,7 @@ class CardViewController: UIViewController {
 #if targetEnvironment(macCatalyst)
         navigationItem.rightBarButtonItem = nil
 #else
-        if #available(iOS 13.0, *) {
-            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "info.circle")
-        }
+        navigationItem.rightBarButtonItem?.image = UIImage(systemName: "info.circle")
 #endif
     }
 

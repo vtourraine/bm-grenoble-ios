@@ -53,14 +53,12 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
         separatorWidth?.constant = 1.0 / UIScreen.main.scale
         separatorHeight?.constant = 1.0 / UIScreen.main.scale
 
-        if #available(iOS 13.0, *) {
-            openingTimeImageView?.image = UIImage(systemName: "clock")
-            addressImageView?.image = UIImage(systemName: "mappin.circle")
-            phoneImageView?.image = UIImage(systemName: "phone.circle")
-            mailImageView?.image = UIImage(systemName: "envelope.circle")
-            websiteImageView?.image = UIImage(systemName: "safari")
-            newBooksImageView?.image = UIImage(systemName: "book.circle")
-        }
+        openingTimeImageView?.image = UIImage(systemName: "clock")
+        addressImageView?.image = UIImage(systemName: "mappin.circle")
+        phoneImageView?.image = UIImage(systemName: "phone.circle")
+        mailImageView?.image = UIImage(systemName: "envelope.circle")
+        websiteImageView?.image = UIImage(systemName: "safari")
+        newBooksImageView?.image = UIImage(systemName: "book.circle")
 
         if let library {
             configure(with: library)
@@ -102,9 +100,7 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
             showUserLocationButton = nil
         }
         else { */
-            if #available(iOS 13.0, *) {
-                showUserLocationButton?.setImage(UIImage(systemName: "location.fill"), for: .normal)
-            }
+            showUserLocationButton?.setImage(UIImage(systemName: "location.fill"), for: .normal)
             showUserLocationButton?.configureRoundCorners()
         // }
 #else

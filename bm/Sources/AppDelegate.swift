@@ -36,10 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         tabBarViewController.view.tintColor = .bmRed
 
-        if #available(iOS 14.0, *) {
-            tabBarViewController.viewControllers?[0].tabBarItem.image = UIImage(systemName: "calendar")
-            tabBarViewController.viewControllers?[1].tabBarItem.image = UIImage(systemName: "building.2.fill")
-        }
+        tabBarViewController.viewControllers?[0].tabBarItem.image = UIImage(systemName: "calendar")
+        tabBarViewController.viewControllers?[1].tabBarItem.image = UIImage(systemName: "building.2.fill")
 
         if #available(iOS 15.0, *) {
             let appearance = UITabBarAppearance()
@@ -50,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             tabBarViewController.viewControllers?[3].tabBarItem.image = UIImage(systemName: "person.text.rectangle.fill")
         }
-        else if #available(iOS 13.0, *) {
+        else {
             tabBarViewController.viewControllers?[3].tabBarItem.image = UIImage(systemName: "creditcard.fill")
         }
     }
@@ -61,7 +59,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
-    @available(iOS 13.0, *)
     override func buildMenu(with builder: UIMenuBuilder) {
         super.buildMenu(with: builder)
 
@@ -72,7 +69,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         builder.insertSibling(AppDelegate.helpMenu(), afterMenu: .window)
     }
 
-    @available(iOS 13.0, *)
     override func validate(_ command: UICommand) {
         switch command.action {
         case #selector(askToSignOut):
@@ -83,7 +79,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-@available(iOS 13.0, *)
 extension AppDelegate {
     class func helpMenu() -> UIMenu {
         let contact = UIKeyCommand(title: NSLocalizedString("Contact Support", comment: ""), image: nil, action: #selector(AppDelegate.contactSupport), input: "", modifierFlags: [], propertyList: nil)

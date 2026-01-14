@@ -69,10 +69,8 @@ class DigitalLibraryViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath)
         let service = services[indexPath.row]
         cell.textLabel?.text = service.title
-        if #available(iOS 13.0, *) {
-            cell.imageView?.image = UIImage(systemName: service.systemImageName)
-            cell.imageView?.tintColor = .bmPurple
-        }
+        cell.imageView?.image = UIImage(systemName: service.systemImageName)
+        cell.imageView?.tintColor = .bmPurple
         return cell
     }
 
