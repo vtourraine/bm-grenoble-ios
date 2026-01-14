@@ -23,14 +23,26 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        searchBar?.configureRoundCorners()
-        if let searchBar {
-            searchBar.layer.cornerRadius = (searchBar.frame.size.height / 2)
+        if #available(iOS 26.0, *) {
+            searchBar?.searchTextField.attributedPlaceholder = NSAttributedString(
+                string: searchBar?.searchTextField.placeholder ?? "",
+                attributes: [.foregroundColor: UIColor.gray]
+            )
+
+            let leftView = UIImageView(image: UIImage(systemName: "magnifyingglass"))
+            leftView.tintColor = .black
+            searchBar?.searchTextField.leftView = leftView
+        }
+        else {
+            searchBar?.configureRoundCorners()
+            searchBar?.backgroundColor = .white
+            if let searchBar {
+                searchBar.layer.cornerRadius = (searchBar.frame.size.height / 2)
+            }
         }
 
         searchBar?.searchTextField.backgroundColor = .white
         searchBar?.searchTextField.textColor = .black
-        searchBar?.backgroundColor = .white
         searchBar?.backgroundImage = UIImage()
         searchBar?.isTranslucent = true
         searchButton?.titleLabel?.adjustsFontForContentSizeCategory = true
