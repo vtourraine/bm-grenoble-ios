@@ -64,7 +64,7 @@ class LibraryViewController: UIViewController, MKMapViewDelegate {
             configure(with: library)
         }
         
-        let status = CLLocationManager.authorizationStatus()
+        let status = locationManager.authorizationStatus
         if status == .authorizedWhenInUse || status == .authorizedAlways {
             mapView?.showsUserLocation = true
         }
@@ -288,7 +288,7 @@ extension LibraryViewController {
         }
 #endif
 
-        let status = CLLocationManager.authorizationStatus()
+        let status = locationManager.authorizationStatus
         if status == .notDetermined {
             locationManager.delegate = self
             locationManager.requestWhenInUseAuthorization()

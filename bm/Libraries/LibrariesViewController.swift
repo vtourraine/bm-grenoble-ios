@@ -47,7 +47,7 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
 
         mapView?.setRegion(K.defaultCoordinateRegion, animated: false)
 
-        let status = CLLocationManager.authorizationStatus()
+        let status = locationManager.authorizationStatus
         if status == .authorizedWhenInUse || status == .authorizedAlways {
             mapView?.showsUserLocation = true
         }
@@ -139,7 +139,7 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
         }
 #endif
 
-        let status = CLLocationManager.authorizationStatus()
+        let status = locationManager.authorizationStatus
         if status == .notDetermined {
             locationManager.delegate = self
             locationManager.requestWhenInUseAuthorization()
