@@ -3,6 +3,31 @@
   "versions" : [
     {
       "createdDate" : {
+        "day" : 23,
+        "month" : 1,
+        "year" : 2026
+      },
+      "items" : [
+        {
+          "state" : "unknown",
+          "status" : "unknown",
+          "title" : "Optimized for iOS 26, iPadOS 26, and macOS 26"
+        },
+        {
+          "state" : "unknown",
+          "status" : "unknown",
+          "title" : "Requires iOS 14"
+        },
+        {
+          "state" : "unknown",
+          "status" : "unknown",
+          "title" : "Update libraries opening hours"
+        }
+      ],
+      "title" : "2.2.2"
+    },
+    {
+      "createdDate" : {
         "day" : 4,
         "month" : 6,
         "year" : 2025
