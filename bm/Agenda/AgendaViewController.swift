@@ -46,7 +46,12 @@ class AgendaViewController: UITableViewController {
     }
 
     func updateFilterButton() {
-        let image = UIImage(systemName: filterTitle == nil ? "line.horizontal.3.decrease.circle" : "line.horizontal.3.decrease.circle.fill")
+        let image: UIImage?
+        if #available(iOS 26.0, *) {
+            image = UIImage(systemName: filterTitle == nil ? "line.horizontal.3.decrease" : "line.3.horizontal.decrease.circle.fill")
+        } else {
+            image = UIImage(systemName: filterTitle == nil ? "line.horizontal.3.decrease.circle" : "line.horizontal.3.decrease.circle.fill")
+        }
         let item = UIBarButtonItem(image: image, style: .plain, target: self, action: nil)
 
         let libraries = librariesWithItems()
