@@ -11,6 +11,7 @@
 2025-06-04
 
 - Update libraries opening hours
+- Update libraries info
 
 
 ## 2.2
