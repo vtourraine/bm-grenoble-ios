@@ -2,6 +2,11 @@
 
 ## 2.2.2
 
+- [ ] ...
+
+
+## 2.2.2
+
 2026-01-23
 
 - Optimized for iOS 26, iPadOS 26, and macOS 26
